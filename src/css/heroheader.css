@@ -109,7 +109,37 @@ li {
 
 /* Hero Section */
 
-.hero 
+.hero-section {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-title {
+    width: 335px;
+    color: #010101;
+    text-align: center;
+    font-family: 'NeueMontreal', sans-serif;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.09em; /* 109.091% */
+    letter-spacing: -0.88px;
+}
+
+.hero-text {
+    margin-top: 16px;
+    width: 292px;
+    color: rgba(1, 1, 1, 0.80);
+    text-align: center;
+    font-family: 'NeueMontreal', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 1.28em; /* 128.571% */
+}
 
 
 @media screen and (min-width: 375px) {
@@ -129,6 +159,19 @@ li {
         width: 704px;
     }
 
+    .hero {
+        height: 848px;
+    }
+
+    .hero-section {
+        width: 704px;
+        margin: 0 auto;
+    }
+
+    .hero-title {
+        width: 658px;
+    }
+    
     .cart {
         display: flex;
         justify-content: center;
