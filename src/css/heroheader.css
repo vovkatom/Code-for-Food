@@ -1,0 +1,102 @@
+body {
+    font-family: 'NeueMontreal', sans-serif;
+    background: #E8E8E2;
+}
+
+.header .container {
+    max-width: 375px;
+    padding: 0 32px;
+    height: 130px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header {
+    margin-top: 32px;
+  }
+
+
+.accent-word {
+    color: #6D8434;
+}
+
+@media screen and (min-width: 375px) {
+    .header > .container {
+       width: 343px;
+       padding: 0 32px;
+       height: 130px;
+       margin: 0 auto;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+    }
+}
+
+
+.logo {
+    background: #6D8434;
+    
+    width: 32px;
+    height: 32px;   
+    fill: #E8E8E2;
+    padding-right: 8px;
+}
+
+@media screen and (min-width: 1440px) {
+    .header .container {
+        max-width: 1440px;
+        padding: 0 100px;
+    }
+}body {
+    font-family: 'NeueMontreal', sans-serif;
+    background: #E8E8E2;
+}
+
+.header .container {
+    max-width: 375px;
+    padding: 0 32px;
+    height: 130px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header {
+    margin-top: 32px;
+  }
+
+
+.accent-word {
+    color: #6D8434;
+}
+
+@media screen and (min-width: 375px) {
+    .header > .container {
+       width: 343px;
+       padding: 0 32px;
+       height: 130px;
+       margin: 0 auto;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+    }
+}
+
+
+.logo {
+    background: #6D8434;
+    width: 32px;
+    height: 32px;   
+    color: #E8E8E2;
+    padding-right: 8px;
+}
+
+@media screen and (min-width: 1440px) {
+    .header .container {
+        max-width: 1440px;
+        padding: 0 100px;
+    }
+}
