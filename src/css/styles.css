@@ -21,6 +21,12 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url('../fonts/Fontspring.ttf') format('truetype');
+  font-display: swap;
+}
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
