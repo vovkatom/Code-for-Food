@@ -107,8 +107,13 @@ li {
     padding: 10px 20px;
 }
 
+/* Hero Section */
+
+.hero 
+
+
 @media screen and (min-width: 375px) {
-    .header > .container {
+    .header .container {
        width: 343px;
        padding: 0 32px;
        height: 130px;
