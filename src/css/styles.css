@@ -5,7 +5,16 @@
   |============================
 */
 @import url('./reset.css');
+
 @import url('./filters.css');
+@import url('./discproducts.css');
+@import url('./footer.css');
+@import url('./heroheader.css');
+@import url('./modalwindow.css');
+@import url('./pagination.css');
+@import url('./popproducts.css');
+@import url('./products.css');
+@import url('./styles.css');
 
 @font-face {
   font-family: 'NeueMontreal';
