@@ -5,8 +5,13 @@
   |============================
 */
 @import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
+@import url('./filters.css');
+
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url('../fonts/NeueMontreal.ttf') format('truetype');
+  font-display: swap;
+}
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
