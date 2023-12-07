@@ -9,7 +9,14 @@
 }
 
 .section-products {
-  padding-top: 60px;
+  /* padding-top: 40px; */
+  padding-bottom: 80px;
+}
+
+@media screen and (min-width: 768px) {
+  .section-products {
+    padding-bottom: 98px;
+  }
 }
 
 *,
@@ -23,17 +30,13 @@
 @media screen and (min-width: 768px) and (max-width: 1439px) {
   .discount-list {
     display: flex;
-    gap: 48px;
+    gap: 32px;
   }
-}
-
-.discount-item {
-  margin-bottom: 24px;
 }
 
 .discount-title {
   color: #010101;
-  font-family: NeueMontreal;
+  font-family: Neue Montreal;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -49,44 +52,46 @@
 }
 
 .discount-item {
-  width: 335px;
-  height: 232px;
-}
-
-@media screen and (min-width: 768px) {
-  .discount-item {
-    width: 336px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .discount-item {
-    width: 275px;
-  }
-}
-
-.discount-item-block {
-  padding-top: 16px;
-  padding-bottom: 66px;
+  padding: 16px 15px 16px 16px;
   width: 335px;
   height: 232px;
   border-radius: 15px;
   background: #fafafa;
+  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 768px) {
-  .discount-item-block {
+  .discount-item {
     width: 336px;
+    padding-right: 16px;
+    margin-bottom: 0px;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .discount-item-block {
+  .discount-item {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .discount-item {
     width: 275px;
   }
 }
 
+.discount-item:last-child {
+  margin-bottom: 0px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
+  .section-four-item:last-child {
+    margin-bottom: 0px;
+  }
+}
+
 .discount-item-img {
+  display: flex;
   margin: auto;
   width: 304px;
   height: 150px;
@@ -101,37 +106,31 @@
 }
 
 .discount-img {
+  margin: auto;
   width: 114px;
   height: 114px;
-  padding: 34px 110px 84px 111px;
 }
 
 @media screen and (min-width: 1440px) {
   .discount-img {
     width: 105px;
     height: 105px;
-    padding: 39px 85px 88px 85px;
   }
 }
 
 .info-title {
   color: #010101;
-  font-family: var(NeueMontreal);
+  font-family: Neue Montreal;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
-  margin-left: 16px;
-  margin-top: 23px;
-  margin-bottom: 23px;
 }
 
 @media screen and (min-width: 768px) {
   .info-title {
     font-size: 20px;
     line-height: 24px;
-    margin-top: 21px;
-    margin-bottom: 21px;
   }
 }
 
@@ -145,41 +144,37 @@
 
 .info-price {
   color: #010101;
-  font-family: var(NeueMontreal);
+  font-family: Neue Montreal;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
-  margin-left: 16px;
-  margin-top: 23px;
-  margin-bottom: 23px;
 }
 
 @media screen and (min-width: 768px) {
   .info-price {
     font-size: 20px;
     line-height: 24px;
-    margin-top: 21px;
-    margin-bottom: 21px;
   }
 }
 
 .discont-info {
   display: flex;
   justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  align-items: center;
 }
 
 .discont-info-dop {
   display: flex;
   gap: 8px;
+  align-items: center;
 }
 
 .info-div {
   width: 34px;
   height: 34px;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  margin-right: 16px;
 }
 
 .info-title-link {
@@ -197,4 +192,6 @@
 .img-svg-osnova {
   width: 18px;
   height: 18px;
+  stroke: #e8e8e2;
+  fill: #e8e8e2;
 }
