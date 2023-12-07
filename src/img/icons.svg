@@ -6,11 +6,6 @@
    <symbol id="icon-chevron-down" viewBox="0 0 20 20"  fill="none">
      <path stroke="#010101" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 7.5 5 5 5-5"/>
     </symbol>
-    <!-- <symbol id="icon-chevron-down" viewBox="0 0 20 20">
-<path d="M5 7.5L10 12.5L15 7.5" stroke="#010101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</symbol> -->
-    </defs>
-
     <symbol id="icon-scroll-bar" viewBox="0 0 2 32">
       <path d="M.758 0c.419 0 .758.339.758.758v30.484a.758.758 0 1 1-1.516 0V.758C0 .339.339 0 .758 0z"/>
     </symbol>
@@ -84,4 +79,5 @@
     <symbol id="icon-scroll" viewBox="0 0 32 32">
       <path d="m27.414 12.586-10-10a2 2 0 0 0-2.828 0l-10 10a2 2 0 1 0 2.828 2.828L14 8.828V28a2 2 0 1 0 4 0V8.828l6.586 6.586c.39.39.902.586 1.414.586s1.024-.195 1.414-.586a2 2 0 0 0 0-2.828z"/>
     </symbol>
+    </defs>
 </svg>

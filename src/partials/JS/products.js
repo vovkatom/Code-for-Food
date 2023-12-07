@@ -12,7 +12,7 @@ async function fetchFood(page, limit) {
 }
 
 const refs = {
-    list: document.querySelector(".product-list")
+    list: document.querySelector(".product-list"), 
 }
 
 let page = 1;
@@ -33,10 +33,11 @@ async function fetchAndRender() {
         const responce = await fetchFood(page, limit)
         foodInfo = responce.data.results;
 
-        const createElement = foodInfo.map(({ img, name, popularity, category, price, size }) => {
+        const createElement = foodInfo.map(({ img, name, popularity, category, price, size, _id }) => {
             const cleanedCategory = category.replace(/_/g, ' ');
+            const correctPrice = `$${price}`
 
-            return `<li class="item-pl">
+            return `<li class="item-pl" data-id="${_id}">
                 <div class="background-img-pl">
                     <img src="${img}" alt="" class="img-pl" loading="lazy" />
                 </div>
@@ -49,10 +50,10 @@ async function fetchAndRender() {
                     <p class="paragraph-pl">Popularity: <b class="value-pl">${popularity}</b></p>
                 </div>
                 <div class="price-container-pl">
-                    <b class="price-pl">${price}</b>
+                    <b class="price-pl">${correctPrice}</b>
                     <button class="btn-pl">
                         <svg class="icon-pl">
-                            <use href="./img/icons.svg#icon-cart"></use>
+                            <use href="./img/icons.svg#icon-shopping-cart"></use>
                         </svg>
                     </button>
                 </div>
@@ -66,3 +67,14 @@ async function fetchAndRender() {
 }
 
 window.addEventListener("load", fetchAndRender)
+
+refs.list.addEventListener("click", handleClick)
+
+function handleClick(event) {
+   const clickedElement = event.target;
+    const closestLi = clickedElement.closest('li');
+    if (closestLi) {
+        const dataId = closestLi.dataset.id;
+        console.log(dataId);
+    }
+}

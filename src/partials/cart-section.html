@@ -1,18 +1,46 @@
 <section class="cart-section">
   <div class="container">
     <h1 class="cart-title">Cart (<span class="js-cart-numbers">0</span>)</h1>
+
+
+  <!-- full cart -->
+  <div class="cart-full">
+
     <!-- selected items -->
-    <div class="all-cart-content js-cart-content">
-      <div class="cart-container js-cart-container">
-        <button class="delete-all js-delete-all">Delete all</button>
-        <ul class="cart-list list js-cart-list"></ul>
+    <div class="selected-items js-selected-items">
+      
+      <div class="delete">
+        <div class="delete-all js-delete-all">Delete all</div>
+        <button class="delete-all-btn js-delete-all-btn"></button>
       </div>
-      <!-- order total and confirmation  -->
-      <div class="order-container js-order-container"></div>
-      <h2 class="order-title">Your order</h2>
+      
+      <ul class="cart-list list js-cart-list"></ul>
     </div>
-    <!-- empty cart -->
-    <div class="empty-cart js-empty-cart visually-hidden">
+      
+    <!-- order total and confirmation  -->
+    <div class="order js-order">
+      <h2 class="order-title">Your order</h2>
+
+    <div class="total">
+      <div class="total-name">Total </div>
+      <div class="total-price">00,00</div>
+    </div>
+
+    <form class="form">
+      <input
+        type="email"
+        name="checkout-email"
+        class="checkout-input"
+        placeholder="Enter your email"
+        />
+      <button type="submit" class="checkout-button">Checkout</button>
+    </form>
+  </div>
+
+  </div>
+
+  <!-- empty cart -->
+  <div class="empty-cart js-empty-cart visually-hidden">
       <picture class="empty-cart-image"></picture>
       <h3 class="empty-cart-title">
         Your basket is<span class="change-color"> empty...</span>
@@ -21,6 +49,6 @@
         Go to the main page to select your favorite products and add them to the
         cart.
       </p>
-    </div>
   </div>
+  
 </section>
