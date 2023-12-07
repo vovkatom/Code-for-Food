@@ -27,7 +27,7 @@ function addToCart(evt) {
 }
 
 //Функція пошуку необхідного продукту за id в масиві foodInfo (який надходить з серверу на 1 сторінці)
-function findProduct (elem; arr) {
+function findProduct (elem, arr) {
     const productId = Number(elem.dataset._id);
     return arr.find(({_id}) => _id === productId) //?????? як стукати до масиву foodInfo з 1 сторінки
 }
