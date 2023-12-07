@@ -2,6 +2,11 @@ body {
   background: #e8e8e2;
 }
 
+.filter {
+  margin-bottom: 60px;
+  margin-top: 72px;
+}
+
 .filters-text {
   margin-bottom: 8px;
   color: rgba(1, 1, 1, 0.3);
