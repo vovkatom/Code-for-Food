@@ -1,6 +1,10 @@
-export function createCartMarkUp(arr) {
-    const cartMarkUp = arr.map(({ _id, name, img, category, price, size }) => {
+function createCartMarkUp(arr, list) {
+    let cartMarkUp;
+    if (arr.length) {
+        cartMarkUp = arr.map(({ _id, name, img, category, price, size }) => {
         const cleanedCategory = category.replace(/_/g, ' ');
+        cartEmpty.disabled=true;
+        cartFull.disabled=false;
 
         return `<li class="selectedProduct" data-id=${_id}>
             <div class="product-picture">
@@ -25,9 +29,14 @@ export function createCartMarkUp(arr) {
             </div>
         </li>`;
     }).join(""); 
-
+    } else{
+        cartEmpty.disabled=false;
+        cartFull.disabled=true;
+    }
     list.innerHTML=cartMarkUp;
 }
+
+export {createCartMarkUp};
 
 
 
