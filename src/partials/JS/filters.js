@@ -80,4 +80,10 @@ let select = function () {
       const value = obj;
       const key = 'filter';
       save(key, value);
-    }
+}
+    
+function onLoad() {
+    const filterObj = load('filter')
+    refs.currentfilter.innerText = filterObj.category.replace(/_/g, ' ');
+}
+onLoad();
