@@ -17,20 +17,6 @@ li {
     margin: 0;
 }
 
-.header .container {
-    max-width: 375px;
-    padding: 0 32px;
-    height: 130px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .header {
-    margin-top: 32px;
-  }
-
 .cart-counter {
     display: none;
 }
@@ -74,18 +60,14 @@ li {
 
 .header .container {
     max-width: 375px;
-    padding: 0 32px;
+    padding: 0 20px;
     height: 130px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    outline: 2px #6D8434 solid;
   }
-
-  .header {
-    margin-top: 32px;
-  }
-
 
 .accent-word {
     color: #6D8434;
@@ -115,6 +97,7 @@ li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    outline: 2px #6D8434 solid;
 }
 
 .hero-title {
@@ -131,6 +114,7 @@ li {
 
 .hero-text {
     margin-top: 16px;
+    margin-bottom: 32px;
     width: 292px;
     color: rgba(1, 1, 1, 0.80);
     text-align: center;
@@ -141,22 +125,39 @@ li {
     line-height: 1.28em; /* 128.571% */
 }
 
+.hero-image {
+    width: 335px;
+    height: 480px;
+    background-repeat: no-repeat;
+    background-color: bisque;
+    background-image: url(../img/header_hero_ing/hero-mob1.jpg), 
+    url(../img/header_hero_ing/hero-mob1@2x.jpg);
+    border-radius: 30px;
+}
+
 
 @media screen and (min-width: 375px) {
     .header .container {
        width: 343px;
-       padding: 0 32px;
        height: 130px;
-       margin: 0 auto;
-       display: flex;
-       justify-content: space-between;
-       align-items: center;
+    }
+
+    .hero-section {
+        width: 375px;
     }
 }
 
 @media screen and (min-width: 768px) {
     .header .container {
-        width: 704px;
+        width: 768px;
+    }
+
+    .logo-name {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 1em; /* 100% */
+    letter-spacing: -0.48px;
     }
 
     .hero {
@@ -171,10 +172,19 @@ li {
     .hero-title {
         width: 658px;
     }
+
+    .hero-image {
+    width: 704px;
+    height: 580px;
+    background-image: url(../img/header_hero_ing/hero-tablet1.jpg), 
+    url(../img/header_hero_ing/hero-tablet1@2x.jpg);
+    border-radius: 50px;
+    }
     
     .cart {
         display: flex;
         justify-content: center;
+        align-items: center;
     }
 
     .home {
@@ -212,5 +222,18 @@ li {
         max-width: 1440px;
         padding: 0 100px;
     }
+
+    .hero-image {
+        width: 1240px;
+        height: 350px;
+        background-image: url(../img/header_hero_ing/hero-desct1.jpg), 
+        url(../img/header_hero_ing/hero-desct1@2x.jpg);
+        border-radius: 50px;
+    }
+
+    .hero {
+        padding-bottom: 37px;
+    }
+
 }
 
