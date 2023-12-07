@@ -66,8 +66,20 @@
     right: 10px;
 
     z-index: 999;
+
+    animation: rotateAnimation 6s linear infinite;
 }
 
+@keyframes rotateAnimation {
+    0% {
+        transform: rotate(360deg); /* Початкове положення іконки (0 градусів) */
+    }
+    100% {
+        transform: rotate(0deg); /* Кінцеве положення іконки (360 градусів) */
+    }
+}
+
+/* Add animation */
 @media screen and (min-width: 375px) {
     .hero-section {
         width: 375px;
@@ -113,5 +125,11 @@
 
     .hero {
         padding-bottom: 37px;
+    }
+    
+    .hero-title {
+        width: 1042px;
+        height: 80px;
+        display: inline;
     }
 }
