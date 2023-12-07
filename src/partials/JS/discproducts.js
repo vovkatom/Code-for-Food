@@ -18,11 +18,14 @@ async function createMarkup() {
   try {
     const responce = await fetchDiscontFood();
     const prodList = responce.slice(0, lim);
+    const cartSVG = './img/heroicons-solid_shopping-cart.svg';
+    const discontSVG = './img/discount.svg';
+
     const createProducts = prodList
       .map(({ _id, name, img, price }) => {
         return `<li class="discount-item" data-id="${_id}">
            <svg class="icon-discount" width="64" height="64">
-                  <use href="./img/discount.svg#icon-discount"></use>
+                  <use href="${discontSVG}#icon-discount"></use>
                 </svg>
               </div>
     <div class="discount-item-img">
@@ -36,7 +39,7 @@ async function createMarkup() {
           <a class="info-title-link" href="">
             <svg class="img-svg-osnova" width="18" height="18">
               <use
-                href="./img/heroicons-solid_shopping-cart.svg#icon-shopping-cart"
+                href="${cartSVG}#icon-shopping-cart"
               ></use>
             </svg>
           </a>
