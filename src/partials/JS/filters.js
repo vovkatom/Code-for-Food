@@ -22,7 +22,6 @@ fetchCategories()
     select();
     //! <<<< local storage >>>>
     refs.selector.addEventListener('click', handleCategory);
-    handleCategory();
     //! <<<< local storage >>>>
   })
   .catch(error => {
