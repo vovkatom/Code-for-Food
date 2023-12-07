@@ -1,6 +1,8 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import 'notiflix/dist/notiflix-aio-3.2.6.min.js';
+import { save, load } from './filters-localstorage';
+
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
 
@@ -10,13 +12,17 @@ function fetchCategories() {
 
 const refs = {
   selector: document.querySelector('.select__body'),
+  currentfilter: document.querySelector('.select__current')
 };
 
 fetchCategories()
   .then(data => {
     const markup = createSelectorMarkup(data);
-      refs.selector.insertAdjacentHTML('beforeend', markup);
-      select();
+    refs.selector.insertAdjacentHTML('afterbegin', markup);
+    select();
+    //! <<<< local storage >>>>
+    refs.selector.addEventListener('click', handleCategory);
+    //! <<<< local storage >>>>
   })
   .catch(error => {
     Notiflix.Notify.failure(
@@ -31,6 +37,8 @@ function createSelectorMarkup(arr) {
     )
     .join('');
 }
+
+
 
 
 
@@ -60,4 +68,25 @@ let select = function () {
     select.classList.remove('is-active');
   }
 };
+
+// ! local storage !
+
+    function handleCategory(event) {
+      const category = event.target.innerText.replace(/ /g, '_');
+      const obj = {
+        keyword: null,
+        category: `${category}`,
+        page: 1,
+        limit: 6,
+      };
+      const value = obj;
+      const key = 'filter';
+      save(key, value);
+}
+    
+function onLoad() {
+    const filterObj = load('filter')
+    refs.currentfilter.innerText = filterObj.category.replace(/_/g, ' ');
+}
+onLoad();
 

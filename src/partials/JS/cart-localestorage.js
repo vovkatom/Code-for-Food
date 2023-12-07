@@ -11,6 +11,7 @@ function addToCart(evt, arr) {
   localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
 }
 
+
 //Функція пошуку необхідного продукту за id в масиві,який надходить з серверу (викликається всередині addToCart)
 function findProduct(elem, arr) {
   const productId = elem.dataset._id;

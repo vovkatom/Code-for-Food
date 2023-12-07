@@ -1,41 +1,29 @@
 
-
+import {KEY_CART, cartArr} from "./cart-localestorage";
 //import { createCartMarkUp } from "./cart-markup";
 
-//createCartMarkUp(cartArr);
 
 
+const Number=document.querySelector(".js-cart-numbers")
 const list = document.querySelector(".js-cart-list");
-const buttonAddProduct = document.querySelector(".btn-pl");
+const cartEmpty=document.querySelector(".empty-cart");
+const cartFull=document.querySelector(".cart-full");
 const buttonDeleteProduct = document.querySelector(".btn-deleteProduct");
 const buttonCleanCart= document.querySelector(".js-delete-all");
 
 
-//Створюємо ключ для localeStorage
-const KEY_CART = "cart";
-//Створюємо пустий масив для доданих продуктів або наповнюємо його з localeStorage, якщо там вже щось є
-const cartArr = JSON.parse(localStorage.getItem(KEY_CART)) ?? [];
+    
+createCartMarkUp(cartArr, list);
 
 
-buttonAddProduct.addEventListener("click", addToCart); //????додавати слухачa на цій сторінці чи 1?
-
-function addToCart(evt) {
-    //При кліку на кнопку шукаємо потрібний продукт за id, викликаючи функцію findProduct
-    const product=findProduct(evt.target);
-    cartArr.push(product);
-    localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
-}
-
-//Функція пошуку необхідного продукту за id в масиві foodInfo (який надходить з серверу на 1 сторінці)
-function findProduct (elem, arr) {
-    const productId = Number(elem.dataset._id);
-    return arr.find(({_id}) => _id === productId) //?????? як стукати до масиву foodInfo з 1 сторінки
-}
-
-
-function createCartMarkUp(arr) {
-    const cartMarkUp = arr.map(({ _id, name, img, category, price, size }) => {
+function createCartMarkUp(arr, list) {
+    let cartMarkUp;
+    if (arr.length) {
+        cartMarkUp = arr.map(({ _id, name, img, category, price, size }) => {
         const cleanedCategory = category.replace(/_/g, ' ');
+        cartEmpty.disabled=true;
+        cartFull.disabled=false;
+        Number.textContent=cartArr.length;
 
         return `<li class="selectedProduct" data-id=${_id}>
             <div class="product-picture">
@@ -60,6 +48,9 @@ function createCartMarkUp(arr) {
             </div>
         </li>`;
     }).join(""); 
-
+    } else{
+        cartEmpty.disabled=false;
+        cartFull.disabled=true;
+    }
     list.innerHTML=cartMarkUp;
 }

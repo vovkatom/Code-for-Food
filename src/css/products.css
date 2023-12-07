@@ -1,6 +1,6 @@
 .container-pl {
   display: flex;
-  margin-top: 40px;
+  margin-top: 0;
 }
 
 .error-load {
@@ -116,11 +116,12 @@
   align-items: center;
   border: none;
   border-radius: 50%;
-  background: #6d8434;
+  background-color: #6d8434;
   cursor: pointer;
-  /* transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
+}
+.btn-pl:hover,
+.btn-pl:focus {
+  background-color: #586f1f;
 }
 .icon-pl {
   fill: #e8e8e2;

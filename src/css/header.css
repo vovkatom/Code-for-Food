@@ -1,88 +1,161 @@
-/* Hero Section */
+@font-face {
+    font-family: 'Quincy CF Black Regular';
+    src: url("https://db.onlinewebfonts.com/t/7026843a2afae35145b7544bfd004217.eot");
+    src: url("https://db.onlinewebfonts.com/t/7026843a2afae35145b7544bfd004217.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/7026843a2afae35145b7544bfd004217.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/7026843a2afae35145b7544bfd004217.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/7026843a2afae35145b7544bfd004217.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/7026843a2afae35145b7544bfd004217.svg#Quincy CF Black Regular")format("svg");
+}
 
-.hero-section {
-    margin: 0 auto;
+li {
+    padding: 0;
+    margin: 0;
+}
+
+.cart-counter {
+    display: none;
+}
+
+.accent-word {
+    color: #6D8434;
+}
+
+.header-logo {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.logo {
+    background: #6D8434;
+    width: 28px;
+    height: 28px;   
+    padding: 6px 6px;
+    border-radius: 50%;
+    fill: #E8E8E2;
+    padding-right: 8px;
+    margin: 0;
+}
+
+.logo-name {
+    margin-left: 8px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.logo-cart {
+    background: #6D8434;
+    width: 38px;
+    height: 38px;   
+    padding: 12px;
+    border-radius: 50%;
+    fill: #E8E8E2;
+    margin-left: 8px;
+}
+
+.header .container {
+    width: 375px;
+    padding: 0 20px;
+    /* height: 130px; */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     outline: 2px #6D8434 solid;
+    padding-top: 18px;
+  }
+
+.accent-word {
+    color: #6D8434;
 }
 
-.hero-title {
-    width: 335px;
-    color: #010101;
-    text-align: center;
-    font-family: 'NeueMontreal', sans-serif;
-    font-size: 44px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.09em; /* 109.091% */
-    letter-spacing: -0.88px;
+.nav-container {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
 }
 
-.hero-text {
-    margin-top: 16px;
-    margin-bottom: 32px;
-    width: 292px;
-    color: rgba(1, 1, 1, 0.80);
-    text-align: center;
-    font-family: 'NeueMontreal', sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 200;
-    line-height: 1.28em; /* 128.571% */
-}
-
-.hero-image {
-    width: 335px;
-    height: 480px;
-    background-repeat: no-repeat;
-    background-color: bisque;
-    background-image: url(../img/header_hero_ing/hero-mob1.jpg), 
-    url(../img/header_hero_ing/hero-mob1@2x.jpg);
+.home {
+    display: inline;
+    background-color: #6D8434;
+    color: #E8E8E2;
     border-radius: 30px;
+    width: 77px;
+    height: 38px;
+    padding: 10px 20px;
 }
 
 @media screen and (min-width: 375px) {
-    .hero-section {
-        width: 375px;
+    .header .container {
+       width: 343px;
+       /* height: 130px; */
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1440px) {
-    .hero {
-        height: 848px;
-    }
-
-    .hero-section {
+@media screen and (min-width: 768px) {
+    .header .container {
         width: 704px;
-        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
     }
 
-    .hero-title {
-        width: 658px;
+    .logo {
+        width: 32px;
+        height: 32px;
+        padding: 6px;
     }
 
-    .hero-image {
-    width: 704px;
-    height: 580px;
-    background-image: url(../img/header_hero_ing/hero-tablet1.jpg), 
-    url(../img/header_hero_ing/hero-tablet1@2x.jpg);
-    border-radius: 50px;
+    .logo-name {
+        width: 157px;
+        height: 24px;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 1em; /* 100% */
+        letter-spacing: -0.48px;
+    }
+
+    
+    .cart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home {
+        font-size: 18px;
+        width: 104px;
+        height: 48px;
+    }
+
+    .cart-counter {
+        display: inline;
+        color: #010101;
+        font-family: 'NeueMontreal', sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1.33em; /* 133.333% */
+        text-transform: uppercase;
+        margin-left: 14px;
+    }
+
+    .logo-cart {
+        margin-left: 16px;
+        padding: 10px;
+        width: 38px;
+        height: 38px;
+    }
+
+    .cart-counter {
+        display: flex;
     }
 }
 
 @media screen and (min-width: 1440px) {
-    .hero-image {
-        width: 1240px;
-        height: 350px;
-        background-image: url(../img/header_hero_ing/hero-desct1.jpg), 
-        url(../img/header_hero_ing/hero-desct1@2x.jpg);
-        border-radius: 50px;
-    }
-
-    .hero {
-        padding-bottom: 37px;
+    .header .container {
+        width: 1440px;
+        padding: 0 100px;
     }
 }
