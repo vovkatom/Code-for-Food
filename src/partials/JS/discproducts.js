@@ -1,5 +1,6 @@
 import { addToCart } from '/partials/JS/cart-localestorage.js';
 import axios from 'axios';
+import iconsSvg from '../../img/icons.svg';
 
 async function fetchDiscontFood() {
   const url = `https://food-boutique.b.goit.study/api/products/discount`;
@@ -12,21 +13,18 @@ async function fetchDiscontFood() {
 }
 
 const discountList = document.querySelector('.discount-list');
+let prodList = [];
 
 async function createMarkup() {
   const lim = 2;
   try {
     let responce = await fetchDiscontFood();
-    let prodList = responce.slice(0, lim);
-    const cartSVG = './img/heroicons-solid_shopping-cart.svg';
-    const cart = './img/cart.svg';
-    const discontSVG = './img/discount.svg';
-
+    prodList = responce.slice(0, lim);
     const createProducts = prodList
       .map(({ _id, name, img, price }) => {
         return `<li class="discount-item">
            <svg class="icon-discount" width="64" height="64">
-                  <use href="${discontSVG}#icon-discount"></use>
+                  <use href="${iconsSvg}#icon-discount"></use>
                 </svg>
               </div>
     <div class="discount-item-img">
@@ -40,12 +38,7 @@ async function createMarkup() {
           <button class="info-title-link" data-_id="${_id}">
             <svg class="img-svg-osnova" data-_id="${_id}" width="18" height="18">
               <use class="use" data-_id="${_id}"
-                href="${cartSVG}#icon-shopping-cart"
-              ></use>
-            </svg>
-            <svg class="visually-hidden" width="18" height="18">
-              <use class="use""
-                href="${cart}#icon-cart"
+                href="${iconsSvg}#icon-shopping-cart"
               ></use>
             </svg>
           </button>
@@ -57,14 +50,6 @@ async function createMarkup() {
       .join('');
 
     discountList.insertAdjacentHTML('beforeend', createProducts);
-
-    const linkBag = document.querySelector('.discount-list');
-    linkBag.addEventListener('click', addCart);
-    function addCart(evt) {
-      if (evt.target.closest('.info-title-link')) {
-        addToCart(evt, prodList);
-      }
-    }
   } catch (error) {
     console.error(error);
   }
@@ -72,23 +57,19 @@ async function createMarkup() {
 
 window.addEventListener('load', createMarkup);
 
-// const linkBag = document.querySelector('.discount-list');
+const linkBag = document.querySelector('.discount-list');
 
-// linkBag.addEventListener('click', addCart);
+linkBag.addEventListener('click', addCart);
 
-// async function addCart(evt) {
-//   if (
-//     evt.target.classList.contains('info-title-link') ||
-//     evt.target.classList.contains('img-svg-osnova') ||
-//     evt.target.classList.contains('use')
-//   ) {
-//     addToCart(evt, await fetchDiscontFood());
-//     console.log(evt);
+let btn;
 
-// const old = document.querySelector('.img-svg-osnova');
-// document
-//   .querySelector('.visually-hidden')
-//   .classList.replace('visually-hidden', 'img-svg-osnova');
-// old.classList.replace('img-svg-osnova', 'visually-hidden');
-// }
-// }
+function addCart(evt) {
+  btn = evt.target.closest('.info-title-link');
+  if (evt.target.closest('.info-title-link')) {
+    addToCart(evt, prodList);
+  }
+  const svg = btn.querySelector('.img-svg-osnova use');
+  svg.setAttribute('href', '../../img/icons.svg#icon-cart');
+  btn.setAttribute('disabled', true);
+  btn.style.cursor = 'auto';
+}
