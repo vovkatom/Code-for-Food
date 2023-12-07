@@ -18,7 +18,6 @@ const refs = {
 let page = 1;
 let limit;
 let foodInfo = [];
-let id = 0;
 
 async function fetchAndRender() {
     if (window.innerWidth < 1440 && window.innerWidth > 767) {
@@ -34,12 +33,11 @@ async function fetchAndRender() {
         const responce = await fetchFood(page, limit)
         foodInfo = responce.data.results;
 
-        const createElement = foodInfo.map(({ img, name, popularity, category, price, size }) => {
+        const createElement = foodInfo.map(({ img, name, popularity, category, price, size, _id }) => {
             const cleanedCategory = category.replace(/_/g, ' ');
             const correctPrice = `$${price}`
-            id = id + 1;
 
-            return `<li class="item-pl" data-id="${id}">
+            return `<li class="item-pl" data-id="${_id}">
                 <div class="background-img-pl">
                     <img src="${img}" alt="" class="img-pl" loading="lazy" />
                 </div>
