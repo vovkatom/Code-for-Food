@@ -2,13 +2,13 @@
   <div class="container">
     <h1 class="cart-title">
       <svg class="cart-icon" width="18" height="18">
-      <use href="../img/icon-cart.svg"></use>
+        <use href="./img/icon-cart.svg"></use>
       </svg>   
       Cart (<span class="js-cart-numbers">0</span>)
     </h1>
 
-  <!-- full cart -->
-  <div class="cart-full visually-hidden">
+  <!-- full cart  (тут поруч з cart-full був клас visually-hidden)-->
+  <div class="cart-full        ">
 
     <!-- selected items -->
     <div class="selected-items js-selected-items">      
@@ -34,20 +34,26 @@
     </div>
 
     <form class="form">
-      <input
-        type="email"
-        name="checkout-email"
-        class="checkout-input"
-        placeholder="Enter your email"
+      <div class="input-container">
+        <label class="notation" for="email">Mail:</label>
+        <input
+          type="email"
+          id="email"
+          pattern=".{8,}"
+          placeholder="Enter your email"
+          autocomplete="email"
+          title="valid@email.com"
+          required
         />
-      <button type="submit" class="checkout-button">Checkout</button>
+      </div>
+      <button class="order-btn" type="submit">Checkout</button>
     </form>
   </div>
 
   </div>
 
   <!-- empty cart -->
-  <div class="empty-cart js-empty-cart">
+  <div class="empty-cart js-empty-cart visually-hidden">
     <picture class="empty-cart-image">
       <!-- Desktop screen 1440px -->
       <source
@@ -89,5 +95,33 @@
         cart.
       </p>
   </div>
-  
+   <!-- ======= SUCCESS MODAL ======= -->
+   <div class="backdrop-cart-modal js-success visually-hidden" data-modal>
+    <div class="success-modal">
+      <div class="order-success-window">
+        <button class="success-delete-btn js-close-success" data-modal-close>
+          <svg class="" width="22" height="22">
+            <use href="./img/icons.svg#icon-x-close"></use>
+          </svg>
+        </button>
+        <img
+          src="./img/cart/success.webp"
+          alt="Success Order"
+          width="140"
+          height="140"
+          loading="lazy"
+        />
+        <div class="success-text">
+          <h2 class="success-title">Order success</h2>
+          <p class="success-descr">
+            Thank you for shopping at Food Boutique. Your order has been
+            received and is now being freshly prepared just for you! Get ready
+            to indulge in nourishing goodness, delivered right to your
+            doorstep. We're thrilled to be part of your journey to better
+            health and happiness.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
