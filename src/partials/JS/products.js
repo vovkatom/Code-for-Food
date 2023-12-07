@@ -68,7 +68,7 @@ async function fetchAndRender() {
         console.error(error);
     }
 }
-let arr = [];
+
 window.addEventListener("load", fetchAndRender)
 
 refs.list.addEventListener("click", handleClick)
