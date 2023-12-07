@@ -37,7 +37,6 @@ async function fetchAndRender() {
 
         const createElement = foodInfo.map(({ img, name, popularity, category, price, size, _id }) => {
             const cleanedCategory = category.replace(/_/g, ' ');
-            const correctPrice = `$${price}`
             const iconSvg = "./img/icons.svg#icon-shopping-cart"
 
             return `<li class="item-pl" data-id="${_id}">
@@ -53,7 +52,7 @@ async function fetchAndRender() {
                     <p class="paragraph-pl">Popularity: <b class="value-pl">${popularity}</b></p>
                 </div>
                 <div class="price-container-pl">
-                    <b class="price-pl">${correctPrice}</b>
+                    <b class="price-pl">$${price}</b>
                     <button class="btn-pl">
                         <svg class="icon-pl">
                             <use href="${iconSvg}"></use>
@@ -87,10 +86,7 @@ function handleClick(event) {
             if (clickedProduct) {
                 console.log(clickedProduct);  // об'єкт продукту
                 console.log(foodInfo)
-                const q = findProduct(clickedProduct, foodInfo)
-                console.log(q)
-                const d = addToCart(clickedProduct, foodInfo)
-                console.log(d)
+                addToCart(clickedProduct, foodInfo)
             }
         }
         const svg = closestButton.querySelector('.icon-pl use');
@@ -102,4 +98,3 @@ function handleClick(event) {
         closestButton.style.cursor = "auto";
     }
 }
-
