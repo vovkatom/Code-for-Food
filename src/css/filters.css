@@ -27,6 +27,10 @@ body {
   max-width: 335px;
   max-height: 48px;
 }
+.search-label {
+  width: 100%;
+  max-width: 335px;
+}
 
 .search-input {
   display: block;
@@ -40,12 +44,12 @@ body {
   /* font-style: normal; */
   /* font-weight: 400; */
   /* line-height: 1.33; */
-  max-width: 335px;
-  max-height: 24px;
+  /* max-width: 335px;
+  max-height: 24px; */
   color: #010101;
   /* font-family: Neue Montreal; */
-  position: absolute;
-  color: #010101;
+  /* position: absolute; */
+  /* color: #010101; */
 
   font-family: Neue Montreal;
   font-size: 14px;
@@ -63,11 +67,10 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  margin-right: 20px;
   /* outline: none; */
-  /* position: relative; */
-  /* left: 205px;
-  width: 52px; */
+  position: absolute;
+  top: 14px;
+  right: 7%;
 }
 
 input:focus {
@@ -78,6 +81,7 @@ input:focus {
   display: flex;
   flex-direction: row;
   gap: 8px;
+  position: relative;
 }
 
 .search-icon {
@@ -109,7 +113,8 @@ input:focus {
 /*! ---- SELECT STYLES -------  */
 .select {
   position: relative;
-  width: 189px;
+  width: 100%;
+  max-width: 335px;
 }
 .select.is-active .select__body {
   display: flex;
