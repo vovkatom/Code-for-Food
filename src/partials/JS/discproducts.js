@@ -21,6 +21,10 @@ async function createMarkup() {
     const createProducts = prodList
       .map(({ _id, name, img, price }) => {
         return `<li class="discount-item" data-id="${_id}">
+           <svg class="icon-discount" width="64" height="64">
+                  <use href="./img/discount.svg#icon-discount"></use>
+                </svg>
+              </div>
     <div class="discount-item-img">
       <img class="discount-img"  src="${img}" alt="Product" loading="lazy" />
     </div>
