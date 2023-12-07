@@ -57,7 +57,15 @@ async function createMarkup() {
       .join('');
 
     discountList.insertAdjacentHTML('beforeend', createProducts);
-    return prodList;
+
+    const linkBag = document.querySelector('.discount-list');
+    linkBag.addEventListener('click', addCart);
+    function addCart(evt) {
+      console.log(evt.target.closest('.info-title-link'));
+      addToCart(evt, prodList);
+    }
+
+    // return prodList;
   } catch (error) {
     console.error(error);
   }
@@ -65,22 +73,23 @@ async function createMarkup() {
 
 window.addEventListener('load', createMarkup);
 
-const linkBag = document.querySelector('.discount-list');
+// const linkBag = document.querySelector('.discount-list');
 
-linkBag.addEventListener('click', addCart);
+// linkBag.addEventListener('click', addCart);
 
-async function addCart(evt) {
-  if (
-    evt.target.classList.contains('info-title-link') ||
-    evt.target.classList.contains('img-svg-osnova') ||
-    evt.target.classList.contains('use')
-  ) {
-    addToCart(evt, await fetchDiscontFood());
-    console.log(evt);
-    // const old = document.querySelector('.img-svg-osnova');
-    // document
-    //   .querySelector('.visually-hidden')
-    //   .classList.replace('visually-hidden', 'img-svg-osnova');
-    // old.classList.replace('img-svg-osnova', 'visually-hidden');
-  }
-}
+// async function addCart(evt) {
+//   if (
+//     evt.target.classList.contains('info-title-link') ||
+//     evt.target.classList.contains('img-svg-osnova') ||
+//     evt.target.classList.contains('use')
+//   ) {
+//     addToCart(evt, await fetchDiscontFood());
+//     console.log(evt);
+
+// const old = document.querySelector('.img-svg-osnova');
+// document
+//   .querySelector('.visually-hidden')
+//   .classList.replace('visually-hidden', 'img-svg-osnova');
+// old.classList.replace('img-svg-osnova', 'visually-hidden');
+// }
+// }
