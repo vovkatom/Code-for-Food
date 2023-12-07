@@ -17,12 +17,17 @@
           </svg>
         </button>
       </form>
-      <div class="container-categories">
-        <select class="categories-select">
-          <option value="" disabled selected hidden>Categories</option>
-          <option value="">Breads / Bakery</option>
-          <option value="">Dairy</option>
-        </select>
+      <div class="select">
+        <div class="select__header">
+          <span class="select__current">Categories</span>
+          <div class="select__icon">
+            <svg class="down-icon">
+              <use href="./img/icons.svg#icon-chevron-down"></use>
+            </svg>
+          </div>
+        </div>
+
+        <div class="select__body"></div>
       </div>
     </div>
   </div>
