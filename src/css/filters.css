@@ -167,10 +167,6 @@ input:focus {
 }
 
 .select__item:hover {
-  background-color: #e8e8e2;
-}
-
-.select__item:first-child {
   color: #010101;
 }
 
