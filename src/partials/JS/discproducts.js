@@ -61,11 +61,10 @@ async function createMarkup() {
     const linkBag = document.querySelector('.discount-list');
     linkBag.addEventListener('click', addCart);
     function addCart(evt) {
-      console.log(evt.target.closest('.info-title-link'));
-      addToCart(evt, prodList);
+      if (evt.target.closest('.info-title-link')) {
+        addToCart(evt, prodList);
+      }
     }
-
-    // return prodList;
   } catch (error) {
     console.error(error);
   }
