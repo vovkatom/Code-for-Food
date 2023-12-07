@@ -63,6 +63,7 @@ li {
     justify-content: space-between;
     align-items: center;
     outline: 2px #6D8434 solid;
+    padding-top: 18px;
   }
 
 .accent-word {
