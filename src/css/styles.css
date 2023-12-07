@@ -18,9 +18,17 @@
 /* @import url('./heroheader.css'); */
 
 @font-face {
-  font-family: 'NeueMontreal';
-  src: url('../fonts/NeueMontreal.ttf') format('truetype');
-  font-display: swap;
+  font-family: 'Neue Montreal';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PP Neue Montreal Book'), url('./fonts/NeueMontreal-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  font-style: normal;
+  font-weight: 500;
+  src: local('PP Neue Montreal Medium'), url('./fonts/NeueMontreal-Medium.woff') format('woff');
 }
 
 @font-face {
