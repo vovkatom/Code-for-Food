@@ -62,8 +62,8 @@
     width: 100px;
     height: 100px;
 
-    top: 30px;
-    left: 10px;
+    top: -30px;
+    right: 10px;
 
     z-index: 999;
 }
