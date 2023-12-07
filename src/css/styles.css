@@ -60,7 +60,7 @@
   padding-right: 20px;
   margin-right: auto;
   margin-left: auto;
-  /* outline: 2px dashed green; */
+  outline: 2px dashed red;
 }
 
 @media screen and (min-width: 768px) {
