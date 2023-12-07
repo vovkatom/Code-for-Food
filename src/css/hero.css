@@ -63,7 +63,7 @@
     height: 100px;
 
     top: 30px;
-    left: 10px;
+    right: 10px;
 
     z-index: 999;
 }
