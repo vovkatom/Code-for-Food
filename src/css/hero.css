@@ -22,12 +22,13 @@
 }
 
 .hero-text {
+    font-family: 'NeueMontreal';
     margin-top: 16px;
     margin-bottom: 32px;
     width: 292px;
     color: rgba(1, 1, 1, 0.80);
     text-align: center;
-    font-family: 'NeueMontreal', sans-serif;
+    /* font-family: 'NeueMontreal', sans-serif; */
     font-size: 14px;
     font-style: normal;
     font-weight: 200;

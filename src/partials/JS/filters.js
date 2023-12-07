@@ -12,13 +12,13 @@ function fetchCategories() {
 
 const refs = {
   selector: document.querySelector('.select__body'),
-  
+  currentfilter: document.querySelector('.select__current')
 };
 
 fetchCategories()
   .then(data => {
     const markup = createSelectorMarkup(data);
-    refs.selector.insertAdjacentHTML('beforeend', markup);
+    refs.selector.insertAdjacentHTML('afterbegin', markup);
     select();
     //! <<<< local storage >>>>
     refs.selector.addEventListener('click', handleCategory);
@@ -37,6 +37,8 @@ function createSelectorMarkup(arr) {
     )
     .join('');
 }
+
+
 
 
 
@@ -80,4 +82,11 @@ let select = function () {
       const value = obj;
       const key = 'filter';
       save(key, value);
-    }
+}
+    
+function onLoad() {
+    const filterObj = load('filter')
+    refs.currentfilter.innerText = filterObj.category.replace(/_/g, ' ');
+}
+onLoad();
+
