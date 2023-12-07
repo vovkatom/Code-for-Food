@@ -17,9 +17,9 @@ const KEY_CART = "cart";
 const cartArr = JSON.parse(localStorage.getItem(KEY_CART)) ?? [];
 
 
-buttonAddProduct.addEventListener("click", addToCart); //????додавати слухачa на цій сторінці чи 1?
+buttonAddProduct.addEventListener("click", onClick); //????додавати слухачa на цій сторінці чи 1?
 
-function addToCart(evt) {
+function onClick(evt) {
     //При кліку на кнопку шукаємо потрібний продукт за id, викликаючи функцію findProduct
     const product=findProduct(evt.target);
     cartArr.push(product);
@@ -27,9 +27,9 @@ function addToCart(evt) {
 }
 
 //Функція пошуку необхідного продукту за id в масиві foodInfo (який надходить з серверу на 1 сторінці)
-function findProduct (elem; arr) {
+function findProduct (elem) {
     const productId = Number(elem.dataset._id);
-    return arr.find(({_id}) => _id === productId) //?????? як стукати до масиву foodInfo з 1 сторінки
+    return foodInfo.find(({_id}) => _id === productId) //?????? як стукати до масиву foodInfo з 1 сторінки
 }
 
 
