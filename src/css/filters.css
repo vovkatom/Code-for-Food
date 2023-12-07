@@ -1,10 +1,11 @@
 body {
   background: #e8e8e2;
 }
+
 .filters-text {
   margin-bottom: 8px;
   color: rgba(1, 1, 1, 0.3);
-  font-family: Neue Montreal;
+  font-family: NeueMontreal;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -40,18 +41,8 @@ body {
   border-radius: 30px;
   border: 1px solid rgba(1, 1, 1, 0.3);
   padding: 14px 20px 14px 20px;
-  /* font-size: 18px; */
-  /* font-style: normal; */
-  /* font-weight: 400; */
-  /* line-height: 1.33; */
-  /* max-width: 335px;
-  max-height: 24px; */
   color: #010101;
-  /* font-family: Neue Montreal; */
-  /* position: absolute; */
-  /* color: #010101; */
-
-  font-family: Neue Montreal;
+  font-family: NeueMontreal;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -67,7 +58,6 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  /* outline: none; */
   position: absolute;
   top: 14px;
   right: 7%;
@@ -132,7 +122,7 @@ input:focus {
 }
 .select__current {
   color: #010101;
-  font-family: Neue Montreal;
+  font-family: NeueMontreal;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
