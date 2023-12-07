@@ -66,6 +66,10 @@
   outline: 2px dashed red;
 }
 
+.prod-container {
+  gap: 40px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     padding: 0 32px;
