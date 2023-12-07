@@ -71,7 +71,6 @@ let select = function () {
 
     function handleCategory(event) {
       const category = event.target.innerText.replace(/ /g, '_');
-      console.log(category);
       const obj = {
         keyword: null,
         category: `${category}`,
