@@ -86,6 +86,7 @@ let select = function () {
     
 function onLoad() {
     const filterObj = load('filter')
-    refs.currentfilter.innerText = filterObj.category;
+    refs.currentfilter.innerText = filterObj.category.replace(/_/g, ' ');
 }
 onLoad();
+
