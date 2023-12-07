@@ -19,6 +19,10 @@
     font-weight: 500;
     line-height: 1.09em; /* 109.091% */
     letter-spacing: -0.88px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-text {
@@ -35,6 +39,10 @@
     line-height: 1.28em; /* 128.571% */
 }
 
+.accent-word {
+    display: inline;
+}
+
 .hero-image {
     width: 335px;
     height: 480px;
@@ -43,6 +51,30 @@
     background-image: url(../img/header_hero_ing/hero-mob1.jpg), 
     url(../img/header_hero_ing/hero-mob1@2x.jpg);
     border-radius: 30px;
+
+    position: relative;
+}
+
+.leaf-icon {
+    position: absolute;
+
+    fill: #010101;
+    background-color: #FDC152;
+    width: 100px;
+    height: 100px;
+    top: 31px;
+    right: 46px;
+    z-index: 999;
+}
+
+.organic-food {
+    position: absolute;
+    
+    top: 31px;
+    right: 46px;
+    transform-origin: top right;
+    transform: rotate(-45deg);
+    white-space: nowrap;
 }
 
 @media screen and (min-width: 375px) {
