@@ -65,7 +65,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  /* visibility: hidden; */
+  visibility: hidden; 
 }
 
 .delete {
@@ -108,10 +108,7 @@
   padding: 0;
 }
 
-/* .cart-list {
-}
-.list {
-} */
+
 
 .total {
   display: flex;
@@ -209,4 +206,77 @@
   font-size: 24px;
   font-weight: 500;
   line-height: 1.16;
+}
+
+
+/*Стилізація розмітки кошика */
+.selectedProduct{
+  display: flex;
+  flex-direction: row;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.product-picture{
+  border-radius: 10px;
+  background: #FAFAFA; 
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0; 
+  margin-right: 40px;
+  padding: 24px;
+}
+.info-header{
+  display: flex;
+  flex-direction: row;
+}
+.product-name{
+  color: #010101;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px; /* 120% */
+margin-right: 243px; 
+}
+.delete-btn{
+  width: 20px;
+height: 20px;
+flex-shrink: 0; 
+display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: #010101;
+  fill: #010101;
+  background: transparent;
+  border: none;
+}
+.product-info{
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-top: 10px;
+  margin-bottom: 46px;
+}
+.info-quality{
+  color: rgba(1, 1, 1, 0.30);
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 14px; /* 116.667% */ 
+margin-right: 4px;
+padding: 2 px 0;
+}
+.info-value{
+color: #010101;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; /* 128.571% */ 
+}
+.price{
+  color: #010101;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px; /* 120% */ 
+
 }
