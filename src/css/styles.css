@@ -82,4 +82,8 @@
     padding: 0 60px;
     max-width: 1440px;
   }
+
+  .prod-container {
+    padding: 0 100px;
+  }
 }
