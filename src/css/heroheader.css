@@ -60,9 +60,9 @@ li {
 
 .header .container {
     max-width: 375px;
-    padding: 0 20px;
+    /* padding: 0 20px; */
     height: 130px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -89,75 +89,28 @@ li {
     padding: 10px 20px;
 }
 
-/* Hero Section */
-
-.hero-section {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    outline: 2px #6D8434 solid;
-}
-
-.hero-title {
-    width: 335px;
-    color: #010101;
-    text-align: center;
-    font-family: 'NeueMontreal', sans-serif;
-    font-size: 44px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.09em; /* 109.091% */
-    letter-spacing: -0.88px;
-}
-
-.hero-text {
-    margin-top: 16px;
-    margin-bottom: 32px;
-    width: 292px;
-    color: rgba(1, 1, 1, 0.80);
-    text-align: center;
-    font-family: 'NeueMontreal', sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 200;
-    line-height: 1.28em; /* 128.571% */
-}
-
-.hero-image {
-    width: 335px;
-    height: 480px;
-    background-repeat: no-repeat;
-    background-color: bisque;
-    background-image: url(../img/header_hero_ing/hero-mob1.jpg), 
-    url(../img/header_hero_ing/hero-mob1@2x.jpg);
-    border-radius: 30px;
-}
-
-
 @media screen and (min-width: 375px) {
     .header .container {
        width: 343px;
        height: 130px;
     }
-
-    .hero-section {
-        width: 375px;
-    }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1440px) {
     .header .container {
-        width: 768px;
+        width: 704px;
+        display: flex;
+        justify-content: space-between  ;
     }
 
     .logo-name {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 1em; /* 100% */
-    letter-spacing: -0.48px;
+        width: 157px;
+        height: 24px;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 1em; /* 100% */
+        letter-spacing: -0.48px;
     }
 
     .hero {
@@ -219,7 +172,7 @@ li {
 
 @media screen and (min-width: 1440px) {
     .header .container {
-        max-width: 1440px;
+        width: 1440px;
         padding: 0 100px;
     }
 
