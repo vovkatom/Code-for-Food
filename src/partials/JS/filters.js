@@ -22,7 +22,6 @@ fetchCategories()
     select();
     //! <<<< local storage >>>>
     refs.selector.addEventListener('click', handleCategory);
-    handleCategory();
     //! <<<< local storage >>>>
   })
   .catch(error => {
@@ -72,7 +71,6 @@ let select = function () {
 
     function handleCategory(event) {
       const category = event.target.innerText.replace(/ /g, '_');
-      console.log(category);
       const obj = {
         keyword: null,
         category: `${category}`,
