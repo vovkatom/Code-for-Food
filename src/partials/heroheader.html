@@ -3,28 +3,35 @@
       <div>
           <a href="../index.html" aria-label="Open Site" class="header-logo">
               <svg class="logo" width="16" height="16">
-                <use href="../img/header_hero_icons.svg#icon-logo"></use>
+                <use href="./img/header_hero_icons.svg#icon-logo"></use>
               </svg>
               <p class="logo-name" style="font-family: 'Quincy CF Black Regular';">Food Boutique</p>
           </a>
       </div>
       <div class="nav">
-        <ul>
+        <ul class="nav-container">
           <li>
-            <a href="../index.html">
-                <svg class="logo-cart" width="14" height="14">
-                    <use href="../img/header_hero_icons.svg#icon-cart"></use>
-                  </svg>
+            <a href="../index.html" class="home">
                 Home</a>
           </li>
           <li>
-            
-            <a href="../index.html">Cart</a>
+            <a href="../index.html" class="cart">
+                <svg class="logo-cart" width="14" height="14">
+                    <use href="./img/header_hero_icons.svg#icon-cart"></use>
+                </svg> 
+                <p class="cart-counter">
+                    Cart <span id="cart-count">(0</span>) 
+                </p>
+            </a>
           </li>
         </ul>
       </div>
     </div>
   </header>
-  <section class="hero">
-    <h1>Welcome to the <p class="accent-word">Food</p> Boutique! </h1>
-  </section>
+
+<section class="hero">
+    <div class="hero-section">
+        <h1 class="hero-title">Welcome to the <p class="accent-word">Food</p> Boutique! </h1>
+        <p class="hero-text">With Food Boutique, you're not just subscribing to food, you're signing up for a fresher, fitter, and happier you.</p>
+    </div>
+</section>

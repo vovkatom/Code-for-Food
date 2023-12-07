@@ -8,6 +8,15 @@
     url("https://db.onlinewebfonts.com/t/7026843a2afae35145b7544bfd004217.svg#Quincy CF Black Regular")format("svg");
 }
 
+.body {
+    font-family: 'NeueMontreal', sans-serif;
+}
+
+li {
+    padding: 0;
+    margin: 0;
+}
+
 .header .container {
     max-width: 375px;
     padding: 0 32px;
@@ -22,19 +31,12 @@
     margin-top: 32px;
   }
 
+.cart-counter {
+    display: none;
+}
 
 .accent-word {
     color: #6D8434;
-}
-
-@media screen and (min-width: 375px) {
-    .header > .container {
-       width: 343px;
-       padding: 0 32px;
-       height: 130px;
-       margin: 0 auto;
-       display: flex;
-    }
 }
 
 .header-logo {
@@ -45,12 +47,13 @@
 
 .logo {
     background: #6D8434;
-    width: 28px;
-    height: 28px;   
+    width: 16px;
+    height: 16px;   
     padding: 6px 6px;
     border-radius: 50%;
     fill: #E8E8E2;
     padding-right: 8px;
+    margin: 0;
 }
 
 .logo-name {
@@ -61,22 +64,12 @@
 
 .logo-cart {
     background: #6D8434;
-    width: 32px;
-    height: 32px;   
-    padding: 8px;
+    width: 14px;
+    height: 14px;   
+    padding: 12px;
     border-radius: 50%;
     fill: #E8E8E2;
-    padding-right: 8px;
-}
-
-@media screen and (min-width: 1440px) {
-    .header .container {
-        max-width: 1440px;
-        padding: 0 100px;
-    }
-}body {
-    font-family: 'NeueMontreal', sans-serif;
-    background: #E8E8E2;
+    margin-left: 8px;
 }
 
 .header .container {
@@ -98,8 +91,59 @@
     color: #6D8434;
 }
 
+.nav-container {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+}
+
+.home {
+    display: inline;
+    background-color: #6D8434;
+    color: #E8E8E2;
+    border-radius: 30px;
+    width: 77px;
+    height: 38px;
+    padding: 10px 20px;
+}
+
+/* Hero Section */
+
+.hero-section {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-title {
+    width: 335px;
+    color: #010101;
+    text-align: center;
+    font-family: 'NeueMontreal', sans-serif;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.09em; /* 109.091% */
+    letter-spacing: -0.88px;
+}
+
+.hero-text {
+    margin-top: 16px;
+    width: 292px;
+    color: rgba(1, 1, 1, 0.80);
+    text-align: center;
+    font-family: 'NeueMontreal', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 1.28em; /* 128.571% */
+}
+
+
 @media screen and (min-width: 375px) {
-    .header > .container {
+    .header .container {
        width: 343px;
        padding: 0 32px;
        height: 130px;
@@ -110,13 +154,57 @@
     }
 }
 
+@media screen and (min-width: 768px) {
+    .header .container {
+        width: 704px;
+    }
 
-.logo {
-    background: #6D8434;
-    width: 32px;
-    height: 32px;   
-    color: #E8E8E2;
-    padding-right: 8px;
+    .hero {
+        height: 848px;
+    }
+
+    .hero-section {
+        width: 704px;
+        margin: 0 auto;
+    }
+
+    .hero-title {
+        width: 658px;
+    }
+    
+    .cart {
+        display: flex;
+        justify-content: center;
+    }
+
+    .home {
+        font-size: 18px;
+        width: 104px;
+        height: 48px;
+    }
+
+    .cart-counter {
+        display: inline;
+        color: #010101;
+        font-family: 'NeueMontreal', sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1.33em; /* 133.333% */
+        text-transform: uppercase;
+        margin-left: 14px;
+    }
+
+    .logo-cart {
+        margin-left: 16px;
+        padding: 10px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .cart-counter {
+        display: flex;
+    }
 }
 
 @media screen and (min-width: 1440px) {
@@ -125,3 +213,4 @@
         padding: 0 100px;
     }
 }
+
