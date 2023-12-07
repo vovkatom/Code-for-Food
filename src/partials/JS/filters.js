@@ -85,8 +85,13 @@ let select = function () {
 }
     
 function onLoad() {
-    const filterObj = load('filter')
-    refs.currentfilter.innerText = filterObj.category.replace(/_/g, ' ');
+    if (localStorage.getItem('filter'))
+    {   const filterObj = load('filter');
+        refs.currentfilter.innerText = filterObj.category.replace(/_/g, ' ');
+    } else {
+        return;
+    }
+        
 }
 onLoad();
 
