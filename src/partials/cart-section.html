@@ -8,17 +8,20 @@
     </h1>
 
   <!-- full cart -->
-  <div class="cart-full">
+  <div class="cart-full visually-hidden">
 
     <!-- selected items -->
-    <div class="selected-items js-selected-items">
-      
-      <div class="delete">
-        <div class="delete-all js-delete-all">Delete all</div>
-        <button class="delete-all-btn js-delete-all-btn"></button>
-      </div>
-      
-      <ul class="cart-list list js-cart-list"></ul>
+    <div class="selected-items js-selected-items">      
+      <div class="delete js-cart-container">        
+        <button class="delete-all-btn js-delete-all-btn">
+          Delete all
+          <svg class="" width="24" height="24">
+            <use href="./img/icons.svg#icon-x-close"></use>
+          </svg>
+        </button>
+        <ul class="cart-list list js-cart-list"></ul>
+      </div>      
+      <div class="order-container js-order-container"></div>
     </div>
       
     <!-- order total and confirmation  -->
@@ -44,8 +47,40 @@
   </div>
 
   <!-- empty cart -->
-  <div class="empty-cart js-empty-cart visually-hidden">
-      <picture class="empty-cart-image"></picture>
+  <div class="empty-cart js-empty-cart">
+    <picture class="empty-cart-image">
+      <!-- Desktop screen 1440px -->
+      <source
+        media="(min-width: 1440px)"
+        srcset="
+          ./img/cart/basket-desc.webp    1x,
+          ./img/cart/basket-desc@2x.webp 2x
+        "
+      />
+      <!-- Tablet screen -->
+      <source
+        media="(min-width: 768px)"
+        srcset="
+          ./img/cart/basket-tablet.webp    1x,
+          ./img/cart/basket-tablet@2x.webp 2x
+        "
+      />
+      <!-- Mobile screen -->
+      <source
+        media="(max-width: 767px)"
+        srcset="
+          ./img/cart/basket-mob.webp    1x,
+          ./img/cart/basket-mob@2x.webp 2x
+        "
+      />
+      <img
+        src="./img/cart/basket-mob.webp"
+        alt="Empty Basket"
+        width="132"
+        height="114"
+        loading="lazy"
+      />
+    </picture>
       <h3 class="empty-cart-title">
         Your basket is<span class="change-color"> empty...</span>
       </h3>
