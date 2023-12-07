@@ -34,10 +34,10 @@ async function fetchAndRender() {
     try {   
         const responce = await fetchFood(page, limit)
         foodInfo = responce.data.results;
-    const iconSvg = "/img/icons.svg#icon-shopping-cart"
+
         const createElement = foodInfo.map(({ img, name, popularity, category, price, size, _id }) => {
             const cleanedCategory = category.replace(/_/g, ' ');
-            
+            const iconSvg = "./img/icons.svg#icon-shopping-cart"
 
             return `<li class="item-pl" data-id="${_id}">
                 <div class="background-img-pl">
@@ -62,6 +62,7 @@ async function fetchAndRender() {
             </li>`;
         }).join("");
 
+
         refs.list.insertAdjacentHTML("beforeend", createElement);
     } catch (error) {
         console.error(error);
@@ -74,6 +75,7 @@ refs.list.addEventListener("click", handleClick)
 
 function handleClick(event) {
     const clickedElement = event.target;
+    // шукаємо кнопку в елементі на який було клікнуто
     const closestButton = clickedElement.closest('button');
 
     if (closestButton) {
@@ -84,9 +86,7 @@ function handleClick(event) {
             const clickedProduct = foodInfo.find(product => product._id === dataId);
 
             if (clickedProduct) {
-                console.log(clickedProduct);  // об'єкт продукту
-                console.log(foodInfo)
-                addToCart(clickedProduct, foodInfo)
+                add(clickedProduct, foodInfo)
             }
         }
         const svg = closestButton.querySelector('.icon-pl use');
@@ -94,7 +94,22 @@ function handleClick(event) {
         svg.setAttribute('href', "./img/icons.svg#icon-check");
         // btn off
         closestButton.setAttribute('disabled', true);
+        closestButton.classList.remove(".btn-pl:hover")
         // cursor standart
         closestButton.style.cursor = "auto";
     }
+}
+
+function add(elem, arr) {
+  //При кліку на кнопку шукаємо потрібний продукт за id, викликаючи функцію findProduct
+  const product = findP(elem, arr);
+  cartArr.push(product);
+  localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
+}
+
+
+//Функція пошуку необхідного продукту за id в масиві,який надходить з серверу (викликається всередині addToCart)
+function findP(elem, arr) {
+    const productId = elem._id;
+  return arr.find(({ _id }) => _id === productId);
 }

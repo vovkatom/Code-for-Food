@@ -47,6 +47,7 @@
     width: 335px;
     height: 480px;
     background-repeat: no-repeat;
+    background-size: cover;
     background-color: bisque;
     background-image: url(../img/header_hero_ing/hero-mob1.jpg), 
     url(../img/header_hero_ing/hero-mob1@2x.jpg);
@@ -55,28 +56,30 @@
     position: relative;
 }
 
-.leaf-icon {
-    position: absolute;
-
-    fill: #010101;
-    background-color: #FDC152;
-    width: 100px;
-    height: 100px;
-    top: 31px;
-    right: 46px;
-    z-index: 999;
-}
-
 .organic-food {
     position: absolute;
     
-    top: 31px;
-    right: 46px;
-    transform-origin: top right;
-    transform: rotate(-45deg);
-    white-space: nowrap;
+    width: 100px;
+    height: 100px;
+
+    top: -30px;
+    right: 10px;
+
+    z-index: 999;
+
+    animation: rotateAnimation 6s linear infinite;
 }
 
+@keyframes rotateAnimation {
+    0% {
+        transform: rotate(360deg); /* Початкове положення іконки (0 градусів) */
+    }
+    100% {
+        transform: rotate(0deg); /* Кінцеве положення іконки (360 градусів) */
+    }
+}
+
+/* Add animation */
 @media screen and (min-width: 375px) {
     .hero-section {
         width: 375px;
@@ -115,7 +118,18 @@
         border-radius: 50px;
     }
 
+    .hero-section {
+        width: 1240px;
+        margin: 0 auto;
+    }
+
     .hero {
         padding-bottom: 37px;
+    }
+    
+    .hero-title {
+        width: 1042px;
+        height: 80px;
+        display: inline;
     }
 }

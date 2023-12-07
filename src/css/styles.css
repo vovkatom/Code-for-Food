@@ -36,11 +36,19 @@
 
 @font-face {
   font-family: 'Fontspring';
-  src: url('../fonts/Fontspring.ttf') format('truetype');
+  src: url('../fonts/Fontspring.otf') format('truetype');
   font-display: swap;
 }
 
 :root {
+  --color-text: #010101;
+  --color-bckg: #e8e8e2;
+  --color-card-bckg: #fafafa;
+  --color-btn: #6d8434;
+  --color-btn-active: #586f1f;
+  --color-btn-arrow-fill: #a3a3a3;
+  --color-btn-up: #fdc152;
+
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -81,5 +89,9 @@
   .container {
     padding: 0 60px;
     max-width: 1440px;
+  }
+
+  .prod-container {
+    padding: 0 100px;
   }
 }
