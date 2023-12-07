@@ -34,10 +34,10 @@ async function fetchAndRender() {
     try {   
         const responce = await fetchFood(page, limit)
         foodInfo = responce.data.results;
-
+    const iconSvg = "/img/icons.svg#icon-shopping-cart"
         const createElement = foodInfo.map(({ img, name, popularity, category, price, size, _id }) => {
             const cleanedCategory = category.replace(/_/g, ' ');
-            const iconSvg = "./img/icons.svg#icon-shopping-cart"
+            
 
             return `<li class="item-pl" data-id="${_id}">
                 <div class="background-img-pl">
