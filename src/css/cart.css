@@ -310,6 +310,7 @@
 }
 @media only screen and (min-width: 768px) {
   .input-container {
+    display: inline-flex;
     padding: 15px 20px;
     margin-bottom: 0;
     min-width: 359px;
