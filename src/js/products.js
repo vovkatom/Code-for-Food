@@ -2,23 +2,10 @@ import axios from 'axios';
 import { KEY_CART, cartArr, addToCart, findProduct } from '../partials/JS/cart-localestorage';
 import iconSvg from "../img/icons.svg"
 
-async function fetchFood(page, limit) {
-    const url = `https://food-boutique.b.goit.study/api/products?page=${page}&limit=${limit}`
-    try {
-        const responce = await axios.get(url)
-        return responce;
-    }
-    catch(error) {
-        throw error
-    }
-}
-
 const refs = {
     list: document.querySelector(".product-list"),
 }
 
-let page = 1;
-let limit = 9;
 let foodInfo = [];
 
 async function fetchAndRender() {
@@ -36,9 +23,7 @@ async function fetchAndRender() {
     
     try {
         let responce;
-        if (!categoryInfo) {
-            responce = await fetchFood(page, limit);
-        } else {
+        if (categoryInfo) {
             responce = await fetchFoodCategory(categoryInfo.page, categoryInfo.limit)
         }
         foodInfo = responce.data.results
@@ -150,12 +135,12 @@ function getCategoriesFromLS() {
     }
 } 
 
-function fetchFoodCategory() {
+async function fetchFoodCategory() {
     const obj = getCategoriesFromLS();
     if (obj.category !== null) {
         const url = `https://food-boutique.b.goit.study/api/products?category=${obj.category}&page=${obj.page}&limit=${obj.limit}`
             try {
-                const responce = axios.get(url)
+                const responce = await axios.get(url)
                 return responce;
             }
             catch (error) {
@@ -165,7 +150,7 @@ function fetchFoodCategory() {
     else if (obj.keyword === null && obj.category === null) {
         const url = `https://food-boutique.b.goit.study/api/products?page=${obj.page}&limit=${obj.limit}`
         try {
-                const responce = axios.get(url)
+                const responce = await axios.get(url)
                 return responce;
             }
             catch (error) {
