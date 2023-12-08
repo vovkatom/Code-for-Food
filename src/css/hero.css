@@ -81,17 +81,13 @@
 }
 
 /* Add animation */
-@media screen and (min-width: 375px) {
+/* @media screen and (min-width: 375px) {
     .hero-section {
         width: 375px;
     }
-}
+} */
 
 @media screen and (min-width: 768px) and (max-width: 1440px) {
-    .hero {
-        height: 848px;
-    }
-
     .hero-section {
         width: 704px;
         margin: 0 auto;
