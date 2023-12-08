@@ -85,11 +85,21 @@ let select = function () {
 }
     
 function onLoad() {
+  const obj = {
+    keyword: null,
+    category: null,
+    page: 1,
+    limit: 6,
+  };
+  const value = obj;
+  const key = 'filter';
+  
     if (localStorage.getItem('filter'))
     {   const filterObj = load('filter');
         refs.currentfilter.innerText = filterObj.category.replace(/_/g, ' ');
     } else {
-        return;
+    return save(key, value);
+        
     }
         
 }
