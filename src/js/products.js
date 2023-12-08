@@ -1,7 +1,14 @@
 import axios from 'axios';
 import { KEY_CART, cartArr, addToCart, findProduct } from '../partials/JS/cart-localestorage';
 import iconSvg from "../img/icons.svg"
-
+export {
+  foodInfo,
+  fetchAndRender,
+  fetchFoodCategory,
+  getCategoriesFromLS,
+  KEY_CATEGORY,
+  renderFoodItems,
+};
 const refs = {
     list: document.querySelector(".product-list"),
 }
@@ -67,7 +74,7 @@ const createElement = foodInfo.map(({ img, name, popularity, category, price, si
                 </div>
             </li>`;
 }).join("");
-            refs.list.insertAdjacentHTML("beforeend", createElement);
+            refs.list.innerHTML = createElement;
 }
 
 window.addEventListener("load", fetchAndRender)
