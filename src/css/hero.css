@@ -57,6 +57,19 @@
     position: relative;
 }
 
+.leaf {
+
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    
+    width: 100px;
+    height: 100px;
+
+    top: -30px;
+    right: 10px;
+}
+
 .organic-food {
     position: absolute;
     
@@ -66,10 +79,12 @@
     top: -30px;
     right: 10px;
 
-    z-index: 999;
+    z-index: 998;
 
     animation: rotateAnimation 6s linear infinite;
 }
+
+
 
 @keyframes rotateAnimation {
     0% {
