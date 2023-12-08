@@ -95,13 +95,15 @@ function onLoad() {
   const key = 'filter';
   
     if (localStorage.getItem('filter'))
-    {   const filterObj = load('filter');
-        refs.currentfilter.innerText = filterObj.category;
+    {
+      const filterObj = load('filter');
+       if (filterObj.category !== null) {
+        refs.currentfilter.innerText = filterObj.category.replace(/_/g, ' ');
+      } 
     } else {
     return save(key, value);
-        
     }
-        
 }
+
 onLoad();
 
