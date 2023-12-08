@@ -79,7 +79,7 @@ li {
     transition: background-color 0.3s ease;
 }
 
-.header-logo:hover .logo {
+/* .header-logo:hover .logo {
     background-color: #E8E8E2;
     fill: #6D8434;
 }
@@ -90,7 +90,7 @@ li {
     font-size: 24px;
     font-style: normal;
     font-weight: 900;
-    line-height: 1em; /* 100% */
+    line-height: 1em;
     letter-spacing: -0.48px;
     transition: background-color 0.3s ease;
 }
@@ -104,7 +104,7 @@ li {
     width: 190px;
     height: 53px;
     border-radius: 9px;
-}
+} */
 
 .accent-word {
     color: #6D8434;
