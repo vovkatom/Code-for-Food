@@ -1,0 +1,107 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  position: relative;
+}
+
+.input_wrapper {
+  width: 800px;
+  margin: 10px auto;
+}
+
+input {
+  width: 50%;
+  height: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #4b96e6;
+}
+
+.pokemon_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 800px;
+  margin: 20px auto;
+  gap: 20px;
+}
+
+.pokemon_wrapper p {
+  width: 100%;
+}
+
+.pokemon_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 175px;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.pokemon_card img {
+  width: 100px;
+  height: 100px;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_content {
+  width: 700px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  word-wrap: wrap;
+  height: 500px;
+  overflow: auto;
+}
+
+.modal_body_abilities {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.modal_body_abilities .ability {
+  width: 100%;
+}
+
+.modal_body p {
+  margin: 10px;
+}
+
+.modal_body div span {
+  background: #6cc644;
+  margin: 10px 5px;
+  border-radius: 3px;
+  padding: 2px 4px;
+  color: white;
+}
+
+.modal_footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  border: 1px solid #4b96e6;
+  outline: none;
+  background: #4b96e6;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
