@@ -99,6 +99,13 @@
 
     .hero-title {
         width: 658px;
+        font-size: 80px;
+        height: 160px;  
+    }
+
+    .hero-text {
+        margin-top: 25px;
+        width: 492px;
     }
 
     .hero-image {
@@ -132,5 +139,6 @@
         width: 1042px;
         height: 80px;
         display: inline;
+        white-space: nowrap;
     }
 }
