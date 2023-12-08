@@ -16,7 +16,7 @@ const refs = {
 
 let foodInfo = [];
 
-export async function fetchAndRender() {
+async function fetchAndRender() {
   // визначається скільки завантажиться li в залежності від ширини екрана
   // if (window.innerWidth < 1440 && window.innerWidth > 767) {
   //     limit = 8;
