@@ -13,35 +13,41 @@ import iconsSvg from '../../img/icons.svg';
 // }
 
 fetchInfoFood()
-    .then((data) => console.log(data))
-    .catch((err) => {
-        console.log(err);
-})
+  .then(data => console.log(data))
+  .catch(err => {
+    console.log(err);
+  });
 
 async function fetchInfoFood() {
-const url = `https://food-boutique.b.goit.study/api/products/{Id}`;
-try {
+  // Показываем лоадер перед запросом
+  document.getElementById('overlay').style.display = 'flex';
+
+  const url = `https://food-boutique.b.goit.study/api/products/{Id}`;
+  try {
     const responce = await axios.get(url);
     return responce.data;
-} catch (error) {
+  } catch (error) {
     throw error;
-}
+  } finally {
+    // Скрываем лоадер после выполнения запроса
+    document.getElementById('overlay').style.display = 'none';
+  }
 }
 
-const modalContent = document.querySelector(".modal__content");
-const closeIcon = document.querySelector(".close-icon");
+const modalContent = document.querySelector('.modal__content');
+const closeIcon = document.querySelector('.close-icon');
 let prodList = [];
 
 async function createModalMarkup() {
-const lim = 2;
-try {
+  const lim = 2;
+  try {
     let responce = await fetchDiscontFood();
     prodList = responce.slice(0, lim);
-    
+
     const createProducts = prodList
-        .map(({ img, name, popularity, desc, category, price, size, _id }) => {
-            const cleanedCategory = category.replace(/_/g, ' ');
-            
+      .map(({ img, name, popularity, desc, category, price, size, _id }) => {
+        const cleanedCategory = category.replace(/_/g, ' ');
+
         return `<li class="item-pl" data-id="${_id}">
                 <div class="background-img-pl">
                     <img src="${img}" alt="" class="img-pl" loading="lazy" />
@@ -64,13 +70,13 @@ try {
                     </button>
                 </div>
             </li>`;
-    })
-    .join('');
+      })
+      .join('');
 
     discountList.insertAdjacentHTML('beforeend', createProducts);
-} catch (error) {
+  } catch (error) {
     console.error(error);
-}
+  }
 }
 
 window.addEventListener('load', createModalMarkup);
@@ -82,22 +88,15 @@ linkBag.addEventListener('click', addCart);
 let btn;
 
 function addCart(evt) {
-btn = evt.target.closest('.btn-pl');
-if (evt.target.closest('.btn-pl')) {
+  btn = evt.target.closest('.btn-pl');
+  if (evt.target.closest('.btn-pl')) {
     addToCart(evt, prodList);
+  }
+  const svg = btn.querySelector('.img-svg-osnova use');
+  svg.setAttribute('href', '../../img/icons.svg#icon-cart');
+  btn.setAttribute('disabled', true);
+  btn.style.cursor = 'auto';
 }
-const svg = btn.querySelector('.img-svg-osnova use');
-svg.setAttribute('href', '../../img/icons.svg#icon-cart');
-btn.setAttribute('disabled', true);
-btn.style.cursor = 'auto';
-}
-
-
-
-    
-
-
-
 
 // function fetchInfoFood() {
 //     const url = `https://food-boutique.b.goit.study/api/products/{id}`;
