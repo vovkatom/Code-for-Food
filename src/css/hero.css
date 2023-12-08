@@ -10,7 +10,9 @@
 }
 
 .hero-title {
+    display: inline-block;
     width: 335px;
+    height: 95px;
     color: #010101;
     text-align: center;
     font-family: 'NeueMontreal', sans-serif;
@@ -20,13 +22,16 @@
     line-height: 1.09em; /* 109.091% */
     letter-spacing: -0.88px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+}
+
+.accent-word {
+    display: inline-block;
 }
 
 .hero-text {
-    font-family: 'NeueMontreal';
+    display: inline-block;
+
+    font-family: 'Neue Montreal';
     margin-top: 16px;
     margin-bottom: 32px;
     width: 292px;
@@ -37,10 +42,6 @@
     font-style: normal;
     font-weight: 200;
     line-height: 1.28em; /* 128.571% */
-}
-
-.accent-word {
-    display: inline;
 }
 
 .hero-image {
