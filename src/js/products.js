@@ -51,8 +51,14 @@ async function fetchAndRender() {
 
 
 function renderFoodItems(foodInfo) {
+    const storage = localStorage.getItem(KEY_CART);
+
 const createElement = foodInfo.map(({ img, name, popularity, category, price, size, _id }) => {
-                const cleanedCategory = category.replace(/_/g, ' ');
+    const cleanedCategory = category.replace(/_/g, ' ');
+    
+    const isIDInLocaleStorage = storage ? JSON.parse(storage).some(item => item._id === _id) : false;
+
+    const svgHref = isIDInLocaleStorage ? `${iconSvg}#icon-cart` : `${iconSvg}#icon-shopping-cart`;
 
                 return `<li class="item-pl" data-id="${_id}">
                 <div class="background-img-pl">
@@ -68,14 +74,14 @@ const createElement = foodInfo.map(({ img, name, popularity, category, price, si
                 </div>
                 <div class="price-container-pl">
                     <b class="price-pl">$${price}</b>
-                    <button class="btn-pl">
+                    <button class="btn-pl" ${isIDInLocaleStorage ? 'disabled' : ''}>
                         <svg class="icon-pl">
-                            <use href="${iconSvg}#icon-shopping-cart"></use>
+                            <use href="${svgHref}"></use>
                         </svg>
                     </button>
                 </div>
             </li>`;
-            }).join("");
+}).join("");
             refs.list.insertAdjacentHTML("beforeend", createElement);
 }
 
@@ -84,28 +90,32 @@ window.addEventListener("load", fetchAndRender)
 refs.list.addEventListener("click", handleButtonClick)
 
 function handleButtonClick(event) {
+    // отримуємо елемент, на якому відбувся клік 
     const clickedElement = event.target;
-    // шукаємо кнопку в елементі на який було клікнуто
+    // Знаходимо найближчий батьківський елемнт типу button  
     const closestButton = clickedElement.closest('button');
-
+    // перевіряємо чи знайдено кнопку 
     if (closestButton) {
+    // Знаходимо найближчий батьківський елемент li
         const closestLi = closestButton.closest('li');
-
+    // перевіряємо чи знайдено li
         if (closestLi) {
+            // отримуємо значення data-id з li
             const dataId = closestLi.dataset.id;
+            // знаходимо продукт за id в масиві foodInfo
             const clickedProduct = foodInfo.find(product => product._id === dataId);
+            // перевірка чи знайдено продукт
             if (clickedProduct) {
+            // виклик функції на додавання в localeStorage
                 add(clickedProduct, foodInfo)
             }
         }
+        // знаходимо елемент use в середині кнопки
         const svg = closestButton.querySelector('.icon-pl use');
         // зміна svg
         svg.setAttribute('href', `${iconSvg}#icon-cart`);
         // btn off
         closestButton.setAttribute('disabled', true);
-        closestButton.classList.remove(".btn-pl:hover")
-        // cursor standart
-        closestButton.style.cursor = "auto";
     }
 }
 

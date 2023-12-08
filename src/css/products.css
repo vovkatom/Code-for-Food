@@ -123,12 +123,15 @@
 .btn-pl:focus {
   background-color: #586f1f;
 }
-.btn-pl:disabled,
-.btn-pl:disabled:focus {
+.btn-pl:disabled {
   background-color: #6d8434;
+  cursor: auto;
 }
+
 .icon-pl {
   fill: #e8e8e2;
+  width: 18px;
+  height: 18px;
 }
 
 @media screen and (min-width: 768px) {
