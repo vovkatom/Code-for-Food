@@ -96,7 +96,7 @@ function onLoad() {
   
     if (localStorage.getItem('filter'))
     {   const filterObj = load('filter');
-        refs.currentfilter.innerText = filterObj.category.replace(/_/g, ' ');
+        refs.currentfilter.innerText = filterObj.category;
     } else {
     return save(key, value);
         
