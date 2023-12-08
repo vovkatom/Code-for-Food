@@ -21,9 +21,8 @@ async function createMarkup() {
     let responce = await fetchPopularFood();
     prodList = responce.slice(0, lim);
     const createProducts = prodList
-      .map(({ img, name, popularity, category, price, size, _id }) => {
+      .map(({ img, name, popularity, category, size, _id }) => {
         const cleanedCategory = category.replace(/_/g, ' ');
-        // const iconSvg = "./img/icons.svg#icon-shopping-cart"
         return  `<li class="item-popular" data-id="${_id}">
         <div class="background-img-popular">
             <img src="${img}" alt="" class="img-popular" loading="lazy" />
@@ -57,21 +56,25 @@ async function createMarkup() {
 
 window.addEventListener('load', createMarkup);
 
-// const linkBag = document.querySelector('.popular-list');
 
-// linkBag.addEventListener('click', addCart);
+const linkBag = document.querySelector('.popular-list');
 
-// let btn;
+linkBag.addEventListener('click', addCart);
 
-// function addCart(evt) {
-//   btn = evt.target.closest('.info-title-link');
-//   if (evt.target.closest('.info-title-link')) {
-//     addToCart(evt, prodList);
-//   }
-//   const svg = btn.querySelector('.img-svg-osnova use');
-//   svg.setAttribute('href', '../../img/icons.svg#icon-cart');
-//   btn.setAttribute('disabled', true);
-//   btn.style.cursor = 'auto';
-// }
+let btn;
+
+function addCart(evt) {
+  btn = evt.target.closest('.popularBtn');
+  if (evt.target.closest('.popularBtn')) {
+    addToCart(evt, prodList);
+  }
+
+  const svg = btn.querySelector('.icon-popular use');
+  svg.setAttribute('href', `${iconsSvg}#icon-cart`);
+  btn.setAttribute('disabled', true);
+  btn.style.cursor = 'auto';
+  btn.style.background = '#6d8434';
+  btn.style.border = '#6d8434';
+}
 
 

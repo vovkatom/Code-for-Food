@@ -136,26 +136,20 @@ function getCategoriesFromLS() {
 } 
 
 async function fetchFoodCategory() {
-    const obj = getCategoriesFromLS();
-    if (obj.category !== null) {
-        const url = `https://food-boutique.b.goit.study/api/products?category=${obj.category}&page=${obj.page}&limit=${obj.limit}`
-            try {
-                const responce = await axios.get(url)
-                return responce;
-            }
-            catch (error) {
-                throw error
-            }
+    const { keyword, category, page, limit } = getCategoriesFromLS();
+    const params = {
+        keyword: keyword || '',
+        category: category || '',
+        page: page,
+        limit: limit
     }
-    else if (obj.keyword === null && obj.category === null) {
-        const url = `https://food-boutique.b.goit.study/api/products?page=${obj.page}&limit=${obj.limit}`
-        try {
-                const responce = await axios.get(url)
-                return responce;
-            }
-            catch (error) {
-                throw error
-            }
-        }
+    const url = `https://food-boutique.b.goit.study/api/products?keyword=${params.keyword}&category=${params.category}&page=${params.page}&limit=${params.limit}`
+    try {
+        const responce = await axios.get(url)
+        return responce
+    }
+    catch (error) {
+        console.error(error)
+    }
 }
 
