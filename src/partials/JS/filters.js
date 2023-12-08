@@ -89,7 +89,10 @@ let select = function () {
 
 function handleCategory(event) {
   
-  const category = event.target.innerText.replace(/ /g, '_');
+  const category = event.target.innerText
+    .replace(/ /g, '_')
+    .replace(/&/g, '%26');;
+
   const storedData = localStorage.getItem('filter');
 // ! функція зміни категорії в local storage //
   if (storedData) {
