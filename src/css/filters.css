@@ -64,7 +64,6 @@ body {
   border: none;
   cursor: pointer;
   position: absolute;
-  top: 14px;
   right: 7%;
 }
 
@@ -144,6 +143,7 @@ input:focus {
   width: 20px;
 }
 .select__body {
+  z-index: 1;
   margin-top: 8px;
   left: 0;
   position: absolute;

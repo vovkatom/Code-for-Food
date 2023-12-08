@@ -44,19 +44,14 @@ async function fetchAndRender() {
 function renderFoodItems(foodInfo) {
   const storage = localStorage.getItem(KEY_CART);
 
-  const createElement = foodInfo
-    .map(({ img, name, popularity, category, price, size, _id }) => {
-      const cleanedCategory = category.replace(/_/g, ' ');
+const createElement = foodInfo.map(({ img, name, popularity, category, price, size, _id, is10PercentOff}) => {
+    const cleanedCategory = category.replace(/_/g, ' ');
+    const isIDInLocaleStorage = storage ? JSON.parse(storage).some(item => item._id === _id) : false;
+    const isPercent = is10PercentOff || (storage ? foodInfo.some(item => item.is10PercentOff === true) : false);
+    const svgDisc = isPercent ? "icon-discount-pl" : "visually-hidden"
+    const svgHref = isIDInLocaleStorage ? `${iconSvg}#icon-cart` : `${iconSvg}#icon-shopping-cart`;
 
-      const isIDInLocaleStorage = storage
-        ? JSON.parse(storage).some(item => item._id === _id)
-        : false;
-
-      const svgHref = isIDInLocaleStorage
-        ? `${iconSvg}#icon-cart`
-        : `${iconSvg}#icon-shopping-cart`;
-
-      return `<li class="item-pl" data-id="${_id}">
+                return `<li class="item-pl" data-id="${_id}">
                 <div class="background-img-pl">
                     <img src="${img}" alt="" class="img-pl" loading="lazy" />
                 </div>
@@ -70,14 +65,15 @@ function renderFoodItems(foodInfo) {
                 </div>
                 <div class="price-container-pl">
                     <b class="price-pl">$${price}</b>
-                    <button class="btn-pl" ${
-                      isIDInLocaleStorage ? 'disabled' : ''
-                    }>
+                    <button class="btn-pl" ${isIDInLocaleStorage ? 'disabled' : ''}>
                         <svg class="icon-pl">
                             <use href="${svgHref}"></use>
                         </svg>
                     </button>
                 </div>
+                <svg class="${svgDisc}">
+                <use href="${iconSvg}#icon-discount"></use>
+                </svg>
             </li>`;
 }).join("");
             refs.list.innerHTML = createElement;

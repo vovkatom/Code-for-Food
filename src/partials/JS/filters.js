@@ -88,7 +88,11 @@ let select = function () {
 // ! local storage !
 
 function handleCategory(event) {
-  const category = event.target.innerText.replace(/ /g, '_');
+  
+  const category = event.target.innerText
+    .replace(/ /g, '_')
+    .replace(/&/g, '%26');;
+
   const storedData = localStorage.getItem('filter');
 // ! функція зміни категорії в local storage //
   if (storedData) {
@@ -96,8 +100,10 @@ function handleCategory(event) {
       // Розпакувати JSON-рядок у Javascript-об'єкт
       const parsedData = JSON.parse(storedData);
       // Змінити тільки потрібну властивість (наприклад, keyword)
-      parsedData.category = `${category}`;
-
+      if (event.target.innerText !== 'Show all') { parsedData.category = `${category}` }
+      else {
+        parsedData.category = null;
+      }
       // Зберегти оновлений об'єкт назад в localStorage
       localStorage.setItem('filter', JSON.stringify(parsedData));
     } catch (error) {
