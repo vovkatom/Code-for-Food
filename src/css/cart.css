@@ -341,6 +341,7 @@
     align-items: baseline;
   }
   .cart-full {
+    flex-direction: row;
     display: flex;
     gap: 101px;
   }
@@ -370,10 +371,10 @@
 
 #email,
 #email::placeholder {
-  color: var(--color-text);
-  font-size: 14px;
-
-  opacity: 1;
+  color: #010101;
+  font-family: Neue Montreal;
+  font-size: 18px;
+  line-height: 1.13;
 }
 @media only screen and (min-width: 768px) {
   #email,
@@ -383,18 +384,15 @@
 }
 
 .input-container .notation {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.28;
-}
-@media only screen and (min-width: 768px) {
-  .input-container .notation {
-    font-size: 18px;
-    line-height: 1.33;
-  }
+  color: rgba(1, 1, 1, 0.5);
+  font-family: Neue Montreal;
+  margin-right: 8px;
 }
 
 .order-btn {
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 1.28;
 
@@ -405,6 +403,10 @@
   border: none;
   border-radius: 30px;
 }
+.order-btn:active {
+  background: E8E8E2;
+}
+
 @media only screen and (min-width: 768px) {
   .order-btn {
     font-size: 20px;
@@ -419,4 +421,14 @@
   border-bottom: 1px solid rgba(1, 1, 1, 0.1);
   padding-bottom: 30px;
   position: relative;
+}
+.delete {
+  max-height: 465px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+@media only screen and (min-width: 768px) {
+  .delete {
+    max-height: 560px;
+  }
 }
