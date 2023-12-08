@@ -9,15 +9,13 @@ a {
   padding: 0;
 }
 
-.container-footer {
-  padding-left: 20px;
-  padding-right: 20px;
-}
 .link {
   text-decoration: none;
 }
 
-.footer {
+.footer.container {
+  padding-left: 20px;
+  padding-right: 20px;
   background: #6d8434;
 }
 .footer-wrap {
@@ -84,6 +82,9 @@ a {
   width: 40px;
   height: 40px;
 }
+.social-svg:hover {
+background: rgba(232, 232, 226, 0.20);
+}
 .company-motto {
   display: flex;
   flex-direction: column;
@@ -123,19 +124,20 @@ a {
   line-height: 1.29;
 }
 .subscription-input {
-  color: rgba(232, 232, 226, 0.6);
+  /* color: rgba(232, 232, 226, 0.6); */
+  color: #6d8434;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.29;
   border-radius: 30px;
   border: 1px solid #e8e8e2;
-  padding: 12px 0px 12px 0px;
+  padding: 12px 0px 12px 12px;
   align-items: center;
   max-width: 336px;
 }
 
 .subscription-input::placeholder {
-  padding: 18px 12px 0px 12px;
+  padding: 18px 12px 0px 0px;
 }
 .btn-subscription {
   color: #010101;
@@ -151,8 +153,7 @@ a {
   align-items: center;
   border: none;
 }
-.btn-subscription :hover,
-.btn-subscription :focus {
+.btn-subscription:hover {
   color: #6d8434;
 }
 .footer-text {
@@ -174,7 +175,7 @@ a {
 }
 
 @media screen and (min-width: 375px) {
-  .container {
+  .footer.container {
     min-width: 335px;
   }
   .subscription {
@@ -183,8 +184,7 @@ a {
 }
 
 @media screen and (min-width: 768px) {
-  .container-footer {
-    min-width: 704px;
+  .foote.container {
     padding-left: 32px;
     padding-right: 32px;
   }
@@ -265,7 +265,6 @@ a {
 
 @media screen and (min-width: 1440px) {
   .footer.container {
-    min-width: 1240px;
     padding-left: 100px;
     padding-right: 100px;
   }
