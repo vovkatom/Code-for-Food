@@ -1,4 +1,5 @@
 
+import axios from "axios";
 import {KEY_CART, cartArr} from "./cart-localestorage";
 
 
@@ -10,6 +11,7 @@ const refs = {
     cartFull:document.querySelector(".cart-full"),
     buttonDeleteProduct : document.querySelector(".btn-deleteProduct"),
     buttonCleanCart: document.querySelector(".delete-all-btn"),
+    formSubmit: document.querySelector(".form"),
     }
 
 
@@ -79,11 +81,62 @@ function createCartMarkUp(arr) {
         refs.cartEmpty.style.visibility = "visible";
         refs.cartFull.style.visibility = "hidden";
 
-
+        // ?????????????????????????????????????????????????????????????????????
         // Як правильно очистити лічильники і список, бо очищається лише при оновлені сторінки
         //refs.counterCart.textContent= "0";
         //refs.counterMainPage.textContent="0";
-        //cartArr.length === 0;
+        //cartArr.length === ??????;
         //refs.list.innerHTML === "";
     }
+
+
+    
+//Відправлення замовлення на сервер через форму
+
+    refs.formSubmit.addEventListener("submit", handlerFormSubmit);
+
+    function handlerFormSubmit(event) {
+        event.preventDefault();
+        const { email } = event.target.elements;
+        
+
+        //Створимо функцію, яка за допомогою map створить новий масив обєктів (лише з властивостями productId i amount), який потрібно передати на сервер
+        function createProducts (cartArr) {
+            const products =  cartArr.map(({_id}) => {
+                const productId = _id;
+                const newProduct = {
+                    productId,
+                    amount: 1,
+                }
+                return newProduct;
+            });
+            return products;
+        }
+        console.log(createProducts(cartArr));  
+
+    
+        //Створюємо обєкт для сервера з email покупця і масивом продуктів
+        const newOrder ={
+            email: email.value,
+            products: createProducts(cartArr),
+        };
+        console.log(newOrder); 
+        
+
+        // ?????????????????????????????????????????????? помилка
+        axios
+        .post("https://food-boutique.b.goit.study/api/orders", newOrder)
+        .then((data)=>console.log(data))
+        .catch((err)=>console.error(err));
+
+
+
+        //localStorage.removeItem(KEY_CART);
+        //form.reset();
+        
+        //Модальне вікно
+        
+    }
+
+    
 
