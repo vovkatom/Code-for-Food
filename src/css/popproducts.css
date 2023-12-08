@@ -90,7 +90,14 @@
     border-radius: 30px;
     background: #E8E8E2;
     border: #E8E8E2;
-    color: #E8E8E2;
+  }
+
+  .popularBtn:hover {
+    background: #6d8434;
+    border: #6d8434;
+  }
+  .popularBtn:hover .icon-popular {
+    fill: #E8E8E2;
   }
   .icon-popular {
     position: absolute;
