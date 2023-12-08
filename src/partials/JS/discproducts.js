@@ -69,7 +69,7 @@ function addCart(evt) {
     addToCart(evt, prodList);
   }
   const svg = btn.querySelector('.img-svg-osnova use');
-  svg.setAttribute('href', '../../img/icons.svg#icon-cart');
+  svg.setAttribute('href', `${iconsSvg}#icon-cart`);
   btn.setAttribute('disabled', true);
   btn.style.cursor = 'auto';
 }
