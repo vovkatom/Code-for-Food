@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { KEY_CART, cartArr, addToCart, findProduct } from './cart-localestorage';
+import { KEY_CART, cartArr, addToCart, findProduct } from '../partials/JS/cart-localestorage';
+import iconSvg from "../img/icons.svg"
 
 async function fetchFood(page, limit) {
     const url = `https://food-boutique.b.goit.study/api/products?page=${page}&limit=${limit}`
@@ -37,7 +38,6 @@ async function fetchAndRender() {
 
         const createElement = foodInfo.map(({ img, name, popularity, category, price, size, _id }) => {
             const cleanedCategory = category.replace(/_/g, ' ');
-            const iconSvg = "./img/icons.svg#icon-shopping-cart"
 
             return `<li class="item-pl" data-id="${_id}">
                 <div class="background-img-pl">
@@ -55,7 +55,7 @@ async function fetchAndRender() {
                     <b class="price-pl">$${price}</b>
                     <button class="btn-pl">
                         <svg class="icon-pl">
-                            <use href="${iconSvg}"></use>
+                            <use href="${iconSvg}#icon-shopping-cart"></use>
                         </svg>
                     </button>
                 </div>
@@ -91,7 +91,7 @@ function handleClick(event) {
         }
         const svg = closestButton.querySelector('.icon-pl use');
         // зміна svg
-        svg.setAttribute('href', "./img/icons.svg#icon-check");
+        svg.setAttribute('href', `${iconSvg}#icon-check`);
         // btn off
         closestButton.setAttribute('disabled', true);
         closestButton.classList.remove(".btn-pl:hover")
