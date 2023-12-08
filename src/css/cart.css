@@ -44,10 +44,10 @@
   .cart-section .container {
     /* padding-top: 100px; */
     /* padding-bottom: 120px; */
-    display: flex;
+    /* display: flex; */
   }
   .cart-section {
-    display: flex;
+    /* display: flex; */
   }
   /* .selected-items {
     display: flex;
@@ -81,6 +81,10 @@
     width: 42px;
     height: 42px;
     padding: 12px;
+  }
+  .form {
+    display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -326,7 +330,8 @@
     padding: 15px 20px;
     margin-bottom: 0;
     min-width: 359px;
-    /* width: 100%; */
+    width: 100%;
+    margin-right: 16px;
   }
 }
 @media only screen and (min-width: 1440px) {
