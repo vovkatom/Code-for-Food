@@ -6,7 +6,7 @@ width: 100%;
 height: 100%;
 background-color: rgba(0, 0, 0, 0.25);
 opacity: 1;
-transition: opacity $animation;
+/* transition: opacity $animation; */
 }
 
 .modal {
