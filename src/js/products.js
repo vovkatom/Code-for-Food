@@ -85,7 +85,7 @@ function renderFoodItems(foodInfo) {
                 <div class="background-img-pl">
                     <img src="${img}" alt="" class="img-pl" loading="lazy" />
                 </div>
-                <h3 class="product-name-pl">${name}</h3>
+                <h2 class="product-name-pl">${name}</h2>
                 <div class="product-info-pl">
                     <p class="paragraph-pl">
                         Category: <b class="value-pl">${cleanedCategory}</b>
