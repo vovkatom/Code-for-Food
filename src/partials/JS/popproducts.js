@@ -1,7 +1,7 @@
 import {
   KEY_CART,
   addToCart,
-} from '../partials/JS/cart-localestorage';
+} from './partials/JS/cart-localestorage';
 import axios from 'axios';
 import iconsSvg from './img/icons.svg';
 
@@ -22,7 +22,7 @@ async function fetchPopularFood() {
     document.getElementById('overlay').style.display = 'none';
   }
 }
-
+ 
 const popularList = document.querySelector('.popular-list');
 let prodList = [];
 
