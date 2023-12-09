@@ -5,7 +5,7 @@
 
 .error-load {
   width: 279px;
-  display: none;
+  display: flex;
   flex-direction: column;
   text-align: center;
   gap: 14px;
@@ -191,5 +191,20 @@
   .product-info-pl {
     margin-bottom: 20px;
     height: 37px;
+  }
+  .error-load {
+    margin-top: 150px;
+  }
+
+  .not-found-heading {
+    font-family: Neue Montreal;
+    font-size: 20px;
+    width: 371px;
+  }
+
+  .not-found-message {
+    font-family: Neue Montreal;
+    font-size: 18px;
+    width: 371px;
   }
 }

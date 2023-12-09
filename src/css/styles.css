@@ -25,6 +25,7 @@
   font-weight: 400;
   src: local('PP Neue Montreal Book'),
     url('../fonts/NeueMontreal-Regular.woff') format('woff');
+  font-display: swap;
 }
 
 @font-face {
@@ -33,6 +34,7 @@
   font-weight: 500;
   src: local('PP Neue Montreal Medium'),
     url('../fonts/NeueMontreal-Medium.woff') format('woff');
+  font-display: swap;
 }
 
 @font-face {
@@ -43,6 +45,7 @@
 
 :root {
   --color-text: #010101;
+  --color-text2: #0101014D; 
   --color-bckg: #e8e8e2;
   --color-card-bckg: #fafafa;
   --color-btn: #6d8434;
