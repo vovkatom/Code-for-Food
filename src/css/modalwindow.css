@@ -32,8 +32,10 @@ opacity: 1;
     position: absolute;
     top: 14px;
     right: 14px;
-    width: 22px;
-    height: 22px;
+    padding: 0;
+    margin: 0;
+    /* width: 22px;
+    height: 22px; */
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
@@ -87,6 +89,10 @@ opacity: 1;
     line-height: 1.17em; /* 116.667% */
 }
 
+.info-about-product {
+    margin-bottom: 60px;
+}
+
 .product-name-mob {
     margin-bottom: 10px;
     color: var(--color-text);
@@ -119,15 +125,15 @@ font-family: Neue Montreal;
 font-size: 14px;
 font-style: normal;
 font-weight: 400;
-line-height: 1.3em; /* 128.571% */
-margin-bottom: 60px;
+line-height: 1.25em; 
+
 }
 
 .price-container-mob {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    
+    /* margin-bottom: 40px; */
 }
 
 .price-mob {
@@ -136,7 +142,7 @@ margin-bottom: 60px;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
-    line-height: 1.1em; /* 120% */
+    line-height: 1.2em; /* 120% */
 }
 
 .btn-mob {
@@ -155,7 +161,7 @@ margin-bottom: 60px;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 18px; /* 128.571% */
+    line-height: 1.25em; 
 }
 .btn-mob:hover,
 .btn-mob:focus {
@@ -172,3 +178,79 @@ margin-bottom: 60px;
     margin-left: 10px;
 }
 
+@media screen and (min-width: 768px) {
+.modal-content {
+    display: flex;
+    /* flex-wrap: wrap; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    border-radius: 20px;
+    background: var(--color-card-bckg, #fafafa);
+    width: 600px;
+    height: 380px;
+    overflow: auto;
+    padding-top: 40px;
+    /* padding-bottom: 40px; */
+    padding-left: 40px;
+    padding-right: 40px;
+    gap: 24px;
+}
+
+.price-container-mob {
+    /* display: flex; */
+    align-items: flex-end;
+    justify-content: space-between;
+    /* margin-bottom: 40px; */
+}
+
+.background-img-mob {
+  display: flex;
+  justify-content: center;
+  width: 240px;
+  height: 212px;
+  padding: 26px 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: var(--color-bckg);
+}
+
+.button-modal-close {
+    display: flex;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    padding: 0;
+    margin: 0;
+    width: 28px;
+    height: 28px;
+}
+
+.info-about-product {
+margin-bottom: 0;
+}
+
+.product-name-mob {
+    margin-bottom: 10px;
+    color: var(--color-text);
+    font-family: Neue Montreal;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2em; /* 120% */
+}
+.product-info-mob {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.price-container-mob {
+    margin-bottom: 40px;
+    
+}
+
+}
+/* flex-wrap: wrap; */
