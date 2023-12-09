@@ -109,7 +109,7 @@ async function onSubmit(event) {
       parsedData.page = 1;
       localStorage.setItem('filter', JSON.stringify(parsedData));
     } catch (error) {
-      console.error('Error updating localStorage:', error);
+      console.error('Error updating  localStorage:', error);
     }
   }
 
