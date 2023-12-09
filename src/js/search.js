@@ -20,6 +20,7 @@ form.addEventListener('submit', handleInputOrSubmit);
 
 function handleInputOrSubmit(event) {
   event.preventDefault();
+// Введене значення не реагує на пробіли
   const keyword = form.elements.search.value.trim();
 
   // Визначення типу події
