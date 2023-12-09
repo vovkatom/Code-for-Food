@@ -23,7 +23,7 @@ if (storedData) {
     console.error('Error updating localStorage:', error);
   }
 }
-let responce = await fetchFoodCategory();
+let responce = fetchFoodCategory();
 let totalPage = responce.data.totalPages;
 
 let options = {
@@ -69,7 +69,7 @@ async function onSubmit(event) {
       console.error('Error updating localStorage:', error);
     }
   }
-  let responce = await fetchFoodCategory();
+  let responce = fetchFoodCategory();
   options.totalItems = responce.data.totalPages;
   const pagination = new Pagination(container, options);
 }
