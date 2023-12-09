@@ -3,7 +3,7 @@ import {
   addToCart,
 } from '/partials/JS/cart-localestorage.js';
 import axios from 'axios';
-import iconsSvg from './img/icons.svg';
+import iconsSvg from '../../img/icons.svg';
 
 async function fetchPopularFood() {
   const url = `https://food-boutique.b.goit.study/api/products/popular`;
