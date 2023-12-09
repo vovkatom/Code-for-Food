@@ -65,6 +65,7 @@ body {
   cursor: pointer;
   position: absolute;
   right: 7%;
+  top: 14px;
 }
 
 input:focus {
