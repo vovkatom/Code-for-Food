@@ -50,7 +50,7 @@ async function createMarkup() {
       <div class="discont-info-dop">
         <p class="info-price">$${price}</p>
         <div class="info-div">
-          <button class="info-title-link" data-_id=" aria-label="Add basket"${_id}">
+          <button class="info-title-link" data-_id="${_id}">
             <svg class="img-svg-osnova" data-_id="${_id}" width="18" height="18">
               <use class="use" data-_id="${_id}"
                 href="${svgHref}"
