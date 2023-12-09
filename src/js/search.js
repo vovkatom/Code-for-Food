@@ -20,36 +20,28 @@ form.addEventListener('submit', handleInputOrSubmit);
 
 function handleInputOrSubmit(event) {
   event.preventDefault();
-// Введене значення не реагує на пробіли
+  // Введене значення не реагує на пробіли
   const keyword = form.elements.search.value.trim();
+  const storedData = localStorage.getItem('filter');
 
   // Визначення типу події
-  if (event.type === 'input') {
+  if (event.type === 'input' || event.type === 'submit') {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
-      pushAndRender(keyword);
+      updateLocalStorage(keyword, storedData);
+      fetchAndRender();
     }, 1000);
-  } else if (event.type === 'submit') {
-    pushAndRender(keyword);
   }
-
 }
 
-const storedData = localStorage.getItem('filter');
-
-function pushAndRender(keyword) {
+function updateLocalStorage(keyword, storedData) {
   if (storedData) {
     try {
-      // Розпакувати JSON-рядок у Javascript-об'єкт
       const parsedData = JSON.parse(storedData);
-      // Змінити тільки потрібну властивість (наприклад, keyword)
       parsedData.keyword = `${keyword}`;
-
-      // Зберегти оновлений об'єкт назад в localStorage
       localStorage.setItem('filter', JSON.stringify(parsedData));
     } catch (error) {
       console.error('Error updating localStorage:', error);
     }
   }
-  fetchAndRender();
 }
