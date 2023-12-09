@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import { cartArr } from '../partials/JS/cart-localestorage';
+import { cartArr } from '/JS/cart-localestorage';
 
 document.addEventListener('DOMContentLoaded', updateCartNumber);
 
