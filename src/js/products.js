@@ -14,6 +14,7 @@ export {
   KEY_CATEGORY,
   renderFoodItems,
 };
+  // import {fetchInfoFood} from "../partials/JS/modalwindow.js"
 
 const refs = {
   list: document.querySelector('.product-list'),
@@ -74,6 +75,7 @@ const createMessage = `<div class="error-load">
         const svgHref = isIDInLocaleStorage ? `${iconSvg}#icon-cart` : `${iconSvg}#icon-shopping-cart`;
 
         return `<li class="item-pl" data-id="${_id}">
+        <div class="open-modal">
                 <div class="background-img-pl">
                     <img src="${img}" alt="" class="img-pl" loading="lazy" />
                 </div>
@@ -84,6 +86,7 @@ const createMessage = `<div class="error-load">
                     </p>
                     <p class="paragraph-pl">Size: <b class="value-pl">${size}</b></p>
                     <p class="paragraph-pl">Popularity: <b class="value-pl">${popularity}</b></p>
+                </div>
                 </div>
                 <div class="price-container-pl">
                     <b class="price-pl">$${price}</b>
@@ -242,7 +245,13 @@ function setLimit() {
   const limit = homManyLimit()
   const storedLimit = localStorage.getItem("filter");
   const parseLimit = JSON.parse(storedLimit);
-  parseLimit.limit = `${limit}`;
+  parseLimit.limit = Number(limit);
   localStorage.setItem("filter", JSON.stringify(parseLimit))
 }
 
+// refs.list.addEventListener('click', function (event) {
+//   const clickedElement = event.target;
+//   const closetDiv = clickedElement.closest("div.open-modal")
+//   const closetLi = closetDiv.closest("li")
+//   console.log(closetLi.dataset.id)
+// });
