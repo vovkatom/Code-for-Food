@@ -28,7 +28,7 @@ try {
 }
 }
 
-const modalContent = document.querySelector(".modal__content");
+const modalContent = document.querySelector('.modal-content');
 const closeIcon = document.querySelector(".close-icon");
 let prodList = [];
 
@@ -42,7 +42,7 @@ try {
         .map(({ img, name, popularity, desc, category, price, size, _id }) => {
             const cleanedCategory = category.replace(/_/g, ' ');
             
-        return `<li class="item-pl" data-id="${_id}">
+        return `<div class="item-pl" data-id="${_id}">
                 <div class="background-img-pl">
                     <img src="${img}" alt="" class="img-pl" loading="lazy" />
                 </div>
@@ -63,11 +63,11 @@ try {
                         </svg>
                     </button>
                 </div>
-            </li>`;
+            </div>`;
     })
     .join('');
 
-    discountList.insertAdjacentHTML('beforeend', createProducts);
+    modalContent.insertAdjacentHTML('beforeend', createProducts);
 } catch (error) {
     console.error(error);
 }
@@ -75,7 +75,7 @@ try {
 
 window.addEventListener('load', createModalMarkup);
 
-const linkBag = document.querySelector('.modalContent');
+const linkBag = document.querySelector('.modal-content');
 
 linkBag.addEventListener('click', addCart);
 

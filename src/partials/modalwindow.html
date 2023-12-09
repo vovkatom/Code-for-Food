@@ -1,13 +1,34 @@
-<div class="backdrop "> 
-<div class="modal ">
+<div class="backdrop"> 
+<div class="modal">
     
-    <div class="modal__content">
+    <div class="modal-content" data-id="${_id}">
         <button class="button-modal-close">
     <svg class="close-icon" width="22" height="22">
         <use href="../img/icons.svg#icon-x-close"></use>
     </svg>
     </button>
     <!-- сюда рендерится шаблон с разметкой и данными -->
+                <div class="background-img-mob">
+                    <img src="${img}" alt="" class="img-mob" loading="lazy" />
+                </div>
+                <h3 class="product-name-mob">${name}</h3>
+                <div class="product-info-mob">
+                    <p class="paragraph-mob">
+                        Category: <b class="value-mob">${cleanedCategory}</b>
+                    </p>
+                    <p class="paragraph-mob">Size: <b class="value-mob">${size}</b></p>
+                    <p class="paragraph-mob">Popularity: <b class="value-mob">${popularity}</b></p>
+                </div>
+                <p class="desc-mob">Description: <b class="value-mob">${desc}</b></p>
+                <div class="price-container-pl">
+                    <b class="price-mob">$${price}</b>
+                    <button class="btn-mob">Add to
+                        <svg class="icon-mob">
+                            <use href="${iconsSvg}"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
     </div>
 </div>
 </div>
