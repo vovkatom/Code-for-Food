@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream:src/partials/JS/popproducts.js
-=======
 import { addToCart } from '/partials/JS/cart-localestorage.js';
 import axios from 'axios';
 import iconsSvg from '../img/icons.svg';
@@ -83,4 +81,3 @@ function addCart(evt) {
   btn.style.background = '#6d8434';
   btn.style.border = '#6d8434';
 }
->>>>>>> Stashed changes:src/js/popproducts.js
