@@ -27,13 +27,13 @@
 @media only screen and (min-width: 768px) {
   .cart-title {
     font-size: 32px;
-    margin-top: 99px;
+    /* margin-top: 99px; */
     margin-bottom: 88px;
   }
 }
 @media only screen and (min-width: 1440px) {
   .cart-title {
-    margin-top: 77px;
+    /* margin-top: 77px; */
     margin-bottom: 105px;
   }
 }
@@ -76,7 +76,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
 .delete-all {
@@ -113,9 +113,9 @@
   fill: #010101;
   background: transparent;
   border: none;
-  position: absolute;
+  /* position: absolute;
   top: -52px;
-  right: 12px;
+  right: 12px; */
   padding: 0;
 }
 
@@ -217,11 +217,17 @@
 }
 
 /*Стилізація розмітки кошика */
+
+.cart-list{ 
+  width: 100%;
+}
+
 .selectedProduct {
   display: flex;
   flex-direction: row;
   padding-top: 40px;
   padding-bottom: 40px;
+  position: relative;
 }
 .product-picture {
   border-radius: 10px;
@@ -497,6 +503,7 @@
 }
 
 .success-delete-btn {
+  border: 0;
   fill: var(--color-btn-up-fill);
   color: var(--color-btn-up-fill);
   background: transparent;
@@ -514,4 +521,11 @@
 .success-delete-btn:hover,
 .success-delete-btn:focus {
   background-color: transparent;
+}
+
+
+.cart-delete__wrap{
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 15px;
 }
