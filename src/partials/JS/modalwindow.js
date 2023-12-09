@@ -1,4 +1,4 @@
-import { addToCart } from '/partials/JS/cart-localestorage.js';
+import { addToCart } from '/partials/js/cart-localestorage.js';
 import axios from 'axios';
 import iconsSvg from '../../img/icons.svg';
 // https://food-boutique.b.goit.study/api/products/:id
