@@ -54,7 +54,17 @@ async function fetchAndRender() {
 
 function renderFoodItems(foodInfo) {
   const storage = localStorage.getItem(KEY_CART);
-
+const createMessage = `<div class="error-load">
+                <h2 class="not-found-heading">Nothing was found for the selected <span
+                        class="green-word">filters...</span>
+                </h2>
+                <p class="not-found-message">Try adjusting your search parameters or browse our range by other criteria
+                    to
+                    find
+                    the perfect
+                    product for
+                    you.</p>
+            </div>`
   const createElement = foodInfo
     .map(
       ({
@@ -68,18 +78,10 @@ function renderFoodItems(foodInfo) {
         is10PercentOff,
       }) => {
         const cleanedCategory = category.replace(/_/g, ' ');
-        const isIDInLocaleStorage = storage
-          ? JSON.parse(storage).some(item => item._id === _id)
-          : false;
-        const isPercent =
-          is10PercentOff ||
-          (storage
-            ? foodInfo.some(item => item.is10PercentOff === true)
-            : false);
+        const isIDInLocaleStorage = storage ? JSON.parse(storage).some(item => item._id === _id) : false;
+        const isPercent = is10PercentOff || (storage ? foodInfo.some(item => item.is10PercentOff === true) : false);
         const svgDisc = isPercent ? 'icon-discount-pl' : 'visually-hidden';
-        const svgHref = isIDInLocaleStorage
-          ? `${iconSvg}#icon-cart`
-          : `${iconSvg}#icon-shopping-cart`;
+        const svgHref = isIDInLocaleStorage ? `${iconSvg}#icon-cart` : `${iconSvg}#icon-shopping-cart`;
 
         return `<li class="item-pl" data-id="${_id}">
                 <div class="background-img-pl">
@@ -110,7 +112,7 @@ function renderFoodItems(foodInfo) {
       }
     )
     .join('');
-  refs.list.innerHTML = createElement;
+  refs.list.innerHTML = createElement || createMessage;
 }
 
 window.addEventListener('load', fetchAndRender);
