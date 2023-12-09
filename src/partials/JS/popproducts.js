@@ -14,7 +14,7 @@ async function fetchPopularFood() {
     throw error;
   }
 }
-
+ 
 const popularList = document.querySelector('.popular-list');
 let prodList = [];
 
