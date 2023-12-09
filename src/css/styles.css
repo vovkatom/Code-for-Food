@@ -45,7 +45,7 @@
 
 :root {
   --color-text: #010101;
-  --color-text2: #0101014D; 
+  --color-text2: #0101014d;
   --color-bckg: #e8e8e2;
   --color-card-bckg: #fafafa;
   --color-btn: #6d8434;
@@ -84,7 +84,7 @@
 
 /*-----------------------LOADER---------------------------------*/
 .overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
