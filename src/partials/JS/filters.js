@@ -22,11 +22,13 @@ import iconSvg from '../../img/icons.svg';
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
 
 function fetchCategories() {
-  return axios.get(`${BASE_URL}/products/categories`).then(({ data }) => data).catch(error => {
-    Notiflix.Notify.failure(
-      `❌ Oops! Something went wrong! Error ${error} Try reloading the page! ❌`
-    );
-  });
+  // Показываем лоадер перед запросом
+  document.getElementById('overlay').style.display = 'flex';
+  
+  return axios
+    .get(`${BASE_URL}/products/categories`)
+    .then(({ data }) => data)
+    .catch(error => error)
 }
 
 const refs = {
@@ -136,7 +138,9 @@ function onLoad() {
   if (localStorage.getItem('filter')) {
     const filterObj = load('filter');
     if (filterObj.category !== null) {
-      refs.currentfilter.innerText = filterObj.category.replace(/_/g, ' ');
+      refs.currentfilter.innerText = filterObj.category
+        .replace(/_/g, ' ')
+        .replace(/%26/g, '&');
     }
   } else {
     return save(key, value);
