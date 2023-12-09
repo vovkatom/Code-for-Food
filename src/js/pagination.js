@@ -7,7 +7,7 @@ const FILTER = 'filter';
 const refs = {
   pagination: document.querySelector('.tui-pagination'),
   list: document.querySelector('.product-list'),
-  select: document.querySelector('.select'),
+  select: document.querySelector('.select__body'),
 };
 
 const container = document.getElementById('pagination');
@@ -23,9 +23,11 @@ let pageOrigin = 1;
 const storedData = localStorage.getItem(FILTER);
 if (storedData) {
   try {
-    console.log(storedData);
+    // console.log(storedData);
     const parsedData = JSON.parse(storedData);
     pageOrigin = parsedData.page;
+    console.log(parsedData.limit);
+    itemsPerPage = Number(parsedData.limit);
     pages(pageOrigin);
   } catch (error) {
     console.error('Error updating localStorage:', error);
@@ -41,8 +43,8 @@ function funcPagination(totalPage, pageOrigin = 1) {
   //   visiblePage = 0;
   // } else (visiblePage = 5;)
 
-  console.log(totalPage);
-  console.log(pageOrigin);
+  // console.log(totalPage);
+  // console.log(pageOrigin);
   let options = {
     totalItems: totalPage,
     itemsPerPage: itemsPerPage,
