@@ -170,7 +170,6 @@ function getCategoriesFromLS() {
   const storage = localStorage.getItem(KEY_CATEGORY);
   try {
     const parseData = JSON.parse(storage);
-    console.log(parseData);
 
     const defaultCategories = {
       // byABC: false,

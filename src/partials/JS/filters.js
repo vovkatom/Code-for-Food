@@ -209,19 +209,16 @@ refs.sort.addEventListener('click', handleSort);
 
 function handleSort(event) {
   const sortType = event.target.innerText
-  console.log(sortType);
-  
+   
   const storedData = localStorage.getItem('filter');
   
     try {
       const parsedData = JSON.parse(storedData);
-      console.log(parsedData);
         if (sortType === 'A to Z') {
           delete parsedData.byPrice;
           delete parsedData.byPopularity;
           parsedData.byABC = 'true';
           const updatedData = parsedData;
-          console.log(updatedData);
           save('filter', updatedData);
           fetchAndRender();
         } else if (sortType === 'Z to A') {
@@ -229,7 +226,6 @@ function handleSort(event) {
           delete parsedData.byPopularity;
           parsedData.byABC = 'false';
           const updatedData = parsedData;
-          console.log(updatedData);
           save('filter', updatedData);
           fetchAndRender();
         } else if (sortType === 'Cheap') {
@@ -237,7 +233,6 @@ function handleSort(event) {
           delete parsedData.byPopularity;
           parsedData.byPrice = 'true';
           const updatedData = parsedData;
-          console.log(updatedData);
           save('filter', updatedData);
           fetchAndRender();
         } else if (sortType === 'Expensive') {
@@ -245,7 +240,6 @@ function handleSort(event) {
           delete parsedData.byPopularity;
           parsedData.byPrice = 'false';
           const updatedData = parsedData;
-          console.log(updatedData);
           save('filter', updatedData);
           fetchAndRender();
         } else if (sortType === 'Popular') {
@@ -253,7 +247,6 @@ function handleSort(event) {
           delete parsedData.byPrice;
           parsedData.byPopularity = 'false';
           const updatedData = parsedData;
-          console.log(updatedData);
           save('filter', updatedData);
           fetchAndRender();
         } else if (sortType === 'Not Popular') {
@@ -261,7 +254,6 @@ function handleSort(event) {
           delete parsedData.byPrice;
           parsedData.byPopularity = 'true';
           const updatedData = parsedData;
-          console.log(updatedData);
           save('filter', updatedData);
           fetchAndRender();
         } else if (sortType === 'Show all') {
@@ -269,7 +261,6 @@ function handleSort(event) {
           delete parsedData.byPrice;
           delete parsedData.byPopularity;
           const updatedData = parsedData;
-          console.log(updatedData);
           save('filter', updatedData);
           fetchAndRender();
         }
