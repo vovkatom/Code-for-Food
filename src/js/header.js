@@ -1,9 +1,9 @@
 // import axios from 'axios';
 import { cartArr } from '../partials/JS/cart-localestorage';
 
-document.addEventListener('DOMContentLoaded', onItemNumber);
+document.addEventListener('DOMContentLoaded', updateCartNumber);
 
-async function onItemNumber() {
+function updateCartNumber() {
     let numberOfItems = cartArr.length;
     console.log(numberOfItems);
 
@@ -15,4 +15,4 @@ async function onItemNumber() {
     console.log(cartEl);
 }
 
-
+export {updateCartNumber};

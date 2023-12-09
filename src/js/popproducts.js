@@ -1,9 +1,9 @@
 import {
   KEY_CART,
   addToCart,
-} from 'src/partials/JS/cart-localestorage';
+} from '/partials/JS/cart-localestorage.js';
 import axios from 'axios';
-import iconsSvg from './img/icons.svg';
+import iconsSvg from '/img/icons.svg';
 
 
 

@@ -24,17 +24,7 @@ let foodInfo = [];
 async function fetchAndRender() {
   // Показываем лоадер перед запросом
   document.getElementById('overlay').style.display = 'flex';
-
-  // визначається скільки завантажиться li в залежності від ширини екрана
-  // if (window.innerWidth < 1440 && window.innerWidth > 767) {
-  //     limit = 8;
-  // }
-  // else if (window.innerWidth < 768) {
-  //     limit = 6;
-  // }
-  // else {
-  //     limit = 9;
-  // }
+  setLimit()
   const categoryInfo = await fetchFoodCategory();
 
   try {
@@ -170,8 +160,26 @@ function getCategoriesFromLS() {
   const storage = localStorage.getItem(KEY_CATEGORY);
   try {
     const parseData = JSON.parse(storage);
-    const { keyword, category, page, limit } = parseData;
-    return { keyword, category, page, limit };
+
+    const defaultCategories = {
+      // byABC: false,
+      // byPrice: false,
+      // byPopularity: false,
+    };
+
+    const categories = {
+      ...defaultCategories,
+      ...parseData,
+    };
+
+    // Додати перевірку та видалення значень, якщо вони відсутні
+    Object.keys(categories).forEach(key => {
+      if (categories[key] === undefined) {
+        delete categories[key];
+      }
+    });
+
+    return categories;
   } catch (error) {
     console.error(error);
     return null;
@@ -182,14 +190,29 @@ async function fetchFoodCategory() {
   // Показываем лоадер перед запросом
   document.getElementById('overlay').style.display = 'flex';
 
-  const { keyword, category, page, limit } = getCategoriesFromLS();
+  const { keyword, category, page, limit, byABC, byPrice, byPopularity } =
+    getCategoriesFromLS();
+
   const params = {
     keyword: keyword || '',
     category: category || '',
-    page: page,
-    limit: limit,
+    page: page || 1, // Додавання значення за замовчуванням, якщо воно відсутнє
+    limit: limit || 6, // Додавання значення за замовчуванням, якщо воно відсутнє
+    byABC: byABC || '',
+    byPrice: byPrice || '',
+    byPopularity: byPopularity || '',
   };
-  const url = `https://food-boutique.b.goit.study/api/products?keyword=${params.keyword}&category=${params.category}&page=${params.page}&limit=${params.limit}`;
+
+  const queryString = Object.keys(params)
+    .filter(
+      key =>
+        params[key] !== undefined && params[key] !== null && params[key] !== ''
+    )
+    .map(key => `${key}=${params[key]}`)
+    .join('&');
+
+  const url = `https://food-boutique.b.goit.study/api/products?${queryString}`;
+
   try {
     const response = await axios.get(url);
     return response;
@@ -200,3 +223,26 @@ async function fetchFoodCategory() {
     document.getElementById('overlay').style.display = 'none';
   }
 }
+
+function homManyLimit() {
+  let limit;
+if (window.innerWidth < 1440 && window.innerWidth > 767) {
+      limit = 8;
+  }
+  else if (window.innerWidth < 768) {
+      limit = 6;
+  }
+  else {
+      limit = 9;
+  }
+  return limit;
+}
+
+function setLimit() {
+  const limit = homManyLimit()
+  const storedLimit = localStorage.getItem("filter");
+  const parseLimit = JSON.parse(storedLimit);
+  parseLimit.limit = `${limit}`;
+  localStorage.setItem("filter", JSON.stringify(parseLimit))
+}
+

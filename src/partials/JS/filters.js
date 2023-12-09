@@ -35,6 +35,8 @@ const refs = {
   selector: document.querySelector('.select__body'),
   currentfilter: document.querySelector('.select__current'),
   list: document.querySelector('.product-list'),
+  sort: document.querySelector('.sort-body'),
+  currentSort: document.querySelector('.sort-current')
 };
 
 fetchCategories()
@@ -123,7 +125,7 @@ function handleCategory(event) {
   fetchAndRender();
 }
 
-// Записуємо шаблонний масив в localStorage, якщо там пусто
+//! Записуємо шаблонний масив в localStorage, якщо там пусто >
 
 function onLoad() {
   const obj = {
@@ -131,6 +133,9 @@ function onLoad() {
     category: null,
     page: 1,
     limit: 6,
+    // byABC: null,
+    // byPrice: 'true',
+    // byPopularity: null,
   };
   const value = obj;
   const key = 'filter';
@@ -142,13 +147,35 @@ function onLoad() {
         .replace(/_/g, ' ')
         .replace(/%26/g, '&');
     }
+    if (filterObj.byABC) {
+      if (filterObj.byABC === 'false') { refs.currentSort.innerText = 'Z to A'; }
+      if (filterObj.byABC === 'true') {
+        refs.currentSort.innerText = 'A to Z';
+      }
+    }
+    if (filterObj.byPrice) {
+      if (filterObj.byPrice === 'false') {
+        refs.currentSort.innerText = 'Expensive';
+      }
+      if (filterObj.byPrice === 'true') {
+        refs.currentSort.innerText = 'Cheap';
+      }
+    }
+    if (filterObj.byPopularity) {
+      if (filterObj.byPopularity === 'false') {
+        refs.currentSort.innerText = 'Popular';
+      }
+      if (filterObj.byPopularity === 'true') {
+        refs.currentSort.innerText = 'Not Popular';
+      }
+    }
   } else {
     return save(key, value);
     }
 }
 onLoad();
-
-// !------------------- Sort JS -----------------!\\
+// !^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// !------------------- Sort JS Markup-----------------!\\
 
 let sort = function() {
   let sortHeader = document.querySelectorAll('.sort-header');
@@ -175,3 +202,70 @@ let sort = function() {
   }
 };
 sort();
+// !^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+// ! -------------- SORT JS Work --------------------
+refs.sort.addEventListener('click', handleSort);
+
+function handleSort(event) {
+  const sortType = event.target.innerText
+   
+  const storedData = localStorage.getItem('filter');
+  
+    try {
+      const parsedData = JSON.parse(storedData);
+        if (sortType === 'A to Z') {
+          delete parsedData.byPrice;
+          delete parsedData.byPopularity;
+          parsedData.byABC = 'true';
+          const updatedData = parsedData;
+          save('filter', updatedData);
+          fetchAndRender();
+        } else if (sortType === 'Z to A') {
+          delete parsedData.byPrice;
+          delete parsedData.byPopularity;
+          parsedData.byABC = 'false';
+          const updatedData = parsedData;
+          save('filter', updatedData);
+          fetchAndRender();
+        } else if (sortType === 'Cheap') {
+          delete parsedData.byABC;
+          delete parsedData.byPopularity;
+          parsedData.byPrice = 'true';
+          const updatedData = parsedData;
+          save('filter', updatedData);
+          fetchAndRender();
+        } else if (sortType === 'Expensive') {
+          delete parsedData.byABC;
+          delete parsedData.byPopularity;
+          parsedData.byPrice = 'false';
+          const updatedData = parsedData;
+          save('filter', updatedData);
+          fetchAndRender();
+        } else if (sortType === 'Popular') {
+          delete parsedData.byABC;
+          delete parsedData.byPrice;
+          parsedData.byPopularity = 'false';
+          const updatedData = parsedData;
+          save('filter', updatedData);
+          fetchAndRender();
+        } else if (sortType === 'Not Popular') {
+          delete parsedData.byABC;
+          delete parsedData.byPrice;
+          parsedData.byPopularity = 'true';
+          const updatedData = parsedData;
+          save('filter', updatedData);
+          fetchAndRender();
+        } else if (sortType === 'Show all') {
+          delete parsedData.byABC;
+          delete parsedData.byPrice;
+          delete parsedData.byPopularity;
+          const updatedData = parsedData;
+          save('filter', updatedData);
+          fetchAndRender();
+        }
+    }catch (error) {
+      console.error('Error updating localStorage:', error);
+    }
+}
+// !^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
