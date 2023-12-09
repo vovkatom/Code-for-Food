@@ -3,7 +3,7 @@ import { cartArr } from '../partials/JS/cart-localestorage';
 
 document.addEventListener('DOMContentLoaded', onItemNumber);
 
-async function onItemNumber() {
+async function updateCartNumber() {
     let numberOfItems = cartArr.length;
     console.log(numberOfItems);
 
@@ -15,4 +15,4 @@ async function onItemNumber() {
     console.log(cartEl);
 }
 
-
+export {updateCartNumber};
