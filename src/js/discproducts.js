@@ -1,4 +1,4 @@
-import { KEY_CART, addToCart } from '../partials/JS/cart-localestorage.js';
+import { KEY_CART, addToCart } from '/js/cart-localestorage.js';
 import axios from 'axios';
 import iconsSvg from '../img/icons.svg';
 
