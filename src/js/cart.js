@@ -1,7 +1,5 @@
-export { cleanCart }
-
-import axios from 'axios'
-import { KEY_CART, cartArr, deleteFromCart } from "./cart-localestorage"
+import axios from 'axios';
+import { KEY_CART, cartArr, deleteFromCart, } from "./cart-localestorage";
 
 const refs = {
   counterCart: document.querySelector('.js-cart-numbers'),
@@ -9,13 +7,11 @@ const refs = {
   list: document.querySelector('.js-cart-list'),
   cartEmpty: document.querySelector('.js-empty-cart'),
   cartFull: document.querySelector('.cart-full'),
-  buttonDeleteProduct: '.delete-btn',
-  buttonCleanCart: document.querySelector('.js-delete-all-btn'),
-  formSubmit: document.querySelector('.form-cart'),
+  buttonDeleteProduct: document.querySelector('.btn-deleteProduct'),
+  buttonCleanCart: document.querySelector('.delete-all-btn'),
+  formSubmit: document.querySelector('.form'),
   totalPrice: document.querySelector(".total-price"),
-  cartSuccess: document.querySelector('.js-success'),
-  closeSuccess: document.querySelector('.js-close-success')
-}
+};
 
 //Функція наповнення кошика при оновленні сторінки
 fillCart()
@@ -27,8 +23,13 @@ function fillCart() {
     refs.cartFull.style.display = 'flex'
     refs.list.insertAdjacentHTML('beforeend', createCartMarkUp(cartArr))
 
-    updateTotal()
-
+    //Обчислюємо TOTAL 
+    const total = cartArr.reduce((previousValue,product) =>{
+      return previousValue + product.price
+    }, 0 );
+    refs.totalPrice.innerHTML = total.toFixed(2);
+    
+    
 
     // Записуємо в лічильники кількість товарів в кошику
     refs.counterCart.textContent = cartArr.length
@@ -84,23 +85,9 @@ function createCartMarkUp(arr) {
     .join('')
 }
 
-
-
-//По кліку на кнопву Delete видаляємо товар з корзини (функція deleteFromCart імпортується)
-
-function updateCartList() {
-  document.querySelectorAll(refs.buttonDeleteProduct).forEach(btn => {
-    btn.addEventListener('click', () => {
-      deleteFromCart(cartArr, btn)
-
-      refs.list.innerHTML = createCartMarkUp(cartArr)
-      updateCartList()
-      updateTotal()
-    })
-  })
-}
-
-updateCartList()
+//??????????????????????????????????????????????????????????????
+//По кліку на кнопву Delete видаляємо товар з корзини (функція імпортується)
+//refs.buttonDeleteProduct.addEventListener('click', deleteFromCart);
 
 
 
@@ -111,16 +98,12 @@ refs.buttonCleanCart.addEventListener('click', cleanCart)
 function cleanCart() {
   localStorage.removeItem(KEY_CART)
 
-  refs.cartEmpty.style.display = 'flex'
-  refs.cartFull.style.display = 'none'
-
+    refs.cartEmpty.style.visibility = 'visible';
+  refs.cartFull.style.visibility = 'hidden';
+  
   // Щоб очистити лічильники і список,перезаписуємо пустий масив
-  refs.list.innerHTML = createCartMarkUp(cartArr)
-  document.querySelector('.js-cart-numbers').innerHTML = 0
-  document.querySelector('#cart-count').innerHTML = 0
-}
-
-
+  refs.list.innerHTML = createCartMarkUp(cartArr);
+  }
 
 //Відправлення замовлення на сервер через форму
 refs.formSubmit.addEventListener('submit', handlerFormSubmit)
@@ -153,41 +136,30 @@ async function handlerFormSubmit(event) {
   const newOrder = {
     email: email.value,
     products: createProducts(cartArr),
-  }
-  console.log('newOrder', newOrder)
+  };
+  console.log(newOrder);
 
-  await axios
+  // Показываем лоадер перед запросом
+  document.getElementById('overlay').style.display = 'flex';
+
+  axios
     .post('https://food-boutique.b.goit.study/api/orders', newOrder)
     .then(data => {
-      console.log(data)
+      console.log(data);
+      // Скрываем лоадер после выполнения запроса
+      document.getElementById('overlay').style.display = 'none';
     })
     .catch(err => {
-      console.error(err)
-    }).finally(
-      () => {
-        openModalSuccess()
-      }
-    )
+      console.error(err);
+      // Скрываем лоадер после выполнения запроса
+      document.getElementById('overlay').style.display = 'none';
+    });
 
- }
-
-//Валідація вводу email
-function validateEmail(email) {
-  // const emailPattern = `/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/`
-  return true
-}
+    //?????????????????????????????????????? Після відправки запиту очищаємо корзину і форму,    та відображаємо вікно що корзина пуста
+  //localStorage.removeItem(KEY_CART);
+  //refs.list.innerHTML = createCartMarkUp(cartArr);
+  //form.reset();
 
 
-//Модальне вікно при успішному запиті
-function openModalSuccess() {
-  refs.cartSuccess.classList.remove('visually-hidden')
-  refs.closeSuccess.addEventListener('click', () => {
-    closeSuccessCart()
-  })
-}
-
-function closeSuccessCart() {
-  refs.cartSuccess.classList.add('visually-hidden')
-  refs.formSubmit.reset()
-  cleanCart()
+  //Модальне вікно ???????????????????????
 }

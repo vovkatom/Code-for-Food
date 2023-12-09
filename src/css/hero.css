@@ -11,7 +11,7 @@
 
 .hero-title {
     display: inline-block;
-    width: 335px;
+    /* width: 335px; */
     height: 95px;
     color: #010101;
     text-align: center;
@@ -21,7 +21,6 @@
     font-weight: 500;
     line-height: 1.09em; /* 109.091% */
     letter-spacing: -0.88px;
-
 }
 
 .accent-word {
