@@ -1,28 +1,72 @@
-button {
+/* button {
   border: 1px solid #4b96e6;
   outline: none;
   background: #4b96e6;
   color: white;
   padding: 8px 15px;
   border-radius: 5px;
-  margin-top: 10px;
-}
+  margin-top: 10px; 
+} */
 
 .tui-pagination {
-  height: 28px;
-  margin: 0px 0px 80px 0px !important;
+  width: 324px !important;
+  height: 25px !important;
+  margin: 0px auto 80px auto !important;
 }
 
 @media screen and (min-width: 768px) {
   .tui-pagination {
-    height: 28px;
-    margin: 0px 0px 100px 0px !important;
+    width: 472px !important;
+    height: 40px !important;
+    margin: 0px auto 100px auto !important;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .tui-pagination {
-    height: 28px;
-    margin: 0px 0px 61px 0px !important;
+    width: 472px !important;
+    height: 40px !important;
+    margin: 0px auto 61px auto !important;
   }
+}
+
+.tui-page-btn {
+  width: 25px !important;
+  height: 25px !important;
+  text-align: center !important;
+  border-radius: 50px !important;
+  margin-left: 8px !important;
+}
+
+@media screen and (min-width: 768px) {
+  .tui-page-btn {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+.tui-ico-prev .tui-ico-next {
+  color: #a3a3a3 !important;
+  text-align: center !important;
+}
+
+.tui-next {
+  background-color: #fafafa !important;
+  text-align: center !important;
+}
+
+.tui-prev {
+  background-color: #fafafa !important;
+  text-align: center !important;
+  margin-right: 0px !important;
+}
+
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  background: #6d8434 !important;
+  border-color: #6d8434 !important;
+}
+
+.tui-first {
+  margin-left: 0px !important;
 }

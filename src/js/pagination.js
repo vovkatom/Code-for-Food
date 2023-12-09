@@ -15,7 +15,7 @@ const container = document.getElementById('pagination');
 let totalPage = 1;
 //correct
 const itemsPerPage = 6;
-let visiblePage = 5;
+let visiblePage = 3;
 let pageOrigin = 1;
 
 //вытягивает с localStorage номер страницы - если была перегрузка страницы, то нужно вятянуть номер который был до перегрузки и
