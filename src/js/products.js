@@ -4,7 +4,7 @@ import {
   cartArr,
   addToCart,
   findProduct,
-} from '../partials/JS/cart-localestorage';
+} from '/js/cart-localestorage';
 import iconSvg from '../img/icons.svg';
 export {
   foodInfo,
