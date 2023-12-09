@@ -9,15 +9,7 @@ import {
   getCategoriesFromLS,
   KEY_CATEGORY,
   renderFoodItems,
-} from '../../js/products';
-import {
-  KEY_CART,
-  cartArr,
-  addToCart,
-  findProduct,
-} from './cart-localestorage.js';
-
-import iconSvg from '../../img/icons.svg';
+} from './products.js';
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
 
