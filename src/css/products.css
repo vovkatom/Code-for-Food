@@ -153,10 +153,15 @@
   overflow: hidden;
 }
 
+.section-products {
+  position: relative;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
 @media screen and (min-width: 768px) {
   .section-products {
     max-width: 768px;
-    margin: 0 auto;
   }
   .container-pl {
     width: 704px;
@@ -200,7 +205,6 @@
 @media screen and (min-width: 1440px) {
   .section-products {
     max-width: 1440px;
-    margin: 0 auto;
   }
   .container-pl {
     justify-content: start;
