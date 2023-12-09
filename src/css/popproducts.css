@@ -1,138 +1,143 @@
 .popular-title {
-    color: #010101;
-    font-family: Neue Montreal;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.17;
-    margin-bottom: 20px;
-  }
-  .popular-list {
-    display: flex;
-    gap: 14px;
-    flex-direction: column;
-    margin-bottom: 80px;
-  }
-  .item-popular {
-    display: flex;
-    position: relative;
-    border-radius: 10px;
-    background-color: #fafafa;
-    width: 335px;
-    height: 98px;
-  }
-  .background-img-popular {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    margin-left: 12px;
-    margin-right: 10px;
-    text-align: center;
-    border-radius: 10px;
-    background-color: #e8e8e2;
-    width: 74px;
-    height: 74px;
-  }
-  .img-popular {
-    margin: auto;
-    width: 56px;
-    height: 56px;
-  }
-  
-  .popular-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    justify-content: center;
-  }
-  
-  .popular-name {
-    color: #010101;
-    font-family: Neue Montreal;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.11;
-  }
-  .popular-info {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px;
-    width: 152px;
-  }
-  .popular-info-items {
-    color: rgba(1, 1, 1, 0.3);
-    font-family: Neue Montreal;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.17;
-  }
-  .value-popular {
-    color: #010101;
-    font-family: Neue Montreal;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.17;
-  }
-  .popularBtn {
-    margin-top: 12px;
-    margin-right: 12px;
-  margin-left: auto;
-    width: 20px;
-    height: 20px;
-    display: inline-flex;
-    padding: 4px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 30px;
-    background: #E8E8E2;
-    border: #E8E8E2;
-  }
+  color: #010101;
+  font-family: Neue Montreal;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.17;
+  margin-bottom: 20px;
+}
+.popular-list {
+  display: flex;
+  gap: 14px;
+  flex-direction: column;
+  margin-bottom: 80px;
+}
+.item-popular {
+  display: flex;
+  position: relative;
+  border-radius: 10px;
+  background-color: #fafafa;
+  width: 335px;
+  height: 98px;
+}
+.background-img-popular {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-left: 12px;
+  margin-right: 10px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #e8e8e2;
+  width: 74px;
+  height: 74px;
+}
+.img-popular {
+  margin: auto;
+  width: 56px;
+  height: 56px;
+}
 
-  .popularBtn:hover {
-    background: #6d8434;
-    border: #6d8434;
-  }
-  .popularBtn:hover .icon-popular {
-    fill: #E8E8E2;
-  }
-  .icon-popular {
-    position: absolute;
-    fill: #6d8434;
-  }
-  .use-popular {
-  }
-  
-  @media screen and (min-width: 375px) {}
-  
-  @media screen and (min-width: 768px) {
-      .item-popular {
-          width: 275px;
-          height: 98px;
-        }
-        .popular-list {
-          flex-wrap: wrap;
-          flex-direction: row;
-          gap: 13px;
-          margin-bottom: 64px;
-        }
-        .popular-title {
-          font-size: 28px;
-          line-height: 1.14;
-        }
-        .popular-name {
-          font-size: 20px;
-          line-height: 1.2;
-        }
-  }
-  
-  @media screen and (min-width: 1440px) {
-      .popular-list {
-          margin-bottom: 40px;
+.popular-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.popular-name {
+  color: #010101;
+  font-family: Neue Montreal;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.11;
+}
+.popular-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  width: 152px;
+}
+.popular-info-items {
+  color: rgba(1, 1, 1, 0.3);
+  font-family: Neue Montreal;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.17;
+}
+.value-popular {
+  color: #010101;
+  font-family: Neue Montreal;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.17;
+}
+.popularBtn {
+  margin-top: 12px;
+  margin-right: 12px;
+margin-left: auto;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  background: #E8E8E2;
+  border: #E8E8E2;
+}
+
+.popularBtn:hover {
+  background: #6d8434;
+  border: #6d8434;
+}
+.popularBtn:disabled {
+  background-color: #6d8434;
+  cursor: auto;
+}
+.popularBtn:hover .icon-popular {
+  fill: #E8E8E2;
+}
+.icon-popular {
+  position: absolute;
+  fill: #6d8434;
+}
+.use-popular {
+}
+
+@media screen and (min-width: 375px) {}
+
+@media screen and (min-width: 768px) {
+    .item-popular {
+        width: 275px;
+        height: 98px;
       }
-  }
-  
-  
+      .popular-list {
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 13px;
+        margin-bottom: 64px;
+      }
+      .popular-title {
+        font-size: 28px;
+        line-height: 1.14;
+      }
+      .popular-name {
+        font-size: 20px;
+        line-height: 1.2;
+      }
+}
+
+@media screen and (min-width: 1440px) {
+    .popular-list {
+        margin-bottom: 40px;
+    }
+}
+
+
+
