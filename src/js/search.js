@@ -1,39 +1,56 @@
-// import debounce from "lodash.debounce";
-import axios from "axios";
-// import {createMarkup} from './'
+// import { Notify } from "notiflix";
+// import {
+//     foodInfo,
+//     fetchAndRender,
+//     fetchFoodCategory,
+//     getCategoriesFromLS,
+//     KEY_CATEGORY,
+//     renderFoodItems,
+//   } from './products';
+// import { Input } from "postcss";
 
+// const form = document.getElementById('myForm');
+// const input = document.querySelector('.search-input')
+// let timeoutId; // Змінна для зберігання ідентифікатора таймаута
 
-let search = document.querySelector('.search-input');
-let value = search.value;
-console.log(value);
+// // Додавання слухача подій до форми
+// input.addEventListener('input', handleInputOrSubmit);
+// form.addEventListener('submit', handleInputOrSubmit);
 
-// Запис в LocaleStorage
-function saveInputToLocalStorage(value) {
-    localStorage.setitem('userInput', value);
-}
+// function handleInputOrSubmit(event) {
 
-// Функція для виклику запиту та отримання списку продуктів
-const BASE_URL = 'https://food-boutique.b.goit.study/api/';
-const productsEndpoint = 'products/'
+//   event.preventDefault();
 
-function fetchProducts() {
-    return axios.get(`${BASE_URL}${products}`)
-    .then(({data}) => data)
-}
+//   const keyword = event.target.elements.searchInput.value;
+//   console.log(keyword);
 
+//   // Визначення типу події
+//   if (event.type === 'input') {
+//     clearTimeout(timeoutId);
+//     timeoutId = setTimeout(() => {
+//       console.log('Input event after 0.3 second delay');
+//     }, 1000);
+//   } else if (event.type === 'submit') {
+//     console.log('Submit event triggered');
+//   }
 
-// const refs = {
-//     label: document.querySelector('.search-label'),
-//     input: document.querySelector('.search-input')
+//   if (storedData) {
+//     try {
+//         // Розпакувати JSON-рядок у Javascript-об'єкт
+//         const parsedData = JSON.parse(storedData);
+//         // Змінити тільки потрібну властивість (наприклад, keyword)
+//         parsedData.keyword = `${keyword}`;
+
+//         // Зберегти оновлений об'єкт назад в localStorage
+//         localStorage.setItem('filter', JSON.stringify(parsedData));
+//     } catch (error) {
+//         console.error('Error updating localStorage:', error);
+//     }
+// }
+//     fetchAndRender();
 // }
 
-
-
-
-// refs.input.addEventListener('input', _.debounce() => {
-//     fetchProducts()
-// });
-
-// function onValueInput() {
-
-// }
+// // Слухач на форму
+// // По інпуту/сабміту = додаємо в ЛокалСторадж
+// // виклик handleSubmit
+// // fetchAndRender

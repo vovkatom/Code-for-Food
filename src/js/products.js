@@ -1,6 +1,11 @@
 import axios from 'axios';
-import { KEY_CART, cartArr, addToCart, findProduct } from '../partials/JS/cart-localestorage';
-import iconSvg from "../img/icons.svg"
+import {
+  KEY_CART,
+  cartArr,
+  addToCart,
+  findProduct,
+} from '../partials/JS/cart-localestorage';
+import iconSvg from '../img/icons.svg';
 export {
   foodInfo,
   fetchAndRender,
@@ -17,6 +22,9 @@ const refs = {
 let foodInfo = [];
 
 async function fetchAndRender() {
+  // Показываем лоадер перед запросом
+  document.getElementById('overlay').style.display = 'flex';
+
   // визначається скільки завантажиться li в залежності від ширини екрана
   // if (window.innerWidth < 1440 && window.innerWidth > 767) {
   //     limit = 8;
@@ -38,20 +46,42 @@ async function fetchAndRender() {
     renderFoodItems(foodInfo);
   } catch (error) {
     console.error(error);
+  } finally {
+    // Скрываем лоадер после выполнения запроса
+    document.getElementById('overlay').style.display = 'none';
   }
 }
 
 function renderFoodItems(foodInfo) {
   const storage = localStorage.getItem(KEY_CART);
 
-const createElement = foodInfo.map(({ img, name, popularity, category, price, size, _id, is10PercentOff}) => {
-    const cleanedCategory = category.replace(/_/g, ' ');
-    const isIDInLocaleStorage = storage ? JSON.parse(storage).some(item => item._id === _id) : false;
-    const isPercent = is10PercentOff || (storage ? foodInfo.some(item => item.is10PercentOff === true) : false);
-    const svgDisc = isPercent ? "icon-discount-pl" : "visually-hidden"
-    const svgHref = isIDInLocaleStorage ? `${iconSvg}#icon-cart` : `${iconSvg}#icon-shopping-cart`;
+  const createElement = foodInfo
+    .map(
+      ({
+        img,
+        name,
+        popularity,
+        category,
+        price,
+        size,
+        _id,
+        is10PercentOff,
+      }) => {
+        const cleanedCategory = category.replace(/_/g, ' ');
+        const isIDInLocaleStorage = storage
+          ? JSON.parse(storage).some(item => item._id === _id)
+          : false;
+        const isPercent =
+          is10PercentOff ||
+          (storage
+            ? foodInfo.some(item => item.is10PercentOff === true)
+            : false);
+        const svgDisc = isPercent ? 'icon-discount-pl' : 'visually-hidden';
+        const svgHref = isIDInLocaleStorage
+          ? `${iconSvg}#icon-cart`
+          : `${iconSvg}#icon-shopping-cart`;
 
-                return `<li class="item-pl" data-id="${_id}">
+        return `<li class="item-pl" data-id="${_id}">
                 <div class="background-img-pl">
                     <img src="${img}" alt="" class="img-pl" loading="lazy" />
                 </div>
@@ -65,7 +95,9 @@ const createElement = foodInfo.map(({ img, name, popularity, category, price, si
                 </div>
                 <div class="price-container-pl">
                     <b class="price-pl">$${price}</b>
-                    <button class="btn-pl" ${isIDInLocaleStorage ? 'disabled' : ''}>
+                    <button class="btn-pl" ${
+                      isIDInLocaleStorage ? 'disabled' : ''
+                    }>
                         <svg class="icon-pl">
                             <use href="${svgHref}"></use>
                         </svg>
@@ -75,9 +107,10 @@ const createElement = foodInfo.map(({ img, name, popularity, category, price, si
                 <use href="${iconSvg}#icon-discount"></use>
                 </svg>
             </li>`;
-}).join("");
-            refs.list.innerHTML = createElement;
-
+      }
+    )
+    .join('');
+  refs.list.innerHTML = createElement;
 }
 
 window.addEventListener('load', fetchAndRender);
@@ -144,6 +177,9 @@ function getCategoriesFromLS() {
 }
 
 async function fetchFoodCategory() {
+  // Показываем лоадер перед запросом
+  document.getElementById('overlay').style.display = 'flex';
+
   const { keyword, category, page, limit } = getCategoriesFromLS();
   const params = {
     keyword: keyword || '',
@@ -157,5 +193,8 @@ async function fetchFoodCategory() {
     return responce;
   } catch (error) {
     console.error(error);
+  } finally {
+    // Скрываем лоадер после выполнения запроса
+    document.getElementById('overlay').style.display = 'none';
   }
 }

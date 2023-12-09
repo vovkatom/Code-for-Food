@@ -3,12 +3,18 @@ import axios from 'axios';
 import iconsSvg from '../../img/icons.svg';
 
 async function fetchPopularFood() {
+  // Показываем лоадер перед запросом
+  document.getElementById('overlay').style.display = 'flex';
+
   const url = `https://food-boutique.b.goit.study/api/products/popular`;
   try {
     const responce = await axios.get(url);
     return responce.data;
   } catch (error) {
     throw error;
+  } finally {
+    // Скрываем лоадер после выполнения запроса
+    document.getElementById('overlay').style.display = 'none';
   }
 }
 
@@ -23,7 +29,7 @@ async function createMarkup() {
     const createProducts = prodList
       .map(({ img, name, popularity, category, size, _id }) => {
         const cleanedCategory = category.replace(/_/g, ' ');
-        return  `<li class="item-popular" data-id="${_id}">
+        return `<li class="item-popular" data-id="${_id}">
         <div class="background-img-popular">
             <img src="${img}" alt="" class="img-popular" loading="lazy" />
         </div>
@@ -56,7 +62,6 @@ async function createMarkup() {
 
 window.addEventListener('load', createMarkup);
 
-
 const linkBag = document.querySelector('.popular-list');
 
 linkBag.addEventListener('click', addCart);
@@ -76,5 +81,3 @@ function addCart(evt) {
   btn.style.background = '#6d8434';
   btn.style.border = '#6d8434';
 }
-
-
