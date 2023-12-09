@@ -5,7 +5,6 @@ import {
 import axios from 'axios';
 import iconsSvg from './img/icons.svg';
 
-
 async function fetchPopularFood() {
   const url = `https://food-boutique.b.goit.study/api/products/popular`;
   try {
@@ -71,7 +70,6 @@ async function createMarkup() {
 
 window.addEventListener('load', createMarkup);
 
-
 const linkBag = document.querySelector('.popular-list');
 
 linkBag.addEventListener('click', addCart);
@@ -91,5 +89,6 @@ function addCart(evt) {
   btn.style.background = '#6d8434';
   btn.style.border = '#6d8434';
 }
+
 
 
