@@ -23,20 +23,26 @@ let pageOrigin = 1;
 const storedData = localStorage.getItem(FILTER);
 if (storedData) {
   try {
+    console.log(storedData);
     const parsedData = JSON.parse(storedData);
     pageOrigin = parsedData.page;
+    pages(pageOrigin);
   } catch (error) {
     console.error('Error updating localStorage:', error);
   }
 }
+// } else {
+//   pageOrigin = 1;
+// }
 
 //создание пагинации
-function funcPagination(totalPage) {
+function funcPagination(totalPage, pageOrigin = 1) {
   // if (totalPage <= 6) {
   //   visiblePage = 0;
   // } else (visiblePage = 5;)
 
   console.log(totalPage);
+  console.log(pageOrigin);
   let options = {
     totalItems: totalPage,
     itemsPerPage: itemsPerPage,
@@ -87,13 +93,13 @@ function loadMoreTrendMoves(event) {
 }
 
 // определяем сколько всего будет товаров и вызываем пагинацию передавая этот параметр
-async function pages() {
+async function pages(pageOrigin) {
   let responce = await fetchFoodCategory();
-  totalPage = responce.data.totalPages;
-  funcPagination(totalPage);
+  totalPage = responce.data.totalPages * responce.data.perPage;
+  funcPagination(totalPage, pageOrigin);
 }
 
-pages();
+pages(pageOrigin);
 
 //слушатель для смены категории товаров
 refs.select.addEventListener('click', onSubmit);
@@ -113,6 +119,7 @@ async function onSubmit(event) {
   }
 
   let responce = await fetchFoodCategory();
-  totalPage = responce.data.totalPages;
-  funcPagination(totalPage);
+  totalPage = responce.data.totalPages * responce.data.perPage;
+  let pageOrigin = 1;
+  funcPagination(totalPage, pageOrigin);
 }
