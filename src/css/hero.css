@@ -10,23 +10,27 @@
 }
 
 .hero-title {
+    display: inline-block;
     width: 335px;
+    height: 95px;
     color: #010101;
     text-align: center;
-    font-family: 'NeueMontreal', sans-serif;
+    font-family: 'Neue Montreal';
     font-size: 44px;
     font-style: normal;
     font-weight: 500;
     line-height: 1.09em; /* 109.091% */
     letter-spacing: -0.88px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+}
+
+.accent-word {
+    display: inline-block;
 }
 
 .hero-text {
-    font-family: 'NeueMontreal';
+    display: inline-block;
+    font-family: 'Neue Montreal';
     margin-top: 16px;
     margin-bottom: 32px;
     width: 292px;
@@ -37,10 +41,6 @@
     font-style: normal;
     font-weight: 200;
     line-height: 1.28em; /* 128.571% */
-}
-
-.accent-word {
-    display: inline;
 }
 
 .hero-image {
@@ -56,6 +56,19 @@
     position: relative;
 }
 
+.leaf {
+
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    
+    width: 100px;
+    height: 100px;
+
+    top: -30px;
+    right: 10px;
+}
+
 .organic-food {
     position: absolute;
     
@@ -65,10 +78,12 @@
     top: -30px;
     right: 10px;
 
-    z-index: 999;
+    z-index: 998;
 
     animation: rotateAnimation 6s linear infinite;
 }
+
+
 
 @keyframes rotateAnimation {
     0% {
@@ -80,17 +95,13 @@
 }
 
 /* Add animation */
-@media screen and (min-width: 375px) {
+/* @media screen and (min-width: 375px) {
     .hero-section {
         width: 375px;
     }
-}
+} */
 
 @media screen and (min-width: 768px) and (max-width: 1440px) {
-    .hero {
-        height: 848px;
-    }
-
     .hero-section {
         width: 704px;
         margin: 0 auto;
@@ -98,6 +109,13 @@
 
     .hero-title {
         width: 658px;
+        font-size: 80px;
+        height: 160px;  
+    }
+
+    .hero-text {
+        margin-top: 25px;
+        width: 492px;
     }
 
     .hero-image {
@@ -131,5 +149,6 @@
         width: 1042px;
         height: 80px;
         display: inline;
+        white-space: nowrap;
     }
 }
