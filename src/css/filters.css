@@ -308,4 +308,7 @@ input:focus {
 }
 
 @media screen and (min-width: 1440px) {
+  .filter .container {
+    padding: 0 100px;
+  }
 }
