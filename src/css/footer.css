@@ -45,7 +45,7 @@ a {
 .footer-use {
 }
 .logo-text {
-  font-family: Fontspring;
+  font-family: 'Fontspring';
   color: #e8e8e2;
   font-size: 18px;
   font-style: normal;
@@ -124,8 +124,8 @@ background: rgba(232, 232, 226, 0.20);
   line-height: 1.29;
 }
 .subscription-input {
-  /* color: rgba(232, 232, 226, 0.6); */
-  color: #6d8434;
+  background-color: #6d8434;
+  color: #e8e8e2;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.29;
@@ -138,6 +138,7 @@ background: rgba(232, 232, 226, 0.20);
 
 .subscription-input::placeholder {
   padding: 18px 12px 0px 0px;
+    color: rgba(232, 232, 226, 0.6);
 }
 .btn-subscription {
   color: #010101;
