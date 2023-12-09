@@ -6,7 +6,7 @@
         <label for="search-form" class="search-label">
           <input
             type="text"
-            name="search-form"
+            name="search"
             class="search-input"
             autocomplete="off"
             placeholder="Search for anything"
@@ -26,13 +26,32 @@
             </svg>
           </div>
         </div>
-
         <div class="select__body">
           <div class="select__item">Show all</div>
         </div>
       </div>
-    </div>
+
+      <div class="sort">
+        <div class="sort-header">
+          <span class="sort-current">A to Z</span>
+          <div class="sort-icon">
+            <svg class="down-icon">
+              <use href="./img/icons.svg#icon-chevron-down"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="sort-body">
+          <div class="sort-item">A to Z</div>
+          <div class="sort-item">Z to A</div>
+          <div class="sort-item">Cheap</div>
+          <div class="sort-item">Expensive</div>
+          <div class="sort-item">Popular</div>
+          <div class="sort-item">Not Popular</div>
+          <div class="sort-item">Show all</div>
+        </div>
+      </div>
+
   </div>
 </section>
 <script src="/partials/JS/filters.js" type="module"></script>
-<script src="../js/search.js" type="module"></script>
+<script src="./js/search.js" type="module"></script>

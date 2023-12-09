@@ -9,78 +9,81 @@ a {
   padding: 0;
 }
 
-.container {
-  padding-left: 20px;
-  padding-right: 20px;
-}
 .link {
   text-decoration: none;
 }
 
-.footer {
+.footer.container {
+  padding-left: 20px;
+  padding-right: 20px;
   background: #6d8434;
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
 }
-.logo {
-  padding-top: 44px;
-  margin-bottom: 24px;
+.footer-wrap {
+  padding-top: 40px;
+}
+
+.footer-logo {
   display: flex;
   gap: 8px;
   justify-content: flex-start;
-align-items: center;
+  align-items: center;
+  padding-bottom: 20px;
 }
-/* .footer-logo {
+.footer-logo-link {
+  width: 28px;
+  height: 28px;
+}
+.footer-svg {
+  border-radius: 50%;
+  margin: 0;
+  background-color: #e8e8e2;
+  fill: #6d8434;
+  padding: 6px;
+  width: 28px;
+  height: 28px;
+}
+.footer-use {
+}
+.logo-text {
+  font-family: 'Fontspring';
   color: #e8e8e2;
   font-size: 18px;
+  font-style: normal;
   font-weight: 900;
   line-height: 1.11;
   letter-spacing: -0.02em;
-} */
-.logo-svg {
-    /* position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%); */
-    /* fill: #6d8434;
-    stroke: #E8E8E2; 
- fill:  #E8E8E2; */
-    /* stroke: #6d8434; */
-    stroke: #010101; 
-     fill: #010101;
-    /* color: #010101; */
-}
-.ellipse-svg {
-    /* position: relative; */
-    /* fill: #6d8434; */
-    /* stroke: #E8E8E2; */
-    fill: #E8E8E2;
-}
-.logo-text {
-    color: #e8e8e2;
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 1.11;
-    letter-spacing: -0.02em;
 }
 
 .social {
   margin-bottom: 40px;
 }
+.logo-social {
+  gap: 20px;
+}
 .social-list {
   display: flex;
   gap: 12px;
 }
+.social-item {
+}
 
+.social-link {
+  width: 40px;
+  height: 40px;
+}
 .social-svg {
-    display: flex;
-padding: 8px;
-align-items: flex-start;
-gap: 8px;
-    border-radius: 10px;
-border: 1px solid rgba(232, 232, 226, 0.30);
-fill: #e8e8e2;
+  display: flex;
+  padding: 8px;
+  align-items: flex-start;
+  gap: 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(232, 232, 226, 0.3);
+  fill: #e8e8e2;
+  width: 40px;
+  height: 40px;
+}
+.social-svg:hover {
+background: rgba(232, 232, 226, 0.20);
 }
 .company-motto {
   display: flex;
@@ -121,19 +124,21 @@ fill: #e8e8e2;
   line-height: 1.29;
 }
 .subscription-input {
-  color: rgba(232, 232, 226, 0.6);
+  background-color: #6d8434;
+  color: #e8e8e2;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.29;
   border-radius: 30px;
   border: 1px solid #e8e8e2;
-  padding: 12px 0px 12px 0px;
+  padding: 12px 0px 12px 12px;
   align-items: center;
   max-width: 336px;
 }
 
 .subscription-input::placeholder {
-  padding: 18px 12px 0px 12px;
+  padding: 18px 12px 0px 0px;
+    color: rgba(232, 232, 226, 0.6);
 }
 .btn-subscription {
   color: #010101;
@@ -149,9 +154,8 @@ fill: #e8e8e2;
   align-items: center;
   border: none;
 }
-.btn-subscription :hover,
-.btn-subscription :focus{
-    color: #6d8434;
+.btn-subscription:hover {
+  color: #6d8434;
 }
 .footer-text {
   color: #e8e8e2;
@@ -172,7 +176,7 @@ fill: #e8e8e2;
 }
 
 @media screen and (min-width: 375px) {
-  .container {
+  .footer.container {
     min-width: 335px;
   }
   .subscription {
@@ -181,8 +185,7 @@ fill: #e8e8e2;
 }
 
 @media screen and (min-width: 768px) {
-  .container {
-    min-width: 704px;
+  .foote.container {
     padding-left: 32px;
     padding-right: 32px;
   }
@@ -197,9 +200,10 @@ fill: #e8e8e2;
     gap: 24px;
     margin-top: 44px;
   }
-  .logo {
-    margin-bottom: 0;
+  .footer-logo {
+    padding-bottom: 0;
     padding-top: 0;
+    min-width: 197px;
   }
   .motto-subscription {
     display: flex;
@@ -209,12 +213,15 @@ fill: #e8e8e2;
   .social {
     margin-bottom: 0;
   }
+  .social-item {
+    width: 44px;
+    height: 44px;
+  }
   .company-motto {
     gap: 20px;
     margin-bottom: 64px;
   }
   .logo-text {
-    font-family: FONTSPRING DEMO - Quincy CF Black;
     color: #e8e8e2;
     font-size: 24px;
     line-height: 1;
@@ -258,28 +265,36 @@ fill: #e8e8e2;
 }
 
 @media screen and (min-width: 1440px) {
-  .container {
-    min-width: 1240px;
+  .footer.container {
     padding-left: 100px;
     padding-right: 100px;
   }
   .footer-wrap {
     display: flex;
-    gap: 149px;
+    /* gap: 149px; */
     margin-bottom: 128px;
+    justify-content: space-between;
   }
+
+  .logo-text {
+    font-style: normal;
+    font-weight: 900;
+  }
+.footer-svg {
+  width: 32px;
+  height: 32px;
+}
+
   .motto-subscription {
     display: flex;
     flex-direction: row;
     gap: 148px;
     justify-content: space-between;
   }
-.company-motto {
+  .company-motto {
     max-width: 410px;
-}
-.subscription {
+  }
+  .subscription {
     margin-right: 0 auto;
+  }
 }
-}
-
-

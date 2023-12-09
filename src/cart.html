@@ -2,14 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="With Food Boutique, you're not just subscribing to food, you're signing up for a fresher, fitter, and happier you."
+    />
     <link rel="icon" type="image/ico" href="./img/favicon.ico" />
-    <link 
-      rel="preload" 
+    <link
+      rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
       integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-      as="style" 
+      as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,7 +27,20 @@
     <load ="partials/header.html" />
     <!-- cart-section -->
     <load ="partials/cart-section.html" />
+    <load ="partials/succes-modal.html" />
     <!-- Footer -->
     <load ="partials/footer.html" />
   </body>
 </html>
+
+<!-- файлы кошика
+cart-section.html
+succes-modal.html
+Проблемы по разметке:
+1. при подключении прокрутки в cart.css на .delete
+скрывается кнопка delete-all-btn
+2. при удалении всех товаров кнопкой delete-all-btn
+остается большое пустое поле до empty-cart
+3. подключить модальное окно src/partials/succes-modal.html при нажатии на кнопку order-btn
+4. плывет разметка на input-container
+5. container в секции cart-section делает большой отступ вниз - как его удалить?-->

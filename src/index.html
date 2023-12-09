@@ -2,14 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="With Food Boutique, you're not just subscribing to food, you're signing up for a fresher, fitter, and happier you."
+    />
     <link rel="icon" type="image/ico" href="./img/favicon.ico" />
-    <link 
-      rel="preload" 
+    <link
+      rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
       integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-      as="style" 
+      as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,13 +21,14 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
+    <div class="overlay" id="overlay">
+      <span class="loader"></span>
+    </div>
     <!-- header + hero Olha Maslova -->
     <load ="partials/header.html" />
     <load ="partials/hero.html" />
     <!-- Filter Mykola Mandra -->
     <load ="partials/filters.html" />
-    <!--  Elena -->
-    <load ="partials/pagination.html" />
     <!--  Maryna -->
     <load ="partials/modalwindow.html" />
 
@@ -32,6 +37,8 @@
         <div class="products">
           <!-- Products Valera Boboshko / Sed Kol -->
           <load ="partials/products.html" />
+          <!--  Elena -->
+          <load ="partials/pagination.html" />
         </div>
         <div class="dopproducts">
           <div class="popproducts">

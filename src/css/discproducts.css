@@ -4,9 +4,9 @@
   }
 }
 
-.products {
+/* .products {
   width: 925px;
-}
+} */
 
 .section-products {
   /* padding-top: 40px; */
@@ -19,11 +19,11 @@
   }
 }
 
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
+} */
 
 /*---BASE styles-----*/
 

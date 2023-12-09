@@ -1,14 +1,20 @@
-import { addToCart } from '/partials/JS/cart-localestorage.js';
+import { KEY_CART, addToCart } from '../partials/JS/cart-localestorage.js';
 import axios from 'axios';
-import iconsSvg from '../../img/icons.svg';
+import iconsSvg from '../img/icons.svg';
 
 async function fetchDiscontFood() {
+  // Показываем лоадер перед запросом
+  document.getElementById('overlay').style.display = 'flex';
+
   const url = `https://food-boutique.b.goit.study/api/products/discount`;
   try {
     const responce = await axios.get(url);
     return responce.data;
   } catch (error) {
     throw error;
+  } finally {
+    // Скрываем лоадер после выполнения запроса
+    document.getElementById('overlay').style.display = 'none';
   }
 }
 
@@ -16,12 +22,21 @@ const discountList = document.querySelector('.discount-list');
 let prodList = [];
 
 async function createMarkup() {
+  const storage = localStorage.getItem(KEY_CART);
   const lim = 2;
   try {
     let responce = await fetchDiscontFood();
     prodList = responce.slice(0, lim);
+
     const createProducts = prodList
       .map(({ _id, name, img, price }) => {
+        const isIDInLocaleStorage = storage
+          ? JSON.parse(storage).some(item => item._id === _id)
+          : false;
+        const svgHref = isIDInLocaleStorage
+          ? `${iconsSvg}#icon-cart`
+          : `${iconsSvg}#icon-shopping-cart`;
+
         return `<li class="discount-item">
            <svg class="icon-discount" width="64" height="64">
                   <use href="${iconsSvg}#icon-discount"></use>
@@ -38,7 +53,7 @@ async function createMarkup() {
           <button class="info-title-link" data-_id="${_id}">
             <svg class="img-svg-osnova" data-_id="${_id}" width="18" height="18">
               <use class="use" data-_id="${_id}"
-                href="${iconsSvg}#icon-shopping-cart"
+                href="${svgHref}"
               ></use>
             </svg>
           </button>
