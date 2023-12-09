@@ -1,48 +1,59 @@
 import axios from 'axios';
-import { KEY_CART, cartArr, deleteFromCart } from './cart-localestorage';
+import { KEY_CART, cartArr, deleteFromCart, } from "./cart-localestorage";
 
 const refs = {
   counterCart: document.querySelector('.js-cart-numbers'),
   counterMainPage: document.querySelector('#cart-count'),
   list: document.querySelector('.js-cart-list'),
-  cartEmpty: document.querySelector('.empty-cart'),
+  cartEmpty: document.querySelector('.js-empty-cart'),
   cartFull: document.querySelector('.cart-full'),
   buttonDeleteProduct: document.querySelector('.btn-deleteProduct'),
   buttonCleanCart: document.querySelector('.delete-all-btn'),
   formSubmit: document.querySelector('.form'),
-  totalPrice: document.querySelector('.total-price'),
+  totalPrice: document.querySelector(".total-price"),
 };
 
 //Функція наповнення кошика при оновленні сторінки
-fillCart();
+fillCart()
 
 function fillCart() {
   //Якщо масив cartArr з localeStorage не пустий, то відмальовуємо товари в кошику, інакше показуємо заглушку
   if (cartArr.length !== 0) {
-    refs.cartEmpty.style.visibility = 'hidden';
-    refs.cartFull.style.visibility = 'visible';
-    refs.list.insertAdjacentHTML('beforeend', createCartMarkUp(cartArr));
+    refs.cartEmpty.style.display = 'none'
+    refs.cartFull.style.display = 'flex'
+    refs.list.insertAdjacentHTML('beforeend', createCartMarkUp(cartArr))
 
-    //Обчислюємо TOTAL
-    const total = cartArr.reduce((previousValue, product) => {
-      return previousValue + product.price;
-    }, 0);
+    //Обчислюємо TOTAL 
+    const total = cartArr.reduce((previousValue,product) =>{
+      return previousValue + product.price
+    }, 0 );
     refs.totalPrice.innerHTML = total.toFixed(2);
+    
+    
 
     // Записуємо в лічильники кількість товарів в кошику
-    refs.counterCart.textContent = cartArr.length;
-    refs.counterMainPage.textContent = cartArr.length;
+    refs.counterCart.textContent = cartArr.length
+    refs.counterMainPage.textContent = cartArr.length
   } else {
-    refs.cartEmpty.style.visibility = 'visible';
-    refs.cartFull.style.visibility = 'hidden';
+    refs.cartEmpty.style.display = 'flex'
+    refs.cartFull.style.display = 'none'
   }
+}
+
+//Обчислюємо TOTAL
+function updateTotal() {
+   
+  const total = cartArr.reduce((previousValue, product) => {
+    return previousValue + product.price
+  }, 0)
+  refs.totalPrice.innerHTML = total.toFixed(2)
 }
 
 //Розмітка картки в кошику
 function createCartMarkUp(arr) {
   return arr
     .map(({ _id, name, img, category, price, size }) => {
-      const cleanedCategory = category.replace(/_/g, ' ');
+      const cleanedCategory = category.replace(/_/g, ' ')
 
       return `<li class="selectedProduct" data-id=${_id}>
             <div class="product-picture">
@@ -69,48 +80,57 @@ function createCartMarkUp(arr) {
                 <span>${price}</span>
             </div>
             </div>
-        </li>`;
+        </li>`
     })
-    .join('');
+    .join('')
 }
 
 //??????????????????????????????????????????????????????????????
 //По кліку на кнопву Delete видаляємо товар з корзини (функція імпортується)
 //refs.buttonDeleteProduct.addEventListener('click', deleteFromCart);
 
+
+
+
 //По кліку на кнопву Delete all очищуємо корзину
-refs.buttonCleanCart.addEventListener('click', cleanCart);
+refs.buttonCleanCart.addEventListener('click', cleanCart)
 
 function cleanCart() {
-  localStorage.removeItem(KEY_CART);
+  localStorage.removeItem(KEY_CART)
 
-  refs.cartEmpty.style.visibility = 'visible';
+    refs.cartEmpty.style.visibility = 'visible';
   refs.cartFull.style.visibility = 'hidden';
-
+  
   // Щоб очистити лічильники і список,перезаписуємо пустий масив
   refs.list.innerHTML = createCartMarkUp(cartArr);
-}
+  }
 
 //Відправлення замовлення на сервер через форму
-refs.formSubmit.addEventListener('submit', handlerFormSubmit);
+refs.formSubmit.addEventListener('submit', handlerFormSubmit)
 
-function handlerFormSubmit(event) {
-  event.preventDefault();
-  const { email } = event.target.elements;
+async function handlerFormSubmit(event) {
+  event.preventDefault()
+  const { email } = event.target.elements
 
+  const valid = validateEmail(email)
+  console.log(valid)
+  if (!valid) {
+    console.log('email is invalid')
+    return
+  }
   //Створимо функцію, яка за допомогою map створить новий масив обєктів (лише з властивостями productId i amount), який потрібно передати на сервер
   function createProducts(cartArr) {
     const products = cartArr.map(({ _id }) => {
-      const productId = _id;
+      const productId = _id
       const newProduct = {
         productId,
         amount: 1,
-      };
-      return newProduct;
-    });
-    return products;
+      }
+      return newProduct
+    })
+    return products
   }
-  console.log(createProducts(cartArr));
+  console.log('createProducts', createProducts(cartArr))
 
   //Створюємо обєкт для сервера з email покупця і масивом продуктів
   const newOrder = {
@@ -119,19 +139,27 @@ function handlerFormSubmit(event) {
   };
   console.log(newOrder);
 
+  // Показываем лоадер перед запросом
+  document.getElementById('overlay').style.display = 'flex';
+
   axios
     .post('https://food-boutique.b.goit.study/api/orders', newOrder)
     .then(data => {
       console.log(data);
+      // Скрываем лоадер после выполнения запроса
+      document.getElementById('overlay').style.display = 'none';
     })
     .catch(err => {
       console.error(err);
+      // Скрываем лоадер после выполнения запроса
+      document.getElementById('overlay').style.display = 'none';
     });
 
-  //?????????????????????????????????????? Після відправки запиту очищаємо корзину і форму,    та відображаємо вікно що корзина пуста
+    //?????????????????????????????????????? Після відправки запиту очищаємо корзину і форму,    та відображаємо вікно що корзина пуста
   //localStorage.removeItem(KEY_CART);
   //refs.list.innerHTML = createCartMarkUp(cartArr);
   //form.reset();
+
 
   //Модальне вікно ???????????????????????
 }
