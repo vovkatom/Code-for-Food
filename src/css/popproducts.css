@@ -96,6 +96,10 @@
     background: #6d8434;
     border: #6d8434;
   }
+  .popularBtn:disabled {
+    background-color: #6d8434;
+    cursor: auto;
+  }
   .popularBtn:hover .icon-popular {
     fill: #E8E8E2;
   }
