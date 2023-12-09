@@ -7,7 +7,7 @@ const FILTER = 'filter';
 const refs = {
   pagination: document.querySelector('.tui-pagination'),
   list: document.querySelector('.product-list'),
-  select: document.querySelector('.select'),
+  select: document.querySelector('.select__body'),
 };
 
 const container = document.getElementById('pagination');
@@ -111,7 +111,7 @@ async function onSubmit(event) {
   if (storedData) {
     try {
       const parsedData = JSON.parse(storedData);
-      parsedData.page = 1;
+      // parsedData.page = 1;
       localStorage.setItem('filter', JSON.stringify(parsedData));
     } catch (error) {
       console.error('Error updating localStorage:', error);
