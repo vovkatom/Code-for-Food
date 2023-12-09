@@ -24,17 +24,7 @@ let foodInfo = [];
 async function fetchAndRender() {
   // Показываем лоадер перед запросом
   document.getElementById('overlay').style.display = 'flex';
-
-  // визначається скільки завантажиться li в залежності від ширини екрана
-  // if (window.innerWidth < 1440 && window.innerWidth > 767) {
-  //     limit = 8;
-  // }
-  // else if (window.innerWidth < 768) {
-  //     limit = 6;
-  // }
-  // else {
-  //     limit = 9;
-  // }
+  setLimit()
   const categoryInfo = await fetchFoodCategory();
 
   try {
@@ -233,3 +223,26 @@ async function fetchFoodCategory() {
     document.getElementById('overlay').style.display = 'none';
   }
 }
+
+function homManyLimit() {
+  let limit;
+if (window.innerWidth < 1440 && window.innerWidth > 767) {
+      limit = 8;
+  }
+  else if (window.innerWidth < 768) {
+      limit = 6;
+  }
+  else {
+      limit = 9;
+  }
+  return limit;
+}
+
+function setLimit() {
+  const limit = homManyLimit()
+  const storedLimit = localStorage.getItem("filter");
+  const parseLimit = JSON.parse(storedLimit);
+  parseLimit.limit = `${limit}`;
+  localStorage.setItem("filter", JSON.stringify(parseLimit))
+}
+
