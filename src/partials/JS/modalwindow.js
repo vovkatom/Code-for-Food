@@ -34,8 +34,8 @@ async function fetchInfoFood() {
   }
 }
 
-const modalContent = document.querySelector('.modal__content');
-const closeIcon = document.querySelector('.close-icon');
+const modalContent = document.querySelector('.modal-content');
+const closeIcon = document.querySelector(".close-icon");
 let prodList = [];
 
 async function createModalMarkup() {
@@ -45,10 +45,10 @@ async function createModalMarkup() {
     prodList = responce.slice(0, lim);
 
     const createProducts = prodList
-      .map(({ img, name, popularity, desc, category, price, size, _id }) => {
-        const cleanedCategory = category.replace(/_/g, ' ');
-
-        return `<li class="item-pl" data-id="${_id}">
+        .map(({ img, name, popularity, desc, category, price, size, _id }) => {
+            const cleanedCategory = category.replace(/_/g, ' ');
+            
+        return `<div class="item-pl" data-id="${_id}">
                 <div class="background-img-pl">
                     <img src="${img}" alt="" class="img-pl" loading="lazy" />
                 </div>
@@ -69,19 +69,19 @@ async function createModalMarkup() {
                         </svg>
                     </button>
                 </div>
-            </li>`;
-      })
-      .join('');
+            </div>`;
+    })
+    .join('');
 
-    discountList.insertAdjacentHTML('beforeend', createProducts);
-  } catch (error) {
-    console.error(error);
+    modalContent.insertAdjacentHTML('beforeend', createProducts);
+} catch (error) {
+  console.error(error);
   }
 }
 
 window.addEventListener('load', createModalMarkup);
 
-const linkBag = document.querySelector('.modalContent');
+const linkBag = document.querySelector('.modal-content');
 
 linkBag.addEventListener('click', addCart);
 
