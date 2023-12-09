@@ -45,7 +45,7 @@
 
 :root {
   --color-text: #010101;
-  --color-text2: #0101014D; 
+  --color-text2: #0101014d;
   --color-bckg: #e8e8e2;
   --color-card-bckg: #fafafa;
   --color-btn: #6d8434;
@@ -95,6 +95,19 @@
   align-items: center;
   z-index: 1000;
 }
+
+/* .overlay {
+  position: absolute;
+  top: 62.5%;
+  left: 23.25%;
+  width: 1440px;
+  height: 1440px;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+} */
 
 .loader {
   width: 48px;
