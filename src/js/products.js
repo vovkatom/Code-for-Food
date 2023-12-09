@@ -35,14 +35,14 @@ async function fetchAndRender() {
   // else {
   //     limit = 9;
   // }
-  const categoryInfo = fetchFoodCategory();
+  const categoryInfo = await fetchFoodCategory();
 
   try {
-    let responce;
+    let response;
     if (categoryInfo) {
-      responce = await fetchFoodCategory(categoryInfo.page, categoryInfo.limit);
+      response = categoryInfo;
     }
-    foodInfo = responce.data.results;
+    foodInfo = response.data.results;
     renderFoodItems(foodInfo);
   } catch (error) {
     console.error(error);
@@ -191,8 +191,8 @@ async function fetchFoodCategory() {
   };
   const url = `https://food-boutique.b.goit.study/api/products?keyword=${params.keyword}&category=${params.category}&page=${params.page}&limit=${params.limit}`;
   try {
-    const responce = await axios.get(url);
-    return responce;
+    const response = await axios.get(url);
+    return response;
   } catch (error) {
     console.error(error);
   } finally {
