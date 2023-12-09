@@ -28,7 +28,8 @@ const refs = {
   currentfilter: document.querySelector('.select__current'),
   list: document.querySelector('.product-list'),
   sort: document.querySelector('.sort-body'),
-  currentSort: document.querySelector('.sort-current')
+  currentSort: document.querySelector('.sort-current'),
+  form: document.querySelector('#search')
 };
 
 fetchCategories()
@@ -139,12 +140,18 @@ function onLoad() {
         .replace(/_/g, ' ')
         .replace(/%26/g, '&');
     }
-    if (filterObj.byABC) {
-      if (filterObj.byABC === 'false') { refs.currentSort.innerText = 'Z to A'; }
-      if (filterObj.byABC === 'true') {
-        refs.currentSort.innerText = 'A to Z';
-      }
+    if (filterObj.keyword !== null) {
+      console.log(refs.form.elements.search);
+      refs.form.elements.search.value = filterObj.keyword
     }
+      if (filterObj.byABC) {
+        if (filterObj.byABC === 'false') {
+          refs.currentSort.innerText = 'Z to A';
+        }
+        if (filterObj.byABC === 'true') {
+          refs.currentSort.innerText = 'A to Z';
+        }
+      }
     if (filterObj.byPrice) {
       if (filterObj.byPrice === 'false') {
         refs.currentSort.innerText = 'Expensive';
