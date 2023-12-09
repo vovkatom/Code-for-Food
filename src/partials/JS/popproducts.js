@@ -2,6 +2,7 @@ import { addToCart } from '/partials/JS/cart-localestorage.js';
 import axios from 'axios';
 import iconsSvg from '../img/icons.svg';
 
+
 async function fetchPopularFood() {
   // Показываем лоадер перед запросом
   document.getElementById('overlay').style.display = 'flex';

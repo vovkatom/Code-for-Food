@@ -1,0 +1,28 @@
+button {
+  border: 1px solid #4b96e6;
+  outline: none;
+  background: #4b96e6;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.tui-pagination {
+  height: 28px;
+  margin: 0px 0px 80px 0px !important;
+}
+
+@media screen and (min-width: 768px) {
+  .tui-pagination {
+    height: 28px;
+    margin: 0px 0px 100px 0px !important;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .tui-pagination {
+    height: 28px;
+    margin: 0px 0px 61px 0px !important;
+  }
+}

@@ -5,7 +5,7 @@
 
 .error-load {
   width: 279px;
-  display: none;
+  display: flex;
   flex-direction: column;
   text-align: center;
   gap: 14px;
@@ -42,6 +42,7 @@
   gap: 20px;
 }
 .item-pl {
+  position: relative;
   max-width: 335px;
   border-radius: 20px;
   background: #fafafa;
@@ -123,12 +124,37 @@
 .btn-pl:focus {
   background-color: #586f1f;
 }
-.btn-pl:disabled,
-.btn-pl:disabled:focus {
+.btn-pl:disabled {
   background-color: #6d8434;
+  cursor: auto;
 }
+
 .icon-pl {
   fill: #e8e8e2;
+  width: 18px;
+  height: 18px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.icon-discount-pl {
+  position: absolute;
+  top: 0%;
+  right: 3%;
+  width: 60px;
+  height: 60px;
 }
 
 @media screen and (min-width: 768px) {
@@ -165,5 +191,20 @@
   .product-info-pl {
     margin-bottom: 20px;
     height: 37px;
+  }
+  .error-load {
+    margin-top: 150px;
+  }
+
+  .not-found-heading {
+    font-family: Neue Montreal;
+    font-size: 20px;
+    width: 371px;
+  }
+
+  .not-found-message {
+    font-family: Neue Montreal;
+    font-size: 18px;
+    width: 371px;
   }
 }
