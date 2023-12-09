@@ -3,12 +3,18 @@ import axios from 'axios';
 import iconsSvg from '../../img/icons.svg';
 
 async function fetchDiscontFood() {
+  // Показываем лоадер перед запросом
+  document.getElementById('overlay').style.display = 'flex';
+
   const url = `https://food-boutique.b.goit.study/api/products/discount`;
   try {
     const responce = await axios.get(url);
     return responce.data;
   } catch (error) {
     throw error;
+  } finally {
+    // Скрываем лоадер после выполнения запроса
+    document.getElementById('overlay').style.display = 'none';
   }
 }
 
