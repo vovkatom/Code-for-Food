@@ -22,10 +22,11 @@ import iconSvg from '../../img/icons.svg';
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
 
 function fetchCategories() {
-  // Показываем лоадер перед запросом
-  document.getElementById('overlay').style.display = 'flex';
-
-  return axios.get(`${BASE_URL}/products/categories`).then(({ data }) => data);
+  return axios.get(`${BASE_URL}/products/categories`).then(({ data }) => data).catch(error => {
+    Notiflix.Notify.failure(
+      `❌ Oops! Something went wrong! Error ${error} Try reloading the page! ❌`
+    );
+  });
 }
 
 const refs = {
@@ -89,6 +90,7 @@ let select = function () {
     select.classList.remove('is-active');
   }
 };
+// ! ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 // ! local storage !
 
@@ -138,6 +140,34 @@ function onLoad() {
     }
   } else {
     return save(key, value);
-  }
+    }
 }
 onLoad();
+
+// !------------------- Sort JS -----------------!\\
+
+let sort = function() {
+  let sortHeader = document.querySelectorAll('.sort-header');
+  let sortItem = document.querySelectorAll('.sort-item');
+
+  sortHeader.forEach(item => {
+    item.addEventListener('click', sortToggle);
+  });
+
+  sortItem.forEach(item => {
+    item.addEventListener('click', sortChoose);
+  });
+
+  function sortToggle() {
+    this.parentElement.classList.toggle('is-active');
+  }
+
+  function sortChoose() {
+    let text = this.innerText,
+      sort = this.closest('.sort'),
+      currentText = sort.querySelector('.sort-current');
+    currentText.innerText = text;
+    sort.classList.remove('is-active');
+  }
+};
+sort();
