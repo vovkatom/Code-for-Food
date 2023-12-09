@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: 'Quincy CF Black Regular';
     src: url("https://db.onlinewebfonts.com/t/7026843a2afae35145b7544bfd004217.eot");
     src: url("https://db.onlinewebfonts.com/t/7026843a2afae35145b7544bfd004217.eot?#iefix")format("embedded-opentype"),
@@ -6,14 +6,16 @@
     url("https://db.onlinewebfonts.com/t/7026843a2afae35145b7544bfd004217.woff")format("woff"),
     url("https://db.onlinewebfonts.com/t/7026843a2afae35145b7544bfd004217.ttf")format("truetype"),
     url("https://db.onlinewebfonts.com/t/7026843a2afae35145b7544bfd004217.svg#Quincy CF Black Regular")format("svg");
-}
+} */
 
 .logo-name {
-    font-family: 'Quincy CF Black Regular';
-    /* font-family: 'Fontspring'; */
-    margin-left: 8px;
+    font-family: 'Fontspring';
+    color: #e8e8e2;
     font-size: 18px;
-    font-weight: 700;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 1.11;
+    letter-spacing: -.02em;
 }
 
 li {
@@ -81,33 +83,6 @@ li {
     transition: background-color 0.3s ease;
 }
 
-/* .header-logo:hover .logo {
-    background-color: #E8E8E2;
-    fill: #6D8434;
-}
-
-.header-logo .logo-name {
-    width: 157px;
-    height: 24px;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 1em;
-    letter-spacing: -0.48px;
-    transition: background-color 0.3s ease;
-}
-
-.header-logo:hover {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-color: #6D8434;
-    width: 190px;
-    height: 53px;
-    border-radius: 9px;
-} */
-
 .accent-word {
     color: #6D8434;
 }
@@ -149,16 +124,13 @@ li {
     }
 
     .logo-name {
-        width: 157px;
-        height: 24px;
+        /* width: 157px;
+        height: 24px; */
         font-size: 24px;
-        font-style: normal;
-        font-weight: 900;
         line-height: 1em; /* 100% */
         letter-spacing: -0.48px;
     }
 
-    
     .cart {
         display: flex;
         justify-content: center;
@@ -199,5 +171,10 @@ li {
     .header .container {
         width: 1440px;
         padding: 0 100px;
+    }
+
+    .logo-name {
+        font-style: normal;
+        font-weight: 900;
     }
 }
