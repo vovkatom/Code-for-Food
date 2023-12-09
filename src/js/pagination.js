@@ -1,3 +1,17 @@
+import 'tui-pagination/dist/tui-pagination.css';
+import Pagination from 'tui-pagination';
+import { fetchAndRender, fetchFoodCategory } from '../js/products.js';
+
+const FILTER = 'filter';
+
+const refs = {
+  pagination: document.querySelector('.tui-pagination'),
+  list: document.querySelector('.product-list'),
+  select: document.querySelector('.select'),
+};
+
+const container = document.getElementById('pagination');
+
 let totalPage = 1;
 //correct
 let itemsPerPage = 6;
@@ -56,6 +70,32 @@ function funcPagination(totalPage, pageOrigin) {
   const pagination = new Pagination(container, options);
   pagination.on('beforeMove', loadMoreTrendMoves);
 }
+
+//в local storage меняем номер странички на выбраный номер в пагинации. Очищяет карточки и заново отрисовывает новые (новая партия)
+function loadMoreTrendMoves(event) {
+  const storedData = localStorage.getItem(FILTER);
+  if (storedData) {
+    try {
+      const parsedData = JSON.parse(storedData);
+      parsedData.page = Number(`${event.page}`);
+      localStorage.setItem('filter', JSON.stringify(parsedData));
+    } catch (error) {
+      console.error('Error updating localStorage:', error);
+    }
+  }
+  refs.list.innerHTML = '';
+  fetchAndRender();
+}
+
+// определяем сколько всего будет товаров и вызываем пагинацию передавая этот параметр
+async function pages(pageOrigin) {
+  let responce = await fetchFoodCategory();
+  totalPage = responce.data.totalPages * responce.data.perPage;
+  funcPagination(totalPage, pageOrigin);
+}
+
+pages(pageOrigin);
+
 //слушатель для смены категории товаров
 refs.select.addEventListener('click', onSubmit);
 
