@@ -8,6 +8,14 @@
     url("https://db.onlinewebfonts.com/t/7026843a2afae35145b7544bfd004217.svg#Quincy CF Black Regular")format("svg");
 }
 
+.logo-name {
+    font-family: 'Quincy CF Black Regular';
+    /* font-family: 'Fontspring'; */
+    margin-left: 8px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
 li {
     padding: 0;
     margin: 0;
@@ -36,12 +44,6 @@ li {
     fill: #E8E8E2;
     padding-right: 8px;
     margin: 0;
-}
-
-.logo-name {
-    margin-left: 8px;
-    font-size: 18px;
-    font-weight: 700;
 }
 
 .cart .logo-cart {
