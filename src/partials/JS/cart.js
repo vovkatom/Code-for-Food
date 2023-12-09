@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { KEY_CART, cartArr } from './cart-localestorage';
+import { KEY_CART, cartArr, deleteFromCart, } from "./cart-localestorage";
 
 const refs = {
   counterCart: document.querySelector('.js-cart-numbers'),
@@ -10,6 +10,7 @@ const refs = {
   buttonDeleteProduct: document.querySelector('.btn-deleteProduct'),
   buttonCleanCart: document.querySelector('.delete-all-btn'),
   formSubmit: document.querySelector('.form'),
+  totalPrice: document.querySelector(".total-price"),
 };
 
 //Функція наповнення кошика при оновленні сторінки
@@ -21,12 +22,21 @@ function fillCart() {
     refs.cartEmpty.style.visibility = 'hidden';
     refs.cartFull.style.visibility = 'visible';
     refs.list.insertAdjacentHTML('beforeend', createCartMarkUp(cartArr));
+
+    //Обчислюємо TOTAL 
+    const total = cartArr.reduce((previousValue,product) =>{
+      return previousValue + product.price
+    }, 0 );
+    refs.totalPrice.innerHTML = total.toFixed(2);
+    
+    
+
     // Записуємо в лічильники кількість товарів в кошику
     refs.counterCart.textContent = cartArr.length;
     refs.counterMainPage.textContent = cartArr.length;
   } else {
-    refs.cartEmpty.style.display = 'block';
-    refs.cartFull.style.display = 'none';
+    refs.cartEmpty.style.visibility = 'visible';
+    refs.cartFull.style.visibility = 'hidden';
   }
 }
 
@@ -66,27 +76,30 @@ function createCartMarkUp(arr) {
     .join('');
 }
 
+
+//??????????????????????????????????????????????????????????????
+//По кліку на кнопву Delete видаляємо товар з корзини (функція імпортується)
+//refs.buttonDeleteProduct.addEventListener('click', deleteFromCart);
+
+
+
+
 //По кліку на кнопву Delete all очищуємо корзину
 refs.buttonCleanCart.addEventListener('click', cleanCart);
 
 function cleanCart() {
   localStorage.removeItem(KEY_CART);
 
-  //refs.cartEmpty.style.display= "block";
-  //refs.cartFull.style.display= "none";
-  refs.cartEmpty.style.visibility = 'visible';
+    refs.cartEmpty.style.visibility = 'visible';
   refs.cartFull.style.visibility = 'hidden';
+  
+  // Щоб очистити лічильники і список,перезаписуємо пустий масив
+  refs.list.innerHTML = createCartMarkUp(cartArr);
+  }
 
-  // ?????????????????????????????????????????????????????????????????????
-  // Як правильно очистити лічильники і список, бо очищається лише при оновлені сторінки
-  //refs.counterCart.textContent= "0";
-  //refs.counterMainPage.textContent="0";
-  //cartArr.length === ??????;
-  //refs.list.innerHTML === "";
-}
+
 
 //Відправлення замовлення на сервер через форму
-
 refs.formSubmit.addEventListener('submit', handlerFormSubmit);
 
 function handlerFormSubmit(event) {
@@ -130,8 +143,11 @@ function handlerFormSubmit(event) {
       document.getElementById('overlay').style.display = 'none';
     });
 
+    //?????????????????????????????????????? Після відправки запиту очищаємо корзину і форму,    та відображаємо вікно що корзина пуста
   //localStorage.removeItem(KEY_CART);
+  //refs.list.innerHTML = createCartMarkUp(cartArr);
   //form.reset();
 
-  //Модальне вікно
+
+  //Модальне вікно ???????????????????????
 }
