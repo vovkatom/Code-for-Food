@@ -57,7 +57,7 @@ async function createMarkup() {
             <p class="popular-info-items">Popularity: <b class="value-popular">${popularity}</b></p>
         </div>
         </div>
-            <button class="popularBtn" data-_id="${_id}" ${
+            <button class="popularBtn" data-_id=" aria-label="Add basket"${_id}" ${
               isIDInLocaleStorage ? 'disabled' : ''
             }>
                 <svg class="icon-popular" data-_id="${_id}" width="12" height="12">
