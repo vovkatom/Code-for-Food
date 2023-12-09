@@ -14,13 +14,10 @@ import {
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
 
 function fetchCategories() {
-  // Показываем лоадер перед запросом
-  document.getElementById('overlay').style.display = 'flex';
-  
   return axios
     .get(`${BASE_URL}/products/categories`)
     .then(({ data }) => data)
-    .catch(error => error)
+    .catch(error => error);
 }
 
 const refs = {
@@ -29,7 +26,7 @@ const refs = {
   list: document.querySelector('.product-list'),
   sort: document.querySelector('.sort-body'),
   currentSort: document.querySelector('.sort-current'),
-  form: document.querySelector('#search')
+  form: document.querySelector('#search'),
 };
 
 fetchCategories()
@@ -40,17 +37,11 @@ fetchCategories()
     //! <<<< local storage >>>>
     refs.selector.addEventListener('click', handleCategory);
     //! <<<< local storage >>>>
-
-    // Скрываем лоадер после выполнения запроса
-    document.getElementById('overlay').style.display = 'none';
   })
   .catch(error => {
     Notiflix.Notify.failure(
       `❌ Oops! Something went wrong! Error ${error} Try reloading the page! ❌`
     );
-
-    // Скрываем лоадер после выполнения запроса
-    document.getElementById('overlay').style.display = 'none';
   });
 
 function createSelectorMarkup(arr) {
@@ -142,16 +133,16 @@ function onLoad() {
     }
     if (filterObj.keyword !== null) {
       console.log(refs.form.elements.search);
-      refs.form.elements.search.value = filterObj.keyword
+      refs.form.elements.search.value = filterObj.keyword;
     }
-      if (filterObj.byABC) {
-        if (filterObj.byABC === 'false') {
-          refs.currentSort.innerText = 'Z to A';
-        }
-        if (filterObj.byABC === 'true') {
-          refs.currentSort.innerText = 'A to Z';
-        }
+    if (filterObj.byABC) {
+      if (filterObj.byABC === 'false') {
+        refs.currentSort.innerText = 'Z to A';
       }
+      if (filterObj.byABC === 'true') {
+        refs.currentSort.innerText = 'A to Z';
+      }
+    }
     if (filterObj.byPrice) {
       if (filterObj.byPrice === 'false') {
         refs.currentSort.innerText = 'Expensive';
@@ -170,13 +161,13 @@ function onLoad() {
     }
   } else {
     return save(key, value);
-    }
+  }
 }
 onLoad();
 // !^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // !------------------- Sort JS Markup-----------------!\\
 
-let sort = function() {
+let sort = function () {
   let sortHeader = document.querySelectorAll('.sort-header');
   let sortItem = document.querySelectorAll('.sort-item');
 
@@ -207,64 +198,64 @@ sort();
 refs.sort.addEventListener('click', handleSort);
 
 function handleSort(event) {
-  const sortType = event.target.innerText
-   
+  const sortType = event.target.innerText;
+
   const storedData = localStorage.getItem('filter');
-  
-    try {
-      const parsedData = JSON.parse(storedData);
-        if (sortType === 'A to Z') {
-          delete parsedData.byPrice;
-          delete parsedData.byPopularity;
-          parsedData.byABC = 'true';
-          const updatedData = parsedData;
-          save('filter', updatedData);
-          fetchAndRender();
-        } else if (sortType === 'Z to A') {
-          delete parsedData.byPrice;
-          delete parsedData.byPopularity;
-          parsedData.byABC = 'false';
-          const updatedData = parsedData;
-          save('filter', updatedData);
-          fetchAndRender();
-        } else if (sortType === 'Cheap') {
-          delete parsedData.byABC;
-          delete parsedData.byPopularity;
-          parsedData.byPrice = 'true';
-          const updatedData = parsedData;
-          save('filter', updatedData);
-          fetchAndRender();
-        } else if (sortType === 'Expensive') {
-          delete parsedData.byABC;
-          delete parsedData.byPopularity;
-          parsedData.byPrice = 'false';
-          const updatedData = parsedData;
-          save('filter', updatedData);
-          fetchAndRender();
-        } else if (sortType === 'Popular') {
-          delete parsedData.byABC;
-          delete parsedData.byPrice;
-          parsedData.byPopularity = 'false';
-          const updatedData = parsedData;
-          save('filter', updatedData);
-          fetchAndRender();
-        } else if (sortType === 'Not Popular') {
-          delete parsedData.byABC;
-          delete parsedData.byPrice;
-          parsedData.byPopularity = 'true';
-          const updatedData = parsedData;
-          save('filter', updatedData);
-          fetchAndRender();
-        } else if (sortType === 'Show all') {
-          delete parsedData.byABC;
-          delete parsedData.byPrice;
-          delete parsedData.byPopularity;
-          const updatedData = parsedData;
-          save('filter', updatedData);
-          fetchAndRender();
-        }
-    }catch (error) {
-      console.error('Error updating localStorage:', error);
+
+  try {
+    const parsedData = JSON.parse(storedData);
+    if (sortType === 'A to Z') {
+      delete parsedData.byPrice;
+      delete parsedData.byPopularity;
+      parsedData.byABC = 'true';
+      const updatedData = parsedData;
+      save('filter', updatedData);
+      fetchAndRender();
+    } else if (sortType === 'Z to A') {
+      delete parsedData.byPrice;
+      delete parsedData.byPopularity;
+      parsedData.byABC = 'false';
+      const updatedData = parsedData;
+      save('filter', updatedData);
+      fetchAndRender();
+    } else if (sortType === 'Cheap') {
+      delete parsedData.byABC;
+      delete parsedData.byPopularity;
+      parsedData.byPrice = 'true';
+      const updatedData = parsedData;
+      save('filter', updatedData);
+      fetchAndRender();
+    } else if (sortType === 'Expensive') {
+      delete parsedData.byABC;
+      delete parsedData.byPopularity;
+      parsedData.byPrice = 'false';
+      const updatedData = parsedData;
+      save('filter', updatedData);
+      fetchAndRender();
+    } else if (sortType === 'Popular') {
+      delete parsedData.byABC;
+      delete parsedData.byPrice;
+      parsedData.byPopularity = 'false';
+      const updatedData = parsedData;
+      save('filter', updatedData);
+      fetchAndRender();
+    } else if (sortType === 'Not Popular') {
+      delete parsedData.byABC;
+      delete parsedData.byPrice;
+      parsedData.byPopularity = 'true';
+      const updatedData = parsedData;
+      save('filter', updatedData);
+      fetchAndRender();
+    } else if (sortType === 'Show all') {
+      delete parsedData.byABC;
+      delete parsedData.byPrice;
+      delete parsedData.byPopularity;
+      const updatedData = parsedData;
+      save('filter', updatedData);
+      fetchAndRender();
     }
+  } catch (error) {
+    console.error('Error updating localStorage:', error);
+  }
 }
 // !^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
