@@ -6,6 +6,7 @@ import {
   findProduct,
 } from '/js/cart-localestorage';
 import iconSvg from '../img/icons.svg';
+
 export {
   foodInfo,
   fetchAndRender,
@@ -14,6 +15,7 @@ export {
   KEY_CATEGORY,
   renderFoodItems,
 };
+
   // import {fetchInfoFood} from "../partials/JS/modalwindow.js"
 
 const refs = {
