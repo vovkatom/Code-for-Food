@@ -7,14 +7,14 @@ const FILTER = 'filter';
 const refs = {
   pagination: document.querySelector('.tui-pagination'),
   list: document.querySelector('.product-list'),
-  select: document.querySelector('.select__body'),
+  select: document.querySelector('.select'),
 };
 
 const container = document.getElementById('pagination');
 
 let totalPage = 1;
 //correct
-const itemsPerPage = 6;
+let itemsPerPage = 6;
 let visiblePage = 3;
 let pageOrigin = 1;
 
@@ -23,11 +23,11 @@ let pageOrigin = 1;
 const storedData = localStorage.getItem(FILTER);
 if (storedData) {
   try {
-    // console.log(storedData);
     const parsedData = JSON.parse(storedData);
     pageOrigin = parsedData.page;
-    console.log(parsedData.limit);
-    itemsPerPage = Number(parsedData.limit);
+    itemsPerPage = parsedData.limit;
+    console.log(totalPage);
+    console.log(pageOrigin);
     pages(pageOrigin);
   } catch (error) {
     console.error('Error updating localStorage:', error);
@@ -38,13 +38,9 @@ if (storedData) {
 // }
 
 //создание пагинации
-function funcPagination(totalPage, pageOrigin = 1) {
-  // if (totalPage <= 6) {
-  //   visiblePage = 0;
-  // } else (visiblePage = 5;)
-
-  // console.log(totalPage);
-  // console.log(pageOrigin);
+function funcPagination(totalPage, pageOrigin) {
+  console.log(totalPage);
+  console.log(pageOrigin);
   let options = {
     totalItems: totalPage,
     itemsPerPage: itemsPerPage,
@@ -72,9 +68,6 @@ function funcPagination(totalPage, pageOrigin = 1) {
     },
   };
   const pagination = new Pagination(container, options);
-  if (totalPage <= 1) {
-    pagination.reset();
-  }
   pagination.on('beforeMove', loadMoreTrendMoves);
 }
 
@@ -121,7 +114,7 @@ async function onSubmit(event) {
   }
 
   let responce = await fetchFoodCategory();
-  totalPage = responce.data.totalPages * responce.data.perPage;
+  let totalPage = responce.data.totalPages * responce.data.perPage;
   let pageOrigin = 1;
   funcPagination(totalPage, pageOrigin);
 }
