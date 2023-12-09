@@ -4,7 +4,7 @@ import {
 } from '/js/cart-localestorage.js';
 import axios from 'axios';
 import iconsSvg from '/img/icons.svg';
-
+import {updateCartNumber} from './header';
 
 
 async function fetchPopularFood() {
@@ -96,4 +96,6 @@ function addCart(evt) {
   btn.style.cursor = 'auto';
   btn.style.background = '#6d8434';
   btn.style.border = '#6d8434';
+
+  updateCartNumber();
 }
