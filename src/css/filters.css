@@ -191,7 +191,7 @@ input:focus {
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  border: 1px solid rgba(1, 1, 1, 0.3);
+  background: #fafafa;
   cursor: pointer;
   max-height: 52px;
 }
@@ -275,6 +275,9 @@ input:focus {
   }
   .select__body {
     padding-right: 42px;
+  }
+  .sort {
+    max-width: 200px;
   }
   .sort-current {
     font-size: 18px;
