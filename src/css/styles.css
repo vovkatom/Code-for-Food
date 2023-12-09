@@ -25,6 +25,7 @@
   font-weight: 400;
   src: local('PP Neue Montreal Book'),
     url('../fonts/NeueMontreal-Regular.woff') format('woff');
+  font-display: swap;
 }
 
 @font-face {
@@ -33,6 +34,7 @@
   font-weight: 500;
   src: local('PP Neue Montreal Medium'),
     url('../fonts/NeueMontreal-Medium.woff') format('woff');
+  font-display: swap;
 }
 
 @font-face {
