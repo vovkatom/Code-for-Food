@@ -63,7 +63,7 @@
 .discount-item {
   position: relative;
   padding: 16px 15px 16px 16px;
-  width: 335px;
+  max-width: 335px;
   height: 232px;
   border-radius: 15px;
   background: #fafafa;
@@ -98,7 +98,7 @@
 .discount-item-img {
   display: flex;
   margin: auto;
-  width: 304px;
+  max-width: 304px;
   height: 150px;
   border-radius: 10px;
   background: #e8e8e2;
