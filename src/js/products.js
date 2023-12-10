@@ -5,7 +5,8 @@ import {
   addToCart,
   findProduct,
 } from '/js/cart-localestorage';
-import iconSvg from '../img/icons.svg';
+import iconSvg from '/img/icons.svg';
+import {updateCartNumber} from './header';
 
 export {
   foodInfo,
@@ -16,7 +17,7 @@ export {
   renderFoodItems,
 };
 
-  // import {fetchInfoFood} from "../partials/JS/modalwindow.js"
+  // import {fetchInfoFood} from "/partials/JS/modalwindow.js"
 
 const refs = {
   list: document.querySelector('.product-list'),
@@ -147,8 +148,17 @@ function handleButtonClick(event) {
 function add(elem, arr) {
   //При кліку на кнопку шукаємо потрібний продукт за id, викликаючи функцію findProduct
   const product = findP(elem, arr);
-  cartArr.push(product);
-  localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
+  const foundProduct = cartArr.find(cart => cart._id === product._id)
+  if (foundProduct) {
+    return;
+  }
+  else {
+    cartArr.push(product);
+    localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
+    //team
+    updateCartNumber();
+  }
+  console.log(cartArr)
 }
 
 //Функція пошуку необхідного продукту за id в масиві,який надходить з серверу (викликається всередині addToCart)

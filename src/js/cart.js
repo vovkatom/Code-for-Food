@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { KEY_CART, cartArr, deleteFromCart, } from "./cart-localestorage";
+import iconsSvg from '/img/icons.svg';
 
 const refs = {
   counterCart: document.querySelector('.js-cart-numbers'),
@@ -49,6 +50,7 @@ function updateTotal() {
   refs.totalPrice.innerHTML = total.toFixed(2)
 }
 
+
 //Розмітка картки в кошику
 function createCartMarkUp(arr) {
   return arr
@@ -66,7 +68,7 @@ function createCartMarkUp(arr) {
                 <h2 class="product-name">${name}</h2>
                 <button class="delete-btn">
                     <svg class="" width="20" height="20">
-                    <use href="./img/icons.svg#icon-x-close"></use>
+                    <use href="${iconsSvg}#icon-x-close"></use>
                     </svg>
                 </button>
             </div>
@@ -103,6 +105,17 @@ function cleanCart() {
   
   // Щоб очистити лічильники і список,перезаписуємо пустий масив
   refs.list.innerHTML = createCartMarkUp(cartArr);
+  updateCartCounter();
+  }
+
+  //тімлід
+  function updateCartCounter() {
+    const cartCounter = document.querySelector('.cart-counter');
+    const cartCounterFull = document.querySelector('.js-cart-numbers');
+    cartCounter.textContent = '0'; // Оновлюємо лічильник кошика на значення '0'
+    cartCounterFull.textContent = '0'; 
+    refs.cartEmpty.style.display = 'flex';
+    refs.cartFull.style.display = 'none';
   }
 
 //Відправлення замовлення на сервер через форму
