@@ -103,6 +103,15 @@ function cleanCart() {
   
   // Щоб очистити лічильники і список,перезаписуємо пустий масив
   refs.list.innerHTML = createCartMarkUp(cartArr);
+  updateCartCounter();
+  }
+
+  //тімлід
+  function updateCartCounter() {
+    const cartCounter = document.querySelector('.cart-counter');
+    const cartCounterFull = document.querySelector('.js-cart-numbers');
+    cartCounter.textContent = '0'; // Оновлюємо лічильник кошика на значення '0'
+    cartCounterFull.textContent = '0'; 
   }
 
 //Відправлення замовлення на сервер через форму
