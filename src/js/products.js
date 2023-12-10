@@ -148,10 +148,17 @@ function handleButtonClick(event) {
 function add(elem, arr) {
   //При кліку на кнопку шукаємо потрібний продукт за id, викликаючи функцію findProduct
   const product = findP(elem, arr);
-  cartArr.push(product);
-  localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
-  //team
-  updateCartNumber();
+  const foundProduct = cartArr.find(cart => cart._id === product._id)
+  if (foundProduct) {
+    return;
+  }
+  else {
+    cartArr.push(product);
+    localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
+    //team
+    updateCartNumber();
+  }
+  console.log(cartArr)
 }
 
 //Функція пошуку необхідного продукту за id в масиві,який надходить з серверу (викликається всередині addToCart)
