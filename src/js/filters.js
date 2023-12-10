@@ -136,7 +136,7 @@ function onLoad() {
         .replace(/%26/g, '&');
     }
     if (filterObj.keyword !== null) {
-      console.log(refs.form.elements.search);
+      // console.log(refs.form.elements.search);
       refs.form.elements.search.value = filterObj.keyword;
     }
     if (filterObj.byABC) {
