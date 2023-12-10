@@ -1,63 +1,67 @@
-
-
 .backdrop {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0, 0, 0, 0.25);
-opacity: 1;
-/* transition: opacity $animation; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  z-index: -99999;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  /* transition: opacity $animation; */
+}
+
+.backdrop.active {
+  z-index: 99999;
+  opacity: 1;
 }
 
 .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    border-radius: 20px;
-    background: var(--color-card-bckg, #fafafa);
-    width: 335px;
-    height: 535px;
-    overflow: auto;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  border-radius: 20px;
+  background: var(--color-card-bckg, #fafafa);
+  width: 335px;
+  height: 535px;
+  overflow: auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .button-modal-close {
-    display: flex;
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    padding: 0;
-    margin: 0;
-    /* width: 22px;
-    height: 22px; */
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: none;
-    background-color: var(--color-card-bckg, #fafafa);
+  display: flex;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background-color: var(--color-card-bckg, #fafafa);
 }
 
 /* .item-mob {
-    max-width: 335px;
-    border-radius: 20px;
-    background: #fafafa;
-    padding: 20px;
-} */
+        max-width: 335px;
+        border-radius: 20px;
+        background: #fafafa;
+        padding: 20px;
+    } */
 
 .is-hidden {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .is-hidden .modal {
-    transform: translate(-50%, -50%) scale(1.2);
+  transform: translate(-50%, -50%) scale(1.2);
 }
 
 .background-img-mob {
@@ -79,178 +83,95 @@ opacity: 1;
   justify-content: center;
 }
 
-
 .paragraph-mob {
-    color: var(--color-text2);
-    font-family: Neue Montreal;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.17em; /* 116.667% */
-}
-
-.info-about-product {
-    margin-bottom: 60px;
+  color: var(--color-text2);
+  font-family: Neue Montreal;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.17em; /* 116.667% */
 }
 
 .product-name-mob {
-    margin-bottom: 10px;
-    color: var(--color-text);
-    font-family: Neue Montreal;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.2em; /* 120% */
+  margin-bottom: 10px;
+  color: var(--color-text);
+  font-family: Neue Montreal;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2em; /* 120% */
 }
 .product-info-mob {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .value-mob {
-    color: var(--color-text);
-    font-family: Neue Montreal;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.17em; /* 116.667% */
+  color: var(--color-text);
+  font-family: Neue Montreal;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.17em; /* 116.667% */
 }
 
 .desc-mob {
-width: 295px;
-color: var(--color-text2, #0101014D);
-font-family: Neue Montreal;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 1.25em; 
-
+  width: 295px;
+  color: var(--color-text2, #0101014d);
+  font-family: Neue Montreal;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.3em; /* 128.571% */
+  margin-bottom: 60px;
 }
 
 .price-container-mob {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    /* margin-bottom: 40px; */
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 
 .price-mob {
-    color: var(--color-text, #010101);
-    font-family: Neue Montreal;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.2em; /* 120% */
+  color: var(--color-text, #010101);
+  font-family: Neue Montreal;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.1em; /* 120% */
 }
 
 .btn-mob {
-    width: 116px;
-    height: 42px;
-    display: flex;
-    padding: 12px 24px;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    border-radius: 30px;
-    background-color: var(--color-btn);
-    cursor: pointer;
-    color: var(--color-bckg, #e8e8e2);
-    font-family: Neue Montreal;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.25em; 
+  width: 116px;
+  height: 42px;
+  display: flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 30px;
+  background-color: var(--color-btn);
+  cursor: pointer;
+  color: var(--color-bckg, #e8e8e2);
+  font-family: Neue Montreal;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 128.571% */
 }
 .btn-mob:hover,
 .btn-mob:focus {
-    background-color: var(--color-btn);
+  background-color: var(--color-btn);
 }
 .btn-mob:disabled,
 .btn-mob:disabled:focus {
-    background-color: var(--color-btn);
+  background-color: var(--color-btn);
 }
 .icon-mob {
-    fill: var(--color-bckg);
-    width: 18px;
-    height: 18px;
-    margin-left: 10px;
+  fill: var(--color-bckg);
+  width: 18px;
+  height: 18px;
+  margin-left: 10px;
 }
-
-@media screen and (min-width: 768px) {
-.modal-content {
-    display: flex;
-    /* flex-wrap: wrap; */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    border-radius: 20px;
-    background: var(--color-card-bckg, #fafafa);
-    width: 600px;
-    height: 380px;
-    overflow: auto;
-    padding-top: 40px;
-    /* padding-bottom: 40px; */
-    padding-left: 40px;
-    padding-right: 40px;
-    gap: 24px;
-}
-
-.price-container-mob {
-    /* display: flex; */
-    align-items: flex-end;
-    justify-content: space-between;
-    /* margin-bottom: 40px; */
-}
-
-.background-img-mob {
-  display: flex;
-  justify-content: center;
-  width: 240px;
-  height: 212px;
-  padding: 26px 40px;
-  margin-bottom: 20px;
-  text-align: center;
-  border-radius: 10px;
-  background-color: var(--color-bckg);
-}
-
-.button-modal-close {
-    display: flex;
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    padding: 0;
-    margin: 0;
-    width: 28px;
-    height: 28px;
-}
-
-.info-about-product {
-margin-bottom: 0;
-}
-
-.product-name-mob {
-    margin-bottom: 10px;
-    color: var(--color-text);
-    font-family: Neue Montreal;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.2em; /* 120% */
-}
-.product-info-mob {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.price-container-mob {
-    margin-bottom: 40px;
-    
-}
-
-}
-/* flex-wrap: wrap; */
