@@ -10,6 +10,7 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
 .cart-section .container {
   padding-top: 100px;
   padding-bottom: 120px;
@@ -24,6 +25,7 @@
   text-transform: uppercase;
   margin-bottom: 88px;
 }
+
 @media only screen and (min-width: 768px) {
   .cart-title {
     font-size: 32px;
@@ -31,15 +33,18 @@
     margin-bottom: 88px;
   }
 }
+
 @media only screen and (min-width: 1440px) {
   .cart-title {
     /* margin-top: 77px; */
     margin-bottom: 105px;
   }
 }
+
 .cart-form {
   margin: 0;
 }
+
 @media only screen and (min-width: 768px) {
   .cart-form {
     display: flex;
@@ -60,12 +65,14 @@
   padding: 10px;
   margin-right: 14px;
 }
+
 @media only screen and (min-width: 768px) {
   .cart-icon {
     width: 42px;
     height: 42px;
     padding: 12px;
   }
+  
   .form {
     display: flex;
     justify-content: space-between;
@@ -90,6 +97,7 @@
   line-height: 1.25; /* 125% */
   z-index: 5;
 }
+
 .delete {
   display: flex;
   margin-bottom: 80px;
@@ -126,9 +134,9 @@
   background: rgba(109, 132, 52, 0.05);
   border-radius: 8px;
   padding: 14px 18px;
-
   margin-bottom: 30px;
 }
+
 .total-name {
   padding-top: 8px;
   color: #010101;
@@ -137,6 +145,7 @@
   font-weight: 500;
   line-height: 1.2px; /* 120% */
 }
+
 .total-price {
   color: #010101;
   font-size: 32px;
@@ -144,6 +153,7 @@
   font-weight: 500;
   line-height: 32px; /* 100% */
 }
+
 .checkout-input {
   display: inline-flex;
   font-size: 14px;
@@ -157,6 +167,7 @@
   border-radius: 30px;
   border: 1px solid rgba(1, 1, 1, 0.3);
 }
+
 .checkout-button {
   display: inline-flex;
   font-size: 14px;
@@ -185,12 +196,14 @@
   margin-top: 105px;
   margin-bottom: 28px;
 }
+
 .empty-cart-title {
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11;
   margin-bottom: 14px;
 }
+
 .change-color {
   color: #6d8434;
   /* font-family: Neue Montreal; */
@@ -199,6 +212,7 @@
   font-weight: 500;
   line-height: 1.11;
 }
+
 .empty-cart-text {
   color: rgba(1, 1, 1, 0.7);
   width: 279px;
@@ -229,6 +243,7 @@
   padding-bottom: 40px;
   position: relative;
 }
+
 .product-picture {
   border-radius: 10px;
   background: #fafafa;
@@ -238,10 +253,12 @@
   margin-right: 40px;
   padding: 24px;
 }
+
 .info-header {
   display: flex;
   flex-direction: row;
 }
+
 .product-name {
   color: #010101;
   font-size: 20px;
@@ -250,6 +267,7 @@
   line-height: 24px; /* 120% */
   margin-right: 243px;
 }
+
 .delete-btn {
   width: 20px;
   height: 20px;
@@ -266,6 +284,7 @@
   right: 14px;
   padding: 0;
 }
+
 .product-info {
   display: flex;
   flex-direction: row;
@@ -273,6 +292,7 @@
   margin-top: 10px;
   margin-bottom: 46px;
 }
+
 .info-quality {
   color: rgba(1, 1, 1, 0.3);
   font-size: 12px;
@@ -282,6 +302,7 @@
   margin-right: 4px;
   padding: 2 px 0;
 }
+
 .info-value {
   margin-left: 4px;
   color: #010101;
@@ -290,6 +311,7 @@
   font-weight: 400;
   line-height: 18px; /* 128.571% */
 }
+
 .price {
   color: #010101;
   font-size: 20px;
@@ -301,6 +323,7 @@
 .cart-form {
   margin: 0;
 }
+
 @media only screen and (min-width: 768px) {
   .cart-form {
     display: flex;
@@ -309,12 +332,13 @@
 }
 
 .input-container {
-  padding: 12px 20px;
+  padding: 12px 10px 12px 20px;
   border-radius: 30px;
   border: 1px solid rgba(1, 1, 1, 0.3);
 
   margin-bottom: 14px;
 }
+
 @media only screen and (min-width: 768px) {
   .input-container {
     display: inline-flex;
@@ -325,12 +349,14 @@
     margin-right: 16px;
   }
 }
+
 @media only screen and (min-width: 1440px) {
   .input-container {
     display: inline-flex;
     justify-content: center;
     align-items: baseline;
   }
+  
   .cart-full {
     flex-direction: row;
     display: flex;
@@ -351,9 +377,11 @@
   border: none;
   width: 88%;
 }
+
 .input-container #email:focus {
   outline: none;
 }
+
 @media only screen and (min-width: 768px) {
   .input-container #email {
     line-height: 1.33;
@@ -367,6 +395,7 @@
   font-size: 18px;
   line-height: 1.13;
 }
+
 @media only screen and (min-width: 768px) {
   #email,
   #email::placeholder {
@@ -394,6 +423,7 @@
   border: none;
   border-radius: 30px;
 }
+
 .order-btn:active {
   background: E8E8E2;
 }
@@ -523,8 +553,7 @@
   background-color: transparent;
 }
 
-
-.cart-delete__wrap{
+.cart-delete__wrap {
   display: flex;
   justify-content: flex-end;
   padding-bottom: 15px;

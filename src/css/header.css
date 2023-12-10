@@ -56,13 +56,11 @@ li {
 
 
 .header .container {
-    padding: 0 20px;
+    padding: 18px 20px 36px 20px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    outline: 2px #6D8434 solid;
-    padding-top: 18px;
   }
 
   .header-logo .logo {
@@ -94,16 +92,17 @@ li {
 
 @media screen and (min-width: 375px) {
     .header .container {
-       width: 343px;
-       /* height: 130px; */
+       width: 375px;
+       padding-bottom: 36px;
     }
 }
 
 @media screen and (min-width: 768px) {
     .header .container {
-        width: 704px;
+        width: 768px;
         display: flex;
         justify-content: space-between;
+        padding: 24px 32px 58px 32px;
     }
 
     .logo {
@@ -157,7 +156,7 @@ li {
 @media screen and (min-width: 1440px) {
     .header .container {
         width: 1440px;
-        padding: 0 100px;
+        padding: 24px 100px 58px 100px;
     }
 
     .logo-name {

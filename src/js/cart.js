@@ -24,9 +24,9 @@ fillCart()
 function fillCart() {
   //Якщо масив cartArr з localeStorage не пустий, то відмальовуємо товари в кошику, інакше показуємо заглушку
   if (cartArr.length !== 0) {
-    refs.cartEmpty.style.display = 'none'
-    refs.cartFull.style.display = 'flex'
-    refs.list.insertAdjacentHTML('beforeend', createCartMarkUp(cartArr))
+    refs.cartEmpty.style.visibility = 'hidden';
+    refs.cartFull.style.visibility = 'visible';
+    refs.list.insertAdjacentHTML('beforeend', createCartMarkUp(cartArr));
 
     //Обчислюємо TOTAL 
       updateTotal();
@@ -86,6 +86,7 @@ function createCartMarkUp(arr) {
     })
     .join('')
 }
+
 
 //??????????????????????????????????????????????????????????????
 //По кліку на кнопву Delete видаляємо товар з корзини (функція імпортується)
