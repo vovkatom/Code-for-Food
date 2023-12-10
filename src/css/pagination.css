@@ -8,6 +8,10 @@
   margin-top: 10px; 
 } */
 
+.paginationDop {
+  display: none;
+}
+
 .tui-page-btn .tui-last {
   display: none !important;
 }
