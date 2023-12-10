@@ -21,7 +21,7 @@ function addToCart(evt, arr) {
   cartArr.push(product)
   localStorage.setItem(KEY_CART, JSON.stringify(cartArr))
   console.log(product)
-
+//Функція оновлення кількості товарів у кошику (імпортується)
   updateCartNumber()
 }
 
@@ -32,8 +32,8 @@ function findProduct(elem, arr) {
 }
 
 
-//???????????????????????????????????????????????????????????????????
-//Функція для видалення товарів з LocaleStorage по кліку на кнопку delete
+
+//Функція для видалення товару з LocaleStorage по кліку на кнопку delete на картці товару
 function deleteFromCart(cartArr, btn) {
   try {
     const selectedProduct = btn.closest('.selectedProduct').dataset.id
@@ -48,8 +48,6 @@ function deleteFromCart(cartArr, btn) {
         }
       }
     }
-
-
   } catch (error) {
     console.log(error)
   } finally {
@@ -61,8 +59,6 @@ function deleteFromCart(cartArr, btn) {
       document.querySelector('#cart-count').innerHTML = 0
     }
   }
-
-
 }
 
 
