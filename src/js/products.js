@@ -148,7 +148,7 @@ function handleButtonClick(event) {
 function add(elem, arr) {
   //При кліку на кнопку шукаємо потрібний продукт за id, викликаючи функцію findProduct
   const product = findP(elem, arr);
-  const foundProduct = cartArr.find(cart => cart._id === product._id)
+  const foundProduct = cartArr.some(cart => cart._id === product._id)
   if (foundProduct) {
     return;
   }
@@ -260,10 +260,40 @@ function setLimit() {
   parseLimit.limit = Number(limit);
   localStorage.setItem("filter", JSON.stringify(parseLimit))
 }
-
+// ***************************** КЛІК ДЛЯ ВІДКРИТТЯ МОДАЛКИ
 // refs.list.addEventListener('click', function (event) {
 //   const clickedElement = event.target;
 //   const closetDiv = clickedElement.closest("div.open-modal")
 //   const closetLi = closetDiv.closest("li")
-//   console.log(closetLi.dataset.id)
+//  Виклик функції додати
 // });
+
+
+
+let currentWindowWidth = window.innerWidth;
+let resizeTimer;
+const thresholdWidths = [768, 1440]; // межі при яких буде перемальовка
+window.addEventListener("resize", resizeWidth)
+
+function resizeWidth() {
+ clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(function () {
+    const newWindowWidth = window.innerWidth;
+    if (thresholdOfSwitches(currentWindowWidth, newWindowWidth)) {
+      currentWindowWidth = newWindowWidth;
+        refs.list.innerHTML = ''
+        fetchAndRender()
+    }
+  }, 250)
+}
+
+function thresholdOfSwitches(oldWidth, newWidth) {
+  return (
+    thresholdWidths.some(
+      (threshold) => oldWidth < threshold && newWidth >= threshold
+    ) ||
+    thresholdWidths.some(
+      (threshold) => oldWidth >= threshold && newWidth < threshold
+    )
+  );
+}
