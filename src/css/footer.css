@@ -383,8 +383,8 @@ a {
   height: 144px;
   flex-shrink: 0;
   border-radius: 18.966px;
-  background-image: url(../img/modal/subscribing.png),
-    url(../img/modal/subscribing_2x.png);
+  background-image: url(/img/modal/subscribing.png),
+    url(/img/modal/subscribing_2x.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -440,8 +440,8 @@ a {
   .subscription-img {
     width: 490px;
     height: 159px;
-    background-image: url(../img/modal/subscribing_desct.png),
-      url(../img/modal/subscribing_desct_@2x.png);
+    background-image: url(/img/modal/subscribing_desct.png),
+      url(/img/modal/subscribing_desct_@2x.png);
     position: relative;
     bottom: 7px;
   }

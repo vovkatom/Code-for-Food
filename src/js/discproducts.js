@@ -1,6 +1,6 @@
 import { KEY_CART, addToCart } from '/js/cart-localestorage.js';
 import axios from 'axios';
-import iconsSvg from '../img/icons.svg';
+import iconsSvg from '/img/icons.svg';
 
 async function fetchDiscontFood() {
   // Показываем лоадер перед запросом

@@ -1,6 +1,6 @@
-import { KEY_CART, addToCart } from '../partials/JS/cart-localestorage.js';
+import { KEY_CART, addToCart } from '/partials/JS/cart-localestorage.js';
 import axios from 'axios';
-import iconsSvg from '../img/icons.svg';
+import iconsSvg from '/img/icons.svg';
 // https://food-boutique.b.goit.study/api/products/:id
 // async function fetchInfoFood() {
 //   const url = `https://food-boutique.b.goit.study/api/products/{_id}`;
@@ -123,7 +123,7 @@ if (evt.target.closest('.btn-pl')) {
     addToCart(evt, prodList);
 }
 const svg = btn.querySelector('.img-svg-osnova use');
-svg.setAttribute('href', '../../img/icons.svg#icon-cart');
+svg.setAttribute('href', '/img/icons.svg#icon-cart');
 btn.setAttribute('disabled', true);
 btn.style.cursor = 'auto';
 }

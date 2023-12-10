@@ -48,8 +48,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-color: bisque;
-  background-image: url(../img/header_hero_ing/hero-mob1.jpg),
-    url(../img/header_hero_ing/hero-mob1@2x.jpg);
+  background-image: url(/img/header_hero_ing/hero-mob1.jpg),
+    url(/img/header_hero_ing/hero-mob1@2x.jpg);
   border-radius: 30px;
 
   position: relative;
@@ -120,8 +120,8 @@
   .hero-image {
     width: 704px;
     height: 580px;
-    background-image: url(../img/header_hero_ing/hero-tablet1.jpg),
-      url(../img/header_hero_ing/hero-tablet1@2x.jpg);
+    background-image: url(/img/header_hero_ing/hero-tablet1.jpg),
+      url(/img/header_hero_ing/hero-tablet1@2x.jpg);
     border-radius: 50px;
   }
 }
@@ -130,8 +130,8 @@
   .hero-image {
     width: 1240px;
     height: 350px;
-    background-image: url(../img/header_hero_ing/hero-desct1.jpg),
-      url(../img/header_hero_ing/hero-desct1@2x.jpg);
+    background-image: url(/img/header_hero_ing/hero-desct1.jpg),
+      url(/img/header_hero_ing/hero-desct1@2x.jpg);
     border-radius: 50px;
   }
 
