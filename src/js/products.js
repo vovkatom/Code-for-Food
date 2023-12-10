@@ -7,6 +7,7 @@ import {
 } from '/js/cart-localestorage';
 import iconSvg from '/img/icons.svg';
 import {updateCartNumber} from './header';
+import { openModal } from '/js/modalwindow'
 
 export {
   foodInfo,
@@ -43,6 +44,7 @@ async function fetchAndRender() {
   } finally {
     // Скрываем лоадер после выполнения запроса
     document.getElementById('overlay').style.display = 'none';
+    openModal()
   }
 }
 
