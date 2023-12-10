@@ -9,11 +9,11 @@ import {
   getCategoriesFromLS,
   KEY_CATEGORY,
   renderFoodItems,
+  homManyLimit,
 } from './products.js';
 import {
   funcPagination, loadMoreTrendMoves, pages
 } from './pagination.js';
-
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
 
 function fetchCategories() {
@@ -116,11 +116,13 @@ function handleCategory(event) {
 //! якщо там пусто, якщо ні підставляємо значення в поля>
 
 function onLoad() {
+  const limit = Number(homManyLimit())
+  console.log(limit)
   const obj = {
     keyword: null,
     category: null,
     page: 1,
-    limit: 6,
+    limit: `${limit}`,
     // byABC: null,
     // byPrice: 'true',
     // byPopularity: null,
@@ -163,9 +165,9 @@ function onLoad() {
         refs.currentSort.innerText = 'Not Popular';
       }
     }
-  } else {
-    return save(key, value);
-  }
+  } 
+  save(key, value);
+  
 }
 onLoad();
 // !^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
