@@ -316,7 +316,7 @@ a {
   transform: translate(-50%, -50%) scaleY(0);
 }
 
-.subscription-modal {
+.subscription-modal-success {
   border-radius: 20px;
   background: #e8e8e2;
   width: 280px;
@@ -326,7 +326,59 @@ a {
   display: block;
   position: relative;
 }
-.subscription-close-button {
+.subscription-modal-already-subscribed {
+  border-radius: 20px;
+  background: #e8e8e2;
+  width: 280px;
+  height: 400px;
+  flex-shrink: 0;
+  margin: 96px auto;
+  display: block;
+  position: relative;
+}
+.subscription-modal-fail {
+  border-radius: 20px;
+  background: #e8e8e2;
+  width: 280px;
+  height: 400px;
+  flex-shrink: 0;
+  margin: 96px auto;
+  display: block;
+  position: relative;
+}
+.subscription-success-close-button {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  padding: 0;
+  right: 14px;
+  top: 14px;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.subscription-fail-close-button {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  padding: 0;
+  right: 14px;
+  top: 14px;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.subscription-already-close-button {
   width: 22px;
   height: 22px;
   position: absolute;
@@ -397,6 +449,7 @@ a {
   align-items: center;
   gap: 14px;
   margin: 80px 43px 80px 44px;
+  height: 108px;
 }
 
 .subscription-fail {
@@ -412,21 +465,62 @@ a {
   display: none;
 }
 @media screen and (min-width: 375px) {
-  .subscription-modal {
+  .subscription-modal-success {
     width: 335px;
+  }
+  .subscription-modal-already-subscribed {
+    width: 335px;
+    height: 276px;
+  }
+  .subscription-modal-fail {
+    width: 335px;
+  }
+  .subscription-img {
+    width: 335px;
+    height: 144px;
   }
 }
 @media screen and (min-width: 768px) {
-  .subscription-modal {
+  .subscription-success-close-button,
+  .subscription-fail-close-button,
+  .subscription-already-close-button {
+    right: 24px;
+    top: 24px;
+  }
+  .subscription-modal-success {
     width: 490px;
     height: 400px;
+  }
+  .subscription-modal-already-subscribed {
+    width: 469px;
+    height: 308px;
+  }
+  .subscription-modal-fail {
+    width: 469px;
+    height: 308px;
+  }
+  .subscription-fail-text {
+    margin: 100px 60px;
+    gap: 20px;
+  }
+  .subscription-fail-text .subscription-text {
+    height: 40px;
+    width: 349px;
+  }
+  .subscription-fail-text .subscription-thanks {
+    height: 48px;
+  }
+  .subscription-fail .subscription-fail-text {
+    margin: 100px 112px;
   }
   .subscription-thanks {
     font-size: 24px;
     width: 245px;
+    line-height: 1;
   }
   .subscription-highlight {
     font-size: 24px;
+    line-height: 1;
   }
   .subscription-text {
     font-size: 16px;
@@ -443,6 +537,6 @@ a {
     background-image: url(/img/modal/subscribing_desct.png),
       url(/img/modal/subscribing_desct_@2x.png);
     position: relative;
-    bottom: 7px;
+    margin-top: 3px;
   }
 }

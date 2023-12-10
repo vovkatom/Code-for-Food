@@ -109,7 +109,8 @@ function handleCategory(event) {
   fetchAndRender();
 }
 
-//! Записуємо шаблонний масив в localStorage, якщо там пусто >
+//! Записуємо шаблонний масив в localStorage при завантаженні сторінки,
+//! якщо там пусто, якщо ні підставляємо значення >
 
 function onLoad() {
   const obj = {
