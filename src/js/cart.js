@@ -1,8 +1,8 @@
-export { cleanCart };
+export { cleanCart }
 
-import axios from 'axios';
-import { KEY_CART, cartArr, deleteFromCart, } from "./cart-localestorage";
-import iconsSvg from '/img/icons.svg';
+import axios from 'axios'
+import { KEY_CART, cartArr, deleteFromCart } from "./cart-localestorage"
+
 
 const refs = {
   counterCart: document.querySelector('.js-cart-numbers'),
@@ -24,13 +24,13 @@ fillCart()
 function fillCart() {
   //Якщо масив cartArr з localeStorage не пустий, то відмальовуємо товари в кошику, інакше показуємо заглушку
   if (cartArr.length !== 0) {
-    refs.cartEmpty.style.visibility = 'hidden';
-    refs.cartFull.style.visibility = 'visible';
-    refs.list.insertAdjacentHTML('beforeend', createCartMarkUp(cartArr));
+    refs.cartEmpty.style.display = 'none'
+    refs.cartFull.style.display = 'flex'
+    refs.list.insertAdjacentHTML('beforeend', createCartMarkUp(cartArr))
 
-    //Обчислюємо TOTAL 
-      updateTotal();
-    
+
+    updateTotal()
+
 
     // Записуємо в лічильники кількість товарів в кошику
     refs.counterCart.textContent = cartArr.length
@@ -41,15 +41,13 @@ function fillCart() {
   }
 }
 
-//Функція для обчислення TOTAL
 function updateTotal() {
-   
+  //Обчислюємо TOTAL 
   const total = cartArr.reduce((previousValue, product) => {
     return previousValue + product.price
   }, 0)
   refs.totalPrice.innerHTML = total.toFixed(2)
 }
-
 
 //Розмітка картки в кошику
 function createCartMarkUp(arr) {
@@ -113,9 +111,9 @@ refs.buttonCleanCart.addEventListener('click', cleanCart)
 function cleanCart() {
   localStorage.removeItem(KEY_CART)
 
-    refs.cartEmpty.style.display = 'flex';
-  refs.cartFull.style.display = 'none';
-  
+  refs.cartEmpty.style.display = 'flex'
+  refs.cartFull.style.display = 'none'
+
   // Щоб очистити лічильники і список,перезаписуємо пустий масив
   refs.list.innerHTML = createCartMarkUp(cartArr)
   document.querySelector('.js-cart-numbers').innerHTML = 0
@@ -123,7 +121,6 @@ function cleanCart() {
 }
 
 
-  
 //Відправлення замовлення на сервер через форму
 refs.formSubmit.addEventListener('submit', handlerFormSubmit)
 
@@ -155,8 +152,8 @@ async function handlerFormSubmit(event) {
   const newOrder = {
     email: email.value,
     products: createProducts(cartArr),
-  };
-  console.log(newOrder);
+  }
+  console.log('newOrder', newOrder)
 
   // Показываем лоадер перед запросом
   document.getElementById('overlay').style.display = 'flex';
@@ -176,8 +173,11 @@ async function handlerFormSubmit(event) {
       }
     )
 
-    
+  //?????????????????????????????????????? Після відправки запиту очищаємо корзину і форму,    та відображаємо вікно що корзина пуста
+
+  //Модальне вікно ???????????????????????
 }
+
 
 function validateEmail(email) {
   // const emailPattern = `/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/`
