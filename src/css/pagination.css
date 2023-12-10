@@ -8,6 +8,14 @@
   margin-top: 10px; 
 } */
 
+/* .span .tui-page-btn .tui-first {
+  display: none !important;
+}
+
+.span .tui-page-btn .tui-is-disabled .tui-last {
+  display: none !important;
+} */
+
 .tui-pagination {
   width: 324px !important;
   height: 25px !important;
