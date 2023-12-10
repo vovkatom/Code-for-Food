@@ -8,7 +8,7 @@ const refs = {
   pagination: document.querySelector('.tui-pagination'),
   list: document.querySelector('.product-list'),
   select: document.querySelector('.select__body'),
-  search: document.querySelector('.#search'),
+  search: document.querySelector('#search'),
 };
 
 const container = document.getElementById('pagination');
@@ -104,7 +104,7 @@ pages(pageOrigin);
 
 //слушатель для смены категории товаров
 refs.select.addEventListener('click', onSubmit);
-// refs.search.addEventListener('submint', onSubmit);
+refs.search.addEventListener('input', onSubmit);
 
 //колбек ф-я для слушателя. В local Storage в параметр page заносим 1. Определяем кол-во товаров и отрисовываем новую пагинацию
 async function onSubmit(event) {
