@@ -112,6 +112,8 @@ function cleanCart() {
     const cartCounterFull = document.querySelector('.js-cart-numbers');
     cartCounter.textContent = '0'; // Оновлюємо лічильник кошика на значення '0'
     cartCounterFull.textContent = '0'; 
+    refs.cartEmpty.style.display = 'flex';
+    refs.cartFull.style.display = 'none';
   }
 
 //Відправлення замовлення на сервер через форму
