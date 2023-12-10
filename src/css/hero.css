@@ -1,6 +1,6 @@
 /* Hero Section */
 
-.hero-section {
+.hero .container {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -94,7 +94,7 @@
 
 /* Add animation */
 @media screen and (min-width: 375px) {
-  .hero-section {
+  .hero .container {
     width: 375px; 
     padding-top: 36px;
   }
@@ -104,8 +104,8 @@
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1440px) {
-  .hero-section {
+@media screen and (min-width: 768px) {
+  .hero .container {
     width: 768px;
     margin: 0 auto;
     padding: 36px 32px 0 32px;
@@ -140,15 +140,16 @@
     border-radius: 50px;
   }
 
-  .hero-section {
+  .hero .container {
     width: 1440px;
     margin: 0 auto;
     padding: 58px 100px 0 100px;
   }
 
-  .hero-title {
+  .hero .hero-title {
     width: 1042px;
     height: 80px;
+    font-size: 80px;
     display: inline;
     white-space: nowrap;
   }
