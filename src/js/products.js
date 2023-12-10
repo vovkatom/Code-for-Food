@@ -19,8 +19,6 @@ export {
   homManyLimit,
 };
 
-  // import {fetchInfoFood} from "/partials/JS/modalwindow.js"
-
 const refs = {
   list: document.querySelector('.product-list'),
 };
@@ -30,7 +28,7 @@ let foodInfo = [];
 async function fetchAndRender() {
   // Показываем лоадер перед запросом
   document.getElementById('overlay').style.display = 'flex';
-  // setLimit()
+  setLimit()
   const categoryInfo = await fetchFoodCategory();
 
   try {
@@ -161,7 +159,6 @@ function add(elem, arr) {
     //team
     updateCartNumber();
   }
-  console.log(cartArr)
 }
 
 //Функція пошуку необхідного продукту за id в масиві,який надходить з серверу (викликається всередині addToCart)
@@ -263,15 +260,6 @@ function setLimit() {
   parseLimit.limit = Number(limit);
   localStorage.setItem("filter", JSON.stringify(parseLimit))
 }
-// ***************************** КЛІК ДЛЯ ВІДКРИТТЯ МОДАЛКИ
-// refs.list.addEventListener('click', function (event) {
-//   const clickedElement = event.target;
-//   const closetDiv = clickedElement.closest("div.open-modal")
-//   const closetLi = closetDiv.closest("li")
-//  Виклик функції додати
-// });
-
-
 
 let currentWindowWidth = window.innerWidth;
 let resizeTimer;
