@@ -1,16 +1,22 @@
-import axios from 'axios'
-import { KEY_CART, cartArr, deleteFromCart } from "./cart-localestorage"
+export { cleanCart };
+
+import axios from 'axios';
+import { KEY_CART, cartArr, deleteFromCart, } from "./cart-localestorage";
+import iconsSvg from '/img/icons.svg';
+
 const refs = {
   counterCart: document.querySelector('.js-cart-numbers'),
   counterMainPage: document.querySelector('#cart-count'),
   list: document.querySelector('.js-cart-list'),
   cartEmpty: document.querySelector('.js-empty-cart'),
   cartFull: document.querySelector('.cart-full'),
-  buttonDeleteProduct: document.querySelector('.btn-deleteProduct'),
-  buttonCleanCart: document.querySelector('.delete-all-btn'),
-  formSubmit: document.querySelector('.form'),
-  totalPrice: document.querySelector('.total-price'),
-};
+  buttonDeleteProduct: '.delete-btn',
+  buttonCleanCart: document.querySelector('.js-delete-all-btn'),
+  formSubmit: document.querySelector('.form-cart'),
+  totalPrice: document.querySelector(".total-price"),
+  cartSuccess: document.querySelector('.js-success'),
+  closeSuccess: document.querySelector('.js-close-success')
+}
 
 //Функція наповнення кошика при оновленні сторінки
 fillCart()
@@ -22,11 +28,9 @@ function fillCart() {
     refs.cartFull.style.visibility = 'visible';
     refs.list.insertAdjacentHTML('beforeend', createCartMarkUp(cartArr));
 
-    //Обчислюємо TOTAL
-    const total = cartArr.reduce((previousValue, product) => {
-      return previousValue + product.price;
-    }, 0);
-    refs.totalPrice.innerHTML = total.toFixed(2);
+    //Обчислюємо TOTAL 
+      updateTotal();
+    
 
     // Записуємо в лічильники кількість товарів в кошику
     refs.counterCart.textContent = cartArr.length
@@ -36,6 +40,16 @@ function fillCart() {
     refs.cartFull.style.display = 'none'
   }
 }
+
+//Функція для обчислення TOTAL
+function updateTotal() {
+   
+  const total = cartArr.reduce((previousValue, product) => {
+    return previousValue + product.price
+  }, 0)
+  refs.totalPrice.innerHTML = total.toFixed(2)
+}
+
 
 //Розмітка картки в кошику
 function createCartMarkUp(arr) {
@@ -54,7 +68,7 @@ function createCartMarkUp(arr) {
                 <h2 class="product-name">${name}</h2>
                 <button class="delete-btn">
                     <svg class="" width="20" height="20">
-                    <use href="${iconsSvg}#icon-x-close"></use>
+                    <use href="./img/icons.svg#icon-x-close"></use>
                     </svg>
                 </button>
             </div>
@@ -76,7 +90,22 @@ function createCartMarkUp(arr) {
 
 //??????????????????????????????????????????????????????????????
 //По кліку на кнопву Delete видаляємо товар з корзини (функція імпортується)
-//refs.buttonDeleteProduct.addEventListener('click', deleteFromCart);
+
+function updateCartList() {
+  document.querySelectorAll(refs.buttonDeleteProduct).forEach(btn => {
+    btn.addEventListener('click', () => {
+      deleteFromCart(cartArr, btn)
+
+      refs.list.innerHTML = createCartMarkUp(cartArr)
+      updateCartList()
+      updateTotal()
+    })
+  })
+}
+
+updateCartList()
+
+
 
 //По кліку на кнопву Delete all очищуємо корзину
 refs.buttonCleanCart.addEventListener('click', cleanCart)
@@ -84,13 +113,17 @@ refs.buttonCleanCart.addEventListener('click', cleanCart)
 function cleanCart() {
   localStorage.removeItem(KEY_CART)
 
-  refs.cartEmpty.style.visibility = 'visible';
-  refs.cartFull.style.visibility = 'hidden';
-
+    refs.cartEmpty.style.display = 'flex';
+  refs.cartFull.style.display = 'none';
+  
   // Щоб очистити лічильники і список,перезаписуємо пустий масив
-  refs.list.innerHTML = createCartMarkUp(cartArr);
+  refs.list.innerHTML = createCartMarkUp(cartArr)
+  document.querySelector('.js-cart-numbers').innerHTML = 0
+  document.querySelector('#cart-count').innerHTML = 0
 }
 
+
+  
 //Відправлення замовлення на сервер через форму
 refs.formSubmit.addEventListener('submit', handlerFormSubmit)
 
@@ -125,19 +158,42 @@ async function handlerFormSubmit(event) {
   };
   console.log(newOrder);
 
+  // Показываем лоадер перед запросом
+  document.getElementById('overlay').style.display = 'flex';
+
   await axios
     .post('https://food-boutique.b.goit.study/api/orders', newOrder)
     .then(data => {
-      console.log(data);
+      console.log(data)
+      // Скрываем лоадер после запроса
+      document.getElementById('overlay').style.display = 'none';
     })
     .catch(err => {
-      console.error(err);
-    });
+      console.error(err)
+    }).finally(
+      () => {
+        openModalSuccess()
+      }
+    )
 
-  //?????????????????????????????????????? Після відправки запиту очищаємо корзину і форму,    та відображаємо вікно що корзина пуста
-  //localStorage.removeItem(KEY_CART);
-  //refs.list.innerHTML = createCartMarkUp(cartArr);
-  //form.reset();
+    
+}
 
-  //Модальне вікно ???????????????????????
+function validateEmail(email) {
+  // const emailPattern = `/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/`
+  return true
+}
+
+function openModalSuccess() {
+  refs.cartSuccess.classList.remove('visually-hidden')
+  refs.closeSuccess.addEventListener('click', () => {
+    closeSuccessCart()
+  })
+}
+
+
+function closeSuccessCart() {
+  refs.cartSuccess.classList.add('visually-hidden')
+  refs.formSubmit.reset()
+  cleanCart()
 }
