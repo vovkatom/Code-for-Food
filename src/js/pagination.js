@@ -7,7 +7,7 @@ const FILTER = 'filter';
 const refs = {
   pagination: document.querySelector('.tui-pagination'),
   list: document.querySelector('.product-list'),
-  select: document.querySelector('.select'),
+  select: document.querySelector('.select__body'),
 };
 
 const container = document.getElementById('pagination');
