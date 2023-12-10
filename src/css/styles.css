@@ -24,7 +24,7 @@
   font-style: normal;
   font-weight: 400;
   src: local('PP Neue Montreal Book'),
-    url('../fonts/NeueMontreal-Regular.woff') format('woff');
+    url('/fonts/NeueMontreal-Regular.woff') format('woff');
   font-display: swap;
 }
 
@@ -33,13 +33,13 @@
   font-style: normal;
   font-weight: 500;
   src: local('PP Neue Montreal Medium'),
-    url('../fonts/NeueMontreal-Medium.woff') format('woff');
+    url('/fonts/NeueMontreal-Medium.woff') format('woff');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Fontspring';
-  src: url('../fonts/Fontspring-DEMO-quincycf-black.otf') format('opentype');
+  src: url('/fonts/Fontspring-DEMO-quincycf-black.otf') format('opentype');
   font-display: swap;
 }
 
