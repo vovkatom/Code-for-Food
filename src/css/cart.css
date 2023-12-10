@@ -217,7 +217,11 @@
 }
 
 /*Стилізація розмітки кошика */
-.selectedProduct {
+<<<<<<< Updated upstream ======= .cart-list {
+  width: 100%;
+}
+
+>>>>>>>Stashed changes .selectedProduct {
   display: flex;
   flex-direction: row;
   padding-top: 40px;
@@ -303,7 +307,7 @@
 }
 
 .input-container {
-  padding: 12px 20px;
+  padding: 12px 10px 12px 20px;
   border-radius: 30px;
   border: 1px solid rgba(1, 1, 1, 0.3);
 
@@ -514,4 +518,10 @@
 .success-delete-btn:hover,
 .success-delete-btn:focus {
   background-color: transparent;
+}
+
+.cart-delete__wrap {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 15px;
 }
