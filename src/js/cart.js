@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { KEY_CART, cartArr, deleteFromCart, } from "./cart-localestorage";
+import iconsSvg from '/img/icons.svg';
 
 const refs = {
   counterCart: document.querySelector('.js-cart-numbers'),
@@ -49,6 +50,7 @@ function updateTotal() {
   refs.totalPrice.innerHTML = total.toFixed(2)
 }
 
+
 //Розмітка картки в кошику
 function createCartMarkUp(arr) {
   return arr
@@ -66,7 +68,7 @@ function createCartMarkUp(arr) {
                 <h2 class="product-name">${name}</h2>
                 <button class="delete-btn">
                     <svg class="" width="20" height="20">
-                    <use href="/img/icons.svg#icon-x-close"></use>
+                    <use href="${iconsSvg}#icon-x-close"></use>
                     </svg>
                 </button>
             </div>
