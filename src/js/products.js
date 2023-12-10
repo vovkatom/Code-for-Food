@@ -16,6 +16,7 @@ export {
   getCategoriesFromLS,
   KEY_CATEGORY,
   renderFoodItems,
+  homManyLimit,
 };
 
   // import {fetchInfoFood} from "/partials/JS/modalwindow.js"
@@ -29,7 +30,7 @@ let foodInfo = [];
 async function fetchAndRender() {
   // Показываем лоадер перед запросом
   document.getElementById('overlay').style.display = 'flex';
-  setLimit()
+  // setLimit()
   const categoryInfo = await fetchFoodCategory();
 
   try {

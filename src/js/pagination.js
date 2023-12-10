@@ -17,26 +17,29 @@ const container = document.getElementById('pagination');
 
 let totalPage = 1;
 //correct
-let itemsPerPage = 6;
+let itemsPerPage;
 let visiblePage = 3;
 let pageOrigin = 1;
 
 //вытягивает с localStorage номер страницы - если была перегрузка страницы, то нужно вятянуть номер который был до перегрузки и
 //  активировать пагинацию на этой же страничке
-const storedData = localStorage.getItem(FILTER);
-if (storedData) {
-  try {
-    const parsedData = JSON.parse(storedData);
-    pageOrigin = parsedData.page;
-    itemsPerPage = parsedData.limit;
-    // console.log(totalPage);
-    // console.log(pageOrigin);
-    // console.log(itemsPerPage);
-    pages(pageOrigin);
-  } catch (error) {
-    console.error('Error updating localStorage:', error);
+function storeData() {
+  const storedData = localStorage.getItem(FILTER);
+  if (storedData) {
+    try {
+      const parsedData = JSON.parse(storedData);
+      pageOrigin = parsedData.page;
+      itemsPerPage = parsedData.limit;
+      // console.log(totalPage);
+      // console.log(pageOrigin);
+      // console.log(itemsPerPage);
+    } catch (error) {
+      console.error('Error updating localStorage:', error);
+    }
   }
+  funcPagination(totalPage, pageOrigin);
 }
+
 // } else {
 //   pageOrigin = 1;
 // }
@@ -73,6 +76,7 @@ function funcPagination(totalPage, pageOrigin) {
         '</a>',
     },
   };
+  // console.log(itemsPerPage);
   const pagination = new Pagination(container, options);
   pagination.on('beforeMove', loadMoreTrendMoves);
 }
@@ -98,7 +102,8 @@ async function pages(pageOrigin) {
   let responce = await fetchFoodCategory();
   totalPage = responce.data.totalPages * responce.data.perPage;
   // console.log(`fff${totalPage}`);
-  funcPagination(totalPage, pageOrigin);
+  
+  storeData();
 }
 
 pages(pageOrigin);
