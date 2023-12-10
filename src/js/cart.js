@@ -89,7 +89,6 @@ function createCartMarkUp(arr) {
 //??????????????????????????????????????????????????????????????
 //По кліку на кнопву Delete видаляємо товар з корзини (функція імпортується)
 
-
 function updateCartList() {
   document.querySelectorAll(refs.buttonDeleteProduct).forEach(btn => {
     btn.addEventListener('click', () => {
@@ -103,7 +102,6 @@ function updateCartList() {
 }
 
 updateCartList()
-
 
 
 
@@ -121,7 +119,6 @@ function cleanCart() {
   document.querySelector('.js-cart-numbers').innerHTML = 0
   document.querySelector('#cart-count').innerHTML = 0
 }
-
 
 
 //Відправлення замовлення на сервер через форму
@@ -158,10 +155,15 @@ async function handlerFormSubmit(event) {
   }
   console.log('newOrder', newOrder)
 
+  // Показываем лоадер перед запросом
+  document.getElementById('overlay').style.display = 'flex';
+
   await axios
     .post('https://food-boutique.b.goit.study/api/orders', newOrder)
     .then(data => {
       console.log(data)
+      // Скрываем лоадер после запроса
+      document.getElementById('overlay').style.display = 'none';
     })
     .catch(err => {
       console.error(err)
