@@ -6,7 +6,8 @@ import {
     getCategoriesFromLS,
     KEY_CATEGORY,
     renderFoodItems,
-  } from './products';
+} from './products';
+import { funcPagination, loadMoreTrendMoves, pages } from './pagination.js';
 // import { Input } from "postcss";
 
 const form = document.querySelector('#search');
@@ -30,6 +31,7 @@ function handleInputOrSubmit(event) {
     timeoutId = setTimeout(() => {
       updateLocalStorage(keyword, storedData);
       fetchAndRender();
+      pages(1)
     }, 1000);
   }
 }
@@ -39,6 +41,7 @@ function updateLocalStorage(keyword, storedData) {
     try {
       const parsedData = JSON.parse(storedData);
       parsedData.keyword = `${keyword}`;
+      parsedData.page = 1;
       localStorage.setItem('filter', JSON.stringify(parsedData));
     } catch (error) {
       console.error('Error updating localStorage:', error);

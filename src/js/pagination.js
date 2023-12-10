@@ -2,12 +2,14 @@
 import Pagination from 'tui-pagination';
 import { fetchAndRender, fetchFoodCategory } from '/js/products.js';
 
+export { funcPagination, loadMoreTrendMoves, pages };
+  
 const FILTER = 'filter';
 
 const refs = {
   pagination: document.querySelector('.tui-pagination'),
   list: document.querySelector('.product-list'),
-  select: document.querySelector('.select'),
+  // select: document.querySelector('.select'),
   search: document.querySelector('#search'),
 };
 
@@ -103,25 +105,26 @@ pages(pageOrigin);
 // window.addEventListener('load', pages)(pageOrigin);
 
 //слушатель для смены категории товаров
-refs.select.addEventListener('click', onSubmit);
-refs.search.addEventListener('input', onSubmit);
+// refs.select.addEventListener('click', onSubmit);
+// refs.search.addEventListener('input', onSubmit);
 
-//колбек ф-я для слушателя. В local Storage в параметр page заносим 1. Определяем кол-во товаров и отрисовываем новую пагинацию
-async function onSubmit(event) {
-  // pagination.reset();
-  const storedData = localStorage.getItem(FILTER);
-  if (storedData) {
-    try {
-      const parsedData = JSON.parse(storedData);
-      parsedData.page = 1;
-      localStorage.setItem('filter', JSON.stringify(parsedData));
-    } catch (error) {
-      console.error('Error updating  localStorage:', error);
-    }
-  }
+// //колбек ф-я для слушателя. В local Storage в параметр page заносим 1. Определяем кол-во товаров и отрисовываем новую пагинацию
+// async function onSubmit(event) {
+//   // pagination.reset();
+//   const storedData = localStorage.getItem(FILTER);
+//   if (storedData) {
+//     try {
+//       const parsedData = JSON.parse(storedData);
+//       parsedData.page = 1;
+//       localStorage.setItem('filter', JSON.stringify(parsedData));
+//     } catch (error) {
+//       console.error('Error updating  localStorage:', error);
+//     }
+//   }
 
-  let responce = await fetchFoodCategory();
-  let totalPage = responce.data.totalPages * responce.data.perPage;
-  let pageOrigin = 1;
-  funcPagination(totalPage, pageOrigin);
-}
+//   let responce = await fetchFoodCategory();
+//   let totalPage = responce.data.totalPages * responce.data.perPage;
+//   let pageOrigin = 1;
+//   funcPagination(totalPage, pageOrigin);
+// }
+
