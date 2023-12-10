@@ -34,7 +34,6 @@ async function onFormSubmit(event) {
       // Якщо статус 409, викликаємо toggleModal()
         toggleModal();
         refs.subAlready.style.display = 'block';
-        refs.subAlready.style.width = 'block';
     } else {
       toggleModal();
       refs.subFail.style.display = 'block';
