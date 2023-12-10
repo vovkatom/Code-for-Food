@@ -6,6 +6,7 @@ import {
   findProduct,
 } from '/js/cart-localestorage';
 import iconSvg from '../img/icons.svg';
+import {updateCartNumber} from './header';
 
 export {
   foodInfo,
@@ -149,6 +150,8 @@ function add(elem, arr) {
   const product = findP(elem, arr);
   cartArr.push(product);
   localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
+  //team
+  updateCartNumber();
 }
 
 //Функція пошуку необхідного продукту за id в масиві,який надходить з серверу (викликається всередині addToCart)
