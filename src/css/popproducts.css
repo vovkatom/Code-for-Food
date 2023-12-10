@@ -1,3 +1,7 @@
+.popproducts {
+  margin-bottom: 80px;
+}
+
 .popular-title {
   color: #010101;
   font-family: Neue Montreal;
@@ -11,7 +15,6 @@
   display: flex;
   gap: 14px;
   flex-direction: column;
-  margin-bottom: 80px;
 }
 .item-popular {
   display: flex;
@@ -78,7 +81,7 @@
 .popularBtn {
   margin-top: 12px;
   margin-right: 12px;
-margin-left: auto;
+  margin-left: auto;
   width: 20px;
   height: 20px;
   display: inline-flex;
@@ -87,8 +90,8 @@ margin-left: auto;
   align-items: center;
   gap: 10px;
   border-radius: 30px;
-  background: #E8E8E2;
-  border: #E8E8E2;
+  background: #e8e8e2;
+  border: #e8e8e2;
 }
 
 .popularBtn:hover {
@@ -100,7 +103,7 @@ margin-left: auto;
   cursor: auto;
 }
 .popularBtn:hover .icon-popular {
-  fill: #E8E8E2;
+  fill: #e8e8e2;
 }
 .icon-popular {
   position: absolute;
@@ -109,34 +112,35 @@ margin-left: auto;
 .use-popular {
 }
 
-@media screen and (min-width: 375px) {}
+@media screen and (min-width: 375px) {
+}
 
 @media screen and (min-width: 768px) {
-    .item-popular {
-        width: 275px;
-        height: 98px;
-      }
-      .popular-list {
-        flex-wrap: wrap;
-        flex-direction: row;
-        gap: 13px;
-        margin-bottom: 64px;
-      }
-      .popular-title {
-        font-size: 28px;
-        line-height: 1.14;
-      }
-      .popular-name {
-        font-size: 20px;
-        line-height: 1.2;
-      }
+  .popproducts {
+    margin-bottom: 64px;
+  }
+
+  .item-popular {
+    width: 275px;
+    height: 98px;
+  }
+  .popular-list {
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 13px;
+  }
+  .popular-title {
+    font-size: 28px;
+    line-height: 1.14;
+  }
+  .popular-name {
+    font-size: 20px;
+    line-height: 1.2;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-    .popular-list {
-        margin-bottom: 40px;
-    }
+  .popproducts {
+    margin-bottom: 40px;
+  }
 }
-
-
-
