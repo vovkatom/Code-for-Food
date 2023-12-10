@@ -1,6 +1,3 @@
-import axios from 'axios';
-import { KEY_CART, cartArr, deleteFromCart } from './cart-localestorage';
-
 import axios from 'axios'
 import { KEY_CART, cartArr, deleteFromCart } from "./cart-localestorage"
 const refs = {
