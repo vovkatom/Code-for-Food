@@ -6,12 +6,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  outline: 2px #6d8434 solid;
+  padding-left: 20px;
+  padding-right: 20px;
+  outline: 2px dashed red;
 }
 
 .hero-title {
   display: inline-block;
-  /* width: 335px; */
+  width: 335px;
   height: 95px;
   color: #010101;
   text-align: center;
@@ -92,9 +94,11 @@
 
 /* Add animation */
 @media screen and (min-width: 375px) {
-  /* .hero-section {
-        width: 375px;
-    } */
+  .hero-section {
+    width: 375px; 
+    padding-top: 36px;
+  }
+    
   .hero-image {
     width: 335px;
   }
@@ -102,8 +106,9 @@
 
 @media screen and (min-width: 768px) and (max-width: 1440px) {
   .hero-section {
-    width: 704px;
+    width: 768px;
     margin: 0 auto;
+    padding: 36px 32px 0 32px;
   }
 
   .hero-title {
@@ -136,12 +141,9 @@
   }
 
   .hero-section {
-    width: 1240px;
+    width: 1440px;
     margin: 0 auto;
-  }
-
-  .hero {
-    padding-bottom: 37px;
+    padding: 58px 100px 0 100px;
   }
 
   .hero-title {
