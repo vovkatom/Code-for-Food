@@ -5,7 +5,7 @@ import {
   addToCart,
   findProduct,
 } from '/js/cart-localestorage';
-import iconSvg from '../img/icons.svg';
+import iconSvg from '/img/icons.svg';
 import {updateCartNumber} from './header';
 
 export {
@@ -17,7 +17,7 @@ export {
   renderFoodItems,
 };
 
-  // import {fetchInfoFood} from "../partials/JS/modalwindow.js"
+  // import {fetchInfoFood} from "/partials/JS/modalwindow.js"
 
 const refs = {
   list: document.querySelector('.product-list'),

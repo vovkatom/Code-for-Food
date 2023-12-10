@@ -1,6 +1,6 @@
 import 'tui-pagination/dist/tui-pagination.css';
 import Pagination from 'tui-pagination';
-import { fetchAndRender, fetchFoodCategory } from '../js/products.js';
+import { fetchAndRender, fetchFoodCategory } from '/js/products.js';
 
 const FILTER = 'filter';
 
