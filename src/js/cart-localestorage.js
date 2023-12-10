@@ -34,36 +34,20 @@ function findProduct(elem, arr) {
 
 
 //Функція для видалення товарів з LocaleStorage по кліку на кнопку delete
-function deleteFromCart(cartArr, btn) {
-  try {
-    const selectedProduct = btn.closest('.selectedProduct').dataset.id
-    console.log(`deleted ${selectedProduct}`)
-    //Перебираємо масив корзини, шукаємо індекс продукту з вибраним id і видаляємо його з масиву за індексом
-    if (selectedProduct) {
-      for (let i = 0; i < cartArr.length; i++) {
-        if (cartArr[i]._id === selectedProduct) {
-          cartArr.splice(i, 1)
-          localStorage.setItem(KEY_CART, JSON.stringify(cartArr))
-          updateCartNumber()
-        }
-      }
-    }
-
-
-  } catch (error) {
-    console.log(error)
-  } finally {
-    if (cartArr.length === 0) {
-      localStorage.removeItem(KEY_CART)
-      refs.cartEmpty.style.display = 'flex'
-      refs.cartFull.style.display = 'none'
-      document.querySelector('.js-cart-numbers').innerHTML = 0
-      document.querySelector('#cart-count').innerHTML = 0
-    }
+function deleteFromCart(evt, cartArr) {
+  //Перебираємо масив корзини, шукаємо індекс продукту з вибраним id і видаляємо його з масиву за індексом
+  for (let i= 0; i < cartArr.length; i += 1 ) {
+    productId = evt.target.dataset._id;
+    if (cartArr[i]._id === productId) {
+      cartArr.splice(i, 1); 
+      localStorage.setItem(KEY_CART, JSON.stringify(cartArr)); 
   }
-
+}
 
 }
+
+//console.log(evt.target);
+//console.log(deleteFromCart(evt, cartArr));
 
 
 
