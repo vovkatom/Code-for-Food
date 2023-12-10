@@ -145,7 +145,7 @@ input:focus {
   width: 20px;
 }
 .select__body {
-  z-index: 1;
+  z-index: 9999999999;
   margin-top: 8px;
   left: 0;
   position: absolute;
@@ -219,7 +219,7 @@ input:focus {
   width: 20px;
 }
 .sort-body {
-  z-index: 1;
+  z-index: 9999999;
   margin-top: 8px;
   left: 0;
   position: absolute;

@@ -20,6 +20,7 @@
   line-height: normal;
   text-align: center;
   font-size: 0;
+  justify-content: center;
 }
 
 @media screen and (min-width: 375px) {

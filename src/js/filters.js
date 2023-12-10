@@ -10,6 +10,9 @@ import {
   KEY_CATEGORY,
   renderFoodItems,
 } from './products.js';
+import {
+  funcPagination, loadMoreTrendMoves, pages
+} from './pagination.js';
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
 
@@ -81,7 +84,7 @@ let select = function () {
 // ! ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 // ! local storage !
-
+// Записуємо вибрану категорію в локал сторедж і відмальовуємо товари:
 function handleCategory(event) {
   const category = event.target.innerText
     .replace(/ /g, '_')
@@ -98,19 +101,19 @@ function handleCategory(event) {
         parsedData.category = `${category}`;
       } else {
         parsedData.category = null;
-      }
+      } parsedData.page = 1;
       // Зберегти оновлений об'єкт назад в localStorage
       localStorage.setItem('filter', JSON.stringify(parsedData));
     } catch (error) {
       console.error('Error updating localStorage:', error);
     }
   }
-
+  pages(1);
   fetchAndRender();
 }
 
 //! Записуємо шаблонний масив в localStorage при завантаженні сторінки,
-//! якщо там пусто, якщо ні підставляємо значення >
+//! якщо там пусто, якщо ні підставляємо значення в поля>
 
 function onLoad() {
   const obj = {
