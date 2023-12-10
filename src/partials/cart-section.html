@@ -3,7 +3,7 @@
     <h1 class="cart-title">
       <svg class="cart-icon" width="18" height="18">
         <use href="./img/header_hero_icons.svg#icon-cart"></use>
-      </svg>   
+      </svg>
       Cart (<span class="js-cart-numbers">0</span>)
     </h1>
 
@@ -28,65 +28,44 @@
     <div class="order js-order">
       <h2 class="order-title">Your order</h2>
 
-    <div class="total">
-      <div class="total-name">Total </div>
-      <div class="total-price">00,00</div>
+        <div class="total">
+          <div class="total-name">Total </div>
+          <div class="total-price">00,00</div>
+        </div>
+
+        <form class="form form-cart">
+          <div class="input-container">
+            <label class="notation" for="email">Mail:</label>
+            <input type="email" id="email" pattern=".{8,}" placeholder="Enter your email" autocomplete="email"
+              title="valid@email.com" required />
+          </div>
+          <button class="order-btn" type="submit">Checkout</button>
+        </form>
+
+      </div>
+
     </div>
 
-    <form class="form">
-      <div class="input-container">
-        <label class="notation" for="email">Mail:</label>
-        <input
-          type="email"
-          id="email"
-          pattern=".{8,}"
-          placeholder="Enter your email"
-          autocomplete="email"
-          title="valid@email.com"
-          required
-        />
-      </div>
-      <button class="order-btn" type="submit">Checkout</button>
-    </form>
-  </div>
-
-  </div>
-
-  <!-- empty cart -->
-  <div class="empty-cart js-empty-cart">
-    <picture class="empty-cart-image">
-      <!-- Desktop screen 1440px -->
-      <source
-        media="(min-width: 1440px)"
-        srcset="
+    <!-- empty cart -->
+    <div class="empty-cart js-empty-cart">
+      <picture class="empty-cart-image">
+        <!-- Desktop screen 1440px -->
+        <source media="(min-width: 1440px)" srcset="
           ./img/cart/basket-desc.webp    1x,
           ./img/cart/basket-desc@2x.webp 2x
-        "
-      />
-      <!-- Tablet screen -->
-      <source
-        media="(min-width: 768px)"
-        srcset="
+        " />
+        <!-- Tablet screen -->
+        <source media="(min-width: 768px)" srcset="
           ./img/cart/basket-tablet.webp    1x,
           ./img/cart/basket-tablet@2x.webp 2x
-        "
-      />
-      <!-- Mobile screen -->
-      <source
-        media="(max-width: 767px)"
-        srcset="
+        " />
+        <!-- Mobile screen -->
+        <source media="(max-width: 767px)" srcset="
           ./img/cart/basket-mob.webp    1x,
           ./img/cart/basket-mob@2x.webp 2x
-        "
-      />
-      <img
-        src="./img/cart/basket-mob.webp"
-        alt="Empty Basket"
-        width="132"
-        height="114"
-        loading="lazy"
-      />
-    </picture>
+        " />
+        <img src="./img/cart/basket-mob.webp" alt="Empty Basket" width="132" height="114" loading="lazy" />
+      </picture>
       <h3 class="empty-cart-title">
         Your basket is<span class="change-color"> empty...</span>
       </h3>
@@ -94,7 +73,7 @@
         Go to the main page to select your favorite products and add them to the
         cart.
       </p>
-  </div>
-   <!-- ======= SUCCESS MODAL ======= -->
+    </div>
+    <!-- ======= SUCCESS MODAL ======= -->
 
 </section>

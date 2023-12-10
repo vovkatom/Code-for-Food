@@ -2,6 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="With Food Boutique, you're not just subscribing to food, you're signing up for a fresher, fitter, and happier you."
+    />
     <link rel="icon" type="image/ico" href="./img/favicon.ico" />
     <link
       rel="preload"
@@ -22,16 +26,19 @@
     <load ="partials/hero.html" />
     <!-- Filter Mykola Mandra -->
     <load ="partials/filters.html" />
-    <!--  Elena -->
-    <load ="partials/pagination.html" />
     <!--  Maryna -->
     <load ="partials/modalwindow.html" />
 
     <section class="section-products">
+      <div class="overlay" id="overlay">
+        <span class="loader"></span>
+      </div>
       <div class="container prod-container">
         <div class="products">
           <!-- Products Valera Boboshko / Sed Kol -->
           <load ="partials/products.html" />
+          <!--  Elena -->
+          <load ="partials/pagination.html" />
         </div>
         <div class="dopproducts">
           <div class="popproducts">
@@ -49,6 +56,5 @@
     <!-- Sergey -->
     <load ="partials/footer.html" />
 
-    <a href="./cart.html">Посилання на кошик</a>
   </body>
 </html>

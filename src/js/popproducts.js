@@ -1,29 +1,49 @@
-import { addToCart } from '/partials/JS/cart-localestorage.js';
+import {
+  KEY_CART,
+  addToCart,
+} from '/js/cart-localestorage.js';
 import axios from 'axios';
-import iconsSvg from '../../img/icons.svg';
+import iconsSvg from '/img/icons.svg';
+import {updateCartNumber} from './header';
+
 
 async function fetchPopularFood() {
+  // Показываем лоадер перед запросом
+  document.getElementById('overlay').style.display = 'flex';
+
   const url = `https://food-boutique.b.goit.study/api/products/popular`;
   try {
     const responce = await axios.get(url);
     return responce.data;
   } catch (error) {
     throw error;
+  } finally {
+    // Скрываем лоадер после выполнения запроса
+    document.getElementById('overlay').style.display = 'none';
   }
 }
-
+ 
 const popularList = document.querySelector('.popular-list');
 let prodList = [];
 
 async function createMarkup() {
+  const storage = localStorage.getItem(KEY_CART);
   const lim = 5;
   try {
     let responce = await fetchPopularFood();
     prodList = responce.slice(0, lim);
     const createProducts = prodList
       .map(({ img, name, popularity, category, size, _id }) => {
+
+        const isIDInLocaleStorage = storage
+        ? JSON.parse(storage).some(item => item._id === _id)
+        : false;
+      const svgHref = isIDInLocaleStorage
+        ? `${iconsSvg}#icon-cart`
+        : `${iconsSvg}#icon-shopping-cart`;
+
         const cleanedCategory = category.replace(/_/g, ' ');
-        return  `<li class="item-popular" data-id="${_id}">
+        return `<li class="item-popular" data-id="${_id}">
         <div class="background-img-popular">
             <img src="${img}" alt="" class="img-popular" loading="lazy" />
         </div>
@@ -37,10 +57,12 @@ async function createMarkup() {
             <p class="popular-info-items">Popularity: <b class="value-popular">${popularity}</b></p>
         </div>
         </div>
-            <button class="popularBtn">
+            <button class="popularBtn" data-_id="${_id}" ${
+              isIDInLocaleStorage ? 'disabled' : ''
+            }>
                 <svg class="icon-popular" data-_id="${_id}" width="12" height="12">
                     <use class="use-popular" data-_id="${_id}"
-                        href="${iconsSvg}#icon-shopping-cart"
+                      href="${svgHref}"
                     ></use>
                 </svg>
             </button>
@@ -55,7 +77,6 @@ async function createMarkup() {
 }
 
 window.addEventListener('load', createMarkup);
-
 
 const linkBag = document.querySelector('.popular-list');
 
@@ -75,6 +96,6 @@ function addCart(evt) {
   btn.style.cursor = 'auto';
   btn.style.background = '#6d8434';
   btn.style.border = '#6d8434';
+
+  updateCartNumber();
 }
-
-

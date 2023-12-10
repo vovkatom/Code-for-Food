@@ -16,6 +16,7 @@
 @import url('./popproducts.css');
 @import url('./products.css');
 @import url('./cart.css');
+@import url('./pagination.css');
 /* @import url('./heroheader.css'); */
 
 @font-face {
@@ -23,7 +24,8 @@
   font-style: normal;
   font-weight: 400;
   src: local('PP Neue Montreal Book'),
-    url('../fonts/NeueMontreal-Regular.woff') format('woff');
+    url('/fonts/NeueMontreal-Regular.woff') format('woff');
+  font-display: swap;
 }
 
 @font-face {
@@ -31,17 +33,19 @@
   font-style: normal;
   font-weight: 500;
   src: local('PP Neue Montreal Medium'),
-    url('../fonts/NeueMontreal-Medium.woff') format('woff');
+    url('/fonts/NeueMontreal-Medium.woff') format('woff');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Fontspring';
-  src: url('../fonts/FontLogo.ttf') format('truetype');
+  src: url('/fonts/Fontspring-DEMO-quincycf-black.otf') format('opentype');
   font-display: swap;
 }
 
 :root {
   --color-text: #010101;
+  --color-text2: #0101014d;
   --color-bckg: #e8e8e2;
   --color-card-bckg: #fafafa;
   --color-btn: #6d8434;
@@ -77,6 +81,41 @@
 .prod-container {
   gap: 40px;
 }
+
+/*-----------------------LOADER---------------------------------*/
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid;
+  border-color: #ff3d00 transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*---------------------------------------------------------------------------*/
 
 @media screen and (min-width: 768px) {
   .container {

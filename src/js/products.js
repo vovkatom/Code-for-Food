@@ -1,6 +1,14 @@
 import axios from 'axios';
-import { KEY_CART, cartArr, addToCart, findProduct } from '../partials/JS/cart-localestorage';
-import iconSvg from "../img/icons.svg"
+import {
+  KEY_CART,
+  cartArr,
+  addToCart,
+  findProduct,
+} from '/js/cart-localestorage';
+import iconSvg from '/img/icons.svg';
+import {updateCartNumber} from './header';
+import { openModal } from '/js/modalwindow'
+
 export {
   foodInfo,
   fetchAndRender,
@@ -10,6 +18,8 @@ export {
   renderFoodItems,
 };
 
+  // import {fetchInfoFood} from "/partials/JS/modalwindow.js"
+
 const refs = {
   list: document.querySelector('.product-list'),
 };
@@ -17,45 +27,64 @@ const refs = {
 let foodInfo = [];
 
 async function fetchAndRender() {
-  // визначається скільки завантажиться li в залежності від ширини екрана
-  // if (window.innerWidth < 1440 && window.innerWidth > 767) {
-  //     limit = 8;
-  // }
-  // else if (window.innerWidth < 768) {
-  //     limit = 6;
-  // }
-  // else {
-  //     limit = 9;
-  // }
-  const categoryInfo = fetchFoodCategory();
+  // Показываем лоадер перед запросом
+  document.getElementById('overlay').style.display = 'flex';
+  setLimit()
+  const categoryInfo = await fetchFoodCategory();
 
   try {
-    let responce;
+    let response;
     if (categoryInfo) {
-      responce = await fetchFoodCategory(categoryInfo.page, categoryInfo.limit);
+      response = categoryInfo;
     }
-    foodInfo = responce.data.results;
+    foodInfo = response.data.results;
     renderFoodItems(foodInfo);
   } catch (error) {
     console.error(error);
+  } finally {
+    // Скрываем лоадер после выполнения запроса
+    document.getElementById('overlay').style.display = 'none';
+    openModal()
   }
 }
 
 function renderFoodItems(foodInfo) {
   const storage = localStorage.getItem(KEY_CART);
+const createMessage = `<div class="error-load">
+                <h2 class="not-found-heading">Nothing was found for the selected <span
+                        class="green-word">filters...</span>
+                </h2>
+                <p class="not-found-message">Try adjusting your search parameters or browse our range by other criteria
+                    to
+                    find
+                    the perfect
+                    product for
+                    you.</p>
+            </div>`
+  const createElement = foodInfo
+    .map(
+      ({
+        img,
+        name,
+        popularity,
+        category,
+        price,
+        size,
+        _id,
+        is10PercentOff,
+      }) => {
+        const cleanedCategory = category.replace(/_/g, ' ');
+        const isIDInLocaleStorage = storage ? JSON.parse(storage).some(item => item._id === _id) : false;
+        const isPercent = is10PercentOff || (storage ? foodInfo.some(item => item.is10PercentOff === true) : false);
+        const svgDisc = isPercent ? 'icon-discount-pl' : 'visually-hidden';
+        const svgHref = isIDInLocaleStorage ? `${iconSvg}#icon-cart` : `${iconSvg}#icon-shopping-cart`;
 
-const createElement = foodInfo.map(({ img, name, popularity, category, price, size, _id, is10PercentOff}) => {
-    const cleanedCategory = category.replace(/_/g, ' ');
-    const isIDInLocaleStorage = storage ? JSON.parse(storage).some(item => item._id === _id) : false;
-    const isPercent = is10PercentOff || (storage ? foodInfo.some(item => item.is10PercentOff === true) : false);
-    const svgDisc = isPercent ? "icon-discount-pl" : "visually-hidden"
-    const svgHref = isIDInLocaleStorage ? `${iconSvg}#icon-cart` : `${iconSvg}#icon-shopping-cart`;
-
-                return `<li class="item-pl" data-id="${_id}">
+        return `<li class="item-pl" data-id="${_id}">
+        <div class="open-modal">
                 <div class="background-img-pl">
                     <img src="${img}" alt="" class="img-pl" loading="lazy" />
                 </div>
-                <h3 class="product-name-pl">${name}</h3>
+                <h2 class="product-name-pl">${name}</h2>
                 <div class="product-info-pl">
                     <p class="paragraph-pl">
                         Category: <b class="value-pl">${cleanedCategory}</b>
@@ -63,9 +92,12 @@ const createElement = foodInfo.map(({ img, name, popularity, category, price, si
                     <p class="paragraph-pl">Size: <b class="value-pl">${size}</b></p>
                     <p class="paragraph-pl">Popularity: <b class="value-pl">${popularity}</b></p>
                 </div>
+                </div>
                 <div class="price-container-pl">
                     <b class="price-pl">$${price}</b>
-                    <button class="btn-pl" ${isIDInLocaleStorage ? 'disabled' : ''}>
+                    <button class="btn-pl" ${
+                      isIDInLocaleStorage ? 'disabled' : ''
+                    }>
                         <svg class="icon-pl">
                             <use href="${svgHref}"></use>
                         </svg>
@@ -75,9 +107,10 @@ const createElement = foodInfo.map(({ img, name, popularity, category, price, si
                 <use href="${iconSvg}#icon-discount"></use>
                 </svg>
             </li>`;
-}).join("");
-            refs.list.innerHTML = createElement;
-
+      }
+    )
+    .join('');
+  refs.list.innerHTML = createElement || createMessage;
 }
 
 window.addEventListener('load', fetchAndRender);
@@ -117,8 +150,17 @@ function handleButtonClick(event) {
 function add(elem, arr) {
   //При кліку на кнопку шукаємо потрібний продукт за id, викликаючи функцію findProduct
   const product = findP(elem, arr);
-  cartArr.push(product);
-  localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
+  const foundProduct = cartArr.some(cart => cart._id === product._id)
+  if (foundProduct) {
+    return;
+  }
+  else {
+    cartArr.push(product);
+    localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
+    //team
+    updateCartNumber();
+  }
+  console.log(cartArr)
 }
 
 //Функція пошуку необхідного продукту за id в масиві,який надходить з серверу (викликається всередині addToCart)
@@ -135,8 +177,26 @@ function getCategoriesFromLS() {
   const storage = localStorage.getItem(KEY_CATEGORY);
   try {
     const parseData = JSON.parse(storage);
-    const { keyword, category, page, limit } = parseData;
-    return { keyword, category, page, limit };
+
+    const defaultCategories = {
+      // byABC: false,
+      // byPrice: false,
+      // byPopularity: false,
+    };
+
+    const categories = {
+      ...defaultCategories,
+      ...parseData,
+    };
+
+    // Додати перевірку та видалення значень, якщо вони відсутні
+    Object.keys(categories).forEach(key => {
+      if (categories[key] === undefined) {
+        delete categories[key];
+      }
+    });
+
+    return categories;
   } catch (error) {
     console.error(error);
     return null;
@@ -144,18 +204,98 @@ function getCategoriesFromLS() {
 }
 
 async function fetchFoodCategory() {
-  const { keyword, category, page, limit } = getCategoriesFromLS();
+  // Показываем лоадер перед запросом
+  document.getElementById('overlay').style.display = 'flex';
+
+  const { keyword, category, page, limit, byABC, byPrice, byPopularity } =
+    getCategoriesFromLS();
+
   const params = {
     keyword: keyword || '',
     category: category || '',
-    page: page,
-    limit: limit,
+    page: page || 1, // Додавання значення за замовчуванням, якщо воно відсутнє
+    limit: limit || 6, // Додавання значення за замовчуванням, якщо воно відсутнє
+    byABC: byABC || '',
+    byPrice: byPrice || '',
+    byPopularity: byPopularity || '',
   };
-  const url = `https://food-boutique.b.goit.study/api/products?keyword=${params.keyword}&category=${params.category}&page=${params.page}&limit=${params.limit}`;
+
+  const queryString = Object.keys(params)
+    .filter(
+      key =>
+        params[key] !== undefined && params[key] !== null && params[key] !== ''
+    )
+    .map(key => `${key}=${params[key]}`)
+    .join('&');
+
+  const url = `https://food-boutique.b.goit.study/api/products?${queryString}`;
+
   try {
-    const responce = await axios.get(url);
-    return responce;
+    const response = await axios.get(url);
+    return response;
   } catch (error) {
     console.error(error);
+  } finally {
+    // Скрываем лоадер после выполнения запроса
+    document.getElementById('overlay').style.display = 'none';
   }
+}
+
+function homManyLimit() {
+  let limit;
+if (window.innerWidth < 1440 && window.innerWidth > 767) {
+      limit = 8;
+  }
+  else if (window.innerWidth < 768) {
+      limit = 6;
+  }
+  else {
+      limit = 9;
+  }
+  return limit;
+}
+
+function setLimit() {
+  const limit = homManyLimit()
+  const storedLimit = localStorage.getItem("filter");
+  const parseLimit = JSON.parse(storedLimit);
+  parseLimit.limit = Number(limit);
+  localStorage.setItem("filter", JSON.stringify(parseLimit))
+}
+// ***************************** КЛІК ДЛЯ ВІДКРИТТЯ МОДАЛКИ
+// refs.list.addEventListener('click', function (event) {
+//   const clickedElement = event.target;
+//   const closetDiv = clickedElement.closest("div.open-modal")
+//   const closetLi = closetDiv.closest("li")
+//  Виклик функції додати
+// });
+
+
+
+let currentWindowWidth = window.innerWidth;
+let resizeTimer;
+const thresholdWidths = [768, 1440]; // межі при яких буде перемальовка
+window.addEventListener("resize", resizeWidth)
+
+function resizeWidth() {
+ clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(function () {
+    const newWindowWidth = window.innerWidth;
+    if (thresholdOfSwitches(currentWindowWidth, newWindowWidth)) {
+      currentWindowWidth = newWindowWidth;
+        refs.list.innerHTML = ''
+        fetchAndRender()
+    }
+  }, 250)
+}
+
+function thresholdOfSwitches(oldWidth, newWidth) {
+  return (
+    thresholdWidths.some(
+      (threshold) => oldWidth < threshold && newWidth >= threshold
+    ) ||
+    thresholdWidths.some(
+      (threshold) => oldWidth >= threshold && newWidth < threshold
+    )
+  );
 }

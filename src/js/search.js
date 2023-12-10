@@ -1,39 +1,47 @@
-// import debounce from "lodash.debounce";
-import axios from "axios";
-// import {createMarkup} from './'
+import { Notify } from "notiflix";
+import {
+    foodInfo,
+    fetchAndRender,
+    fetchFoodCategory,
+    getCategoriesFromLS,
+    KEY_CATEGORY,
+    renderFoodItems,
+  } from './products';
+// import { Input } from "postcss";
 
+const form = document.querySelector('#search');
+// const input = document.querySelector('.search-input')
+let timeoutId; // Змінна для зберігання ідентифікатора таймаута
 
-let search = document.querySelector('.search-input');
-let value = search.value;
-console.log(value);
+// Додавання слухача подій до форми
 
-// Запис в LocaleStorage
-function saveInputToLocalStorage(value) {
-    localStorage.setitem('userInput', value);
+form.addEventListener('input', handleInputOrSubmit);
+form.addEventListener('submit', handleInputOrSubmit);
+
+function handleInputOrSubmit(event) {
+  event.preventDefault();
+  // Введене значення не реагує на пробіли
+  const keyword = form.elements.search.value.trim();
+  const storedData = localStorage.getItem('filter');
+
+  // Визначення типу події
+  if (event.type === 'input' || event.type === 'submit') {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      updateLocalStorage(keyword, storedData);
+      fetchAndRender();
+    }, 1000);
+  }
 }
 
-// Функція для виклику запиту та отримання списку продуктів
-const BASE_URL = 'https://food-boutique.b.goit.study/api/';
-const productsEndpoint = 'products/'
-
-function fetchProducts() {
-    return axios.get(`${BASE_URL}${products}`)
-    .then(({data}) => data)
+function updateLocalStorage(keyword, storedData) {
+  if (storedData) {
+    try {
+      const parsedData = JSON.parse(storedData);
+      parsedData.keyword = `${keyword}`;
+      localStorage.setItem('filter', JSON.stringify(parsedData));
+    } catch (error) {
+      console.error('Error updating localStorage:', error);
+    }
+  }
 }
-
-
-// const refs = {
-//     label: document.querySelector('.search-label'),
-//     input: document.querySelector('.search-input')
-// }
-
-
-
-
-// refs.input.addEventListener('input', _.debounce() => {
-//     fetchProducts()
-// });
-
-// function onValueInput() {
-
-// }

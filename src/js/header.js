@@ -1,18 +1,14 @@
 // import axios from 'axios';
-import { cartArr } from '../partials/JS/cart-localestorage';
+import { cartArr } from './cart-localestorage';
 
-document.addEventListener('DOMContentLoaded', onItemNumber);
+document.addEventListener('DOMContentLoaded', updateCartNumber);
 
-async function onItemNumber() {
+function updateCartNumber() {
     let numberOfItems = cartArr.length;
-    console.log(numberOfItems);
-
     let cartEl = document.getElementById('cart-count');
-
     if (cartEl) {
         cartEl.textContent = numberOfItems.toString();
     }
-    console.log(cartEl);
 }
 
-
+export {updateCartNumber};

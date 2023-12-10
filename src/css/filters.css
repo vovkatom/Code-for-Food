@@ -64,8 +64,8 @@ body {
   border: none;
   cursor: pointer;
   position: absolute;
-  top: 14px;
   right: 7%;
+  top: 14px;
 }
 
 input:focus {
@@ -113,6 +113,7 @@ input:focus {
 }
 .select.is-active .select__body {
   display: flex;
+  animation: fadeIn 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .select__header {
@@ -144,6 +145,7 @@ input:focus {
   width: 20px;
 }
 .select__body {
+  z-index: 1;
   margin-top: 8px;
   left: 0;
   position: absolute;
@@ -160,6 +162,7 @@ input:focus {
   background: #fff;
   box-shadow: 0px 4px 11.212px 0px rgba(0, 0, 0, 0.04),
     0px 20px 69px 0px rgba(0, 0, 0, 0.07);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .select__item {
   cursor: pointer;
@@ -169,10 +172,93 @@ input:focus {
   font-style: normal;
   font-weight: 400;
   line-height: 1.28; /* 133.333% */
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .select__item:hover {
   color: #010101;
+}
+
+/*! SORT STYLES  */
+.sort {
+  position: relative;
+  width: 100%;
+  max-width: 335px;
+}
+.sort.is-active .sort-body {
+  display: flex;
+  animation: fadeIn 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sort-header {
+  display: flex;
+  padding: 14px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background: #fafafa;
+  cursor: pointer;
+  max-height: 52px;
+}
+.sort-current {
+  color: #010101;
+  font-family: Neue Montreal;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.28;
+}
+.sort-icon {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  height: 20px;
+  margin-left: auto;
+  text-align: center;
+  width: 20px;
+}
+.sort-body {
+  z-index: 1;
+  margin-top: 8px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  position: absolute;
+  display: none;
+  padding: 14px 160px 14px 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0px 4px 11.212px 0px rgba(0, 0, 0, 0.04),
+    0px 20px 69px 0px rgba(0, 0, 0, 0.07);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.sort-item {
+  cursor: pointer;
+  color: rgba(1, 1, 1, 0.5);
+  font-family: Neue Montreal;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.28; /* 133.333% */
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sort-item:hover {
+  color: #010101;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* ! MEDIA */
@@ -205,7 +291,24 @@ input:focus {
   .select__body {
     padding-right: 42px;
   }
+  .sort {
+    max-width: 200px;
+  }
+  .sort-current {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+  .sort-item {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+  .sort-body {
+    padding-right: 42px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
+  .filter .container {
+    padding: 0 100px;
+  }
 }
