@@ -33,7 +33,6 @@ export default async function openModalProduct(productId) {
 
     // Отримання даних про продукт з API
     const modalProduct = await Api.getProduct(productId);
-
     modal.insertAdjacentHTML('beforeend', renderModalCard(modalProduct));
 
     document.querySelector('.modal-btn').addEventListener('click', () => {
@@ -42,8 +41,14 @@ export default async function openModalProduct(productId) {
       document.querySelector('.modal-btn-remove').addEventListener('click', () => {
         removeCart(modalProduct); // Передача об'єкту modalProduct у функцію addCart
       });
-
     
+    for (let i = 0; i < cartArr.length; i++) {
+      if (cartArr[i]._id === productId) {
+        document.querySelector('.modal-btn').style.display = 'none';
+        document.querySelector('.modal-btn-remove').style.display = 'block';
+      }
+    }
+
 
     document
       .querySelector('.modal-close-btn')
