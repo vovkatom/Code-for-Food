@@ -7,7 +7,7 @@ import {
 } from '/js/cart-localestorage';
 import iconSvg from '/img/icons.svg';
 import {updateCartNumber} from './header';
-import { openModal } from '/js/modalwindow'
+import { openModalProduct } from '/js/modalwindow'
 
 export {
   foodInfo,
@@ -18,7 +18,7 @@ export {
   renderFoodItems,
 };
 
-  // import {fetchInfoFood} from "/partials/JS/modalwindow.js"
+
 
 const refs = {
   list: document.querySelector('.product-list'),
@@ -44,7 +44,7 @@ async function fetchAndRender() {
   } finally {
     // Скрываем лоадер после выполнения запроса
     document.getElementById('overlay').style.display = 'none';
-    openModal()
+    // openModal()
   }
 }
 
@@ -118,6 +118,7 @@ window.addEventListener('load', fetchAndRender);
 refs.list.addEventListener('click', handleButtonClick);
 
 function handleButtonClick(event) {
+  let noButton = 0;
   // отримуємо елемент, на якому відбувся клік
   const clickedElement = event.target;
   // Знаходимо найближчий батьківський елемнт типу button
@@ -135,6 +136,7 @@ function handleButtonClick(event) {
       // перевірка чи знайдено продукт
       if (clickedProduct) {
         // виклик функції на додавання в localeStorage
+        noButton = 1;
         add(clickedProduct, foodInfo);
       }
     }
@@ -144,6 +146,11 @@ function handleButtonClick(event) {
     svg.setAttribute('href', `${iconSvg}#icon-cart`);
     // btn off
     closestButton.setAttribute('disabled', true);
+  }
+  const clickedLi = event.target.closest('li');
+  if (clickedLi && !noButton) {
+    const clickedId = clickedLi.dataset.id;
+    openModalProduct(clickedId);
   }
 }
 
