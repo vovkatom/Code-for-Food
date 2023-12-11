@@ -10,9 +10,6 @@
   gap: 14px;
 }
 
-.open-modal {
-  cursor: pointer;
-}
 .not-found-heading {
   color: #010101;
   font-size: 18px;
@@ -57,6 +54,7 @@
   border-radius: 20px;
   background: #fafafa;
   padding: 20px;
+  cursor: pointer;
 }
 .background-img-pl {
   display: flex;
