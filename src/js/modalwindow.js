@@ -41,6 +41,8 @@ export default async function openModalProduct(productId) {
       document.querySelector('.modal-btn-remove').addEventListener('click', () => {
         removeCart(modalProduct); // Передача об'єкту modalProduct у функцію addCart
       });
+
+    
     
     for (let i = 0; i < cartArr.length; i++) {
       if (cartArr[i]._id === productId) {
