@@ -56,7 +56,6 @@
   width: 60px;
   height: 60px;
   /* fill: #e8e8e2; */
-  background: radial-gradient(circle at 50% 50%, transparent 0%, transparent 40%, transparent 80%);
   transform: scale(0);
   transform-origin: center;
   animation: shineAnimation 2s ease-in-out infinite;
