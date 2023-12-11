@@ -18,19 +18,23 @@ export {
   renderFoodItems,
   homManyLimit,
 };
-
+import { funcPagination, loadMoreTrendMoves, pages } from './pagination.js';
 const refs = {
   list: document.querySelector('.product-list'),
 };
 
 let foodInfo = [];
+let totalPage;
 
 async function fetchAndRender() {
   // Показываем лоадер перед запросом
   document.getElementById('overlay').style.display = 'flex';
   setLimit()
   const categoryInfo = await fetchFoodCategory();
-
+  totalPage = categoryInfo.data.totalPages * categoryInfo.data.perPage;
+  console.log(totalPage);
+  pages(totalPage);
+  funcPagination(totalPage);
   try {
     let response;
     if (categoryInfo) {
