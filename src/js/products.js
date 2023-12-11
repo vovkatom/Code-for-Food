@@ -98,7 +98,7 @@ const createMessage = `<div class="error-load">
                 </div>
                 <div class="price-container-pl">
                     <b class="price-pl">$${price}</b>
-                    <button class="btn-pl" ${
+                    <button aria-label="add basket" class="btn-pl" ${
                       isIDInLocaleStorage ? 'disabled' : ''
                     }>
                         <svg class="icon-pl">
