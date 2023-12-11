@@ -4,6 +4,7 @@
   | default @import url()
   |============================
 */
+@import 'animate.css';
 @import url('./reset.css');
 
 @import url('./filters.css');
