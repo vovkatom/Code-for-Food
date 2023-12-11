@@ -13,10 +13,12 @@ a {
   text-decoration: none;
 }
 
-.footer.container {
+.footer {
+  background: #6d8434;
+}
+.footer-wrap.container {
   padding-left: 20px;
   padding-right: 20px;
-  background: #6d8434;
 }
 .footer-logo {
   display: flex;
@@ -164,7 +166,7 @@ a {
 .btn-subscription:hover {
   color: #6d8434;
 }
-.footer-text {
+.footer-text.container {
   color: #e8e8e2;
   font-family: Neue Montreal;
   font-size: 14px;
@@ -176,6 +178,8 @@ a {
   gap: 8px;
   flex-wrap: wrap;
   padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .rights {
 }
@@ -185,7 +189,7 @@ a {
 }
 
 @media screen and (min-width: 375px) {
-  .footer.container {
+  .footer {
     min-width: 335px;
   }
   .subscription {
@@ -194,14 +198,12 @@ a {
 }
 
 @media screen and (min-width: 768px) {
-  .foote.container {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  .footer-wrap {
+  .footer-wrap.container {
     display: flex;
     gap: 78px;
     margin-bottom: 120px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
   .logo-social {
     display: flex;
@@ -267,7 +269,9 @@ a {
     line-height: 1.5;
     max-width: 336px;
   }
-  .footer-text {
+  .footer-text.container {
+    padding-left: 32px;
+    padding-right: 32px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -275,11 +279,9 @@ a {
 }
 
 @media screen and (min-width: 1440px) {
-  .footer.container {
+  .footer-wrap.container {
     padding-left: 100px;
     padding-right: 100px;
-  }
-  .footer-wrap {
     display: flex;
     /* gap: 149px; */
     margin-bottom: 128px;
@@ -308,6 +310,10 @@ a {
   }
   .subscription {
     margin-right: 0 auto;
+  }
+  .footer-text.container {
+    padding-left: 100px;
+    padding-right: 100px;
   }
 }
  
