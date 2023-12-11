@@ -117,7 +117,7 @@ function handleCategory(event) {
 
 function onLoad() {
   const limit = Number(homManyLimit())
-  console.log(limit)
+  // console.log(limit)
   const obj = {
     keyword: null,
     category: null,

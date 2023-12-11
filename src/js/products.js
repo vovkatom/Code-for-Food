@@ -32,7 +32,7 @@ async function fetchAndRender() {
   setLimit()
   const categoryInfo = await fetchFoodCategory();
   totalPage = categoryInfo.data.totalPages * categoryInfo.data.perPage;
-  console.log(totalPage);
+  // console.log(totalPage);
   pages(totalPage);
   funcPagination(totalPage);
   try {
