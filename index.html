@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="With Food Boutique, you're not just subscribing to food, you're signing up for a fresher, fitter, and happier you."
+    />
+    <link rel="icon" type="image/ico" href="/Code-for-Food/assets/favicon-4c615e86.ico" />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code for Food</title>
+    
+    <script type="module" crossorigin src="/Code-for-Food/commonHelpers2.js"></script>
+    <link rel="modulepreload" crossorigin href="/Code-for-Food/assets/vendor-66af562d.js">
+    <link rel="modulepreload" crossorigin href="/Code-for-Food/assets/footer-0b0ef2db.js">
+    <link rel="stylesheet" href="/Code-for-Food/assets/footer-111f8f45.css">
+  </head>
+  <body>
+    <!-- header + hero Olha Maslova -->
+    <header class="header animate__animated animate__fadeInLeft">
+    <div class="container">
+      <div>
+          <a href="./index.html" aria-label="Home Page" class="header-logo">
+              <svg class="logo" width="16" height="16">
+                <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-logo"></use>
+              </svg>
+              <p class="logo-name">Food Boutique</p>
+          </a>
+      </div>
+      <div class="nav">
+        <ul class="nav-container">
+          <li>
+            <a href="./index.html" class="home">
+                Home</a>
+          </li>
+          <li>
+            <a href="./cart.html" class="cart" aria-label="Basket">
+                <svg class="logo-cart" width="14" height="14">
+                    <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-shop-cart"></use>
+                </svg> 
+                <p class="cart-counter">
+                    Cart (<span id="cart-count">0</span>) 
+                </p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+</header>
+    <section class="hero">
+    <div class="container">
+        <h1 class="hero-title animate__animated animate__fadeInDown">Welcome to the <span class="accent-word">Food</span> Boutique!</h1>
+        <p class="hero-text">With Food Bo utique, you're not just subscribing to food, you're signing up for a fresher, fitter, and happier you.</p>
+        <div class="hero-image">
+            <div class="images">
+                <picture>
+                    <source media="(max-width: 767px)" srcset="/Code-for-Food/assets/hero-mob1-d0c1b530.jpg , /Code-for-Food/assets/hero-mob1@2x-14c419b7.jpg 2x">
+                    <source media="(min-width: 768px) and (max-width: 1439px)" srcset="/Code-for-Food/assets/hero-tablet1-61e9c9b1.jpg , /Code-for-Food/assets/hero-tablet1@2x-37b35d5d.jpg 2x">
+                    <source media="(min-width: 1440px)" srcset="/Code-for-Food/assets/hero-desct1-0005b862.jpg , /Code-for-Food/assets/hero-desct1@2x-86e91e95.jpg 2x">
+                    <img src="/Code-for-Food/assets/hero-mob1-d0c1b530.jpg" alt="Hero Image">
+                </picture>
+            </div>
+            <svg class="organic-food" width="100" height="100" aria-label="Organic Food">
+                <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-organic-food"></use>
+            </svg>
+            <svg class="leaf" width="24" height="24" aria-label="Organic Food Text">
+                <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-circle-leaf"></use>
+            </svg>
+        </div>
+    </div>
+</section>
+    <!-- Filter Mykola Mandra -->
+    <section class="filter">
+  <div class="container">
+    <p class="filters-text">Filters:</p>
+    <div class="container-search">
+      <form class="search-form" id="search">
+        <label for="search-form" class="search-label">
+          <input
+            type="text"
+            name="search"
+            class="search-input"
+            autocomplete="off"
+            placeholder="Search for anything"
+        /></label>
+        <button class="search-button" type="submit">
+          <svg class="search-icon">
+            <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-search"></use>
+          </svg>
+        </button>
+      </form>
+      <div class="select">
+        <div class="select__header">
+          <span class="select__current">Categories</span>
+          <div class="select__icon">
+            <svg class="down-icon">
+              <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-chevron-down"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="select__body">
+          <div class="select__item">Show all</div>
+        </div>
+      </div>
+
+      <div class="sort">
+        <div class="sort-header">
+          <span class="sort-current">A to Z</span>
+          <div class="sort-icon">
+            <svg class="down-icon">
+              <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-chevron-down"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="sort-body">
+          <div class="sort-item">A to Z</div>
+          <div class="sort-item">Z to A</div>
+          <div class="sort-item">Cheap</div>
+          <div class="sort-item">Expensive</div>
+          <div class="sort-item">Popular</div>
+          <div class="sort-item">Not Popular</div>
+          <div class="sort-item">Reset All</div>
+        </div>
+      </div>
+
+  </div>
+</section>
+
+
+    <!--  Maryna -->
+    <div class="modal-background is-hidden">
+    <div class="modal"></div>
+</div>
+
+
+<!-- <script src="/js/modalwindow.js"></script> -->
+
+    <section class="section-products">
+      <div class="overlay" id="overlay">
+        <span class="loader"></span>
+      </div>
+      <div class="container prod-container">
+        <div class="products">
+          <!-- Products Valera Boboshko / Sed Kol -->
+          <section class="product-list-section">
+    <div class="container-pl">
+        <ul class="product-list">
+        </ul>
+    </div>
+</section>
+
+          <!--  Elena -->
+          <div id="pagination" class="tui-pagination paginationDop"></div>
+
+
+
+        </div>
+        <div class="dopproducts">
+          <div class="popproducts">
+            <!--  Sergey -->
+            <section class="popular-product">
+    <h2 class="popular-title">Popular products</h2>
+    <ul class="popular-list"></ul>
+</section>
+
+
+          </div>
+          <div class="discproducts">
+            <!--  Elena -->
+            <h2 class="discount-title">Discount products</h2>
+<ul class="discount-list"></ul>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sergey -->
+    <footer class="footer">
+  <div class="footer-wrap container">
+    <div class="logo-social">
+      <div class="footer-logo">
+        <a class="footer-logo-link" href="./index.html">
+          <svg class="footer-svg" width="16" height="16">
+            <use
+              class="footer-use"
+              href="/Code-for-Food/assets/icons-b8973179.svg#icon-logo"
+            ></use>
+          </svg>
+        </a>
+        <p class="logo-text">Food Boutique</p>
+      </div>
+
+      <div class="social">
+        <ul class="social-list">
+          <li class="social-item">
+            <a
+              class="social-link"
+              href="https://www.facebook.com/goITclub/"
+              target="_blank"
+            >
+              <svg class="social-svg" width="24" height="24">
+                <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-facebook"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="social-item">
+            <a
+              class="social-link link"
+              href="https://www.instagram.com/goitclub/"
+              target="_blank"
+            >
+              <svg class="social-svg" width="24" height="24">
+                <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-instagram"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="social-item">
+            <a
+              class="social-link link"
+              href="https://www.youtube.com/c/GoIT"
+              target="_blank"
+            >
+              <svg class="social-svg" width="24" height="24">
+                <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-youtube"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="motto-subscription">
+      <div class="company-motto">
+        <h3>Discover the Variety of Flavors and Quality</h3>
+        <p>
+          An online store where you will find fresh, natural and delicious
+          products for a healthy life and unforgettable gastronomic adventures.
+        </p>
+      </div>
+
+      <div class="subscription">
+        <p class="subscription-text-footer">Subscribe and learn about new products!</p>
+        <form class="subscription-form">
+          <input
+            class="subscription-input"
+            type="email"
+            name="email"
+            id="user-email"
+            placeholder="Email"
+            required
+          />
+          <button type="submit" class="btn-subscription">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer-text container">
+    <div class="rights">
+      <p>Food Boutique. All rights reserved.</p>
+    </div>
+    <ul class="policy">
+      <li>Privacy Policy</li>
+      <li>/</li>
+      <li>Terms of Service</li>
+    </ul>
+  </div>
+</footer>
+
+<!--  -->
+<div class="subscription-alert is-hidden">
+    <div class="subscription-success">
+      <div class="subscription-modal-success">
+        <button
+          type="button"
+          class="subscription-success-close-button"
+          data-modal-close
+        >
+          <svg class="subscription-closemodal" width="20" height="20">
+            <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-x-close"></use>
+          </svg>
+        </button>
+        <div class="subscription-success-text">
+          <div class="subscription-thanks">
+            Thanks for subscribing for
+            <span class="subscription-highlight">new</span> products
+          </div>
+          <div class="subscription-text">
+            We promise you organic and high-quality products that will meet your
+            expectations. Please stay with us and we promise you many pleasant
+            surprises.
+          </div>
+        </div>
+        <div class="subscription-img"></div>
+      </div>
+    </div>
+
+    <div class="subscription-already-subscribed">
+      <div class="subscription-modal-already-subscribed">
+        <button
+          type="button"
+          class="subscription-already-close-button"
+          data-modal-close
+        >
+          <svg class="subscription-closemodal" width="20" height="20">
+            <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-x-close"></use>
+          </svg>
+        </button>
+        <div class="subscription-fail-text">
+          <div class="subscription-thanks">
+            This <span class="subscription-highlight">email address</span> has
+            already been entered
+          </div>
+          <div class="subscription-text">
+            You have already subscribed to our new products. Watch for offers at
+            the mailing address.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subscription-fail">
+      <div class="subscription-modal-fail">
+        <button
+          type="button"
+          class="subscription-fail-close-button"
+          data-modal-close
+        >
+          <svg class="subscription-closemodal" width="20" height="20">
+            <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-x-close"></use>
+          </svg>
+        </button>
+        <div class="subscription-fail-text">
+          <div class="subscription-thanks">
+            Some error happened. Please check if your
+            <span class="subscription-highlight">email address</span> correct or
+           again try later.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </body>
+</html>

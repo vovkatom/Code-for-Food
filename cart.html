@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="With Food Boutique, you're not just subscribing to food, you're signing up for a fresher, fitter, and happier you."
+    />
+    <link rel="icon" type="image/ico" href="/Code-for-Food/assets/favicon-4c615e86.ico" />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Cart</title>
+    
+    
+    
+    <script type="module" crossorigin src="/Code-for-Food/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/Code-for-Food/assets/vendor-66af562d.js">
+    <link rel="modulepreload" crossorigin href="/Code-for-Food/assets/footer-0b0ef2db.js">
+    <link rel="stylesheet" href="/Code-for-Food/assets/footer-111f8f45.css">
+    <link rel="stylesheet" href="/Code-for-Food/assets/cart-689ec0ce.css">
+  </head>
+  <body>
+    <!-- header Olha Maslova -->
+    <header class="header animate__animated animate__fadeInLeft">
+    <div class="container">
+      <div>
+          <a href="./index.html" aria-label="Home Page" class="header-logo">
+              <svg class="logo" width="16" height="16">
+                <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-logo"></use>
+              </svg>
+              <p class="logo-name">Food Boutique</p>
+          </a>
+      </div>
+      <div class="nav">
+        <ul class="nav-container">
+          <li>
+            <a href="./index.html" class="home">
+                Home</a>
+          </li>
+          <li>
+            <a href="./cart.html" class="cart" aria-label="Basket">
+                <svg class="logo-cart" width="14" height="14">
+                    <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-shop-cart"></use>
+                </svg> 
+                <p class="cart-counter">
+                    Cart (<span id="cart-count">0</span>) 
+                </p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+</header>
+    <!-- cart-section -->
+    <section class="cart-section">
+  <div class="container">
+    <h1 class="cart-title">
+      <svg class="cart-icon" width="18" height="18">
+        <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-cart"></use>
+      </svg>
+      Cart (<span class="js-cart-numbers">0</span>)
+    </h1>
+
+    <!-- full cart  -->
+    <div class="cart-full">
+      <!-- <div class="cart-full visually-hidden"> -->
+      <!-- selected items -->
+      <div class="selected-items js-selected-items">
+        <div class='cart-delete__wrap'>
+          <button class="delete-all-btn js-delete-all-btn">
+            Delete all
+            <svg class="" width="24" height="24">
+              <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-x-close"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="delete js-cart-container">
+
+          <ul class="cart-list list js-cart-list"></ul>
+        </div>
+        <div class="order-container js-order-container"></div>
+      </div>
+
+      <!-- order total and confirmation  -->
+      <div class="order js-order">
+        <h2 class="order-title">Your order</h2>
+
+        <div class="total">
+          <div class="total-name">Total </div>
+         <div class="sum-full">
+          <span class="notation">Sum:</span>
+          <div class="total-price">00,00</div>
+         </div>
+        </div>
+
+        <form class="form form-cart">
+          <div class="input-container">
+            <label class="notation" for="email">Mail:</label>
+            <input type="email" id="email" pattern=".{8,}" placeholder="Enter your email" autocomplete="email"
+              title="valid@email.com" required />
+          </div>
+          <button class="order-btn" type="submit">Checkout</button>
+        </form>
+
+      </div>
+
+    </div>
+
+    <!-- empty cart -->
+    <div class="empty-cart js-empty-cart">
+      <picture class="empty-cart-image">
+        <!-- Desktop screen 1440px -->
+        <source media="(min-width: 1440px)" srcset="/Code-for-Food/assets/basket-desc-5d286615.webp 1x, /Code-for-Food/assets/basket-desc@2x-9571d086.webp 2x" />
+        <!-- Tablet screen -->
+        <source media="(min-width: 768px)" srcset="/Code-for-Food/assets/basket-desc-5d286615.webp 1x, /Code-for-Food/assets/basket-desc@2x-9571d086.webp 2x" />
+        <!-- Mobile screen -->
+        <source media="(max-width: 767px)" srcset="/Code-for-Food/assets/basket-mob-fae2b229.webp 1x, /Code-for-Food/assets/basket-mob@2x-435fcad9.webp 2x" />
+        <img src="/Code-for-Food/assets/basket-mob-fae2b229.webp" alt="Empty Basket" loading="lazy" />
+      </picture>
+      <h3 class="empty-cart-title">
+        Your basket is<span class="change-color"> empty...</span>
+      </h3>
+      <p class="empty-cart-text">
+        Go to the main page to select your favorite products and add them to the
+        cart.
+      </p>
+    </div>
+    <!-- ======= SUCCESS MODAL ======= -->
+
+</section>
+    <!--Модальне вікно для корзини при успішному запиті на сервер-->
+<div class="backdrop-cart-modal js-success visually-hidden" data-modal>
+  <div class="success-modal">
+    <div class="order-success-window">
+      <button class="success-delete-btn js-close-success" data-modal-close>
+        <svg class="" width="22" height="22">
+          <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-x-close"></use>
+        </svg>
+      </button>
+      <img
+        src="/Code-for-Food/assets/success-4f06dbf8.webp"
+        alt="Success Order"
+        width="140"
+        height="140"
+        loading="lazy"
+      />
+      <div class="success-text">
+        <h2 class="success-title">Order success</h2>
+        <p class="success-descr">
+          Thank you for shopping at Food Boutique. Your order has been received
+          and is now being freshly prepared just for you! Get ready to indulge
+          in nourishing goodness, delivered right to your doorstep. We're
+          thrilled to be part of your journey to better health and happiness.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="footer">
+  <div class="footer-wrap container">
+    <div class="logo-social">
+      <div class="footer-logo">
+        <a class="footer-logo-link" href="./index.html">
+          <svg class="footer-svg" width="16" height="16">
+            <use
+              class="footer-use"
+              href="/Code-for-Food/assets/icons-b8973179.svg#icon-logo"
+            ></use>
+          </svg>
+        </a>
+        <p class="logo-text">Food Boutique</p>
+      </div>
+
+      <div class="social">
+        <ul class="social-list">
+          <li class="social-item">
+            <a
+              class="social-link"
+              href="https://www.facebook.com/goITclub/"
+              target="_blank"
+            >
+              <svg class="social-svg" width="24" height="24">
+                <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-facebook"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="social-item">
+            <a
+              class="social-link link"
+              href="https://www.instagram.com/goitclub/"
+              target="_blank"
+            >
+              <svg class="social-svg" width="24" height="24">
+                <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-instagram"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="social-item">
+            <a
+              class="social-link link"
+              href="https://www.youtube.com/c/GoIT"
+              target="_blank"
+            >
+              <svg class="social-svg" width="24" height="24">
+                <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-youtube"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="motto-subscription">
+      <div class="company-motto">
+        <h3>Discover the Variety of Flavors and Quality</h3>
+        <p>
+          An online store where you will find fresh, natural and delicious
+          products for a healthy life and unforgettable gastronomic adventures.
+        </p>
+      </div>
+
+      <div class="subscription">
+        <p class="subscription-text-footer">Subscribe and learn about new products!</p>
+        <form class="subscription-form">
+          <input
+            class="subscription-input"
+            type="email"
+            name="email"
+            id="user-email"
+            placeholder="Email"
+            required
+          />
+          <button type="submit" class="btn-subscription">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer-text container">
+    <div class="rights">
+      <p>Food Boutique. All rights reserved.</p>
+    </div>
+    <ul class="policy">
+      <li>Privacy Policy</li>
+      <li>/</li>
+      <li>Terms of Service</li>
+    </ul>
+  </div>
+</footer>
+
+<!--  -->
+<div class="subscription-alert is-hidden">
+    <div class="subscription-success">
+      <div class="subscription-modal-success">
+        <button
+          type="button"
+          class="subscription-success-close-button"
+          data-modal-close
+        >
+          <svg class="subscription-closemodal" width="20" height="20">
+            <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-x-close"></use>
+          </svg>
+        </button>
+        <div class="subscription-success-text">
+          <div class="subscription-thanks">
+            Thanks for subscribing for
+            <span class="subscription-highlight">new</span> products
+          </div>
+          <div class="subscription-text">
+            We promise you organic and high-quality products that will meet your
+            expectations. Please stay with us and we promise you many pleasant
+            surprises.
+          </div>
+        </div>
+        <div class="subscription-img"></div>
+      </div>
+    </div>
+
+    <div class="subscription-already-subscribed">
+      <div class="subscription-modal-already-subscribed">
+        <button
+          type="button"
+          class="subscription-already-close-button"
+          data-modal-close
+        >
+          <svg class="subscription-closemodal" width="20" height="20">
+            <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-x-close"></use>
+          </svg>
+        </button>
+        <div class="subscription-fail-text">
+          <div class="subscription-thanks">
+            This <span class="subscription-highlight">email address</span> has
+            already been entered
+          </div>
+          <div class="subscription-text">
+            You have already subscribed to our new products. Watch for offers at
+            the mailing address.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subscription-fail">
+      <div class="subscription-modal-fail">
+        <button
+          type="button"
+          class="subscription-fail-close-button"
+          data-modal-close
+        >
+          <svg class="subscription-closemodal" width="20" height="20">
+            <use href="/Code-for-Food/assets/icons-b8973179.svg#icon-x-close"></use>
+          </svg>
+        </button>
+        <div class="subscription-fail-text">
+          <div class="subscription-thanks">
+            Some error happened. Please check if your
+            <span class="subscription-highlight">email address</span> correct or
+           again try later.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>
