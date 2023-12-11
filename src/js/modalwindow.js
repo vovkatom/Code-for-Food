@@ -1,18 +1,18 @@
 export { openModalProduct }
 import Api from './api'; // Модуль API
 import icons from '/img/icons.svg'; // Іконки для відображення
-let isModalOpen = false;
-let isModalOpening = false;
+// let isModalOpen = false;
+// let isModalOpening = false;
 
 const modalBackground = document.querySelector('.modal-background'); // Фон модального вікна
 const modal = document.querySelector('.modal'); // Саме модальне вікно
 
 // Оголошення функції для відкриття модального вікна з деталями продукту
 export default async function openModalProduct(productId) {
-  if (isModalOpen || isModalOpening) {
-    return;
-  }
-  isModalOpening = true;
+  // if (isModalOpen || isModalOpening) {
+  //   return;
+  // }
+  // isModalOpening = true;
   try {
     // Показ модального вікна
     modalBackground.classList.remove('is-hidden'); // Видалення класу для відображення фону
@@ -59,8 +59,8 @@ export default async function openModalProduct(productId) {
   } catch (error) {
     console.error('Error fetching product data:', error.message);
   } finally {
-    isModalOpen = true;
-    isModalOpening = false;
+    // isModalOpen = true;
+    // isModalOpening = false;
   }
 }
 
@@ -125,9 +125,9 @@ function closeModalHandler() {
   document
     .querySelector('.modal-close-btn')
     .removeEventListener('click', closeModalHandler);
-  modalBackground.removeEventListener('click', clickOnBackdrop);
+  // modalBackground.removeEventListener('click', clickOnBackdrop);
   document.removeEventListener('keydown', escapeModalHandler);
-  isModalOpen = false; // Позначаємо, що модальне вікно закрите
+  // isModalOpen = false; // Позначаємо, що модальне вікно закрите
 }
 
 function escapeModalHandler({ key }) {
