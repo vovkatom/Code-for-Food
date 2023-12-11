@@ -15,6 +15,7 @@
 }
 
 .cart-title {
+  font-family: 'Neue Montreal';
   display: flex;
   align-items: center;
   font-size: 24px;
