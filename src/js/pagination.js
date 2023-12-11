@@ -16,10 +16,10 @@ const refs = {
 
 const container = document.getElementById('pagination');
 
-let totalPage = 1;
+let totalPage;
 let itemsPerPage;
 let visiblePage = 3;
-let pageOrigin = 1;
+let pageOrigin;
 
 //вытягивает с localStorage номер страницы - если была перегрузка страницы, то нужно вятянуть номер который был до перегрузки и
 //  активировать пагинацию на этой же страничке
@@ -35,7 +35,7 @@ function storeData() {
     }
   }
 
-  funcPagination(totalPage, pageOrigin);
+  // funcPagination(totalPage);
 
   // if (totalPage > itemsPerPage) {
   //   funcPagination(totalPage, pageOrigin);
@@ -43,7 +43,8 @@ function storeData() {
 }
 
 //создание пагинации
-function funcPagination(totalPage, pageOrigin) {
+function funcPagination(totalPage) {
+  console.log(totalPage);
   let options = {
     totalItems: totalPage,
     itemsPerPage: itemsPerPage,
@@ -92,9 +93,9 @@ function loadMoreTrendMoves(event) {
 }
 
 // определяем сколько всего будет товаров и вызываем пагинацию передавая этот параметр
-async function pages(pageOrigin) {
-  let responce = await fetchFoodCategory();
-  totalPage = responce.data.totalPages * responce.data.perPage;
+async function pages(totalPage) {
+  // let responce = await fetchFoodCategory();
+  // totalPage = responce.data.totalPages * responce.data.perPage;
   if (totalPage <= Number(itemsPerPage)) {
     refs.pagination.classList.replace('tui-pagination', 'paginationDop');
   } else {
@@ -103,4 +104,4 @@ async function pages(pageOrigin) {
   }
 }
 
-pages(pageOrigin);
+
