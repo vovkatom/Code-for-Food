@@ -5,6 +5,7 @@ import {
   addToCart,
   findProduct,
 } from '/js/cart-localestorage';
+import { updateCartNumber } from './header';
 
 import Api from './api'; // Модуль API
 import icons from '/img/icons.svg'; // Іконки для відображення
@@ -105,8 +106,6 @@ function renderModalCard({
         <use href="${icons}#icon-shopping-cart"></use>
       </svg>
     </button>
-
-        
       </div>
     </div>`;
 }
@@ -114,6 +113,14 @@ function renderModalCard({
 let productsArray = []; // Ініціалізація порожнього масиву для продуктів
 
 function addCart(product) {
+      cartArr.push(product);
+      localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
+      console.log(product);
+      const buttonText = document.querySelector('.modal-btn-text');
+      console.dir(buttonText);
+      buttonText.innerHTML = "Remove from"
+      //Функція оновлення кількості товарів у кошику (імпортується)
+      updateCartNumber();
 }
 
 function clickOnBackdrop({ target }) {
