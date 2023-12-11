@@ -1,149 +1,138 @@
-import axios from 'axios'
-import iconsSvg from '/img/icons.svg'
-import { addToCart } from '/js/cart-localestorage.js'
+export { openModalProduct }
+import Api from './api'; // Модуль API
+import icons from '/img/icons.svg'; // Іконки для відображення
+let isModalOpen = false;
+let isModalOpening = false;
 
-export { openModal }
-// https://food-boutique.b.goit.study/api/products/:id
-// async function fetchInfoFood() {
-//   const url = `https://food-boutique.b.goit.study/api/products/{_id}`;
-//   try {
-//     const responce = await axios.get(url);
-//     return responce.data;
-//   } catch (error) {
-//     throw error;
-//   }
-// }
+const modalBackground = document.querySelector('.modal-background'); // Фон модального вікна
+const modal = document.querySelector('.modal'); // Саме модальне вікно
 
-fetchInfoFood()
-  .then(data => console.log(data))
-  .catch(err => {
-    console.log(err)
-  })
-
-async function fetchInfoFood() {
-  // Показываем лоадер перед запросом
-  document.getElementById('overlay').style.display = 'flex'
-
-  const url = `https://food-boutique.b.goit.study/api/products/{Id}`
+// Оголошення функції для відкриття модального вікна з деталями продукту
+export default async function openModalProduct(productId) {
+  if (isModalOpen || isModalOpening) {
+    return;
+  }
+  isModalOpening = true;
   try {
-    const responce = await axios.get(url)
-    return responce.data
+    // Показ модального вікна
+    modalBackground.classList.remove('is-hidden'); // Видалення класу для відображення фону
+    document.body.classList.add('is-modal-open'); // Додавання класу для позначення відкриття модального вікна
+
+    // Додавання іконки закриття до модального вікна
+    modal.innerHTML = `
+      <button type="button" class="modal-close-btn" aria-label="modal close">
+        <svg class="modal-icon-close" width="22" height="22">
+          <use href="${icons}#icon-x-close"></use>
+        </svg>
+      </button>
+    `;
+
+    // Отримання даних про продукт з API
+    const modalProduct = await Api.getProduct(productId);
+
+    // Вставка інформації про продукт в модальне вікно
+    modal.insertAdjacentHTML('beforeend', renderModalCard(modalProduct));
+
+    document
+      .querySelector('.modal-btn')
+      .addEventListener('click', () => updateCart(modalProduct));
+
+    document
+      .querySelector('.modal-close-btn')
+      .addEventListener('click', closeModalHandler);
+    modalBackground.addEventListener('click', clickOnBackdrop);
+    document.addEventListener('keydown', escapeModalHandler);
+
+    document
+      .querySelector('button[data-action="decrement"]')
+      .addEventListener('click', () => {
+        const countValue = spanQuantity.textContent - 1;
+        spanQuantity.textContent = countValue;
+
+        
+      });
+
+    document
+      .querySelector('button[data-action="increment"]')
+      .addEventListener('click', () => {
+      });
   } catch (error) {
-    throw error
+    console.error('Error fetching product data:', error.message);
   } finally {
-    // Скрываем лоадер после выполнения запроса
-    document.getElementById('overlay').style.display = 'none'
+    isModalOpen = true;
+    isModalOpening = false;
   }
 }
 
-const modalContent = document.querySelector('.modal-content')
-const closeIcon = document.querySelector(".close-icon")
-let prodList = []
+// Функція для рендерингу вмісту модального вікна з інформацією про продукт
+function renderModalCard({
+  img,
+  name,
+  category,
+  size,
+  popularity,
+  desc,
+  price,
+}) {
+  return `
+    <div class="modal-container">
+      <div>
+        <div class="modal-img">
+          <img
+            src="${img}"
+            alt="${name}"
+          />
+        </div>
+      </div>
+      <div class="modal-product-info">
+        <h2 class="modal-title">${name}</h2>
+        <div class="modal-details">
+          <div>
+            <span class="modal-subtitle">Category:</span>
+            <span class="modal-subtitle-info">
+              ${category.replaceAll('_', ' ')}
+            </span>
+          </div>
+          <div>
+            <span class="modal-subtitle">Size:</span>
+            <span class="modal-subtitle-info">${size}</span>
+          </div>
+          <div>
+            <span class="modal-subtitle">Popularity:</span>
+            <span class="modal-subtitle-info">${popularity}</span>
+          </div>
+        </div>
+        <p class="modal-about-product">${desc}</p>
+      </div>
+    </div>
+    <div class="modal-price-container">
+      <p class="modal-price-product">
+        <span>$</span><span class="modal-price">${price}</span>
+        <button class="modal-btn" aria-label="add to card">
+          <span class="modal-btn-text">Add to</span>
+          <svg class="modal-icon-shop test" width="18" height="18">
+            <use href="${icons}#icon-shopping-cart"></use>
+          </svg>
+        </button>
+      </p>
+    </div>`;
+}
 
-async function createModalMarkup() {
-  const lim = 2
-  try {
-    let responce = await fetchDiscontFood()
-    prodList = responce.slice(0, lim)
+function closeModalHandler() {
+  modalBackground.classList.add('is-hidden');
+  document.body.classList.remove('is-modal-open');
 
-    const createProducts = prodList
-      .map(({ img, name, popularity, desc, category, price, size, _id }) => {
-        const cleanedCategory = category.replace(/_/g, ' ')
+  document
+    .querySelector('.modal-close-btn')
+    .removeEventListener('click', closeModalHandler);
+  modalBackground.removeEventListener('click', clickOnBackdrop);
+  document.removeEventListener('keydown', escapeModalHandler);
+  isModalOpen = false; // Позначаємо, що модальне вікно закрите
+}
 
-        return `<div class="item-pl" data-id="${_id}">
-                <div class="background-img-pl">
-                    <img src="${img}" alt="" class="img-pl" loading="lazy" />
-                </div>
-                <h2 class="product-name-pl">${name}</h2>
-                <div class="product-info-pl">
-                    <p class="paragraph-pl">
-                        Category: <b class="value-pl">${cleanedCategory}</b>
-                    </p>
-                    <p class="paragraph-pl">Size: <b class="value-pl">${size}</b></p>
-                    <p class="paragraph-pl">Popularity: <b class="value-pl">${popularity}</b></p>
-                    <p class="paragraph-pl">Description: <b class="value-pl">${desc}</b></p>
-                </div>
-                <div class="price-container-pl">
-                    <b class="price-pl">$${price}</b>
-                    <button class="btn-pl">Add to 
-                        <svg class="icon-pl">
-                            <use href="${iconsSvg}"></use>
-                        </svg>
-                    </button>
-                </div>
-            </div>`
-      })
-      .join('')
-
-    modalContent.insertAdjacentHTML('beforeend', createProducts)
-  } catch (error) {
-    console.error(error)
+function escapeModalHandler({ key }) {
+  if (key === 'Escape') {
+    closeModalHandler();
   }
 }
 
-window.addEventListener('load', createModalMarkup)
-
-const linkBag = document.querySelector('.modal-content')
-
-linkBag.addEventListener('click', addCart)
-
-let btn
-
-function addCart(evt) {
-  btn = evt.target.closest('.btn-pl')
-  if (evt.target.closest('.btn-pl')) {
-    addToCart(evt, prodList)
-  }
-  const svg = btn.querySelector('.img-svg-osnova use')
-  svg.setAttribute('href', '../../img/icons.svg#icon-cart')
-  btn.setAttribute('disabled', true)
-  btn.style.cursor = 'auto'
-}
-
-// function fetchInfoFood() {
-//     const url = `https://food-boutique.b.goit.study/api/products/{id}`;
-//     return fetch(url).then(resp => {
-//         if (!resp.ok) {
-//             throw new Error(resp.statusText)
-//         }
-//         return resp.json()
-//     });
-// }
-
-
-
-///////////////////////
-
-
-function openModal() {
-  const modal = document.querySelector('.backdrop')
-
-  document.querySelectorAll('.item-pl').forEach(li => {
-    li.addEventListener('click', (event) => {
-      // Check if the clicked element or its parent has the class .btn-pl
-      if (!event.target.closest('.btn-pl')) {
-        modal.classList.add('active')
-        closeModal(modal)
-      }
-    })
-  })
-}
-
-
-function closeModal(modal) {
-  const closeButton = modal.querySelector('.button-modal-close')
-
-  function closeModalHandler() {
-    modal.classList.remove('active')
-    document.removeEventListener('keydown', escKeyHandler)
-  }
-
-  function escKeyHandler(event) {
-    if (event.key === 'Escape') {
-      closeModalHandler()
-    }
-  }
-
-  closeButton.addEventListener('click', closeModalHandler)
-  document.addEventListener('keydown', escKeyHandler)
-}
