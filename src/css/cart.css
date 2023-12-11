@@ -11,14 +11,13 @@
   overflow: hidden;
 }
 .cart-section .container {
-  padding-top: 100px;
-  padding-bottom: 120px;
+  padding: 100px 20px 120px 20px;
 }
 
 .cart-title {
   display: flex;
   align-items: center;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 1.16;
   text-transform: uppercase;
@@ -30,11 +29,17 @@
     /* margin-top: 99px; */
     margin-bottom: 88px;
   }
+  .cart-section .container {
+    padding: 100px 32px 120px 32px;
+  }
 }
 @media only screen and (min-width: 1440px) {
   .cart-title {
     /* margin-top: 77px; */
     margin-bottom: 105px;
+  }
+  .cart-section .container {
+    padding: 100px 100px 150px 100px;
   }
 }
 .cart-form {
@@ -182,8 +187,10 @@
 }
 
 .empty-cart-image {
-  margin-top: 105px;
+  /* margin-top: 105px; */
   margin-bottom: 28px;
+  width: 132px;
+  height: 114px;
 }
 .empty-cart-title {
   font-size: 18px;
@@ -210,6 +217,7 @@
 
 .order-title {
   text-transform: uppercase;
+  font-family: Neue Montreal;
   margin-bottom: 40px;
   font-size: 24px;
   font-weight: 500;
@@ -218,7 +226,7 @@
 
 /*Стилізація розмітки кошика */
 
-.cart-list{ 
+.cart-list {
   width: 100%;
 }
 
@@ -306,8 +314,15 @@
     display: flex;
     gap: 16px;
   }
+  .empty-cart-image {
+    width: 164px;
+    height: 140px;
+    margin-bottom: 40px;
+  }
+  .total {
+    margin-bottom: 54px;
+  }
 }
-
 .input-container {
   padding: 12px 20px;
   border-radius: 30px;
@@ -324,6 +339,9 @@
     width: 100%;
     margin-right: 16px;
   }
+  .order-title {
+    font-size: 32px;
+  }
 }
 @media only screen and (min-width: 1440px) {
   .input-container {
@@ -335,6 +353,12 @@
     flex-direction: row;
     display: flex;
     gap: 101px;
+  }
+  .delete-all-btn {
+    font-size: 16px;
+  }
+  .cart-title {
+    margin-bottom: 155px;
   }
 }
 
@@ -523,9 +547,18 @@
   background-color: transparent;
 }
 
-
-.cart-delete__wrap{
+.cart-delete__wrap {
   display: flex;
   justify-content: flex-end;
   padding-bottom: 15px;
+}
+.total .notation {
+  color: rgba(1, 1, 1, 0.3);
+  font-size: 12px;
+  line-height: 1.16;
+  margin-right: 4px;
+}
+.sum-full {
+  display: flex;
+  align-items: baseline;
 }

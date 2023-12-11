@@ -130,5 +130,15 @@
     <symbol id="icon-caret-small-right" viewBox="0 0 31 32">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.92" d="m12.8 10.24 5.12 5.12-5.12 5.12"/>
     </symbol>
+<symbol id="icon-discount-leaf" viewBox="0 0 32 32">
+      <path fill="#fafafa" style="fill:var(--color1, #fafafa)" d="M22.667 10.667c-12 2.667-14.8 10.893-17.573 17.787l2.52.88 1.267-3.067c.64.227 1.307.4 1.787.4C25.335 26.667 29.335 4 29.335 4c-1.333 2.667-10.667 3-17.333 4.333s-9.333 7-9.333 9.667 2.333 5 2.333 5c4.333-12.333 17.667-12.333 17.667-12.333z"/>
+    </symbol>
+    <symbol id="icon-discount-text" viewBox="0 0 32 32">
+      <path fill="#6d8434" style="fill:var(--color2, #6d8434)" d="M32 16c0 8.837-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0s16 7.163 16 16z"/>
+      <path fill="#fafafa" style="fill:var(--color1, #fafafa)" d="M17.556 14.756c-2.8.622-3.453 2.542-4.1 4.15l.588.205.296-.716c.149.053.305.093.417.093 3.422 0 4.356-5.289 4.356-5.289-.311.622-2.489.7-4.044 1.011s-2.178 1.633-2.178 2.256.544 1.167.544 1.167c1.011-2.878 4.122-2.878 4.122-2.878z"/>
+    </symbol>
+    <symbol id="icon-minus" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="3.429" d="M6.67 16h18.667"/>
+    </symbol>
     </defs>
 </svg>

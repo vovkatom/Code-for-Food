@@ -8,13 +8,17 @@
   margin-top: 10px; 
 } */
 
+.paginationDop {
+  display: none;
+}
+
 .tui-page-btn .tui-last {
   display: none !important;
 }
 .tui-pagination {
   width: 288px !important;
   height: 40px !important;
-  margin: 0px auto 80px auto !important;
+  margin: 0px auto !important;
   display: flex;
   gap: 4px;
   line-height: normal;
@@ -42,7 +46,7 @@
   .tui-pagination {
     width: 472px !important;
     height: 40px !important;
-    margin: 0px auto 61px auto !important;
+    margin: 0px auto !important;
   }
 }
 

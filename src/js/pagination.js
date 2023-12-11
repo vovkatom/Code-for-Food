@@ -3,10 +3,11 @@ import Pagination from 'tui-pagination';
 import { fetchAndRender, fetchFoodCategory } from '/js/products.js';
 
 export { funcPagination, loadMoreTrendMoves, pages };
-  
+
 const FILTER = 'filter';
 
 const refs = {
+  paginationDop: document.querySelector('.paginationDop'),
   pagination: document.querySelector('.tui-pagination'),
   list: document.querySelector('.product-list'),
   // select: document.querySelector('.select'),
@@ -15,38 +16,35 @@ const refs = {
 
 const container = document.getElementById('pagination');
 
-let totalPage = 1;
-//correct
-let itemsPerPage = 6;
+let totalPage;
+let itemsPerPage;
 let visiblePage = 3;
-let pageOrigin = 1;
+let pageOrigin;
 
 //вытягивает с localStorage номер страницы - если была перегрузка страницы, то нужно вятянуть номер который был до перегрузки и
 //  активировать пагинацию на этой же страничке
-const storedData = localStorage.getItem(FILTER);
-if (storedData) {
-  try {
-    const parsedData = JSON.parse(storedData);
-    pageOrigin = parsedData.page;
-    itemsPerPage = parsedData.limit;
-    // console.log(totalPage);
-    // console.log(pageOrigin);
-    // console.log(itemsPerPage);
-    pages(pageOrigin);
-  } catch (error) {
-    console.error('Error updating localStorage:', error);
+function storeData() {
+  const storedData = localStorage.getItem(FILTER);
+  if (storedData) {
+    try {
+      const parsedData = JSON.parse(storedData);
+      pageOrigin = parsedData.page;
+      itemsPerPage = parsedData.limit;
+    } catch (error) {
+      console.error('Error updating localStorage:', error);
+    }
   }
+
+  // funcPagination(totalPage);
+
+  // if (totalPage > itemsPerPage) {
+  //   funcPagination(totalPage, pageOrigin);
+  // }
 }
-// } else {
-//   pageOrigin = 1;
-// }
 
 //создание пагинации
-function funcPagination(totalPage, pageOrigin) {
-  // console.log(`"totalPage"${totalPage}`);
-  // console.log(`"pageOrigin"${pageOrigin}`);
-  // console.log(`"itemsPerPage"${itemsPerPage}`);
-
+function funcPagination(totalPage) {
+  // console.log(totalPage);
   let options = {
     totalItems: totalPage,
     itemsPerPage: itemsPerPage,
@@ -73,6 +71,7 @@ function funcPagination(totalPage, pageOrigin) {
         '</a>',
     },
   };
+
   const pagination = new Pagination(container, options);
   pagination.on('beforeMove', loadMoreTrendMoves);
 }
@@ -94,37 +93,15 @@ function loadMoreTrendMoves(event) {
 }
 
 // определяем сколько всего будет товаров и вызываем пагинацию передавая этот параметр
-async function pages(pageOrigin) {
-  let responce = await fetchFoodCategory();
-  totalPage = responce.data.totalPages * responce.data.perPage;
-  // console.log(`fff${totalPage}`);
-  funcPagination(totalPage, pageOrigin);
+async function pages(totalPage) {
+  // let responce = await fetchFoodCategory();
+  // totalPage = responce.data.totalPages * responce.data.perPage;
+  if (totalPage <= Number(itemsPerPage)) {
+    refs.pagination.classList.replace('tui-pagination', 'paginationDop');
+  } else {
+    storeData();
+    refs.pagination.classList.replace('paginationDop', 'tui-pagination');
+  }
 }
 
-pages(pageOrigin);
-// window.addEventListener('load', pages)(pageOrigin);
-
-//слушатель для смены категории товаров
-// refs.select.addEventListener('click', onSubmit);
-// refs.search.addEventListener('input', onSubmit);
-
-// //колбек ф-я для слушателя. В local Storage в параметр page заносим 1. Определяем кол-во товаров и отрисовываем новую пагинацию
-// async function onSubmit(event) {
-//   // pagination.reset();
-//   const storedData = localStorage.getItem(FILTER);
-//   if (storedData) {
-//     try {
-//       const parsedData = JSON.parse(storedData);
-//       parsedData.page = 1;
-//       localStorage.setItem('filter', JSON.stringify(parsedData));
-//     } catch (error) {
-//       console.error('Error updating  localStorage:', error);
-//     }
-//   }
-
-//   let responce = await fetchFoodCategory();
-//   let totalPage = responce.data.totalPages * responce.data.perPage;
-//   let pageOrigin = 1;
-//   funcPagination(totalPage, pageOrigin);
-// }
 
