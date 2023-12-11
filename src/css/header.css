@@ -1,7 +1,7 @@
 .logo-name {
     font-family: 'Fontspring';
     color: #010101;
-    font-size: 18px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 900;
     line-height: 1.11;
@@ -96,6 +96,10 @@ li {
     .header .container {
        width: 375px;
        padding-bottom: 36px;
+    }
+
+    .logo-name {
+        font-size: 18px;
     }
 }
 
