@@ -18,7 +18,6 @@
 @import url('./products.css');
 @import url('./cart.css');
 @import url('./pagination.css');
-@import url('./scroll.css');
 /* @import url('./heroheader.css'); */
 
 @font-face {
@@ -56,11 +55,7 @@
   --color-btn-up: #fdc152;
   --color-white: #fafafa;
   --color-light-grey: #e8e8e2;
-  --color-light-green: #6d8434;
-
-  --color-light-green: #6d8434;
-  --color-grey: #a3a3a3;
-  --color-dark-green: #586f1f;
+   --color-light-green: #6d8434;
 
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
