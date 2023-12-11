@@ -43,7 +43,7 @@ export default async function openModalProduct(productId) {
         removeCart(modalProduct); // Передача об'єкту modalProduct у функцію addCart
       });
 
-
+    
 
     document
       .querySelector('.modal-close-btn')
@@ -131,9 +131,9 @@ function addCart(product) {
 }
 
 function removeCart(product) {
-  console.log(cartArr);
-  console.log(product)
-  console.log('Removing')
+  // console.log(cartArr);
+  // console.log(product)
+  // console.log('Removing')
   for (let i = 0; i < cartArr.length; i++) {
     if (cartArr[i]._id === product._id) {
       cartArr.splice(i, 1);
