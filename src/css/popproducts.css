@@ -22,6 +22,7 @@
   border-radius: 10px;
   background-color: #fafafa;
   height: 98px;
+  cursor: pointer;
 }
 .background-img-popular {
   display: flex;
