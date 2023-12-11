@@ -163,7 +163,7 @@ li {
 @media screen and (min-width: 1440px) {
     .header .container {
         width: 1440px;
-        padding: 24px 100px 58px 100px;
+        padding: 24px 100px 38.5px 100px;
     }
 
     .logo-name {
