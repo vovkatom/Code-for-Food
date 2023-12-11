@@ -159,6 +159,7 @@
 /* Category header container */
 
 .modal-details {
+  font-family: var(--font-main);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -187,18 +188,19 @@
 
 .modal-about-product {
   color: rgba(1, 1, 1, 0.7);
-  font-family: var(--font-main);
+  font-family: Neue Montreal;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
   margin-top: 20px;
   max-width: 290px;
-  max-height: 80px;
+  max-height: 110px;
   overflow-x: auto;
 }
 
 @media screen and (min-width: 767px) {
   .modal-about-product {
+    font-family: Neue Montreal;
     font-size: 16px;
     line-height: 1.25;
     margin-top: 24px;
@@ -208,13 +210,11 @@
 
 /* Price and add to cart */
 
-.modal-price-container {
-  margin-top: 20px;
-}
 
 @media screen and (min-width: 767px) {
   .modal-price-container {
     margin-top: 48px;
+    
   }
 }
 
@@ -263,10 +263,20 @@
   /* padding: 0; */
 }
 
+.modal-btn:hover,
+.modal-btn:focus {
+  background: var(--color-btn-active);
+}
+
+.modal-btn-remove:hover,
+.modal-btn-remove:focus {
+  background: var(--color-btn-active);
+}
+
 .quantity-and-add {
   display: flex;
   gap: 10px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   justify-content: space-between;
 }
 
@@ -283,9 +293,10 @@
 
 .modal-price-container {
   display: flex; /* Робимо контейнер гнучким для відображення елементів в одному рядку */
-  align-items: center; /* Вирівнюємо елементи вертикально */
+  align-items: flex-end; /* Вирівнюємо елементи вертикально */
   justify-content: space-between; /* Додаємо простір між елементами */
-  margin-top: 10px; /* Додайте відступ зверху, якщо потрібно */
+  margin-top: 40px; /* Додайте відступ зверху, якщо потрібно */
+  
 }
 
 .modal-price-product {
