@@ -40,6 +40,7 @@ li {
 }
 
 .cart .logo-cart {
+    display: block;
     background: #6D8434;
     width: 38px;
     height: 38px;   
@@ -78,6 +79,7 @@ li {
     display: flex;
     justify-content: baseline;
     align-items: center;
+    align-content: center;
 }
 
 .home {
@@ -142,6 +144,7 @@ li {
     }
 
     .cart .logo-cart {
+        display: block;
         margin-left: 16px;
         padding: 10px;
         width: 38px;
