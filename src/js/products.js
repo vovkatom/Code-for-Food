@@ -138,6 +138,7 @@ function handleButtonClick(event) {
       const dataId = closestLi.dataset.id;
       // знаходимо продукт за id в масиві foodInfo
       const clickedProduct = foodInfo.find(product => product._id === dataId);
+      checkId(closestLi)
       // перевірка чи знайдено продукт
       if (clickedProduct) {
         // виклик функції на додавання в localeStorage
@@ -157,6 +158,28 @@ function handleButtonClick(event) {
     const clickedId = clickedLi.dataset.id;
     openModalProduct(clickedId);
   }
+}
+
+function checkId(id) {
+  const idPorduct = id.dataset.id;
+  const allPopular = document.querySelectorAll(".popular-list .item-popular")
+  const allDiscount = document.querySelectorAll(".discount-list .discount-item")
+  allPopular.forEach((elem) => {
+    if (elem.dataset.id === idPorduct) {
+      const btn = elem.querySelector(".popularBtn")
+      const svg = btn.querySelector(".icon-popular use")
+      svg.setAttribute('href', `${iconSvg}#icon-cart`)
+      btn.setAttribute("disabled", true)
+    }
+  })
+  allDiscount.forEach((elem) => {
+    if (elem.dataset.id === idPorduct) {
+      const btn = elem.querySelector(".info-div .info-title-link")
+      const svg = btn.querySelector(".img-svg-osnova use")
+      svg.setAttribute('href', `${iconSvg}#icon-cart`)
+      btn.setAttribute("disabled", true)
+    }
+  })
 }
 
 function add(elem, arr) {
@@ -301,3 +324,4 @@ function thresholdOfSwitches(oldWidth, newWidth) {
     )
   );
 }
+
