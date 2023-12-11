@@ -1,18 +1,21 @@
 export { openModalProduct }
+import {
+  KEY_CART,
+  cartArr,
+  addToCart,
+  findProduct,
+} from '/js/cart-localestorage';
+
 import Api from './api'; // Модуль API
 import icons from '/img/icons.svg'; // Іконки для відображення
-// let isModalOpen = false;
-// let isModalOpening = false;
 
+// Вибір DOM елементів
 const modalBackground = document.querySelector('.modal-background'); // Фон модального вікна
 const modal = document.querySelector('.modal'); // Саме модальне вікно
 
 // Оголошення функції для відкриття модального вікна з деталями продукту
 export default async function openModalProduct(productId) {
-  // if (isModalOpen || isModalOpening) {
-  //   return;
-  // }
-  // isModalOpening = true;
+  const idP = productId;
   try {
     // Показ модального вікна
     modalBackground.classList.remove('is-hidden'); // Видалення класу для відображення фону
@@ -30,12 +33,13 @@ export default async function openModalProduct(productId) {
     // Отримання даних про продукт з API
     const modalProduct = await Api.getProduct(productId);
 
-    // Вставка інформації про продукт в модальне вікно
     modal.insertAdjacentHTML('beforeend', renderModalCard(modalProduct));
 
-    document
-      .querySelector('.modal-btn')
-      .addEventListener('click', () => updateCart(modalProduct));
+    document.querySelector('.modal-btn').addEventListener('click', () => {
+      addCart(modalProduct); // Передача об'єкту modalProduct у функцію addCart
+    });
+
+
 
     document
       .querySelector('.modal-close-btn')
@@ -43,28 +47,12 @@ export default async function openModalProduct(productId) {
     modalBackground.addEventListener('click', clickOnBackdrop);
     document.addEventListener('keydown', escapeModalHandler);
 
-    document
-      .querySelector('button[data-action="decrement"]')
-      .addEventListener('click', () => {
-        const countValue = spanQuantity.textContent - 1;
-        spanQuantity.textContent = countValue;
-
-        
-      });
-
-    document
-      .querySelector('button[data-action="increment"]')
-      .addEventListener('click', () => {
-      });
   } catch (error) {
     console.error('Error fetching product data:', error.message);
   } finally {
-    // isModalOpen = true;
-    // isModalOpening = false;
   }
 }
 
-// Функція для рендерингу вмісту модального вікна з інформацією про продукт
 function renderModalCard({
   img,
   name,
@@ -108,14 +96,30 @@ function renderModalCard({
     <div class="modal-price-container">
       <p class="modal-price-product">
         <span>$</span><span class="modal-price">${price}</span>
-        <button class="modal-btn" aria-label="add to card">
-          <span class="modal-btn-text">Add to</span>
-          <svg class="modal-icon-shop test" width="18" height="18">
-            <use href="${icons}#icon-shopping-cart"></use>
-          </svg>
-        </button>
       </p>
+      
+      <div class="quantity-and-add">
+      <button class="modal-btn" aria-label="add to card">
+      <span class="modal-btn-text">Add to</span>
+      <svg class="modal-icon-shop" width="18" height="18">
+        <use href="${icons}#icon-shopping-cart"></use>
+      </svg>
+    </button>
+
+        
+      </div>
     </div>`;
+}
+
+let productsArray = []; // Ініціалізація порожнього масиву для продуктів
+
+function addCart(product) {
+}
+
+function clickOnBackdrop({ target }) {
+  if (target === modalBackground) {
+    closeModalHandler();
+  }
 }
 
 function closeModalHandler() {
@@ -125,9 +129,8 @@ function closeModalHandler() {
   document
     .querySelector('.modal-close-btn')
     .removeEventListener('click', closeModalHandler);
-  // modalBackground.removeEventListener('click', clickOnBackdrop);
+  modalBackground.removeEventListener('click', clickOnBackdrop);
   document.removeEventListener('keydown', escapeModalHandler);
-  // isModalOpen = false; // Позначаємо, що модальне вікно закрите
 }
 
 function escapeModalHandler({ key }) {
@@ -135,4 +138,3 @@ function escapeModalHandler({ key }) {
     closeModalHandler();
   }
 }
-

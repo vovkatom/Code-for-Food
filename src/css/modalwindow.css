@@ -281,3 +281,15 @@
   color: currentColor;
   background-color: transparent;
 } */
+
+.modal-price-container {
+  display: flex; /* Робимо контейнер гнучким для відображення елементів в одному рядку */
+  align-items: center; /* Вирівнюємо елементи вертикально */
+  justify-content: space-between; /* Додаємо простір між елементами */
+  margin-top: 10px; /* Додайте відступ зверху, якщо потрібно */
+}
+
+.modal-price-product {
+  flex: 1; /* Розтягуємо ціну, щоб вона займала доступний простір */
+  margin: 0;
+}
