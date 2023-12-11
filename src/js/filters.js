@@ -131,7 +131,7 @@ function onLoad() {
   };
   const value = obj;
   const key = 'filter';
-  console.log(value);
+  // console.log(value);
   if (localStorage.getItem('filter')) {
     const filterObj = load('filter');
     if (filterObj.category !== null) {
