@@ -120,7 +120,6 @@ function onLoad() {
     getCategoriesFromLS();
   // limit = Number(homManyLimit())
   // console.log(limit)
-  if ()
   const obj = {
     keyword: keyword || null,
     category: category || null,
