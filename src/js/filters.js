@@ -120,9 +120,10 @@ function onLoad() {
     getCategoriesFromLS();
   // limit = Number(homManyLimit())
   // console.log(limit)
+  if ()
   const obj = {
-    keyword: keyword || '',
-    category: category || '',
+    keyword: keyword || null,
+    category: category || null,
     page: page || 1, // Додавання значення за замовчуванням, якщо воно відсутнє
     limit: limit || 6, // Додавання значення за замовчуванням, якщо воно відсутнє
     byABC: byABC || '',
@@ -254,7 +255,7 @@ function handleSort(event) {
       const updatedData = parsedData;
       save('filter', updatedData);
       fetchAndRender();
-    } else if (sortType === 'Show all') {
+    } else if (sortType === 'Reset All') {
       delete parsedData.byABC;
       delete parsedData.byPrice;
       delete parsedData.byPopularity;
