@@ -37,7 +37,7 @@ async function createMarkup() {
           ? `${iconsSvg}#icon-cart`
           : `${iconsSvg}#icon-shopping-cart`;
 
-        return `<li class="discount-item">
+        return `<li class="discount-item" data-id="${_id}">
            <svg class="icon-discount" width="64" height="64">
                   <use href="${iconsSvg}#icon-discount"></use>
                 </svg>
