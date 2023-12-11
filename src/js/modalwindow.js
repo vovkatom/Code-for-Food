@@ -39,6 +39,9 @@ export default async function openModalProduct(productId) {
     document.querySelector('.modal-btn').addEventListener('click', () => {
       addCart(modalProduct); // Передача об'єкту modalProduct у функцію addCart
     });
+      document.querySelector('.modal-btn-remove').addEventListener('click', () => {
+        removeCart(modalProduct); // Передача об'єкту modalProduct у функцію addCart
+      });
 
 
 
@@ -106,6 +109,12 @@ function renderModalCard({
         <use href="${icons}#icon-shopping-cart"></use>
       </svg>
     </button>
+     <button class="modal-btn-remove" aria-label="add to card">
+      <span class="modal-btn-text">Remove from</span>
+      <svg class="modal-icon-shop" width="18" height="18">
+        <use href="${icons}#icon-shopping-cart"></use>
+      </svg>
+    </button>
       </div>
     </div>`;
 }
@@ -115,13 +124,28 @@ let productsArray = []; // Ініціалізація порожнього ма�
 function addCart(product) {
       cartArr.push(product);
       localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
-      console.log(product);
-      const buttonText = document.querySelector('.modal-btn-text');
-      console.dir(buttonText);
-      buttonText.innerHTML = "Remove from"
       //Функція оновлення кількості товарів у кошику (імпортується)
-      updateCartNumber();
+  updateCartNumber();
+  document.querySelector('.modal-btn').style.display = 'none'
+  document.querySelector('.modal-btn-remove').style.display = 'block';
 }
+
+function removeCart(product) {
+  console.log(cartArr);
+  console.log(product)
+  console.log('Removing')
+  for (let i = 0; i < cartArr.length; i++) {
+    if (cartArr[i]._id === product._id) {
+      cartArr.splice(i, 1);
+      localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
+      updateCartNumber();
+      document.querySelector('.modal-btn').style.display = 'block';
+      document.querySelector('.modal-btn-remove').style.display = 'none';
+    }
+  }
+}
+
+
 
 function clickOnBackdrop({ target }) {
   if (target === modalBackground) {

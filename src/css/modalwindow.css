@@ -237,7 +237,7 @@
 }
 
 .modal-icon-shop {
-  fill: var(--color-light-grey)
+  fill: var(--color-light-grey);
 }
 
 .modal-btn {
@@ -261,7 +261,6 @@
   line-height: inherit;
   cursor: pointer;
   /* padding: 0; */
-
 }
 
 .quantity-and-add {
@@ -292,4 +291,28 @@
 .modal-price-product {
   flex: 1; /* Розтягуємо ціну, щоб вона займала доступний простір */
   margin: 0;
+}
+
+.modal-btn-remove {
+  color: var(--color-light-grey);
+  font-family: var(--font-main);
+  font-size: 14px;
+  line-height: 1.28;
+  font-weight: 500;
+  padding: 11px 24px;
+  display: flex;
+
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  background: var(--color-light-green);
+
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  display: none;
+  /* padding: 0; */
 }
