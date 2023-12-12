@@ -147,9 +147,9 @@ function handleButtonClick(event) {
       }
     }
     // знаходимо елемент use в середині кнопки
-    const svg = closestButton.querySelector('.icon-pl use');
+    // const svg = closestButton.querySelector('.icon-pl use');
     // зміна svg
-    svg.setAttribute('href', `${iconSvg}#icon-cart`);
+    // svg.setAttribute('href', `${iconSvg}#icon-cart`);
     // btn off
     closestButton.setAttribute('disabled', true);
   }
