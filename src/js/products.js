@@ -91,6 +91,7 @@ const createMessage = `<div class="error-load">
                     <img src="${img}" alt="" class="img-pl" loading="lazy" />
                 </div>
                 <h2 class="product-name-pl">${name}</h2>
+                <div class="container-info">
                 <div class="product-info-pl">
                     <p class="paragraph-pl">
                         Category: <b class="value-pl">${cleanedCategory}</b>
@@ -111,6 +112,7 @@ const createMessage = `<div class="error-load">
                 <svg class="${svgDisc}">
                 <use href="${iconSvg}#icon-discount"></use>
                 </svg>
+                </div>
             </li>`;
       }
     )
