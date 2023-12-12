@@ -5,7 +5,7 @@ a {
 
 .logo-name {
     font-family: 'Fontspring';
-    color: var(--color-text);
+    color: #010101;
     font-size: 16px;
     font-style: normal;
     font-weight: 900;
@@ -143,7 +143,7 @@ li {
 
     .cart-counter {
         display: inline;
-        color: var(--color-text);
+        color: #010101;
         font-family: 'Neue Montreal';
         font-size: 18px;
         font-style: normal;

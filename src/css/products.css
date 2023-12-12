@@ -11,7 +11,7 @@
 }
 
 .not-found-heading {
-  color: var(--color-text);
+  color: #010101;
   font-size: 18px;
   line-height: 1.11em;
 }
@@ -75,7 +75,7 @@
 }
 .product-name-pl {
   margin-bottom: 10px;
-  color: var(--color-text);
+  color: #010101;
   font-family: 'Neue Montreal';
   font-size: 18px;
   font-style: normal;
@@ -97,7 +97,7 @@
   line-height: 1.17em; /* 116.667% */
 }
 .value-pl {
-  color: var(--color-text);
+  color: #010101;
   font-family: Neue Montreal;
   font-size: 12px;
   font-style: normal;
@@ -111,7 +111,7 @@
   justify-content: space-between;
 }
 .price-pl {
-  color: var(--color-text);
+  color: #010101;
   font-family: Neue Montreal;
   font-size: 18px;
   font-style: normal;
