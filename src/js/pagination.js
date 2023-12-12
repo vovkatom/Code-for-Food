@@ -86,6 +86,7 @@ function loadMoreTrendMoves(event) {
   }
   refs.list.innerHTML = '';
   fetchAndRender();
+  scroll();
 }
 
 // определяем сколько всего будет товаров и вызываем пагинацию передавая этот параметр
@@ -101,4 +102,19 @@ async function pages(totalPage) {
   } else {
     visiblePage = 2;
   }
+}
+
+
+function scroll() {
+  const view = document.querySelector('.product-list-section');
+
+  let rect = view.getBoundingClientRect();
+  let x = rect.left;
+  let y = rect.top;
+  scrollTo(x, y);
+  scrollTo({
+    top: 600,
+    behavior: 'smooth'
+  });
+  console.log(x, y);
 }
