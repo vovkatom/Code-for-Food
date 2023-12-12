@@ -149,7 +149,7 @@ a {
   color: rgba(232, 232, 226, 0.6);
 }
 .btn-subscription {
-  color: #010101;
+  color: var(--color-text);
   font-family: Neue Montreal;
   font-size: 14px;
   font-style: normal;
@@ -427,7 +427,7 @@ a {
   margin: 100px 43px 22px 44px;
 }
 .subscription-thanks {
-  color: #010101;
+  color: var(--color-text);
   text-align: center;
   font-family: Neue Montreal;
   font-size: 20px;
