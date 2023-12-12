@@ -34,7 +34,7 @@ a {
 .footer-svg {
   border-radius: 50%;
   margin: 0;
-  background-color: #e8e8e2;
+  background-color: var(--color-bckg);
   fill: #6d8434;
   padding: 6px;
   width: 28px;
@@ -44,7 +44,7 @@ a {
 }
 .logo-text {
   font-family: 'Fontspring';
-  color: #e8e8e2;
+  color: var(--color-bckg);
   font-size: 18px;
   font-style: normal;
   font-weight: 900;
@@ -77,7 +77,7 @@ a {
   gap: 8px;
   border-radius: 10px;
   border: 1px solid rgba(232, 232, 226, 0.3);
-  fill: #e8e8e2;
+  fill: var(--color-bckg);
   width: 40px;
   height: 40px;
 }
@@ -93,7 +93,7 @@ a {
 }
 .company-motto h3 {
   font-family: Neue Montreal;
-  color: #e8e8e2;
+  color: var(--color-bckg);
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -123,7 +123,7 @@ a {
 
 .subscription-text-footer {
   font-family: Neue Montreal;
-  color: #e8e8e2;
+  color: var(--color-bckg);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -131,14 +131,14 @@ a {
 }
 .subscription-input {
   background-color: #6d8434;
-  color: #e8e8e2;
+  color: var(--color-bckg);
   font-family: Neue Montreal;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.29;
   border-radius: 30px;
-  border: 1px solid #e8e8e2;
+  border: 1px solid var(--color-bckg);
   padding: 12px 0px 12px 18px;
   align-items: center;
   max-width: 336px;
@@ -157,7 +157,7 @@ a {
   font-weight: 500;
   line-height: 1.29;
   border-radius: 30px;
-  background: #e8e8e2;
+  background: var(--color-bckg);
   display: flex;
   max-width: 336px;
   height: 42px;
@@ -171,7 +171,7 @@ a {
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-text.container {
-  color: #e8e8e2;
+  color: var(--color-bckg);
   font-family: Neue Montreal;
   font-size: 14px;
   font-style: normal;
@@ -238,7 +238,7 @@ a {
     margin-bottom: 64px;
   }
   .logo-text {
-    color: #e8e8e2;
+    color: var(--color-bckg);
     font-size: 24px;
     line-height: 1;
     letter-spacing: -0.04em;
@@ -342,7 +342,7 @@ a {
 
 .subscription-modal-success {
   border-radius: 20px;
-  background: #e8e8e2;
+  background: var(--color-bckg);
   width: 280px;
   height: 400px;
   flex-shrink: 0;
@@ -352,7 +352,7 @@ a {
 }
 .subscription-modal-already-subscribed {
   border-radius: 20px;
-  background: #e8e8e2;
+  background: var(--color-bckg);
   width: 280px;
   height: 400px;
   flex-shrink: 0;
@@ -362,7 +362,7 @@ a {
 }
 .subscription-modal-fail {
   border-radius: 20px;
-  background: #e8e8e2;
+  background: var(--color-bckg);
   width: 280px;
   height: 400px;
   flex-shrink: 0;

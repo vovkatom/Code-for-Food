@@ -53,7 +53,7 @@
 .product-list {
   display: flex;
   flex-direction: column;
-  background-color: #e8e8e2;
+  background-color: var(--color-bckg);
   gap: 20px;
 }
 
@@ -81,7 +81,7 @@
   padding-bottom: 19px;
   margin-bottom: 20px;
   border-radius: 10px;
-  background-color: #e8e8e2;
+  background-color: var(--color-bckg);
 }
 .img-pl {
   display: inline;
@@ -156,7 +156,7 @@
 }
 
 .icon-pl {
-  fill: #e8e8e2;
+  fill: var(--color-bckg);
   width: 18px;
   height: 18px;
 }

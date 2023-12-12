@@ -57,7 +57,7 @@
   /* display: inline-flex; */
   justify-content: center;
   align-items: center;
-  fill: #e8e8e2;
+  fill: var(--color-bckg);
   background-color: #6d8434;
   border-radius: 30px;
 
@@ -176,7 +176,7 @@
   background-color: #6d8434;
   border-radius: 30px;
 
-  color: #e8e8e2;
+  color: var(--color-bckg);
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -460,7 +460,7 @@
   border-radius: 30px;
 }
 .order-btn:active {
-  background: E8E8E2;
+  background:var(--color-bckg);
 }
 
 @media only screen and (min-width: 768px) {

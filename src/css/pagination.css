@@ -144,7 +144,7 @@
 
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
-  color: #e8e8e2 !important;
+  color: var(--color-bckg) !important;
 }
 
 /* .tui-pagination .tui-ico-next */
@@ -164,7 +164,7 @@
   justify-content: center !important;
   display: flex !important;
   border: 0px !important;
-  color: #e8e8e2 !important;
+  color: var(--color-bckg) !important;
   margin: auto !important;
 }
 
