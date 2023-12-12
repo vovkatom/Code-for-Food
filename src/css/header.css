@@ -23,7 +23,7 @@ li {
 }
 
 .accent-word {
-    color: var(--color-btn);
+    color: #6D8434;
 }
 
 .header-logo {
@@ -33,24 +33,24 @@ li {
 }
 
 .logo {
-    background: var(--color-btn);
+    background: #6D8434;
     width: 28px;
     height: 28px;   
     padding: 6px 6px;
     border-radius: 50%;
-    fill: var(--color-bckg);
+    fill: #E8E8E2;
     padding-right: 8px;
     margin: 0;
 }
 
 .cart .logo-cart {
     display: block;
-    background: var(--color-btn);
+    background: #6D8434;
     width: 38px;
     height: 38px;   
     padding: 12px;
     border-radius: 50%;
-    fill: var(--color-bckg);
+    fill: #E8E8E2;
     margin-left: 8px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -76,7 +76,7 @@ li {
 }
 
 .accent-word {
-    color: var(--color-btn);
+    color: #6D8434;
 }
 
 .nav-container {
@@ -89,8 +89,8 @@ li {
 .home {
     font-size: 14px;
     font-family: 'Neue Montreal';
-    background-color: var(--color-btn);
-    color: var(--color-bckg);
+    background-color: #6D8434;
+    color: #E8E8E2;
     border-radius: 30px;
     width: 77px;
     height: 38px;
