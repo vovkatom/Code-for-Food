@@ -104,8 +104,8 @@ linkBag.addEventListener('click', handleButtonClick);
 //   svg.setAttribute('href', `${iconsSvg}#icon-cart`);
 //   btn.setAttribute('disabled', true);
 //   btn.style.cursor = 'auto';
-//   btn.style.background = '#6d8434';
-//   btn.style.border = '#6d8434';
+//   btn.style.background = 'var(--color-btn)';
+//   btn.style.border = 'var(--color-btn)';
 
 //   updateCartNumber();
 // }
