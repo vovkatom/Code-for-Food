@@ -1,6 +1,16 @@
 import { KEY_CART, addToCart } from '/js/cart-localestorage.js';
 import axios from 'axios';
 import iconsSvg from '/img/icons.svg';
+import {
+  foodInfo,
+  fetchAndRender,
+  fetchFoodCategory,
+  getCategoriesFromLS,
+  KEY_CATEGORY,
+  renderFoodItems,
+  homManyLimit,
+  handleButtonClick,
+} from './products.js';
 
 async function fetchDiscontFood() {
   // Показываем лоадер перед запросом
@@ -74,17 +84,17 @@ window.addEventListener('load', createMarkup);
 
 const linkBag = document.querySelector('.discount-list');
 
-linkBag.addEventListener('click', addCart);
+linkBag.addEventListener('click', handleButtonClick);
 
-let btn;
+// let btn;
 
-function addCart(evt) {
-  btn = evt.target.closest('.info-title-link');
-  if (evt.target.closest('.info-title-link')) {
-    addToCart(evt, prodList);
-  }
-  const svg = btn.querySelector('.img-svg-osnova use');
-  svg.setAttribute('href', `${iconsSvg}#icon-cart`);
-  btn.setAttribute('disabled', true);
-  btn.style.cursor = 'auto';
-}
+// function addCart(evt) {
+//   btn = evt.target.closest('.info-title-link');
+//   if (evt.target.closest('.info-title-link')) {
+//     addToCart(evt, prodList);
+//   }
+//   const svg = btn.querySelector('.img-svg-osnova use');
+//   svg.setAttribute('href', `${iconsSvg}#icon-cart`);
+//   btn.setAttribute('disabled', true);
+//   btn.style.cursor = 'auto';
+// }
