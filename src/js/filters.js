@@ -99,8 +99,24 @@ function handleCategory(event) {
       // Змінити тільки потрібну властивість (наприклад, keyword)
       if (event.target.innerText !== 'Show all') {
         parsedData.category = `${category}`;
+        clean.disabled = false;
       } else {
         parsedData.category = null;
+
+        // перевірка чи інші фільтри пусті:
+         if (parsedData.keyword !== null) {
+           clean.disabled = false;
+         } else if (parsedData.byABC !== '') {
+           clean.disabled = false;
+         } else if (parsedData.byPopularity !== '') {
+           clean.disabled = false;
+         } else if (parsedData.byPrice !== '') {
+           clean.disabled = false;
+         } else {
+           clean.disabled = true;
+         }
+
+
       } parsedData.page = 1;
       // Зберегти оновлений об'єкт назад в localStorage
       localStorage.setItem('filter', JSON.stringify(parsedData));
@@ -110,6 +126,7 @@ function handleCategory(event) {
   }
   pages(1);
   fetchAndRender();
+  
 }
 
 //! Записуємо шаблонний масив в localStorage при завантаженні сторінки,
@@ -213,55 +230,69 @@ function handleSort(event) {
   try {
     const parsedData = JSON.parse(storedData);
     if (sortType === 'A to Z') {
-      delete parsedData.byPrice;
-      delete parsedData.byPopularity;
-      parsedData.byABC = 'true';
+      parsedData.byPrice = '';
+      parsedData.byPopularity = '';
+      parsedData.byABC = '';
       const updatedData = parsedData;
       save('filter', updatedData);
       fetchAndRender();
+    
     } else if (sortType === 'Z to A') {
-      delete parsedData.byPrice;
-      delete parsedData.byPopularity;
+      parsedData.byPrice = '';
+      parsedData.byPopularity = '';
       parsedData.byABC = 'false';
       const updatedData = parsedData;
       save('filter', updatedData);
       fetchAndRender();
+      clean.disabled = false;
     } else if (sortType === 'Cheap') {
-      delete parsedData.byABC;
-      delete parsedData.byPopularity;
+      parsedData.byABC = '';
+      parsedData.byPopularity = '';
       parsedData.byPrice = 'true';
       const updatedData = parsedData;
       save('filter', updatedData);
       fetchAndRender();
+      clean.disabled = false;
     } else if (sortType === 'Expensive') {
-      delete parsedData.byABC;
-      delete parsedData.byPopularity;
+      parsedData.byABC = '';
+      parsedData.byPopularity = '';
       parsedData.byPrice = 'false';
       const updatedData = parsedData;
       save('filter', updatedData);
       fetchAndRender();
+      clean.disabled = false;
     } else if (sortType === 'Popular') {
-      delete parsedData.byABC;
-      delete parsedData.byPrice;
+      parsedData.byABC = '';
+      parsedData.byPrice = '';
       parsedData.byPopularity = 'false';
       const updatedData = parsedData;
       save('filter', updatedData);
       fetchAndRender();
+      clean.disabled = false;
     } else if (sortType === 'Not Popular') {
-      delete parsedData.byABC;
-      delete parsedData.byPrice;
+      parsedData.byABC = '';
+      parsedData.byPrice = '';
       parsedData.byPopularity = 'true';
       const updatedData = parsedData;
       save('filter', updatedData);
       fetchAndRender();
+      clean.disabled = false;
     } else if (sortType === 'Reset All') {
-      delete parsedData.byABC;
-      delete parsedData.byPrice;
-      delete parsedData.byPopularity;
+      parsedData.byPrice = '';
+      parsedData.byPopularity = '';
+      parsedData.byABC = '';
       const updatedData = parsedData;
       save('filter', updatedData);
       fetchAndRender();
-    }
+
+      if (parsedData.keyword !== null) {
+        clean.disabled = false;
+      } else if (parsedData.category !== null) {
+        clean.disabled = false;
+      } else {
+        clean.disabled = true;
+      }
+      } 
   } catch (error) {
     console.error('Error updating localStorage:', error);
   }
@@ -274,18 +305,28 @@ const clean = document.querySelector('.clean-button');
 clean.addEventListener('click', cleanFilters)
 
 function cleanFilters() {
+  
   const storedData = localStorage.getItem('filter');
   const parsedData = JSON.parse(storedData);
+  // if (parsedData.keyword !== null) {
+  //   clean.disabled = false;
+  // }
+  // if (parsedData.category !== null) {
+  //   clean.disabled = false;
+  // }
+
+
   parsedData.page = 1;
   parsedData.keyword = null;
   parsedData.category = null;
+   delete parsedData.byABC;
   delete parsedData.byPrice;
   delete parsedData.byPopularity;
   const updatedData = parsedData;
   refs.currentSort.innerText = 'A to Z';
   refs.currentfilter.innerText = 'Categories';
-  console.dir(refs.form)
-  refs.form.value = '';
+  refs.form.reset();
   save('filter', updatedData);
   fetchAndRender();
+  clean.disabled = true;
 }
