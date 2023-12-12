@@ -6,8 +6,8 @@ import {
   findProduct,
 } from '/js/cart-localestorage';
 import iconSvg from '/img/icons.svg';
-import {updateCartNumber} from './header';
-import { openModalProduct } from '/js/modalwindow'
+import { updateCartNumber } from './header';
+import { openModalProduct } from '/js/modalwindow';
 
 export {
   foodInfo,
@@ -23,6 +23,7 @@ import { funcPagination, loadMoreTrendMoves, pages } from './pagination.js';
 
 const refs = {
   list: document.querySelector('.product-list'),
+  pagination: document.querySelector('.tui-pagination'),
 };
 
 let foodInfo = [];
@@ -31,10 +32,13 @@ let totalPage;
 async function fetchAndRender() {
   // Показываем лоадер перед запросом
   document.getElementById('overlay').style.display = 'flex';
-  setLimit()
+  setLimit();
   const categoryInfo = await fetchFoodCategory();
   totalPage = categoryInfo.data.totalPages * categoryInfo.data.perPage;
-  // console.log(totalPage);
+  const limit = homManyLimit();
+  if (totalPage <= Number(limit)) {
+    refs.pagination.classList.replace('tui-pagination', 'paginationDop');
+  }
   pages(totalPage);
   funcPagination(totalPage);
   try {
@@ -55,7 +59,7 @@ async function fetchAndRender() {
 
 function renderFoodItems(foodInfo) {
   const storage = localStorage.getItem(KEY_CART);
-const createMessage = `<div class="error-load">
+  const createMessage = `<div class="error-load">
                 <h2 class="not-found-heading">Nothing was found for the selected <span
                         class="green-word">filters...</span>
                 </h2>
@@ -65,7 +69,7 @@ const createMessage = `<div class="error-load">
                     the perfect
                     product for
                     you.</p>
-            </div>`
+            </div>`;
   const createElement = foodInfo
     .map(
       ({
@@ -79,10 +83,18 @@ const createMessage = `<div class="error-load">
         is10PercentOff,
       }) => {
         const cleanedCategory = category.replace(/_/g, ' ');
-        const isIDInLocaleStorage = storage ? JSON.parse(storage).some(item => item._id === _id) : false;
-        const isPercent = is10PercentOff || (storage ? foodInfo.some(item => item.is10PercentOff === true) : false);
+        const isIDInLocaleStorage = storage
+          ? JSON.parse(storage).some(item => item._id === _id)
+          : false;
+        const isPercent =
+          is10PercentOff ||
+          (storage
+            ? foodInfo.some(item => item.is10PercentOff === true)
+            : false);
         const svgDisc = isPercent ? 'icon-discount-pl' : 'visually-hidden';
-        const svgHref = isIDInLocaleStorage ? `${iconSvg}#icon-cart` : `${iconSvg}#icon-shopping-cart`;
+        const svgHref = isIDInLocaleStorage
+          ? `${iconSvg}#icon-cart`
+          : `${iconSvg}#icon-shopping-cart`;
 
         return `<li class="item-pl" data-id="${_id}">
                 <div class="background-img-pl">
@@ -136,7 +148,7 @@ function handleButtonClick(event) {
       const dataId = closestLi.dataset.id;
       // знаходимо продукт за id в масиві foodInfo
       const clickedProduct = foodInfo.find(product => product._id === dataId);
-      checkId(closestLi)
+      checkId(closestLi);
       // перевірка чи знайдено продукт
       if (clickedProduct) {
         // виклик функції на додавання в localeStorage
@@ -160,34 +172,35 @@ function handleButtonClick(event) {
 
 function checkId(id) {
   const idPorduct = id.dataset.id;
-  const allPopular = document.querySelectorAll(".popular-list .item-popular")
-  const allDiscount = document.querySelectorAll(".discount-list .discount-item")
-  allPopular.forEach((elem) => {
+  const allPopular = document.querySelectorAll('.popular-list .item-popular');
+  const allDiscount = document.querySelectorAll(
+    '.discount-list .discount-item'
+  );
+  allPopular.forEach(elem => {
     if (elem.dataset.id === idPorduct) {
-      const btn = elem.querySelector(".popularBtn")
-      const svg = btn.querySelector(".icon-popular use")
-      svg.setAttribute('href', `${iconSvg}#icon-cart`)
-      btn.setAttribute("disabled", true)
+      const btn = elem.querySelector('.popularBtn');
+      const svg = btn.querySelector('.icon-popular use');
+      svg.setAttribute('href', `${iconSvg}#icon-cart`);
+      btn.setAttribute('disabled', true);
     }
-  })
-  allDiscount.forEach((elem) => {
+  });
+  allDiscount.forEach(elem => {
     if (elem.dataset.id === idPorduct) {
-      const btn = elem.querySelector(".info-div .info-title-link")
-      const svg = btn.querySelector(".img-svg-osnova use")
-      svg.setAttribute('href', `${iconSvg}#icon-cart`)
-      btn.setAttribute("disabled", true)
+      const btn = elem.querySelector('.info-div .info-title-link');
+      const svg = btn.querySelector('.img-svg-osnova use');
+      svg.setAttribute('href', `${iconSvg}#icon-cart`);
+      btn.setAttribute('disabled', true);
     }
-  })
+  });
 }
 
 function add(elem, arr) {
   //При кліку на кнопку шукаємо потрібний продукт за id, викликаючи функцію findProduct
   const product = findP(elem, arr);
-  const foundProduct = cartArr.some(cart => cart._id === product._id)
+  const foundProduct = cartArr.some(cart => cart._id === product._id);
   if (foundProduct) {
     return;
-  }
-  else {
+  } else {
     cartArr.push(product);
     localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
     //team
@@ -275,51 +288,48 @@ async function fetchFoodCategory() {
 
 function homManyLimit() {
   let limit;
-if (window.innerWidth < 1440 && window.innerWidth > 767) {
-      limit = 8;
-  }
-  else if (window.innerWidth < 768) {
-      limit = 6;
-  }
-  else {
-      limit = 9;
+  if (window.innerWidth < 1440 && window.innerWidth > 767) {
+    limit = 8;
+  } else if (window.innerWidth < 768) {
+    limit = 6;
+  } else {
+    limit = 9;
   }
   return limit;
 }
 
 function setLimit() {
-  const limit = homManyLimit()
-  const storedLimit = localStorage.getItem("filter");
+  const limit = homManyLimit();
+  const storedLimit = localStorage.getItem('filter');
   const parseLimit = JSON.parse(storedLimit);
   parseLimit.limit = Number(limit);
-  localStorage.setItem("filter", JSON.stringify(parseLimit))
+  localStorage.setItem('filter', JSON.stringify(parseLimit));
 }
 
 let currentWindowWidth = window.innerWidth;
 let resizeTimer;
 const thresholdWidths = [768, 1440]; // межі при яких буде перемальовка
-window.addEventListener("resize", resizeWidth)
+window.addEventListener('resize', resizeWidth);
 
 function resizeWidth() {
- clearTimeout(resizeTimer);
+  clearTimeout(resizeTimer);
   resizeTimer = setTimeout(function () {
     const newWindowWidth = window.innerWidth;
     if (thresholdOfSwitches(currentWindowWidth, newWindowWidth)) {
       currentWindowWidth = newWindowWidth;
-        refs.list.innerHTML = ''
-        fetchAndRender()
+      refs.list.innerHTML = '';
+      fetchAndRender();
     }
-  }, 250)
+  }, 250);
 }
 
 function thresholdOfSwitches(oldWidth, newWidth) {
   return (
     thresholdWidths.some(
-      (threshold) => oldWidth < threshold && newWidth >= threshold
+      threshold => oldWidth < threshold && newWidth >= threshold
     ) ||
     thresholdWidths.some(
-      (threshold) => oldWidth >= threshold && newWidth < threshold
+      threshold => oldWidth >= threshold && newWidth < threshold
     )
   );
 }
-
