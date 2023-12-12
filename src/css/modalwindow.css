@@ -10,7 +10,6 @@
   }
 }
 
-/* Hide modal  */
 .is-modal-open {
   overflow-y: hidden;
 }
@@ -18,8 +17,6 @@
 .is-hidden {
   display: none;
 }
-
-/* Modal Window */
 
 .modal-background {
   position: fixed;
@@ -57,8 +54,6 @@
     padding: 40px;
   }
 }
-
-/* Close Modal Button */
 
 .modal .modal-close-btn {
   position: absolute;
@@ -104,8 +99,6 @@
   cursor: pointer;
 }
 
-/* Image and text container */
-
 .modal-container {
   display: inline-block;
 }
@@ -116,8 +109,6 @@
     gap: 24px;
   }
 }
-
-/* Product Image */
 
 .modal-img {
   max-width: 295px;
@@ -138,8 +129,6 @@
   }
 }
 
-/* Header */
-
 .modal-title {
   color: var(--color-black);
   font-family: var(--font-main);
@@ -156,8 +145,6 @@
   }
 }
 
-/* Category header container */
-
 .modal-details {
   font-family: var(--font-main);
   display: flex;
@@ -166,8 +153,6 @@
   align-items: flex-start;
   gap: 9px 8px;
 }
-
-/* Category */
 
 .modal-subtitle {
   color: rgba(1, 1, 1, 0.3);
@@ -208,17 +193,12 @@
   }
 }
 
-/* Price and add to cart */
-
-
 @media screen and (min-width: 767px) {
   .modal-price-container {
     margin-top: 48px;
     
   }
 }
-
-/* Price */
 
 .modal-price-product {
   color: var(--color-black);
@@ -249,7 +229,6 @@
   padding: 11px 24px;
   display: flex;
 
-  /* justify-content: space-between; */
   align-items: center;
   gap: 10px;
   border-radius: 30px;
@@ -260,7 +239,6 @@
   font-family: inherit;
   line-height: inherit;
   cursor: pointer;
-  /* padding: 0; */
 }
 
 .modal-btn:hover,
@@ -276,31 +254,18 @@
 .quantity-and-add {
   display: flex;
   gap: 10px;
-  /* margin-top: 10px; */
   justify-content: space-between;
 }
 
-/* button {
-  border: none;
-  font-size: inherit;
-  font-family: inherit;
-  line-height: inherit;
-  cursor: pointer;
-  padding: 0;
-  color: currentColor;
-  background-color: transparent;
-} */
-
 .modal-price-container {
-  display: flex; /* Робимо контейнер гнучким для відображення елементів в одному рядку */
-  align-items: flex-end; /* Вирівнюємо елементи вертикально */
-  justify-content: space-between; /* Додаємо простір між елементами */
-  margin-top: 40px; /* Додайте відступ зверху, якщо потрібно */
-  
+  display: flex; 
+  align-items: flex-end; 
+  justify-content: space-between; 
+  margin-top: 40px;
 }
 
 .modal-price-product {
-  flex: 1; /* Розтягуємо ціну, щоб вона займала доступний простір */
+  flex: 1;
   margin: 0;
 }
 
@@ -313,7 +278,6 @@
   padding: 11px 24px;
   display: flex;
 
-  /* justify-content: space-between; */
   align-items: center;
   gap: 10px;
   border-radius: 30px;
@@ -325,5 +289,4 @@
   line-height: inherit;
   cursor: pointer;
   display: none;
-  /* padding: 0; */
 }
