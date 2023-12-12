@@ -1,5 +1,5 @@
 body {
-  background: #e8e8e2;
+  background: var(--color-bckg);
 }
 
 .filter {
