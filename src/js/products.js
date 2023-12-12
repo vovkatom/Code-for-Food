@@ -17,6 +17,7 @@ export {
   KEY_CATEGORY,
   renderFoodItems,
   homManyLimit,
+  handleButtonClick,
 };
 
 import { funcPagination, loadMoreTrendMoves, pages } from './pagination.js';
