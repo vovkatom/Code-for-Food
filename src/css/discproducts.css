@@ -4,19 +4,6 @@
   }
 }
 
-/* .products {
-  width: 925px;
-} */
-
-.section-products {
-  /* padding-top: 40px; */
-}
-
-@media screen and (min-width: 768px) {
-  .section-products {
-  }
-}
-
 *,
 *::before,
 *::after {
@@ -157,6 +144,9 @@
     width: 124px;
     overflow: hidden;
     text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
   }
 }
 
