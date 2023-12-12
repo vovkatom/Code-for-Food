@@ -180,6 +180,7 @@ function checkId(id) {
   const allDiscount = document.querySelectorAll(
     '.discount-list .discount-item'
   );
+  const allProducts = document.querySelectorAll('.products .item-pl');
   allPopular.forEach(elem => {
 
     if (elem.dataset.id === idPorduct) {
@@ -197,6 +198,14 @@ function checkId(id) {
       btn.setAttribute('disabled', true);
     }
   });
+  allProducts.forEach(elem => {
+    if (elem.dataset.id === idPorduct) {
+      const btn = elem.querySelector('.price-container-pl .btn-pl');
+      const svg = btn.querySelector('.icon-pl use');
+      svg.setAttribute('href', `${iconSvg}#icon-cart`);
+      btn.setAttribute('disabled', true);
+    }
+  });  
 }
 
 function add(elem, arr) {
