@@ -3,7 +3,7 @@
 }
 
 .popular-title {
-  color: #010101;
+  color: var(--color-text);
   font-family: Neue Montreal;
   font-size: 24px;
   font-style: normal;
@@ -50,7 +50,7 @@
 }
 
 .popular-name {
-  color: #010101;
+  color: var(--color-text);
   font-family: Neue Montreal;
   font-size: 18px;
   font-style: normal;
@@ -72,7 +72,7 @@
   line-height: 1.17;
 }
 .value-popular {
-  color: #010101;
+  color: var(--color-text);
   font-family: Neue Montreal;
   font-size: 12px;
   font-style: normal;

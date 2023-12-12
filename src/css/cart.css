@@ -90,7 +90,7 @@
   display: flex;
   width: 64px;
   height: 20px;
-  color: #010101;
+  color: var(--color-text);
   font-size: 16px;
   font-style: 'Neue ';
   font-weight: 500;
@@ -118,8 +118,8 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  color: #010101;
-  fill: #010101;
+  color: var(--color-text);
+  fill: var(--color-text);
   background: transparent;
   border: none;
   /* position: absolute;
@@ -140,14 +140,14 @@
 }
 .total-name {
   padding-top: 8px;
-  color: #010101;
+  color: var(--color-text);
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: 1.2px; /* 120% */
 }
 .total-price {
-  color: #010101;
+  color: var(--color-text);
   font-size: 24px;
   font-family: 'Neue Montreal';
   font-weight: 500;
@@ -257,7 +257,7 @@
 }
 .product-name {
   font-family: 'Neue Montreal';
-  color: #010101;
+  color: var(--color-text);
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -271,8 +271,8 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  color: #010101;
-  fill: #010101;
+  color: var(--color-text);
+  fill: var(--color-text);
   background: transparent;
   border: none;
   position: absolute;
@@ -301,7 +301,7 @@
 .info-value {
   font-family: 'Neue Montreal';
   margin-left: 4px;
-  color: #010101;
+  color: var(--color-text);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -309,7 +309,7 @@
 }
 .price {
   font-family: 'Neue Montreal';
-  color: #010101;
+  color: var(--color-text);
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -346,7 +346,7 @@
   margin-bottom: 14px;
 }
 .usd-letter {
-  color: #010101;
+  color: var(--color-text);
   font-family: Neue Montreal;
   font-size: 24px;
   font-weight: 500;
@@ -390,7 +390,7 @@
 }
 
 .input-container #email {
-  color: #010101;
+  color: var(--color-text);
   line-height: 1.28;
 
   background-color: inherit;
@@ -408,7 +408,7 @@
 
 #email,
 #email::placeholder {
-  color: #010101;
+  color: var(--color-text);
   font-family: Neue Montreal;
   font-size: 18px;
   line-height: 1.13;
