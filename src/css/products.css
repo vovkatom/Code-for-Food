@@ -140,6 +140,7 @@
 .btn-pl:hover,
 .btn-pl:focus {
   background-color: #586f1f;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-pl:disabled {
   background-color: #6d8434;
