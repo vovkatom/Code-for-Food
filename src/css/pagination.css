@@ -21,7 +21,7 @@
 @media screen and (min-width: 387px) {
   .tui-pagination {
     width: 312px !important;
-    height: 33.5px;
+    height: 33.5px !important;
   }
 }
 
@@ -97,20 +97,32 @@
   margin-left: 0px !important;
 }
 
+.tui-page-btn .tui-next-is-ellip .tui-last-child {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0px !important;
+}
+
+.tui-pagination .tui-ico-ellip {
+  margin: 0px !important;
+  color: #a3a3a3 !important;
+}
+
 .tui-pagination .tui-page-btn {
-  /* justify-content: center !important; */
-  /* display: flex !important; */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
   color: #a3a3a3 !important;
   font-family: 'Neue Montreal' !important;
   font-size: 12px !important;
   font-style: normal !important;
   font-weight: 500 !important;
+  padding: 0px !important;
 }
 
 @media screen and (min-width: 387px) {
   .tui-pagination .tui-page-btn {
-    /* justify-content: center !important;
-    display: flex !important; */
     color: #a3a3a3 !important;
     font-family: 'Neue Montreal' !important;
     font-size: 13px !important;
@@ -126,7 +138,7 @@
     font-size: 14px !important;
     font-style: normal !important;
     font-weight: 500 !important;
-    line-height: 1 !important;
+    line-height: 1.42em !important;
   }
 }
 
