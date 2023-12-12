@@ -6,6 +6,7 @@ import {
   findProduct,
 } from '/js/cart-localestorage';
 import { updateCartNumber } from './header';
+import iconSvg from '/img/icons.svg';
 
 import Api from './api'; // Модуль API
 import icons from '/img/icons.svg'; // Іконки для відображення
@@ -135,6 +136,7 @@ function addCart(product) {
   updateCartNumber();
   document.querySelector('.modal-btn').style.display = 'none'
   document.querySelector('.modal-btn-remove').style.display = 'block';
+  ChekCart(product);
 }
 
 function removeCart(product) {
@@ -148,8 +150,44 @@ function removeCart(product) {
       updateCartNumber();
       document.querySelector('.modal-btn').style.display = 'block';
       document.querySelector('.modal-btn-remove').style.display = 'none';
+      
     }
   }
+  ChekCart(product);
+  
+}
+
+function ChekCart(id) {
+  const idPorduct = id._id
+  const allPopular = document.querySelectorAll('.popular-list .item-popular');
+  const allDiscount = document.querySelectorAll(
+    '.discount-list .discount-item'
+  );
+  const allProducts = document.querySelectorAll('.products .item-pl');
+  allPopular.forEach(elem => {
+    if (elem.dataset.id === idPorduct) {
+      const btn = elem.querySelector('.popularBtn');
+      const svg = btn.querySelector('.icon-popular use');
+      svg.setAttribute('href', `${iconSvg}#icon-cart`);
+      btn.setAttribute('disabled', true);
+    }
+  });
+  allDiscount.forEach(elem => {
+    if (elem.dataset.id === idPorduct) {
+      const btn = elem.querySelector('.info-div .info-title-link');
+      const svg = btn.querySelector('.img-svg-osnova use');
+      svg.setAttribute('href', `${iconSvg}#icon-cart`);
+      btn.setAttribute('disabled', true);
+    }
+  });
+  allProducts.forEach(elem => {
+    if (elem.dataset.id === idPorduct) {
+      const btn = elem.querySelector('.price-container-pl .btn-pl');
+      const svg = btn.querySelector('.icon-pl use');
+      svg.setAttribute('href', `${iconSvg}#icon-cart`);
+      btn.setAttribute('disabled', true);
+    }
+  });
 }
 
 
