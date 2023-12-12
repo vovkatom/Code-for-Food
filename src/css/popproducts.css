@@ -98,6 +98,7 @@
 .popularBtn:hover {
   background: #6d8434;
   border: #6d8434;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .popularBtn:disabled {
   background-color: #6d8434;
@@ -105,6 +106,7 @@
 }
 .popularBtn:hover .icon-popular {
   fill: #e8e8e2;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-popular {
   position: absolute;
