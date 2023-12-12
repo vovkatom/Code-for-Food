@@ -14,7 +14,7 @@ a {
 }
 
 .footer {
-  background: var(--color-btn);
+  background: #6d8434;
 }
 .footer-wrap.container {
   padding-left: 20px;
@@ -34,8 +34,8 @@ a {
 .footer-svg {
   border-radius: 50%;
   margin: 0;
-  background-color: var(--color-bckg);
-  fill: var(--color-btn);
+  background-color: #e8e8e2;
+  fill: #6d8434;
   padding: 6px;
   width: 28px;
   height: 28px;
@@ -44,7 +44,7 @@ a {
 }
 .logo-text {
   font-family: 'Fontspring';
-  color: var(--color-bckg);
+  color: #e8e8e2;
   font-size: 18px;
   font-style: normal;
   font-weight: 900;
@@ -77,7 +77,7 @@ a {
   gap: 8px;
   border-radius: 10px;
   border: 1px solid rgba(232, 232, 226, 0.3);
-  fill: var(--color-bckg);
+  fill: #e8e8e2;
   width: 40px;
   height: 40px;
 }
@@ -92,7 +92,7 @@ a {
 }
 .company-motto h3 {
   font-family: Neue Montreal;
-  color: var(--color-bckg);
+  color: #e8e8e2;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -122,22 +122,22 @@ a {
 
 .subscription-text-footer {
   font-family: Neue Montreal;
-  color: var(--color-bckg);
+  color: #e8e8e2;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.29;
 }
 .subscription-input {
-  background-color: var(--color-btn);
-  color: var(--color-bckg);
+  background-color: #6d8434;
+  color: #e8e8e2;
   font-family: Neue Montreal;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.29;
   border-radius: 30px;
-  border: 1px solid var(--color-bckg);
+  border: 1px solid #e8e8e2;
   padding: 12px 0px 12px 18px;
   align-items: center;
   max-width: 336px;
@@ -156,7 +156,7 @@ a {
   font-weight: 500;
   line-height: 1.29;
   border-radius: 30px;
-  background: var(--color-bckg);
+  background: #e8e8e2;
   display: flex;
   max-width: 336px;
   height: 42px;
@@ -166,10 +166,10 @@ a {
   border: none;
 }
 .btn-subscription:hover {
-  color: var(--color-btn);
+  color: #6d8434;
 }
 .footer-text.container {
-  color: var(--color-bckg);
+  color: #e8e8e2;
   font-family: Neue Montreal;
   font-size: 14px;
   font-style: normal;
@@ -236,7 +236,7 @@ a {
     margin-bottom: 64px;
   }
   .logo-text {
-    color: var(--color-bckg);
+    color: #e8e8e2;
     font-size: 24px;
     line-height: 1;
     letter-spacing: -0.04em;
@@ -340,7 +340,7 @@ a {
 
 .subscription-modal-success {
   border-radius: 20px;
-  background: var(--color-bckg);
+  background: #e8e8e2;
   width: 280px;
   height: 400px;
   flex-shrink: 0;
@@ -350,7 +350,7 @@ a {
 }
 .subscription-modal-already-subscribed {
   border-radius: 20px;
-  background: var(--color-bckg);
+  background: #e8e8e2;
   width: 280px;
   height: 400px;
   flex-shrink: 0;
@@ -360,7 +360,7 @@ a {
 }
 .subscription-modal-fail {
   border-radius: 20px;
-  background: var(--color-bckg);
+  background: #e8e8e2;
   width: 280px;
   height: 400px;
   flex-shrink: 0;
@@ -436,7 +436,7 @@ a {
   line-height: 1.2; /* 120% */
 }
 .subscription-highlight {
-  color: var(--color-btn);
+  color: #6d8434;
   font-family: Neue Montreal;
   font-size: 20px;
   font-style: normal;

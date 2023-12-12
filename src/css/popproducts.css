@@ -32,7 +32,7 @@
   margin-right: 10px;
   text-align: center;
   border-radius: 10px;
-  background-color: var(--color-bckg);
+  background-color: #e8e8e2;
   width: 74px;
   height: 74px;
 }
@@ -91,24 +91,24 @@
   align-items: center;
   gap: 10px;
   border-radius: 30px;
-  background: var(--color-bckg);
-  border: var(--color-bckg);
+  background: #e8e8e2;
+  border: #e8e8e2;
 }
 
 .popularBtn:hover {
-  background: var(--color-btn);
-  border: var(--color-btn);
+  background: #6d8434;
+  border: #6d8434;
 }
 .popularBtn:disabled {
-  background-color: var(--color-btn);
+  background-color: #6d8434;
   cursor: auto;
 }
 .popularBtn:hover .icon-popular {
-  fill: var(--color-bckg);
+  fill: #e8e8e2;
 }
 .icon-popular {
   position: absolute;
-  fill: var(--color-btn);
+  fill: #6d8434;
 }
 .use-popular {
 }
