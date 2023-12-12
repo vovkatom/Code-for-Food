@@ -267,3 +267,25 @@ function handleSort(event) {
   }
 }
 // !^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// ! Clean all filters
+
+const clean = document.querySelector('.clean-button');
+
+clean.addEventListener('click', cleanFilters)
+
+function cleanFilters() {
+  const storedData = localStorage.getItem('filter');
+  const parsedData = JSON.parse(storedData);
+  parsedData.page = 1;
+  parsedData.keyword = null;
+  parsedData.category = null;
+  delete parsedData.byPrice;
+  delete parsedData.byPopularity;
+  const updatedData = parsedData;
+  refs.currentSort.innerText = 'A to Z';
+  refs.currentfilter.innerText = 'Categories';
+  console.dir(refs.form)
+  refs.form.value = '';
+  save('filter', updatedData);
+  fetchAndRender();
+}

@@ -41,7 +41,7 @@ body {
 .search-input {
   display: block;
   width: 100%;
-  height: 52px;
+  height: 48px;
   background-color: transparent;
   border-radius: 30px;
   border: 1px solid rgba(1, 1, 1, 0.3);
@@ -52,9 +52,14 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: 1.28; /* 128.571% */
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .search-input::placeholder {
   color: #010101;
+}
+.search-input:hover,
+.search-input:focus {
+  border-color: #6d8434;
 }
 .search-button {
   display: grid;
@@ -124,7 +129,12 @@ input:focus {
   border-radius: 30px;
   border: 1px solid rgba(1, 1, 1, 0.3);
   cursor: pointer;
-  max-height: 52px;
+  height: 48px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.select__header:hover,
+.select__header:focus {
+  border-color: #6d8434;
 }
 .select__current {
   color: #010101;
@@ -187,7 +197,7 @@ input:focus {
 }
 .sort.is-active .sort-body {
   display: flex;
-  animation: fadeIn 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sort-header {
@@ -199,6 +209,11 @@ input:focus {
   background: #fafafa;
   cursor: pointer;
   max-height: 52px;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.sort-header:hover,
+.sort-header:focus {
+  border: 1px solid #6d8434;
 }
 .sort-current {
   color: #010101;
@@ -266,6 +281,9 @@ input:focus {
 }
 
 @media screen and (min-width: 768px) {
+  .select__header {
+    height: 52px;
+  }
   .container-search {
     gap: 8px;
     flex-direction: row;
@@ -275,10 +293,12 @@ input:focus {
   }
   .select {
     max-width: 189px;
+    height: 52px;
   }
   .search-input {
     font-size: 18px;
     line-height: 1.33;
+    height: 52px;
   }
   .select__current {
     font-size: 18px;
@@ -310,5 +330,43 @@ input:focus {
 @media screen and (min-width: 1440px) {
   .filter .container {
     padding: 0 100px;
+  }
+}
+
+.clean-icon {
+  fill: #e8e8e2;
+  width: 18px;
+  height: 18px;
+}
+.clean-button {
+  width: 100%;
+  max-width: 335px;
+  height: 48px;
+  display: flex;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 30px;
+  background-color: #6d8434;
+  cursor: pointer;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.clean-button:hover,
+.clean-button:focus {
+  background-color: #586f1f;
+}
+.clean-button:disabled {
+  background-color: #777776;
+}
+.clean-filters {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .clean-button {
+    width: 34px;
+    height: 34px;
   }
 }
