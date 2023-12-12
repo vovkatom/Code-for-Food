@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
-import 'notiflix/dist/notiflix-aio-3.2.6.min.js';
+// import 'notiflix/dist/notiflix-aio-3.2.6.min.js';
 import { save, load } from './filters-localstorage';
 import {
   foodInfo,
@@ -169,7 +169,7 @@ function onLoad() {
     }
   } 
   save(key, value);
-  
+  pages();
 }
 onLoad();
 // !^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

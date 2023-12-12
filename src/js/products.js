@@ -17,6 +17,8 @@ export {
   KEY_CATEGORY,
   renderFoodItems,
   homManyLimit,
+  handleButtonClick,
+  checkId,
 };
 
 import { funcPagination, loadMoreTrendMoves, pages } from './pagination.js';
@@ -101,6 +103,7 @@ function renderFoodItems(foodInfo) {
                     <img src="${img}" alt="" class="img-pl" loading="lazy" />
                 </div>
                 <h2 class="product-name-pl">${name}</h2>
+                <div class="container-info">
                 <div class="product-info-pl">
                     <p class="paragraph-pl">
                         Category: <b class="value-pl">${cleanedCategory}</b>
@@ -121,6 +124,7 @@ function renderFoodItems(foodInfo) {
                 <svg class="${svgDisc}">
                 <use href="${iconSvg}#icon-discount"></use>
                 </svg>
+                </div>
             </li>`;
       }
     )
@@ -157,9 +161,9 @@ function handleButtonClick(event) {
       }
     }
     // знаходимо елемент use в середині кнопки
-    const svg = closestButton.querySelector('.icon-pl use');
+    // const svg = closestButton.querySelector('.icon-pl use');
     // зміна svg
-    svg.setAttribute('href', `${iconSvg}#icon-cart`);
+    // svg.setAttribute('href', `${iconSvg}#icon-cart`);
     // btn off
     closestButton.setAttribute('disabled', true);
   }
@@ -177,6 +181,7 @@ function checkId(id) {
     '.discount-list .discount-item'
   );
   allPopular.forEach(elem => {
+
     if (elem.dataset.id === idPorduct) {
       const btn = elem.querySelector('.popularBtn');
       const svg = btn.querySelector('.icon-popular use');

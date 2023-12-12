@@ -5,7 +5,17 @@ import {
 import axios from 'axios';
 import iconsSvg from '/img/icons.svg';
 import {updateCartNumber} from './header';
-
+import {
+  foodInfo,
+  fetchAndRender,
+  fetchFoodCategory,
+  getCategoriesFromLS,
+  KEY_CATEGORY,
+  renderFoodItems,
+  homManyLimit,
+  handleButtonClick,
+  checkId,
+} from './products.js';
 
 async function fetchPopularFood() {
   // Показываем лоадер перед запросом
@@ -80,22 +90,22 @@ window.addEventListener('load', createMarkup);
 
 const linkBag = document.querySelector('.popular-list');
 
-linkBag.addEventListener('click', addCart);
+linkBag.addEventListener('click', handleButtonClick);
 
-let btn;
+// let btn;
 
-function addCart(evt) {
-  btn = evt.target.closest('.popularBtn');
-  if (evt.target.closest('.popularBtn')) {
-    addToCart(evt, prodList);
-  }
+// function addCart(evt) {
+//   btn = evt.target.closest('.popularBtn');
+//   if (evt.target.closest('.popularBtn')) {
+//     addToCart(evt, prodList);
+//   }
 
-  const svg = btn.querySelector('.icon-popular use');
-  svg.setAttribute('href', `${iconsSvg}#icon-cart`);
-  btn.setAttribute('disabled', true);
-  btn.style.cursor = 'auto';
-  btn.style.background = '#6d8434';
-  btn.style.border = '#6d8434';
+//   const svg = btn.querySelector('.icon-popular use');
+//   svg.setAttribute('href', `${iconsSvg}#icon-cart`);
+//   btn.setAttribute('disabled', true);
+//   btn.style.cursor = 'auto';
+//   btn.style.background = '#6d8434';
+//   btn.style.border = '#6d8434';
 
-  updateCartNumber();
-}
+//   updateCartNumber();
+// }
