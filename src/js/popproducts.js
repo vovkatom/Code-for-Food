@@ -14,6 +14,7 @@ import {
   renderFoodItems,
   homManyLimit,
   handleButtonClick,
+  checkId,
 } from './products.js';
 
 async function fetchPopularFood() {
