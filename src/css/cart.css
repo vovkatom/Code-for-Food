@@ -11,7 +11,7 @@
   overflow: hidden;
 }
 .cart-section .container {
-  padding: 36px 20px 120px 20px;
+  padding: 72px 20px 120px 20px;
 }
 
 .cart-title {
@@ -40,7 +40,7 @@
     margin-bottom: 82px;
   }
   .cart-section .container {
-    padding: 100px 100px 100px 100px;
+    padding: 80px 100px 100px 100px;
   }
 }
 .cart-form {
@@ -253,16 +253,17 @@
 .info-header {
   font-family: 'Neue Montreal';
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
 }
 .product-name {
   font-family: 'Neue Montreal';
   color: #010101;
-  font-size: 20px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; /* 120% */
+  line-height: 1.2; /* 120% */
   /* margin-right: 243px; */
+  margin-bottom: 10px;
 }
 .delete-btn {
   width: 20px;
@@ -285,8 +286,12 @@
   display: flex;
   flex-direction: row;
   gap: 16px;
-  margin-top: 10px;
-  margin-bottom: 46px;
+  /* margin-top: 10px; */
+  margin-bottom: 36px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .info-quality {
   font-family: 'Neue Montreal';
@@ -294,9 +299,9 @@
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 14px; /* 116.667% */
+  line-height: 1.16; /* 116.667% */
   margin-right: 4px;
-  padding: 2 px 0;
+  padding: 2px 0;
 }
 .info-value {
   font-family: 'Neue Montreal';
@@ -305,7 +310,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px; /* 128.571% */
+  line-height: 1.28; /* 128.571% */
 }
 .price {
   font-family: 'Neue Montreal';
@@ -338,13 +343,20 @@
     height: 120px;
     margin-right: 40px;
   }
+  .product-info {
+    margin-bottom: 46px;
+  }
+  .product-name {
+    margin-bottom: 12px;
+  }
 }
 .input-container {
   padding: 12px 20px;
   border-radius: 30px;
   border: 1px solid rgba(1, 1, 1, 0.3);
-
   margin-bottom: 14px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .usd-letter {
   color: #010101;
@@ -473,6 +485,9 @@
   }
   .usd-letter {
     font-size: 32px;
+  }
+  .selectedProduct:not(:last-child) {
+    padding-bottom: 40px;
   }
 }
 
