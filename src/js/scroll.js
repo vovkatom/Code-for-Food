@@ -15,7 +15,7 @@ function scrollTracker() {
   const coords = document.documentElement.clientHeight;
 
   // Перевірка, чи сторінка прокручена на більшу відстань, ніж висота видимої частини вікна
-  if (scrolled > coords + 50) {
+  if (scrolled > coords) {
     // Якщо умова виконується, додаємо клас 'scroll-up-is-hidden', щоб приховати кнопку прокрутки вгору
     ScrollUpBtn.classList.add('scroll-up-is-hidden');
   } else {
