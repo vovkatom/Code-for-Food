@@ -11,12 +11,14 @@
 }
 
 .not-found-heading {
+  font-family: Neue Montreal;
   color: #010101;
   font-size: 18px;
   line-height: 1.11em;
 }
 
 .not-found-message {
+  font-family: Neue Montreal;
   color: rgba(1, 1, 1, 0.7);
   font-size: 14px;
   line-height: 1.29em;
