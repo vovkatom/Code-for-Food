@@ -61,7 +61,7 @@ li {
 
 
 .header .container {
-    padding: 18px 20px 36px 20px;
+    padding: 18px 20px 0px 20px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -101,7 +101,6 @@ li {
 @media screen and (min-width: 375px) {
     .header .container {
        width: 375px;
-       padding-bottom: 36px;
     }
 
     .logo-name {
@@ -114,7 +113,7 @@ li {
         width: 768px;
         display: flex;
         justify-content: space-between;
-        padding: 24px 32px 58px 32px;
+        padding: 24px 32px 0px 32px;
     }
 
     .logo {
@@ -172,7 +171,7 @@ li {
 @media screen and (min-width: 1440px) {
     .header .container {
         width: 1440px;
-        padding: 24px 100px 38.5px 100px;
+        padding: 24px 100px px 100px;
     }
 
     .logo-name {
