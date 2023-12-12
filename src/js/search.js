@@ -10,6 +10,7 @@ import {
 import { funcPagination, loadMoreTrendMoves, pages } from './pagination.js';
 // import { Input } from "postcss";
 
+const clean = document.querySelector('.clean-button');
 const form = document.querySelector('#search');
 // const input = document.querySelector('.search-input')
 let timeoutId; // Змінна для зберігання ідентифікатора таймаута
@@ -40,7 +41,24 @@ function updateLocalStorage(keyword, storedData) {
   if (storedData) {
     try {
       const parsedData = JSON.parse(storedData);
-      parsedData.keyword = `${keyword}`;
+      if (keyword === '') {
+        parsedData.keyword = null;
+        // перевірка чи інші фільтри пусті:
+        if (parsedData.category !== null) {
+          clean.disabled = false;
+        } else if (parsedData.byABC !== '') {
+          clean.disabled = false;
+        } else if (parsedData.byPopularity !== '') {
+          clean.disabled = false;
+        } else if (parsedData.byPrice !== '') {
+          clean.disabled = false;
+        } else {
+          clean.disabled = true;
+        }
+      } else {
+        parsedData.keyword = `${keyword}`;
+        clean.disabled = false;
+      }
       parsedData.page = 1;
       localStorage.setItem('filter', JSON.stringify(parsedData));
     } catch (error) {
