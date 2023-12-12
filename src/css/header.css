@@ -6,7 +6,6 @@ a {
 .logo-name {
     font-family: 'Fontspring';
     color: #010101;
-    font-size: 16px;
     font-style: normal;
     font-weight: 900;
     line-height: 1.11;
@@ -88,6 +87,7 @@ li {
 }
 
 .home {
+    font-size: 14px;
     font-family: 'Neue Montreal';
     background-color: #6D8434;
     color: #E8E8E2;
@@ -136,9 +136,12 @@ li {
     }
 
     .home {
+        display: flex;
         font-size: 18px;
         width: 104px;
         height: 48px;
+        padding: 12px 28px;
+        font-weight: 500;
     }
 
     .cart-counter {
@@ -175,5 +178,9 @@ li {
     .logo-name {
         font-style: normal;
         font-weight: 900;
+    }
+
+    .home {
+        line-height: 1.333; /* 133.333% */
     }
 }

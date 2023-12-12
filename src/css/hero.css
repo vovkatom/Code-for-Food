@@ -22,7 +22,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1.09; /* 109.091% */
-  letter-spacing: -0.88px;
+  letter-spacing: -0.02em;
 }
 
 .accent-word {
@@ -73,8 +73,8 @@
   width: 100px;
   height: 100px;
 
-  top: -30px;
-  right: 10px;
+  top: -7px;
+  right: 8px;
 }
 
 .organic-food {
@@ -83,8 +83,8 @@
   width: 100px;
   height: 100px;
 
-  top: -30px;
-  right: 10px;
+  top: -7px;
+  right: 8px;
 
   z-index: 998;
 
@@ -124,11 +124,16 @@
     width: 658px;
     font-size: 80px;
     height: 160px;
+    font-weight: 500;
+    letter-spacing: -0.0364em;
   }
 
   .hero-text {
-    margin-top: 25px;
+    font-size: 18px;
+    margin-top: 20px;
     width: 492px;
+    height: 48px;
+    margin-bottom: 40px;
   }
 
   .hero-image {
@@ -138,12 +143,23 @@
       url(/img/header_hero_ing/hero-tablet1@2x.jpg);
     border-radius: 50px; */
   }
+
+  .organic-food {
+    top: -30px;
+    right: 10px;
+  }
+
+  .leaf {
+    top: -30px;
+    right: 10px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .hero-image {
     width: 1240px;
     height: 350px;
+    border-radius: 50px;
     /* background-image: url(/img/header_hero_ing/hero-desct1.jpg),
       url(/img/header_hero_ing/hero-desct1@2x.jpg);
     border-radius: 50px; */
@@ -165,5 +181,18 @@
 
   .hero-text {
     width: 492px;
+    height: 48px;
+    line-height: 1.333;
+    color: rgba(1, 1, 1, 0.80);
+  }
+
+  .organic-food {
+    top: -50px;
+    right: 20px;
+  }
+
+  .leaf {
+    top: -50px;
+    right: 20px;
   }
 }
