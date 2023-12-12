@@ -20,7 +20,7 @@
 }
 
 .discount-title {
-  color: #010101;
+  color: var(--color-text);
   font-family: 'Neue Montreal';
   font-size: 24px;
   font-style: normal;
@@ -125,7 +125,7 @@
 }
 
 .info-title {
-  color: #010101;
+  color: var(--color-text);
   font-family: 'Neue Montreal';
   font-size: 18px;
   font-style: normal;
@@ -152,7 +152,7 @@
 }
 
 .info-price {
-  color: #010101;
+  color: var(--color-text);
   font-family: 'Neue Montreal';
   font-size: 18px;
   font-style: normal;

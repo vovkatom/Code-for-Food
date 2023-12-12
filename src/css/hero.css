@@ -15,7 +15,7 @@
   display: inline-block;
   width: 335px;
   height: 96px;
-  color: #010101;
+  color: var(--color-text);
   text-align: center;
   font-family: 'Neue Montreal';
   font-size: 44px;
