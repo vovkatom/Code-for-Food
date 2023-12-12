@@ -83,6 +83,7 @@
 .modal-close-btn:focus {
   fill: var(--color-dark-green);
   cursor: pointer;
+  
 }
 
 .modal-icon-close {
@@ -266,6 +267,12 @@
 .modal-btn:hover,
 .modal-btn:focus {
   background: var(--color-btn-active);
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--color-btn-active);
 }
 
 .quantity-and-add {
