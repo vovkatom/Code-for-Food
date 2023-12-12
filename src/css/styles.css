@@ -45,6 +45,7 @@
 }
 
 :root {
+  --font-main: 'Neue Montreal', sans-serif;
   --color-text: #010101;
   --color-text2: #0101014d;
   --color-bckg: #e8e8e2;

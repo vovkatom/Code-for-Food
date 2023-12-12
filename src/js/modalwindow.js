@@ -116,7 +116,7 @@ function renderModalCard({
         <use href="${icons}#icon-shopping-cart"></use>
       </svg>
     </button>
-     <button class="modal-btn-remove" aria-label="add to card">
+    <button class="modal-btn-remove" aria-label="add to card">
       <span class="modal-btn-text">Remove from</span>
       <svg class="modal-icon-shop" width="18" height="18">
         <use href="${icons}#icon-shopping-cart"></use>
