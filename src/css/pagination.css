@@ -1,23 +1,10 @@
-/* button {
-  border: 1px solid #4b96e6;
-  outline: none;
-  background: #4b96e6;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 5px;
-  margin-top: 10px; 
-} */
-
 .paginationDop {
   display: none;
 }
 
-.tui-page-btn .tui-last {
-  display: none !important;
-}
 .tui-pagination {
-  width: 288px !important;
-  height: 40px !important;
+  width: 280px !important;
+  height: 29.5px !important;
   margin: 0px auto !important;
   display: flex;
   gap: 4px;
@@ -27,15 +14,20 @@
   justify-content: center;
 }
 
-@media screen and (min-width: 375px) {
+.tui-page-btn .tui-prev-is-ellip .tui-first-child {
+  display: none !important;
+}
+
+@media screen and (min-width: 387px) {
   .tui-pagination {
-    width: 334px !important;
+    width: 312px !important;
+    height: 33.5px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .tui-pagination {
-    width: 472px !important;
+    width: 530px !important;
     height: 40px !important;
     gap: 8px;
     /* margin: 0px auto 100px auto !important; */
@@ -44,18 +36,28 @@
 
 @media screen and (min-width: 1440px) {
   .tui-pagination {
-    width: 472px !important;
+    width: 530px !important;
     height: 40px !important;
     margin: 0px auto !important;
   }
 }
 
 .tui-page-btn {
-  width: 40px !important;
-  height: 40px !important;
+  width: 29.5px !important;
+  height: 29.5px !important;
   text-align: center !important;
   border-radius: 60px !important;
   /* margin-left: 4px !important; */
+}
+
+@media screen and (min-width: 387px) {
+  .tui-page-btn {
+    width: 33.5px !important;
+    height: 33.5px !important;
+    text-align: center !important;
+    border-radius: 60px !important;
+    /* margin-left: 4px !important; */
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -70,14 +72,16 @@
   text-align: center !important;
 }
 
-.tui-next {
+.tui-next,
+.tui-last {
   background-color: #fafafa !important;
   text-align: center !important;
   border-radius: 60px;
   display: flex;
 }
 
-.tui-prev {
+.tui-prev,
+.tui-first {
   background-color: #fafafa !important;
   text-align: center !important;
   margin-right: 0px !important;
@@ -93,35 +97,91 @@
   margin-left: 0px !important;
 }
 
-.tui-pagination .tui-prev {
-  margin-right: 15px !important;
-  padding-top: 8px !important;
-}
-@media screen and (min-width: 768px) {
-  .tui-pagination .tui-prev {
-    margin-right: 80px !important;
-  }
-  .tui-pagination .tui-next {
-    margin-left: 80px !important;
-  }
-}
-
-.tui-pagination .tui-next {
-  margin-left: 15px !important;
-  padding-top: 8px !important;
-}
-@media screen and (min-width: 768px) {
-  .tui-pagination .tui-next {
-    margin-left: 80px !important;
-  }
-}
-.tui-pagination .tui-next-is-ellip {
-  padding-top: 8px !important;
-}
-.tui-pagination .tui-prev-is-ellip {
-  padding-top: 8px !important;
-}
-
-.tui-ico-ellip {
+.tui-pagination .tui-page-btn {
+  /* justify-content: center !important; */
+  /* display: flex !important; */
   color: #a3a3a3 !important;
+  font-family: 'Neue Montreal' !important;
+  font-size: 12px !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
 }
+
+@media screen and (min-width: 387px) {
+  .tui-pagination .tui-page-btn {
+    /* justify-content: center !important;
+    display: flex !important; */
+    color: #a3a3a3 !important;
+    font-family: 'Neue Montreal' !important;
+    font-size: 13px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .tui-pagination .tui-page-btn {
+    color: #a3a3a3 !important;
+    font-family: 'Neue Montreal' !important;
+    font-size: 14px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
+  }
+}
+
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  color: #e8e8e2 !important;
+}
+
+/* .tui-pagination .tui-ico-next */
+.tui-pagination .tui-ico-last,
+.tui-pagination .tui-ico-next,
+.tui-pagination .tui-ico-prev,
+.tui-pagination .tui-ico-first {
+  margin: auto;
+}
+
+.tui-pagination .tui-first,
+.tui-pagination .tui-prev,
+.tui-pagination .tui-next,
+.tui-pagination .tui-last,
+.tui-pagination .tui-prev-is-ellip,
+.tui-pagination .tui-next-is-ellip {
+  justify-content: center !important;
+  display: flex !important;
+  border: 0px !important;
+  color: #e8e8e2 !important;
+  margin: auto !important;
+}
+
+.tui-pagination .tui-next,
+.tui-pagination .tui-last {
+  margin-left: 4px !important;
+}
+
+.tui-pagination .tui-prev,
+.tui-pagination .tui-first {
+  margin-right: 4px !important;
+}
+
+@media screen and (min-width: 768px) {
+  .tui-pagination .tui-next {
+    margin-left: 24px !important;
+  }
+  .tui-pagination .tui-prev {
+    margin-right: 24px !important;
+  }
+}
+
+.tui-pagination .tui-page-btn {
+  border: 0px !important;
+}
+/* .tui-pagination .tui-ico-first,
+.tui-pagination .tui-ico-prev,
+.tui-pagination .tui-ico-next,
+.tui-pagination .tui-ico-last,
+.tui-pagination .tui-ico-ellip {
+  background: url(../img/left.svg) !important;
+} */

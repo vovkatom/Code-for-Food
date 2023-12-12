@@ -1,4 +1,4 @@
-// import 'tui-pagination/dist/tui-pagination.css';
+import 'tui-pagination/dist/tui-pagination.css';
 import Pagination from 'tui-pagination';
 import { fetchAndRender, fetchFoodCategory } from '/js/products.js';
 
@@ -36,10 +36,6 @@ function storeData() {
   }
 
   // funcPagination(totalPage);
-
-  // if (totalPage > itemsPerPage) {
-  //   funcPagination(totalPage, pageOrigin);
-  // }
 }
 
 //создание пагинации
@@ -94,14 +90,15 @@ function loadMoreTrendMoves(event) {
 
 // определяем сколько всего будет товаров и вызываем пагинацию передавая этот параметр
 async function pages(totalPage) {
-  // let responce = await fetchFoodCategory();
-  // totalPage = responce.data.totalPages * responce.data.perPage;
   if (totalPage <= Number(itemsPerPage)) {
     refs.pagination.classList.replace('tui-pagination', 'paginationDop');
   } else {
     storeData();
     refs.pagination.classList.replace('paginationDop', 'tui-pagination');
   }
+  if (itemsPerPage === 9 || itemsPerPage === 8) {
+    visiblePage = 4;
+  } else {
+    visiblePage = 2;
+  }
 }
-
-
