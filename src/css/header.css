@@ -38,7 +38,7 @@ li {
     height: 28px;   
     padding: 6px 6px;
     border-radius: 50%;
-    fill: #E8E8E2;
+    fill: var(--color-bckg);
     padding-right: 8px;
     margin: 0;
 }
@@ -50,7 +50,7 @@ li {
     height: 38px;   
     padding: 12px;
     border-radius: 50%;
-    fill: #E8E8E2;
+    fill: var(--color-bckg);
     margin-left: 8px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -90,7 +90,7 @@ li {
     font-size: 14px;
     font-family: 'Neue Montreal';
     background-color: #6D8434;
-    color: #E8E8E2;
+    color: var(--color-bckg);
     border-radius: 30px;
     width: 77px;
     height: 38px;

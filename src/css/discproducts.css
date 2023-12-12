@@ -42,7 +42,7 @@
   right: 10px;
   width: 60px;
   height: 60px;
-  /* fill: #e8e8e2; */
+  /* fill: var(--color-bckg); */
   transform: scale(0);
   transform-origin: center;
   animation: shineAnimation 2s ease-in-out infinite;
@@ -111,7 +111,7 @@
   max-width: 304px;
   height: 150px;
   border-radius: 10px;
-  background: #e8e8e2;
+  background: var(--color-bckg);
 }
 
 @media screen and (min-width: 1440px) {
@@ -216,5 +216,5 @@
 .img-svg-osnova {
   width: 18px;
   height: 18px;
-  fill: #e8e8e2;
+  fill: var(--color-bckg);
 }

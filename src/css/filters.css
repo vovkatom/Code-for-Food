@@ -1,5 +1,5 @@
 body {
-  background: #e8e8e2;
+  background: var(--color-bckg);
 }
 
 .filter {
@@ -334,7 +334,7 @@ input:focus {
 }
 
 .clean-icon {
-  fill: #e8e8e2;
+  fill: var(--color-bckg);
   width: 18px;
   height: 18px;
 }
