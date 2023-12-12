@@ -55,6 +55,7 @@
   background: #fafafa;
   padding: 20px;
   cursor: pointer;
+  height: 356px;
 }
 
 .background-img-pl {
@@ -214,6 +215,7 @@
 
   .item-pl {
     width: calc((100% - 32px) / 2);
+    height: 360px;
   }
 
   .error-load {
@@ -254,6 +256,7 @@
 
   .item-pl {
     width: calc((100% - 40px) / 3);
+    height: 363px;
   }
   .product-list {
     gap: 40px 20px;
