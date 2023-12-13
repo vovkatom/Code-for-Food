@@ -204,7 +204,7 @@
 .tui-page-btn.tui-first:hover,
 .tui-page-btn.tui-prev:hover,
 .tui-page-btn.tui-prev:focus {
-  background-color: var(--color-btn) !important;
+  background-color: all var(--color-btn) !important;
 }
 
 .tui-page-btn:hover,
