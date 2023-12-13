@@ -103,7 +103,7 @@
   margin-bottom: 80px;
   position: relative;
   width: 100%;
-  max-height: 465px;
+  max-height: 472px;
   overflow-x: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -263,7 +263,7 @@
   font-weight: 500;
   line-height: 1.2; /* 120% */
   /* margin-right: 243px; */
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 .delete-btn {
   width: 20px;
@@ -278,7 +278,7 @@
   border: none;
   position: absolute;
   top: 14px;
-  right: 0px;
+  right: 2px;
   padding: 0;
 }
 .product-info {
@@ -481,7 +481,7 @@
 
 @media only screen and (min-width: 768px) {
   .delete {
-    max-height: 560px;
+    max-height: 564px;
   }
   .usd-letter {
     font-size: 32px;
