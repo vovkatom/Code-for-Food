@@ -15,7 +15,7 @@
       <!-- <div class="cart-full visually-hidden"> -->
       <!-- selected items -->
       <div class="selected-items js-selected-items">
-        <div class='cart-delete__wrap'>
+        <div class="cart-delete__wrap">
           <button class="delete-all-btn js-delete-all-btn">
             Delete all
             <svg class="" width="24" height="24">
@@ -24,7 +24,6 @@
           </button>
         </div>
         <div class="delete js-cart-container">
-
           <ul class="cart-list list js-cart-list"></ul>
         </div>
         <div class="order-container js-order-container"></div>
@@ -35,47 +34,62 @@
         <h2 class="order-title">Your order</h2>
 
         <div class="total">
-          <div class="total-name">Total </div>
-            <div class="sum-full">
-              <span class="notation">Sum:</span>
-              <span class="usd-letter">$</span>
-              <div class="total-price">00,00</div>
-            </div>
+          <div class="total-name">Total</div>
+          <div class="sum-full">
+            <span class="notation">Sum:</span>
+            <span class="usd-letter">$</span>
+            <div class="total-price">00,00</div>
+          </div>
         </div>
 
         <form class="form form-cart">
           <div class="input-container">
             <label class="notation" for="email">Mail:</label>
-            <input type="email" id="email" pattern=".{8,}" placeholder="Enter your email" autocomplete="email"
-              title="valid@email.com" required />
-              <div class="form-error"></div>
+            <input
+              type="email"
+              id="email"
+              pattern=".{8,}"
+              placeholder="Enter your email"
+              autocomplete="email"
+              title="valid@email.com"
+              required
+            />
+            <div class="form-error"></div>
           </div>
           <button class="order-btn" type="submit">Checkout</button>
         </form>
-
       </div>
-
     </div>
 
     <!-- empty cart -->
     <div class="empty-cart js-empty-cart">
       <picture class="empty-cart-image">
         <!-- Desktop screen 1440px -->
-        <source media="(min-width: 1440px)" srcset="
-          /img/cart/basket-desc.webp    1x,
-          /img/cart/basket-desc@2x.webp 2x
-        " />
+        <source
+          media="(min-width: 1440px)"
+          srcset="
+            /img/cart/basket-desc.webp    1x,
+            /img/cart/basket-desc@2x.webp 2x
+          "
+        />
         <!-- Tablet screen -->
-        <source media="(min-width: 768px)" srcset="
-          /img/cart/basket-tablet.webp    1x,
-          /img/cart/basket-tablet@2x.webp 2x
-        " />
+        <source
+          media="(min-width: 768px)"
+          srcset="
+            /img/cart/basket-tablet.webp    1x,
+            /img/cart/basket-tablet@2x.webp 2x
+          "
+        />
         <!-- Mobile screen -->
-        <source media="(max-width: 767px)" srcset="
-          /img/cart/basket-mob.webp    1x,
-          /img/cart/basket-mob@2x.webp 2x
-        " />
-        <img src="/img/cart/basket-mob.webp" alt="Empty Basket" loading="lazy" />
+        <source
+          media="(max-width: 767px)"
+          srcset="/img/cart/basket-mob.webp 1x, /img/cart/basket-mob@2x.webp 2x"
+        />
+        <img
+          src="/img/cart/basket-mob.webp"
+          alt="Empty Basket"
+          loading="lazy"
+        />
       </picture>
       <h3 class="empty-cart-title">
         Your basket is<span class="change-color"> empty...</span>
@@ -86,5 +100,5 @@
       </p>
     </div>
     <!-- ======= SUCCESS MODAL ======= -->
-
+  </div>
 </section>
