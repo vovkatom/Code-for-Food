@@ -209,7 +209,7 @@
 
 .info-title-link:not([disabled]):hover,
 .info-title-link:not([disabled]):focus {
-  background-color: #586f1f;
+  background-color: var(--color-btn-active);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 

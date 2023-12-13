@@ -56,7 +56,7 @@ li {
 }
 
 .cart:hover .logo-cart {
-    background-color: #586F1F;
+    background-color: var(--color-btn-active);
 }
 
 
