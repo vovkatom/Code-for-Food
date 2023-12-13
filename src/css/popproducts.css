@@ -112,8 +112,7 @@
   position: absolute;
   fill: var(--color-btn);
 }
-.use-popular {
-}
+
 
 @media screen and (min-width: 375px) {
 }

@@ -42,8 +42,8 @@
   width: 100%;
   min-height: 535px;
   padding: 40px 20px;
-  background: var(--color-white);
-  border: 2px solid var(--color-white);
+  background: var(--color-card-bckg);
+  border: 2px solid var(--color-card-bckg);
   border-radius: 20px;
   animation: append-animate 0.8s linear;
   box-sizing: border-box;
@@ -122,7 +122,7 @@
   justify-content: center;
   margin-bottom: 20px;
   border-radius: 10px;
-  background: var(--color-light-grey);
+  background: var(--color-bckg);
 }
 
 @media screen and (min-width: 767px) {
@@ -221,11 +221,11 @@
 }
 
 .modal-icon-shop {
-  fill: var(--color-light-grey);
+  fill: var(--color-bckg);
 }
 
 .modal-btn {
-  color: var(--color-light-grey);
+  color: var(--color-bckg);
   font-family: var(--font-main);
   font-size: 14px;
   line-height: 1.28;
@@ -236,7 +236,7 @@
   align-items: center;
   gap: 10px;
   border-radius: 30px;
-  background: var(--color-light-green);
+  background: var(--color-btn);
 
   border: none;
   font-size: inherit;
@@ -275,7 +275,7 @@
 }
 
 .modal-btn-remove {
-  color: var(--color-light-grey);
+  color: var(--color-bckg);
   font-family: var(--font-main);
   font-size: 14px;
   line-height: 1.28;
@@ -286,7 +286,7 @@
   align-items: center;
   gap: 10px;
   border-radius: 30px;
-  background: var(--color-light-green);
+  background: var(--color-btn);
 
   border: none;
   font-size: inherit;
