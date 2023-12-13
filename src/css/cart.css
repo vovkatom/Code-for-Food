@@ -243,7 +243,7 @@
 }
 .product-picture {
   border-radius: 10px;
-  background: #fafafa;
+  background: var(--color-card-bckg);
   width: 100px;
   height: 100px;
   flex-shrink: 0;

@@ -75,7 +75,7 @@
   max-width: 335px;
   height: 232px;
   border-radius: 15px;
-  background: #fafafa;
+  background: var(--color-card-bckg);
   margin-bottom: 20px;
   cursor: pointer;
 }

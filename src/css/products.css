@@ -61,7 +61,7 @@
   position: relative;
   max-width: 335px;
   border-radius: 20px;
-  background: #fafafa;
+  background: var(--color-card-bckg);
   padding: 20px;
   cursor: pointer;
 }
