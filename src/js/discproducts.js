@@ -52,7 +52,7 @@ async function createMarkup() {
            <svg class="icon-discount" width="64" height="64">
                   <use href="${iconsSvg}#icon-discount"></use>
                 </svg>
-              </div>
+              
     <div class="discount-item-img">
       <img class="discount-img"  src="${img}" alt="Product" loading="lazy" />
     </div>

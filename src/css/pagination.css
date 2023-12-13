@@ -193,8 +193,7 @@
 
 .tui-page-btn:focus,
 .tui-page-btn:hover {
-  background-color: #fafafa !important;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--color-card-bckg) !important;
 }
 
 .tui-page-btn.tui-next:focus,
@@ -205,6 +204,7 @@
 .tui-page-btn.tui-first:hover,
 .tui-page-btn.tui-prev:hover,
 .tui-page-btn.tui-prev:focus {
-  background-color: #6d8434 !important;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+.tui-page-btn:focus {
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
