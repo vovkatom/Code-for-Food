@@ -26,3 +26,30 @@
     </div>
   </div>
 </div>
+
+<!--Модальне вікно для корзини при invalid email-->
+<div class="backdrop-cart-modal js-invalid-email visually-hidden" data-modal>
+  <div class="fail-modal">
+    <div class="order-fail-window">
+      <button
+        class="success-delete-btn js-close-invalid-email"
+        data-modal-close
+      >
+        <svg class="" width="22" height="22">
+          <use href="/img/icons.svg#icon-x-close"></use>
+        </svg>
+      </button>
+      <img
+        src="/img/cart/banan.png"
+        alt="Success Order"
+        width="100"
+        height="100"
+        loading="lazy"
+      />
+      <div class="success-text">
+        <h2 class="fail-title">Invalid email!</h2>
+        <p class="success-descr">Please, enter another email!</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -37,6 +37,14 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 205px;
+}
+@media only screen and (max-width: 325px) {
+  .product-info {
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+    gap: 0;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -309,7 +317,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  } */
+   */
   }
 }
 
@@ -536,6 +544,16 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+.fail-modal {
+  width: 240px;
+  height: 240px;
+  position: absolute;
+  float: left;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 .backdrop-cart-modal > .container {
   min-width: 280px;
   max-width: 335px;
@@ -563,24 +581,25 @@
   }
 } */
 
-.order-success-window {
+.order-success-window,
+.order-fail-window {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
   align-items: center;
   height: auto;
-
   border-radius: 20px;
   background: var(--color-bckg);
   padding: 40px 20px 60px;
-
   position: relative;
-
   margin-left: auto;
   margin-right: auto;
 }
 .order-success-window img {
   margin-bottom: 40px;
+}
+.order-fail-window img {
+  margin-bottom: 20px;
 }
 .success-img {
   margin-bottom: 40px;
@@ -597,7 +616,8 @@
   /* max-width: 295px; */
 }
 
-.success-title {
+.success-title,
+.fail-title {
   font-family: Neue Montreal;
   font-size: 18px;
   font-weight: 500;
@@ -614,7 +634,7 @@
 }
 
 .success-delete-btn {
-  border: 0;
+  border: none;
   fill: var(--color-btn-up-fill);
   color: var(--color-btn-up-fill);
   background: transparent;

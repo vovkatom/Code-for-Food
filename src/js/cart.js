@@ -17,7 +17,9 @@ const refs = {
   totalPrice: document.querySelector('.total-price'),
   cartSuccess: document.querySelector('.js-success'),
   closeSuccess: document.querySelector('.js-close-success'),
-  cartFormError: document.querySelector('.form-error')
+  cartFormError: document.querySelector('.form-error'),
+  invalidEmail: document.querySelector('.js-invalid-email'),
+  closeInvalidEmail: document.querySelector('.js-close-invalid-email'),
 };
 
 //Функція наповнення кошика при оновленні сторінки
@@ -49,7 +51,6 @@ function updateTotal() {
   }, 0);
   refs.totalPrice.innerHTML = total.toFixed(2);
 }
-
 
 //Розмітка картки в кошику
 function createCartMarkUp(arr) {
@@ -87,7 +88,6 @@ function createCartMarkUp(arr) {
     .join('');
 }
 
-
 //Функція оновлення корзини при видалені 1 товару з корзини (функція deleteFromCart імпортується)
 function updateCartList() {
   document.querySelectorAll(refs.buttonDeleteProduct).forEach(btn => {
@@ -102,8 +102,6 @@ function updateCartList() {
 }
 
 updateCartList();
-
-
 
 //По кліку на кнопву Delete all очищуємо корзину
 refs.buttonCleanCart.addEventListener('click', cleanCart);
@@ -128,9 +126,10 @@ async function handlerFormSubmit(event) {
   const { email } = event.target.elements;
 
   const valid = validateEmail(email.value);
-    if (!valid) {
-      //Notiflix.Notify.failure('Email is invalid');
-      alert ('Email is invalid');
+  if (!valid) {
+    openModalInvalidEmail();
+    //Notiflix.Notify.failure('Email is invalid');
+    // alert ('Email is invalid');
     return;
   }
   //Створимо функцію, яка за допомогою map створить новий масив обєктів (лише з властивостями productId i amount), який потрібно передати на сервер
@@ -145,13 +144,13 @@ async function handlerFormSubmit(event) {
     });
     return products;
   }
- 
+
   //Створюємо обєкт для сервера з email покупця і масивом продуктів
   const newOrder = {
     email: email.value,
     products: createProducts(cartArr),
   };
-  
+
   // Показываем лоадер перед запросом
   document.getElementById('overlay').style.display = 'flex';
 
@@ -159,23 +158,22 @@ async function handlerFormSubmit(event) {
     .post('https://food-boutique.b.goit.study/api/orders', newOrder)
     .then(data => {
       // Скрываем лоадер после запроса
-      document.getElementById('overlay').style.display = 'none'
-      openModalSuccess()
-      refs.cartFormError.innerHTML = ''
+      document.getElementById('overlay').style.display = 'none';
+      openModalSuccess();
+      refs.cartFormError.innerHTML = '';
     })
     .catch(err => {
-      console.error(err)
-      document.getElementById('overlay').style.display = 'none'
-      refs.cartFormError.innerHTML = `We had some error. Try again please.`
-    })
+      console.error(err);
+      document.getElementById('overlay').style.display = 'none';
+      refs.cartFormError.innerHTML = `We had some error. Try again please.`;
+    });
 }
 
 //Валідація email
 function validateEmail(email) {
-  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-  return emailPattern.test(email)
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailPattern.test(email);
 }
-
 
 //Модальне вікно після успішного запиту на сервер
 function openModalSuccess() {
@@ -187,7 +185,7 @@ function openModalSuccess() {
 
 //Закриваємо модальне вікно і піднімаємося вверх
 function closeSuccessCart() {
-  setTimeout(scrollToTop, 500)
+  setTimeout(scrollToTop, 500);
   refs.cartSuccess.classList.add('visually-hidden');
   refs.formSubmit.reset();
   cleanCart();
@@ -196,6 +194,18 @@ function closeSuccessCart() {
 function scrollToTop() {
   window.scrollTo({
     top: 0,
-    behavior: 'smooth' // Optional: Smooth scrolling animation
-  })
+    behavior: 'smooth', // Optional: Smooth scrolling animation
+  });
+}
+
+//Модальне вікно при введенні неправильного email
+function openModalInvalidEmail() {
+  refs.invalidEmail.classList.remove('visually-hidden');
+  refs.closeInvalidEmail.addEventListener('click', () => {
+    closeModalInvalidEmail();
+  });
+}
+
+function closeModalInvalidEmail() {
+  refs.invalidEmail.classList.add('visually-hidden');
 }
