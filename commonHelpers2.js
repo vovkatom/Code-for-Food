@@ -114,7 +114,7 @@ import{i as l,c as g,K as h,u as O,s as m,l as ee}from"./assets/footer-8d08ce39.
            <svg class="icon-discount" width="64" height="64">
                   <use href="${l}#icon-discount"></use>
                 </svg>
-              // </div>
+               </div>
     <div class="discount-item-img">
       <img class="discount-img"  src="${n}" alt="Product" loading="lazy" />
     </div>
