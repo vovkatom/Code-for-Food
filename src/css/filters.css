@@ -9,7 +9,8 @@ body {
 
 .filters-text {
   margin-bottom: 8px;
-  color: rgba(1, 1, 1, 0.5);
+  /* color: rgba(1, 1, 1, 0.3); */
+  color: rgba(1, 1, 1, 1);
   font-family: Neue Montreal;
   font-size: 14px;
   font-style: normal;
