@@ -354,7 +354,7 @@ input:focus {
 }
 .clean-button:hover,
 .clean-button:focus {
-  background-color: #586f1f;
+  background-color: var(--color-btn-active);
 }
 .clean-button:disabled {
   background-color: #777776;
