@@ -23,10 +23,10 @@
     
     <script type="module" crossorigin src="/Code-for-Food/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/Code-for-Food/assets/vendor-4b895a38.js">
-    <link rel="modulepreload" crossorigin href="/Code-for-Food/assets/footer-2ef1196d.js">
+    <link rel="modulepreload" crossorigin href="/Code-for-Food/assets/footer-ec8ef1e5.js">
     <link rel="stylesheet" href="/Code-for-Food/assets/vendor-a0b14d8a.css">
-    <link rel="stylesheet" href="/Code-for-Food/assets/footer-fd98ba75.css">
-    <link rel="stylesheet" href="/Code-for-Food/assets/cart-61d26cf1.css">
+    <link rel="stylesheet" href="/Code-for-Food/assets/footer-06db39fd.css">
+    <link rel="stylesheet" href="/Code-for-Food/assets/cart-90ef2b07.css">
   </head>
   <body>
     <!-- header Olha Maslova -->
@@ -185,6 +185,33 @@
           in nourishing goodness, delivered right to your doorstep. We're
           thrilled to be part of your journey to better health and happiness.
         </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Модальне вікно для корзини при invalid email-->
+<div class="backdrop-cart-modal js-invalid-email visually-hidden" data-modal>
+  <div class="fail-modal">
+    <div class="order-fail-window">
+      <button
+        class="success-delete-btn js-close-invalid-email"
+        data-modal-close
+      >
+        <svg class="" width="22" height="22">
+          <use href="/Code-for-Food/assets/icons-65707b08.svg#icon-x-close"></use>
+        </svg>
+      </button>
+      <img
+        src="/Code-for-Food/assets/banan-68b2469d.png"
+        alt="Success Order"
+        width="100"
+        height="100"
+        loading="lazy"
+      />
+      <div class="success-text">
+        <h2 class="fail-title">Invalid email!</h2>
+        <p class="success-descr">Please, enter another email!</p>
       </div>
     </div>
   </div>
