@@ -23,7 +23,7 @@ li {
 }
 
 .accent-word {
-    color: #6D8434;
+    color: var(--color-btn);
 }
 
 .header-logo {
@@ -33,7 +33,7 @@ li {
 }
 
 .logo {
-    background: #6D8434;
+    background: var(--color-btn);
     width: 28px;
     height: 28px;   
     padding: 6px 6px;
@@ -45,7 +45,7 @@ li {
 
 .cart .logo-cart {
     display: block;
-    background: #6D8434;
+    background: var(--color-btn);
     width: 38px;
     height: 38px;   
     padding: 12px;
@@ -76,7 +76,7 @@ li {
 }
 
 .accent-word {
-    color: #6D8434;
+    color: var(--color-btn);
 }
 
 .nav-container {
@@ -89,7 +89,7 @@ li {
 .home {
     font-size: 14px;
     font-family: 'Neue Montreal';
-    background-color: #6D8434;
+    background-color: var(--color-btn);
     color: var(--color-bckg);
     border-radius: 30px;
     width: 77px;
