@@ -24,6 +24,11 @@
   text-transform: uppercase;
   margin-bottom: 88px;
 }
+
+.product-info {
+  flex-wrap: wrap;
+}
+
 @media only screen and (min-width: 768px) {
   .cart-title {
     font-size: 32px;
@@ -281,18 +286,22 @@
   right: 8px;
   padding: 0;
 }
-.product-info {
-  font-family: 'Neue Montreal';
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-  /* margin-top: 10px; */
-  margin-bottom: 36px;
 
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+@media only screen and (min-width: 375px) {
+  .product-info {
+    font-family: 'Neue Montreal';
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    /* margin-top: 10px; */
+    margin-bottom: 36px;
+  
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
+
 .info-quality {
   font-family: 'Neue Montreal';
   color: rgba(1, 1, 1, 0.3);
