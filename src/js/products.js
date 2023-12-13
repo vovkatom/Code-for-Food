@@ -19,6 +19,7 @@ export {
   homManyLimit,
   handleButtonClick,
   checkId,
+  add,
 };
 
 import { funcPagination, loadMoreTrendMoves, pages } from './pagination.js';
@@ -137,6 +138,7 @@ window.addEventListener('load', fetchAndRender);
 refs.list.addEventListener('click', handleButtonClick);
 
 function handleButtonClick(event) {
+  // debugger;
   let noButton = 0;
   // отримуємо елемент, на якому відбувся клік
   const clickedElement = event.target;
