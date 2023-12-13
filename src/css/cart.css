@@ -97,7 +97,7 @@
   line-height: 1.25; /* 125% */
   z-index: 5;
 }
-.delete {
+.order-container {
   font-family: 'Neue Montreal';
   display: flex;
   margin-bottom: 80px;
@@ -278,7 +278,7 @@
   border: none;
   position: absolute;
   top: 14px;
-  right: 2px;
+  right: 8px;
   padding: 0;
 }
 .product-info {
@@ -460,7 +460,7 @@
   border-radius: 30px;
 }
 .order-btn:active {
-  background:var(--color-bckg);
+  background: var(--color-bckg);
 }
 
 @media only screen and (min-width: 768px) {
@@ -480,7 +480,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .delete {
+  .order-container {
     max-height: 564px;
   }
   .usd-letter {
@@ -603,6 +603,7 @@
   display: flex;
   justify-content: flex-end;
   padding-bottom: 15px;
+  padding-right: 6px;
 }
 .total .notation {
   color: rgba(1, 1, 1, 0.3);
