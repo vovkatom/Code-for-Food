@@ -51,6 +51,7 @@ function deleteFromCart(cartArr, btn) {
   } catch (error) {
     console.log(error)
   } finally {
+    //Коли в масиві не залишилося обєктів, видаляємо його з сховища 
     if (cartArr.length === 0) {
       localStorage.removeItem(KEY_CART)
       refs.cartEmpty.style.display = 'flex'

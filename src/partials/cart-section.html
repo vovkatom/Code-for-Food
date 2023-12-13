@@ -1,4 +1,7 @@
 <section class="cart-section">
+  <div class="overlay" id="overlay">
+    <span class="loader"></span>
+  </div>
   <div class="container">
     <h1 class="cart-title">
       <svg class="cart-icon" width="18" height="18">
@@ -45,6 +48,7 @@
             <label class="notation" for="email">Mail:</label>
             <input type="email" id="email" pattern=".{8,}" placeholder="Enter your email" autocomplete="email"
               title="valid@email.com" required />
+              <div class="form-error"></div>
           </div>
           <button class="order-btn" type="submit">Checkout</button>
         </form>
