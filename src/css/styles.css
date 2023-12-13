@@ -49,16 +49,10 @@
   --color-text: #010101;
   --color-text2: #0101014d;
   --color-card-bckg: #fafafa;
-  /********************************************/
   --color-bckg: #e8e8e2; 
-  /* --color-bckg: #E5E5DC;  */
-  /* --color-btn: #5B6D2C;  */
   --color-btn: #6d8434; 
-  /********************************************/
   --color-btn-active: #586f1f;
   --color-btn-arrow-fill: #a3a3a3;
-  /* --color-btn-up: #fdc152; */
-  /* --color-grey: #a3a3a3; */
 
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;

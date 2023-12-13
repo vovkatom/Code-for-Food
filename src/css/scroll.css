@@ -4,9 +4,9 @@
   position: fixed;
   right: 40px;
   bottom: 40px;
-  fill: var(--color-grey);
+  fill: var(--color-btn-arrow-fill);
 
-  border: 2px solid var(--color-grey);
+  border: 2px solid var(--color-btn-arrow-fill);
   background-color: var(--color-bckg);
   padding: 10px;
   border-radius: 50px;
