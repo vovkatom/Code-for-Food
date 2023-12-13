@@ -59,7 +59,7 @@ body {
 }
 .search-input:hover,
 .search-input:focus {
-  border-color: #6d8434;
+  border-color: var(--color-btn);
 }
 .search-button {
   display: grid;
@@ -134,7 +134,7 @@ input:focus {
 }
 .select__header:hover,
 .select__header:focus {
-  border-color: #6d8434;
+  border-color: var(--color-btn);
 }
 .select__current {
   color: var(--color-text);
@@ -213,7 +213,7 @@ input:focus {
 }
 .sort-header:hover,
 .sort-header:focus {
-  border: 1px solid #6d8434;
+  border: 1px solid var(--color-btn);
 }
 .sort-current {
   color: var(--color-text);
@@ -348,7 +348,7 @@ input:focus {
   align-items: center;
   border: none;
   border-radius: 30px;
-  background-color: #6d8434;
+  background-color: var(--color-btn);
   cursor: pointer;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }

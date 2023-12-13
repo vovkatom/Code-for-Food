@@ -58,7 +58,7 @@
   justify-content: center;
   align-items: center;
   fill: var(--color-bckg);
-  background-color: #6d8434;
+  background-color: var(--color-btn);
   border-radius: 30px;
 
   width: 38px;
@@ -173,7 +173,7 @@
   justify-content: center;
   align-items: center;
   /* gap: 10px; */
-  background-color: #6d8434;
+  background-color: var(--color-btn);
   border-radius: 30px;
 
   color: var(--color-bckg);
@@ -203,7 +203,7 @@
   margin-bottom: 14px;
 }
 .change-color {
-  color: #6d8434;
+  color: var(--color-btn);
   /* font-family: Neue Montreal; */
   /* font-size: 20px; */
   /* font-style: normal; */
@@ -401,7 +401,7 @@
 }
 .input-container:hover,
 .input-container:focus-within {
-  border: 1px solid #6d8434;
+  border: 1px solid var(--color-btn);
 }
 
 .input-container #email {

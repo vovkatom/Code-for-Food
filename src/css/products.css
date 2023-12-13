@@ -24,7 +24,7 @@
   line-height: 1.29em;
 }
 .green-word {
-  color: #6d8434;
+  color: var(--color-btn);
 }
 /* **************************************кінець повідомлення*********************************** */
 
@@ -142,7 +142,7 @@
   align-items: center;
   border: none;
   border-radius: 50%;
-  background-color: #6d8434;
+  background-color: var(--color-btn);
   cursor: pointer;
 }
 .btn-pl:hover,
@@ -151,7 +151,7 @@
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-pl:disabled {
-  background-color: #6d8434;
+  background-color: var(--color-btn);
   cursor: auto;
 }
 
