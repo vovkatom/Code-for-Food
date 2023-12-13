@@ -22,18 +22,28 @@
   font-weight: 500;
   line-height: 1.16;
   text-transform: uppercase;
-  margin-bottom: 88px;
+  margin-bottom: 14px;
 }
 
 .product-info {
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  font-family: 'Neue Montreal';
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  /* margin-top: 10px; */
+  margin-bottom: 36px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media only screen and (min-width: 768px) {
   .cart-title {
     font-size: 32px;
     /* margin-top: 99px; */
-    margin-bottom: 88px;
+    margin-bottom: 24px;
   }
   .cart-section .container {
     padding: 100px 32px 100px 32px;
@@ -42,7 +52,7 @@
 @media only screen and (min-width: 1440px) {
   .cart-title {
     /* margin-top: 77px; */
-    margin-bottom: 82px;
+    margin-bottom: 26px;
   }
   .cart-section .container {
     padding: 80px 100px 100px 100px;
@@ -289,16 +299,17 @@
 
 @media only screen and (min-width: 375px) {
   .product-info {
-    font-family: 'Neue Montreal';
+    /* font-family: 'Neue Montreal';
     display: flex;
     flex-direction: row;
-    gap: 16px;
+    gap: 16px; */
     /* margin-top: 10px; */
-    margin-bottom: 36px;
-  
+    /* margin-bottom: 36px;
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  } */
   }
 }
 
@@ -311,6 +322,9 @@
   line-height: 1.16; /* 116.667% */
   margin-right: 4px;
   padding: 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .info-value {
   font-family: 'Neue Montreal';
@@ -320,6 +334,9 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1.28; /* 128.571% */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .price {
   font-family: 'Neue Montreal';
@@ -374,6 +391,12 @@
   font-weight: 500;
   line-height: 1; /* 100% */
 }
+.cart-delete__wrap {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 32px;
+  padding-right: 6px;
+}
 @media only screen and (min-width: 768px) {
   .input-container {
     display: inline-flex;
@@ -406,6 +429,9 @@
     /* .cart-title {
     margin-bottom: 155px;
   } */
+  }
+  .cart-delete__wrap {
+    padding-bottom: 44px;
   }
 }
 .input-container:hover,
@@ -608,12 +634,6 @@
   background-color: transparent;
 }
 
-.cart-delete__wrap {
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: 15px;
-  padding-right: 6px;
-}
 .total .notation {
   color: rgba(1, 1, 1, 0.3);
   font-size: 12px;
@@ -638,5 +658,8 @@
   }
   .order-success-window {
     padding: 80px 40px;
+  }
+  .cart-delete__wrap {
+    padding-bottom: 40px;
   }
 }
