@@ -206,7 +206,7 @@ input:focus {
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  background: #fafafa;
+  background: var(--color-card-bckg);
   cursor: pointer;
   max-height: 52px;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);

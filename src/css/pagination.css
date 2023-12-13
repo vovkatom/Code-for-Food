@@ -74,7 +74,7 @@
 
 .tui-next,
 .tui-last {
-  background-color: #fafafa !important;
+  background-color: var(--color-card-bckg) !important;
   text-align: center !important;
   border-radius: 60px;
   display: flex;
@@ -82,7 +82,7 @@
 
 .tui-prev,
 .tui-first {
-  background-color: #fafafa !important;
+  background-color: var(--color-card-bckg) !important;
   text-align: center !important;
   margin-right: 0px !important;
 }
@@ -193,7 +193,7 @@
 
 .tui-page-btn:focus,
 .tui-page-btn:hover {
-  background-color: #fafafa !important;
+  background-color: var(--color-card-bckg) !important;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 

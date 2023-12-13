@@ -20,7 +20,7 @@
   display: flex;
   position: relative;
   border-radius: 10px;
-  background-color: #fafafa;
+  background-color: var(--color-card-bckg);
   height: 98px;
   cursor: pointer;
 }
