@@ -13,9 +13,11 @@ import {
   KEY_CATEGORY,
   renderFoodItems,
   homManyLimit,
-  handleButtonClick,
+  add,
+  // handleButtonClick,
   checkId,
 } from './products.js';
+import { openModalProduct } from '/js/modalwindow';
 
 async function fetchPopularFood() {
   // Показываем лоадер перед запросом
@@ -91,6 +93,48 @@ window.addEventListener('load', createMarkup);
 const linkBag = document.querySelector('.popular-list');
 
 linkBag.addEventListener('click', handleButtonClick);
+
+
+
+function handleButtonClick(event) {
+  // debugger;
+  let noButton = 0;
+  // отримуємо елемент, на якому відбувся клік
+  const clickedElement = event.target;
+  // Знаходимо найближчий батьківський елемнт типу button
+  const closestButton = clickedElement.closest('button');
+  // перевіряємо чи знайдено кнопку
+  if (closestButton) {
+    // Знаходимо найближчий батьківський елемент li
+    const closestLi = closestButton.closest('li');
+    // перевіряємо чи знайдено li
+    if (closestLi) {
+      // отримуємо значення data-id з li
+      const dataId = closestLi.dataset.id;
+      // знаходимо продукт за id в масиві prodList
+      const clickedProduct = prodList.find(product => product._id === dataId);
+      checkId(closestLi);
+      // перевірка чи знайдено продукт
+      if (clickedProduct) {
+        // виклик функції на додавання в localeStorage
+        noButton = 1;
+        add(clickedProduct, prodList);
+      }
+    }
+    // знаходимо елемент use в середині кнопки
+    // const svg = closestButton.querySelector('.icon-pl use');
+    // зміна svg
+    // svg.setAttribute('href', `${iconSvg}#icon-cart`);
+    // btn off
+    closestButton.setAttribute('disabled', true);
+  }
+  const clickedLi = event.target.closest('li');
+  if (clickedLi && !noButton) {
+    const clickedId = clickedLi.dataset.id;
+    openModalProduct(clickedId);
+  }
+}
+
 
 // let btn;
 
