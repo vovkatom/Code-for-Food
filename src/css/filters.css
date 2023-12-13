@@ -1,5 +1,5 @@
 body {
-  background: #e8e8e2;
+  background: var(--color-bckg);
 }
 
 .filter {
@@ -46,7 +46,7 @@ body {
   border-radius: 30px;
   border: 1px solid rgba(1, 1, 1, 0.3);
   padding: 14px 20px 14px 20px;
-  color: #010101;
+  color: var(--color-text);
   font-family: Neue Montreal;
   font-size: 14px;
   font-style: normal;
@@ -55,11 +55,11 @@ body {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .search-input::placeholder {
-  color: #010101;
+  color: var(--color-text);
 }
 .search-input:hover,
 .search-input:focus {
-  border-color: #6d8434;
+  border-color: var(--color-btn);
 }
 .search-button {
   display: grid;
@@ -87,12 +87,12 @@ input:focus {
 .search-icon {
   width: 20px;
   height: 20px;
-  fill: #010101;
+  fill: var(--color-text);
 }
 .down-icon {
   width: 20px;
   height: 20px;
-  fill: #010101;
+  fill: var(--color-text);
 }
 
 .container-categories {
@@ -134,10 +134,10 @@ input:focus {
 }
 .select__header:hover,
 .select__header:focus {
-  border-color: #6d8434;
+  border-color: var(--color-btn);
 }
 .select__current {
-  color: #010101;
+  color: var(--color-text);
   font-family: Neue Montreal;
   font-size: 14px;
   font-style: normal;
@@ -186,7 +186,7 @@ input:focus {
 }
 
 .select__item:hover {
-  color: #010101;
+  color: var(--color-text);
 }
 
 /*! SORT STYLES  */
@@ -206,17 +206,17 @@ input:focus {
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  background: #fafafa;
+  background: var(--color-card-bckg);
   cursor: pointer;
   max-height: 52px;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .sort-header:hover,
 .sort-header:focus {
-  border: 1px solid #6d8434;
+  border: 1px solid var(--color-btn);
 }
 .sort-current {
-  color: #010101;
+  color: var(--color-text);
   font-family: Neue Montreal;
   font-size: 14px;
   font-style: normal;
@@ -265,7 +265,7 @@ input:focus {
 }
 
 .sort-item:hover {
-  color: #010101;
+  color: var(--color-text);
 }
 @keyframes fadeIn {
   from {
@@ -334,7 +334,7 @@ input:focus {
 }
 
 .clean-icon {
-  fill: #e8e8e2;
+  fill: var(--color-bckg);
   width: 18px;
   height: 18px;
 }
@@ -348,13 +348,13 @@ input:focus {
   align-items: center;
   border: none;
   border-radius: 30px;
-  background-color: #6d8434;
+  background-color: var(--color-btn);
   cursor: pointer;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clean-button:hover,
 .clean-button:focus {
-  background-color: #586f1f;
+  background-color: var(--color-btn-active);
 }
 .clean-button:disabled {
   background-color: #777776;

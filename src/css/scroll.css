@@ -7,7 +7,7 @@
   fill: var(--color-grey);
 
   border: 2px solid var(--color-grey);
-  background-color: var(--color-light-grey);
+  background-color: var(--color-bckg);
   padding: 10px;
   border-radius: 50px;
   cursor: pointer;

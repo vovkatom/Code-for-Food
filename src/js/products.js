@@ -347,3 +347,4 @@ function thresholdOfSwitches(oldWidth, newWidth) {
     )
   );
 }
+

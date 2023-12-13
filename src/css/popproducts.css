@@ -3,7 +3,7 @@
 }
 
 .popular-title {
-  color: #010101;
+  color: var(--color-text);
   font-family: Neue Montreal;
   font-size: 24px;
   font-style: normal;
@@ -20,7 +20,7 @@
   display: flex;
   position: relative;
   border-radius: 10px;
-  background-color: #fafafa;
+  background-color: var(--color-card-bckg);
   height: 98px;
   cursor: pointer;
 }
@@ -32,7 +32,7 @@
   margin-right: 10px;
   text-align: center;
   border-radius: 10px;
-  background-color: #e8e8e2;
+  background-color: var(--color-bckg);
   width: 74px;
   height: 74px;
 }
@@ -50,7 +50,7 @@
 }
 
 .popular-name {
-  color: #010101;
+  color: var(--color-text);
   font-family: Neue Montreal;
   font-size: 18px;
   font-style: normal;
@@ -72,7 +72,7 @@
   line-height: 1.17;
 }
 .value-popular {
-  color: #010101;
+  color: var(--color-text);
   font-family: Neue Montreal;
   font-size: 12px;
   font-style: normal;
@@ -91,29 +91,28 @@
   align-items: center;
   gap: 10px;
   border-radius: 30px;
-  background: #e8e8e2;
-  border: #e8e8e2;
+  background: var(--color-bckg);
+  border: var(--color-bckg);
 }
 
 .popularBtn:hover {
-  background: #6d8434;
-  border: #6d8434;
+  background: var(--color-btn);
+  border: var(--color-btn);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .popularBtn:disabled {
-  background-color: #6d8434;
+  background-color: var(--color-btn);
   cursor: auto;
 }
 .popularBtn:hover .icon-popular {
-  fill: #e8e8e2;
+  fill: var(--color-bckg);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-popular {
   position: absolute;
-  fill: #6d8434;
+  fill: var(--color-btn);
 }
-.use-popular {
-}
+
 
 @media screen and (min-width: 375px) {
 }

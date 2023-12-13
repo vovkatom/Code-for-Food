@@ -16,6 +16,7 @@ const refs = {
   totalPrice: document.querySelector('.total-price'),
   cartSuccess: document.querySelector('.js-success'),
   closeSuccess: document.querySelector('.js-close-success'),
+  cartFormError: document.querySelector('.form-error')
 };
 
 //Функція наповнення кошика при оновленні сторінки
@@ -48,6 +49,7 @@ function updateTotal() {
   refs.totalPrice.innerHTML = total.toFixed(2);
 }
 
+
 //Розмітка картки в кошику
 function createCartMarkUp(arr) {
   return arr
@@ -75,7 +77,8 @@ function createCartMarkUp(arr) {
                 </p>
                 <p class="info-quality"> Size:<span class="info-value">${size}</span></p>
             </div>
-            <div class="price">$<span>${price}</span>
+            <div class="price">$
+            <span>${price}</span>
             </div>
             </div>
         </li>`;
@@ -83,13 +86,13 @@ function createCartMarkUp(arr) {
     .join('');
 }
 
-//Функція оновлення корзини при видалені 1 товару з корзини (функція deleteFromCart імпортується)
 
+//Функція оновлення корзини при видалені 1 товару з корзини (функція deleteFromCart імпортується)
 function updateCartList() {
   document.querySelectorAll(refs.buttonDeleteProduct).forEach(btn => {
     btn.addEventListener('click', () => {
       deleteFromCart(cartArr, btn);
-
+      // Оновлюємо розмітку та загальну вартість
       refs.list.innerHTML = createCartMarkUp(cartArr);
       updateCartList();
       updateTotal();
@@ -98,6 +101,8 @@ function updateCartList() {
 }
 
 updateCartList();
+
+
 
 //По кліку на кнопву Delete all очищуємо корзину
 refs.buttonCleanCart.addEventListener('click', cleanCart);
@@ -121,7 +126,7 @@ async function handlerFormSubmit(event) {
   event.preventDefault();
   const { email } = event.target.elements;
 
-  const valid = validateEmail(email);
+  const valid = validateEmail(email.value);
   console.log(valid);
   if (!valid) {
     console.log('email is invalid');
@@ -139,38 +144,37 @@ async function handlerFormSubmit(event) {
     });
     return products;
   }
-  console.log('createProducts', createProducts(cartArr));
-
+ 
   //Створюємо обєкт для сервера з email покупця і масивом продуктів
   const newOrder = {
     email: email.value,
     products: createProducts(cartArr),
   };
-  console.log('newOrder', newOrder);
-
+  
   // Показываем лоадер перед запросом
-  //document.getElementById('overlay').style.display = 'flex';
+  document.getElementById('overlay').style.display = 'flex';
 
   await axios
     .post('https://food-boutique.b.goit.study/api/orders', newOrder)
     .then(data => {
-      console.log(data);
       // Скрываем лоадер после запроса
-      //document.getElementById('overlay').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none'
+      openModalSuccess()
+      refs.cartFormError.innerHTML = ''
     })
     .catch(err => {
-      console.error(err);
+      console.error(err)
+      document.getElementById('overlay').style.display = 'none'
+      refs.cartFormError.innerHTML = `We had some error. Try again please.`
     })
-    .finally(() => {
-      openModalSuccess();
-    });
 }
 
 //Валідація email
 function validateEmail(email) {
-  // const emailPattern = `/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/`
-  return true;
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+  return emailPattern.test(email)
 }
+
 
 //Модальне вікно після успішного запиту на сервер
 function openModalSuccess() {
@@ -180,8 +184,17 @@ function openModalSuccess() {
   });
 }
 
+//Закриваємо модальне вікно і піднімаємося вверх
 function closeSuccessCart() {
+  setTimeout(scrollToTop, 500)
   refs.cartSuccess.classList.add('visually-hidden');
   refs.formSubmit.reset();
   cleanCart();
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Optional: Smooth scrolling animation
+  })
 }
