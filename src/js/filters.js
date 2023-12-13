@@ -131,7 +131,7 @@ function handleCategory(event) {
 
 //! Записуємо шаблонний масив в localStorage при завантаженні сторінки,
 //! якщо там пусто, якщо ні підставляємо значення в поля>
-
+const filterObj = load('filter');
 function onLoad() {
   const { keyword, category, page, limit, byABC, byPrice, byPopularity } =
     getCategoriesFromLS();
@@ -150,7 +150,6 @@ function onLoad() {
   const key = 'filter';
   // console.log(value);
   if (localStorage.getItem('filter')) {
-    const filterObj = load('filter');
     if (filterObj.category !== null) {
       refs.currentfilter.innerText = filterObj.category
         .replace(/_/g, ' ')
@@ -187,8 +186,12 @@ function onLoad() {
   } 
   save(key, value);
   pages();
+  
 }
 onLoad();
+
+
+
 // !^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // !------------------- Sort JS Markup-----------------!\\
 
@@ -304,24 +307,16 @@ const clean = document.querySelector('.clean-button');
 
 clean.addEventListener('click', cleanFilters)
 
-function cleanFilters() {
+const storedData = localStorage.getItem('filter');
+const parsedData = JSON.parse(storedData);
   
-  const storedData = localStorage.getItem('filter');
-  const parsedData = JSON.parse(storedData);
-  // if (parsedData.keyword !== null) {
-  //   clean.disabled = false;
-  // }
-  // if (parsedData.category !== null) {
-  //   clean.disabled = false;
-  // }
-
-
+function cleanFilters() {
   parsedData.page = 1;
   parsedData.keyword = null;
   parsedData.category = null;
-   delete parsedData.byABC;
-  delete parsedData.byPrice;
-  delete parsedData.byPopularity;
+  parsedData.byPrice = '';
+  parsedData.byPopularity = '';
+  parsedData.byABC = '';
   const updatedData = parsedData;
   refs.currentSort.innerText = 'A to Z';
   refs.currentfilter.innerText = 'Categories';
@@ -330,3 +325,22 @@ function cleanFilters() {
   fetchAndRender();
   clean.disabled = true;
 }
+
+cleanActivation();
+function cleanActivation() {
+  // перевіряємо чи активувати кнопку Clean
+  if (parsedData.keyword !== null) {
+    clean.disabled = false;
+  } else if (parsedData.byABC !== '') {
+    clean.disabled = false;
+  } else if (parsedData.byPopularity !== '') {
+    clean.disabled = false;
+  } else if (parsedData.byPrice !== '') {
+    clean.disabled = false;
+  } else if (parsedData.category !== null) {
+    clean.disabled = false;
+  } else {
+    clean.disabled = true;
+  }
+}
+
