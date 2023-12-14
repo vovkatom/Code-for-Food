@@ -30,14 +30,14 @@
   font-family: 'Neue Montreal';
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 8px;
   /* margin-top: 10px; */
   margin-bottom: 36px;
 
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 205px;
+  max-width: 215px;
 }
 @media only screen and (max-width: 325px) {
   .product-info {
@@ -325,14 +325,12 @@
   font-family: 'Neue Montreal';
   color: rgba(1, 1, 1, 0.3);
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 1.16; /* 116.667% */
-  margin-right: 4px;
+  gap: 4px;
   padding: 2px 0;
-  white-space: nowrap;
+  /* white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; */
 }
 .info-value {
   font-family: 'Neue Montreal';
@@ -342,9 +340,9 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1.28; /* 128.571% */
-  white-space: nowrap;
+  /* white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; */
 }
 .price {
   font-family: 'Neue Montreal';
