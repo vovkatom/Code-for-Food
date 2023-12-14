@@ -231,8 +231,17 @@ function clickOnBackdrop({ target }) {
 }
 
 function closeModalHandler() {
-  modalBackground.classList.add('is-hidden');
-  document.body.classList.remove('is-modal-open');
+  const modalContainer = document.querySelector('.modal-container');
+
+  // Додаємо клас для виклику анімації закриття
+  modalContainer.classList.add('modal-closing');
+
+  // Затримка, щоб анімація могла відтворитися перед закриттям модального вікна
+  setTimeout(() => {
+    modalBackground.classList.add('is-hidden');
+    document.body.classList.remove('is-modal-open');
+    modalContainer.classList.remove('modal-closing');
+  }, 500);
 
   document
     .querySelector('.modal-close-btn')
