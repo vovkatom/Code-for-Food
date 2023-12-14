@@ -15,7 +15,6 @@ a {
 
 .footer {
   background: var(--color-btn);
-  min-height: 100vh; 
 }
 .footer-wrap.container {
   padding-left: 20px;
