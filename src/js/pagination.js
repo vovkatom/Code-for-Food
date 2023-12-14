@@ -116,5 +116,4 @@ function scroll() {
     top: 600,
     behavior: 'smooth'
   });
-  console.log(x, y);
 }
