@@ -39,6 +39,15 @@
   text-overflow: ellipsis;
   max-width: 215px;
 }
+@media only screen and (min-width: 768px) {
+  .product-info {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    max-width: none;
+  }
+}
+
 @media only screen and (max-width: 325px) {
   .product-info {
     flex-wrap: wrap;
@@ -307,21 +316,30 @@
 
 @media only screen and (min-width: 375px) {
   .product-info {
-    /* font-family: 'Neue Montreal';
+    font-family: 'Neue Montreal';
     display: flex;
     flex-direction: row;
-    gap: 16px; */
-    /* margin-top: 10px; */
-    /* margin-bottom: 36px;
-
+    gap: 16px;
+    margin-top: 10px;
+    margin-bottom: 36px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-   */
   }
 }
 
 .info-quality {
+  font-family: 'Neue Montreal';
+  color: rgba(1, 1, 1, 0.3);
+  font-size: 12px;
+  line-height: 1.16; /* 116.667% */
+  gap: 4px;
+  padding: 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.info-quality-category {
   font-family: 'Neue Montreal';
   color: rgba(1, 1, 1, 0.3);
   font-size: 12px;
@@ -375,9 +393,6 @@
     height: 120px;
     margin-right: 40px;
   }
-  .product-info {
-    margin-bottom: 46px;
-  }
   .product-name {
     margin-bottom: 12px;
   }
@@ -417,6 +432,9 @@
   }
 }
 @media only screen and (min-width: 1440px) {
+  .order-container {
+    width: 500px;
+  }
   .input-container {
     display: inline-flex;
     justify-content: center;
@@ -522,7 +540,7 @@
 
 @media only screen and (min-width: 768px) {
   .order-container {
-    max-height: 564px;
+    max-height: 568px;
   }
   .usd-letter {
     font-size: 32px;
@@ -621,6 +639,7 @@
   font-weight: 500;
   line-height: 1.11;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .success-descr {
