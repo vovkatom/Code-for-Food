@@ -86,15 +86,8 @@ function renderFoodItems(foodInfo) {
         is10PercentOff,
       }) => {
         const cleanedCategory = category.replace(/_/g, ' ');
-        const isIDInLocaleStorage = storage
-          ? JSON.parse(storage).some(item => item._id === _id)
-          : false;
-        const isPercent =
-          is10PercentOff ||
-          (storage
-            ? foodInfo.some(item => item.is10PercentOff === true)
-            : false);
-        const svgDisc = isPercent ? 'icon-discount-pl' : 'visually-hidden';
+        const isIDInLocaleStorage = storage ? JSON.parse(storage).some(item => item._id === _id) : false;
+        const svgDisc = is10PercentOff ? 'icon-discount-pl' : 'visually-hidden';
         const svgHref = isIDInLocaleStorage
           ? `${iconSvg}#icon-cart`
           : `${iconSvg}#icon-shopping-cart`;
