@@ -1,3 +1,7 @@
+.container-pl {
+  margin-bottom: 40px;
+}
+
 /* *******************************************повідомлення "нічого не знайдено"************************** */
 .error-load {
   width: 279px;
@@ -31,16 +35,10 @@
 /* *******************************************Карточка************************************** */
 .section-products {
   position: relative;
-  max-width: 375px;
-  margin: 0 auto;
-  margin-bottom: 80px;
+  padding-bottom: 80px;
 }
 .products {
   margin-bottom: 80px;
-}
-
-.product-list-section {
-  margin-bottom: 40px;
 }
 
 .container-info {
@@ -201,20 +199,16 @@
 
 @media screen and (min-width: 768px) {
   .section-products {
-    max-width: 768px;
-    margin-bottom: 100px;
+    padding-bottom: 100px;
   }
 
   .products {
     margin-bottom: 100px;
   }
 
-  .product-list-section {
-    margin-bottom: 50px;
-  }
-
   .container-pl {
     width: 704px;
+    margin-bottom: 50px;
   }
 
   .product-list {
@@ -265,8 +259,7 @@
 
 @media screen and (min-width: 1440px) {
   .section-products {
-    max-width: 1440px;
-    margin-bottom: 61px;
+    padding-bottom: 61px;
   }
 
   .products {
@@ -277,9 +270,6 @@
   .container-pl {
     justify-content: start;
     width: 925px;
-  }
-
-  .product-list-section {
     margin-bottom: 40px;
   }
 
