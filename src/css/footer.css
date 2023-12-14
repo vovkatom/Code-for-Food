@@ -318,7 +318,7 @@ a {
     padding-right: 100px;
   }
 }
- 
+
 /* ! MODAL STYLES */
 .subscription-alert {
   z-index: 999;
@@ -331,6 +331,9 @@ a {
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: rgba(46, 47, 66, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .subscription-alert.is-hidden .subscription-modal {
   transform: translate(-50%, -50%) scaleY(0);
