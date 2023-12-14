@@ -280,7 +280,7 @@ function handleSort(event) {
       save('filter', updatedData);
       fetchAndRender();
       clean.disabled = false;
-    } else if (sortType === 'Reset All') {
+    } else if (sortType === 'Reset Sort') {
       parsedData.byPrice = '';
       parsedData.byPopularity = '';
       parsedData.byABC = '';
@@ -295,7 +295,7 @@ function handleSort(event) {
       } else {
         clean.disabled = true;
       }
-      } 
+    } 
   } catch (error) {
     console.error('Error updating localStorage:', error);
   }
