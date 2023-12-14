@@ -106,7 +106,7 @@ async function pages(totalPage) {
 
 
 function scroll() {
-  const view = document.querySelector('.product-list-section');
+  const view = document.querySelector('.container-pl');
 
   let rect = view.getBoundingClientRect();
   let x = rect.left;
