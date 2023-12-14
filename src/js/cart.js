@@ -75,7 +75,7 @@ function createCartMarkUp(arr) {
             </div>
 
             <div class="product-info">
-                <p class="info-quality"> Category: <span class="info-value">${cleanedCategory}</span>
+                <p class="info-quality-category"> Category: <span class="info-value">${cleanedCategory}</span>
                 </p>
                 <p class="info-quality"> Size:<span class="info-value">${size}</span></p>
             </div>
