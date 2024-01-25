@@ -15,12 +15,10 @@ let productId;
 
 //Функція для додавання товарів в LocaleStorage по кліку на кнопку корзини
 function addToCart(evt, arr) {
-  // console.log('addToCart')
   //При кліку на кнопку шукаємо потрібний продукт за id, викликаючи функцію findProduct
   const product = findProduct(evt.target, arr);
   cartArr.push(product);
   localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
-  // console.log(product)
   //Функція оновлення кількості товарів у кошику (імпортується)
   updateCartNumber();
 }
@@ -35,7 +33,6 @@ function findProduct(elem, arr) {
 function deleteFromCart(cartArr, btn) {
   try {
     const selectedProduct = btn.closest('.selectedProduct').dataset.id;
-    // console.log(`deleted ${selectedProduct}`)
     //Перебираємо масив корзини, шукаємо індекс продукту з вибраним id і видаляємо його з масиву за індексом
     if (selectedProduct) {
       for (let i = 0; i < cartArr.length; i++) {

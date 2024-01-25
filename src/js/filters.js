@@ -1,6 +1,5 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
-// import 'notiflix/dist/notiflix-aio-3.2.6.min.js';
 import { save, load } from './filters-localstorage';
 import { fetchAndRender, getCategoriesFromLS } from './products.js';
 import {  pages } from './pagination.js';
@@ -72,7 +71,6 @@ let select = function () {
     select.classList.remove('is-active');
   }
 };
-// ! ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 // ! local storage !
 // Записуємо вибрану категорію в локал сторедж і відмальовуємо товари:
@@ -126,8 +124,6 @@ const filterObj = load('filter');
 function onLoad() {
   const { keyword, category, page, limit, byABC, byPrice, byPopularity } =
     getCategoriesFromLS();
-  // limit = Number(homManyLimit())
-  // console.log(limit)
   const obj = {
     keyword: keyword || null,
     category: category || null,
@@ -139,7 +135,6 @@ function onLoad() {
   };
   const value = obj;
   const key = 'filter';
-  // console.log(value);
   if (localStorage.getItem('filter')) {
     if (filterObj.category !== null) {
       refs.currentfilter.innerText = filterObj.category
