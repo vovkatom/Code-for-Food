@@ -2,7 +2,7 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 import { save, load } from './filters-localstorage';
 import { fetchAndRender, getCategoriesFromLS } from './products.js';
-import { funcPagination, loadMoreTrendMoves, pages } from './pagination.js';
+import {  pages } from './pagination.js';
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
 
 function fetchCategories() {
