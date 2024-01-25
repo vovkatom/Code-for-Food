@@ -1,6 +1,4 @@
 export { cleanCart };
-
-//import Notiflix from 'notiflix';
 import axios from 'axios';
 import { KEY_CART, cartArr, deleteFromCart } from './cart-localestorage';
 import iconsSvg from '/img/icons.svg';
@@ -128,8 +126,6 @@ async function handlerFormSubmit(event) {
   const valid = validateEmail(email.value);
   if (!valid) {
     openModalInvalidEmail();
-    //Notiflix.Notify.failure('Email is invalid');
-    // alert ('Email is invalid');
     return;
   }
   //Створимо функцію, яка за допомогою map створить новий масив обєктів (лише з властивостями productId i amount), який потрібно передати на сервер

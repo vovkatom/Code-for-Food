@@ -1,9 +1,7 @@
-export { openModalProduct }
+export { openModalProduct };
 import {
   KEY_CART,
   cartArr,
-  addToCart,
-  findProduct,
 } from '/js/cart-localestorage';
 import { updateCartNumber } from './header';
 import iconSvg from '/img/icons.svg';
@@ -39,12 +37,12 @@ export default async function openModalProduct(productId) {
     document.querySelector('.modal-btn').addEventListener('click', () => {
       addCart(modalProduct); // Передача об'єкту modalProduct у функцію addCart
     });
-      document.querySelector('.modal-btn-remove').addEventListener('click', () => {
+    document
+      .querySelector('.modal-btn-remove')
+      .addEventListener('click', () => {
         removeCart(modalProduct); // Передача об'єкту modalProduct у функцію addCart
       });
 
-    
-    
     for (let i = 0; i < cartArr.length; i++) {
       if (cartArr[i]._id === productId) {
         document.querySelector('.modal-btn').style.display = 'none';
@@ -52,13 +50,11 @@ export default async function openModalProduct(productId) {
       }
     }
 
-
     document
       .querySelector('.modal-close-btn')
       .addEventListener('click', closeModalHandler);
     modalBackground.addEventListener('click', clickOnBackdrop);
     document.addEventListener('keydown', escapeModalHandler);
-
   } catch (error) {
     console.error('Error fetching product data:', error.message);
   } finally {
@@ -130,19 +126,16 @@ function renderModalCard({
 let productsArray = []; // Ініціалізація порожнього масиву для продуктів
 
 function addCart(product) {
-      cartArr.push(product);
-      localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
-      //Функція оновлення кількості товарів у кошику (імпортується)
+  cartArr.push(product);
+  localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
+  //Функція оновлення кількості товарів у кошику (імпортується)
   updateCartNumber();
-  document.querySelector('.modal-btn').style.display = 'none'
+  document.querySelector('.modal-btn').style.display = 'none';
   document.querySelector('.modal-btn-remove').style.display = 'block';
   addCartSyncButtons(product);
 }
 
 function removeCart(product) {
-  // console.log(cartArr);
-  // console.log(product)
-  // console.log('Removing')
   for (let i = 0; i < cartArr.length; i++) {
     if (cartArr[i]._id === product._id) {
       cartArr.splice(i, 1);
@@ -150,14 +143,13 @@ function removeCart(product) {
       updateCartNumber();
       document.querySelector('.modal-btn').style.display = 'block';
       document.querySelector('.modal-btn-remove').style.display = 'none';
-      
     }
   }
   removeCartSyncButtons(product);
 }
 
 function addCartSyncButtons(id) {
-  const idPorduct = id._id
+  const idPorduct = id._id;
   const allPopular = document.querySelectorAll('.popular-list .item-popular');
   const allDiscount = document.querySelectorAll(
     '.discount-list .discount-item'
@@ -221,8 +213,6 @@ function removeCartSyncButtons(id) {
     }
   });
 }
-
-
 
 function clickOnBackdrop({ target }) {
   if (target === modalBackground) {
