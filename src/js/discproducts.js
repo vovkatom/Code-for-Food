@@ -1,7 +1,17 @@
 import { KEY_CART, addToCart } from '/js/cart-localestorage.js';
 import axios from 'axios';
 import iconsSvg from '/img/icons.svg';
-import { checkId, add } from './products.js';
+import {
+  foodInfo,
+  fetchAndRender,
+  fetchFoodCategory,
+  getCategoriesFromLS,
+  KEY_CATEGORY,
+  renderFoodItems,
+  homManyLimit,
+  checkId,
+  add,
+} from './products.js';
 import { openModalProduct } from '/js/modalwindow';
 
 async function fetchDiscontFood() {
@@ -102,6 +112,10 @@ function handleButtonClick(event) {
       }
     }
     // знаходимо елемент use в середині кнопки
+    // const svg = closestButton.querySelector('.icon-pl use');
+    // зміна svg
+    // svg.setAttribute('href', `${iconSvg}#icon-cart`);
+    // btn off
     closestButton.setAttribute('disabled', true);
   }
   const clickedLi = event.target.closest('li');
@@ -110,3 +124,16 @@ function handleButtonClick(event) {
     openModalProduct(clickedId);
   }
 }
+
+// let btn;
+
+// function addCart(evt) {
+//   btn = evt.target.closest('.info-title-link');
+//   if (evt.target.closest('.info-title-link')) {
+//     addToCart(evt, prodList);
+//   }
+//   const svg = btn.querySelector('.img-svg-osnova use');
+//   svg.setAttribute('href', `${iconsSvg}#icon-cart`);
+//   btn.setAttribute('disabled', true);
+//   btn.style.cursor = 'auto';
+// }

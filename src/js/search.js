@@ -1,8 +1,18 @@
-import { fetchAndRender } from './products';
+import { Notify } from "notiflix";
+import {
+    foodInfo,
+    fetchAndRender,
+    fetchFoodCategory,
+    getCategoriesFromLS,
+    KEY_CATEGORY,
+    renderFoodItems,
+} from './products';
 import { funcPagination, loadMoreTrendMoves, pages } from './pagination.js';
+// import { Input } from "postcss";
 
 const clean = document.querySelector('.clean-button');
 const form = document.querySelector('#search');
+// const input = document.querySelector('.search-input')
 let timeoutId; // Змінна для зберігання ідентифікатора таймаута
 
 // Додавання слухача подій до форми
@@ -22,7 +32,7 @@ function handleInputOrSubmit(event) {
     timeoutId = setTimeout(() => {
       updateLocalStorage(keyword, storedData);
       fetchAndRender();
-      pages(1);
+      pages(1)
     }, 1000);
   }
 }
