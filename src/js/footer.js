@@ -64,7 +64,7 @@ async function onFormSubmit(event) {
     } else {
       toggleModal();
       refs.subFail.style.display = 'block';
-      // console.error('Помилка при відправці запиту:', err);
+      
     }
   }
 }

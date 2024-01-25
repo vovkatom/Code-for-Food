@@ -10,7 +10,6 @@ const refs = {
   paginationDop: document.querySelector('.paginationDop'),
   pagination: document.querySelector('.tui-pagination'),
   list: document.querySelector('.product-list'),
-  // select: document.querySelector('.select'),
   search: document.querySelector('#search'),
 };
 
@@ -34,13 +33,10 @@ function storeData() {
       console.error('Error updating localStorage:', error);
     }
   }
-
-  // funcPagination(totalPage);
 }
 
 //создание пагинации
 function funcPagination(totalPage) {
-  // console.log(totalPage);
   let options = {
     totalItems: totalPage,
     itemsPerPage: itemsPerPage,
@@ -104,7 +100,6 @@ async function pages(totalPage) {
   }
 }
 
-
 function scroll() {
   const view = document.querySelector('.container-pl');
 
@@ -114,6 +109,6 @@ function scroll() {
   scrollTo(x, y);
   scrollTo({
     top: 600,
-    behavior: 'smooth'
+    behavior: 'smooth',
   });
 }

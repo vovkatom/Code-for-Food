@@ -1,20 +1,11 @@
 import {
   KEY_CART,
-  addToCart,
 } from '/js/cart-localestorage.js';
 import axios from 'axios';
 import iconsSvg from '/img/icons.svg';
 import {updateCartNumber} from './header';
 import {
-  foodInfo,
-  fetchAndRender,
-  fetchFoodCategory,
-  getCategoriesFromLS,
-  KEY_CATEGORY,
-  renderFoodItems,
-  homManyLimit,
   add,
-  // handleButtonClick,
   checkId,
 } from './products.js';
 import { openModalProduct } from '/js/modalwindow';
@@ -122,10 +113,6 @@ function handleButtonClick(event) {
       }
     }
     // знаходимо елемент use в середині кнопки
-    // const svg = closestButton.querySelector('.icon-pl use');
-    // зміна svg
-    // svg.setAttribute('href', `${iconSvg}#icon-cart`);
-    // btn off
     closestButton.setAttribute('disabled', true);
   }
   const clickedLi = event.target.closest('li');
@@ -134,22 +121,3 @@ function handleButtonClick(event) {
     openModalProduct(clickedId);
   }
 }
-
-
-// let btn;
-
-// function addCart(evt) {
-//   btn = evt.target.closest('.popularBtn');
-//   if (evt.target.closest('.popularBtn')) {
-//     addToCart(evt, prodList);
-//   }
-
-//   const svg = btn.querySelector('.icon-popular use');
-//   svg.setAttribute('href', `${iconsSvg}#icon-cart`);
-//   btn.setAttribute('disabled', true);
-//   btn.style.cursor = 'auto';
-//   btn.style.background = '#6d8434';
-//   btn.style.border = '#6d8434';
-
-//   updateCartNumber();
-// }

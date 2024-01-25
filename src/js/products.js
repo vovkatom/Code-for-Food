@@ -2,8 +2,6 @@ import axios from 'axios';
 import {
   KEY_CART,
   cartArr,
-  addToCart,
-  findProduct,
 } from '/js/cart-localestorage';
 import iconSvg from '/img/icons.svg';
 import { updateCartNumber } from './header';
@@ -56,7 +54,6 @@ async function fetchAndRender() {
   } finally {
     // Скрываем лоадер после выполнения запроса
     document.getElementById('overlay').style.display = 'none';
-    // openModal()
   }
 }
 
@@ -86,7 +83,9 @@ function renderFoodItems(foodInfo) {
         is10PercentOff,
       }) => {
         const cleanedCategory = category.replace(/_/g, ' ');
-        const isIDInLocaleStorage = storage ? JSON.parse(storage).some(item => item._id === _id) : false;
+        const isIDInLocaleStorage = storage
+          ? JSON.parse(storage).some(item => item._id === _id)
+          : false;
         const svgDisc = is10PercentOff ? 'icon-discount-pl' : 'visually-hidden';
         const svgHref = isIDInLocaleStorage
           ? `${iconSvg}#icon-cart`
@@ -156,10 +155,6 @@ function handleButtonClick(event) {
       }
     }
     // знаходимо елемент use в середині кнопки
-    // const svg = closestButton.querySelector('.icon-pl use');
-    // зміна svg
-    // svg.setAttribute('href', `${iconSvg}#icon-cart`);
-    // btn off
     closestButton.setAttribute('disabled', true);
   }
   const clickedLi = event.target.closest('li');
@@ -177,7 +172,6 @@ function checkId(id) {
   );
   const allProducts = document.querySelectorAll('.products .item-pl');
   allPopular.forEach(elem => {
-
     if (elem.dataset.id === idPorduct) {
       const btn = elem.querySelector('.popularBtn');
       const svg = btn.querySelector('.icon-popular use');
@@ -200,7 +194,7 @@ function checkId(id) {
       svg.setAttribute('href', `${iconSvg}#icon-cart`);
       btn.setAttribute('disabled', true);
     }
-  });  
+  });
 }
 
 function add(elem, arr) {
@@ -231,17 +225,6 @@ function getCategoriesFromLS() {
   const storage = localStorage.getItem(KEY_CATEGORY);
   try {
     const parseData = JSON.parse(storage);
-
-    const defaultCategories = {
-      // byABC: false,
-      // byPrice: false,
-      // byPopularity: false,
-    };
-
-    const categories = {
-      ...defaultCategories,
-      ...parseData,
-    };
 
     // Додати перевірку та видалення значень, якщо вони відсутні
     Object.keys(categories).forEach(key => {
@@ -342,4 +325,3 @@ function thresholdOfSwitches(oldWidth, newWidth) {
     )
   );
 }
-
