@@ -2,18 +2,9 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 // import 'notiflix/dist/notiflix-aio-3.2.6.min.js';
 import { save, load } from './filters-localstorage';
-import {
-  foodInfo,
-  fetchAndRender,
-  fetchFoodCategory,
-  getCategoriesFromLS,
-  KEY_CATEGORY,
-  renderFoodItems,
-  homManyLimit,
-} from './products.js';
-import {
-  funcPagination, loadMoreTrendMoves, pages
-} from './pagination.js';
+import { fetchAndRender, getCategoriesFromLS } from './products.js';
+import {  pages } from './pagination.js';
+
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
 
 function fetchCategories() {
