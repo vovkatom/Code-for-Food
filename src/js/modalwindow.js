@@ -236,7 +236,7 @@ function closeModalHandler() {
     modalBackground.classList.add('is-hidden');
     document.body.classList.remove('is-modal-open');
     modalContainer.classList.remove('modal-closing');
-  }, 500);
+  }, 1500);
 
   document
     .querySelector('.modal-close-btn')

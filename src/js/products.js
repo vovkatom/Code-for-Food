@@ -86,7 +86,9 @@ function renderFoodItems(foodInfo) {
         is10PercentOff,
       }) => {
         const cleanedCategory = category.replace(/_/g, ' ');
-        const isIDInLocaleStorage = storage ? JSON.parse(storage).some(item => item._id === _id) : false;
+        const isIDInLocaleStorage = storage
+          ? JSON.parse(storage).some(item => item._id === _id)
+          : false;
         const svgDisc = is10PercentOff ? 'icon-discount-pl' : 'visually-hidden';
         const svgHref = isIDInLocaleStorage
           ? `${iconSvg}#icon-cart`
@@ -177,7 +179,6 @@ function checkId(id) {
   );
   const allProducts = document.querySelectorAll('.products .item-pl');
   allPopular.forEach(elem => {
-
     if (elem.dataset.id === idPorduct) {
       const btn = elem.querySelector('.popularBtn');
       const svg = btn.querySelector('.icon-popular use');
@@ -200,7 +201,7 @@ function checkId(id) {
       svg.setAttribute('href', `${iconSvg}#icon-cart`);
       btn.setAttribute('disabled', true);
     }
-  });  
+  });
 }
 
 function add(elem, arr) {
@@ -232,11 +233,7 @@ function getCategoriesFromLS() {
   try {
     const parseData = JSON.parse(storage);
 
-    const defaultCategories = {
-      // byABC: false,
-      // byPrice: false,
-      // byPopularity: false,
-    };
+    const defaultCategories = {};
 
     const categories = {
       ...defaultCategories,
@@ -342,4 +339,3 @@ function thresholdOfSwitches(oldWidth, newWidth) {
     )
   );
 }
-

@@ -1,11 +1,6 @@
 import { Notify } from "notiflix";
 import {
-    foodInfo,
     fetchAndRender,
-    fetchFoodCategory,
-    getCategoriesFromLS,
-    KEY_CATEGORY,
-    renderFoodItems,
 } from './products';
 import { funcPagination, loadMoreTrendMoves, pages } from './pagination.js';
 // import { Input } from "postcss";

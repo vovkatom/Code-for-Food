@@ -35,12 +35,10 @@ function storeData() {
     }
   }
 
-  // funcPagination(totalPage);
 }
 
 //создание пагинации
 function funcPagination(totalPage) {
-  // console.log(totalPage);
   let options = {
     totalItems: totalPage,
     itemsPerPage: itemsPerPage,
