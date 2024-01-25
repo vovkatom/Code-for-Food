@@ -1,8 +1,9 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
+// import 'notiflix/dist/notiflix-aio-3.2.6.min.js';
 import { save, load } from './filters-localstorage';
 import { fetchAndRender, getCategoriesFromLS } from './products.js';
-import {  pages } from './pagination.js';
+import { pages } from './pagination.js';
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
 
@@ -71,6 +72,7 @@ let select = function () {
     select.classList.remove('is-active');
   }
 };
+// ! ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 // ! local storage !
 // Записуємо вибрану категорію в локал сторедж і відмальовуємо товари:
@@ -93,20 +95,19 @@ function handleCategory(event) {
         parsedData.category = null;
 
         // перевірка чи інші фільтри пусті:
-         if (parsedData.keyword !== null) {
-           clean.disabled = false;
-         } else if (parsedData.byABC !== '') {
-           clean.disabled = false;
-         } else if (parsedData.byPopularity !== '') {
-           clean.disabled = false;
-         } else if (parsedData.byPrice !== '') {
-           clean.disabled = false;
-         } else {
-           clean.disabled = true;
-         }
-
-
-      } parsedData.page = 1;
+        if (parsedData.keyword !== null) {
+          clean.disabled = false;
+        } else if (parsedData.byABC !== '') {
+          clean.disabled = false;
+        } else if (parsedData.byPopularity !== '') {
+          clean.disabled = false;
+        } else if (parsedData.byPrice !== '') {
+          clean.disabled = false;
+        } else {
+          clean.disabled = true;
+        }
+      }
+      parsedData.page = 1;
       // Зберегти оновлений об'єкт назад в localStorage
       localStorage.setItem('filter', JSON.stringify(parsedData));
     } catch (error) {
@@ -115,7 +116,6 @@ function handleCategory(event) {
   }
   pages(1);
   fetchAndRender();
-  
 }
 
 //! Записуємо шаблонний масив в localStorage при завантаженні сторінки,
@@ -169,14 +169,11 @@ function onLoad() {
         refs.currentSort.innerText = 'Not Popular';
       }
     }
-  } 
+  }
   save(key, value);
   pages();
-  
 }
 onLoad();
-
-
 
 // !^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // !------------------- Sort JS Markup-----------------!\\
@@ -225,7 +222,6 @@ function handleSort(event) {
       const updatedData = parsedData;
       save('filter', updatedData);
       fetchAndRender();
-    
     } else if (sortType === 'Z to A') {
       parsedData.byPrice = '';
       parsedData.byPopularity = '';
@@ -281,7 +277,7 @@ function handleSort(event) {
       } else {
         clean.disabled = true;
       }
-    } 
+    }
   } catch (error) {
     console.error('Error updating localStorage:', error);
   }
@@ -291,11 +287,11 @@ function handleSort(event) {
 
 const clean = document.querySelector('.clean-button');
 
-clean.addEventListener('click', cleanFilters)
+clean.addEventListener('click', cleanFilters);
 
 const storedData = localStorage.getItem('filter');
 const parsedData = JSON.parse(storedData);
-  
+
 function cleanFilters() {
   parsedData.page = 1;
   parsedData.keyword = null;
@@ -329,4 +325,3 @@ function cleanActivation() {
     clean.disabled = true;
   }
 }
-
