@@ -1,8 +1,19 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
+// import 'notiflix/dist/notiflix-aio-3.2.6.min.js';
 import { save, load } from './filters-localstorage';
-import { fetchAndRender, getCategoriesFromLS } from './products.js';
-import { funcPagination, loadMoreTrendMoves, pages } from './pagination.js';
+import {
+  foodInfo,
+  fetchAndRender,
+  fetchFoodCategory,
+  getCategoriesFromLS,
+  KEY_CATEGORY,
+  renderFoodItems,
+  homManyLimit,
+} from './products.js';
+import {
+  funcPagination, loadMoreTrendMoves, pages
+} from './pagination.js';
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
 
 function fetchCategories() {
@@ -26,8 +37,9 @@ fetchCategories()
     const markup = createSelectorMarkup(data);
     refs.selector.insertAdjacentHTML('afterbegin', markup);
     select();
-
+    //! <<<< local storage >>>>
     refs.selector.addEventListener('click', handleCategory);
+    //! <<<< local storage >>>>
   })
   .catch(error => {
     Notiflix.Notify.failure(
@@ -44,6 +56,7 @@ function createSelectorMarkup(arr) {
     .join('');
 }
 
+// !------------------- SELECT JS -----------------!\\
 let select = function () {
   let selectHeader = document.querySelectorAll('.select__header');
   let selectItem = document.querySelectorAll('.select__item');
@@ -68,7 +81,9 @@ let select = function () {
     select.classList.remove('is-active');
   }
 };
+// ! ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+// ! local storage !
 // Записуємо вибрану категорію в локал сторедж і відмальовуємо товари:
 function handleCategory(event) {
   const category = event.target.innerText
@@ -89,19 +104,20 @@ function handleCategory(event) {
         parsedData.category = null;
 
         // перевірка чи інші фільтри пусті:
-        if (parsedData.keyword !== null) {
-          clean.disabled = false;
-        } else if (parsedData.byABC !== '') {
-          clean.disabled = false;
-        } else if (parsedData.byPopularity !== '') {
-          clean.disabled = false;
-        } else if (parsedData.byPrice !== '') {
-          clean.disabled = false;
-        } else {
-          clean.disabled = true;
-        }
-      }
-      parsedData.page = 1;
+         if (parsedData.keyword !== null) {
+           clean.disabled = false;
+         } else if (parsedData.byABC !== '') {
+           clean.disabled = false;
+         } else if (parsedData.byPopularity !== '') {
+           clean.disabled = false;
+         } else if (parsedData.byPrice !== '') {
+           clean.disabled = false;
+         } else {
+           clean.disabled = true;
+         }
+
+
+      } parsedData.page = 1;
       // Зберегти оновлений об'єкт назад в localStorage
       localStorage.setItem('filter', JSON.stringify(parsedData));
     } catch (error) {
@@ -110,6 +126,7 @@ function handleCategory(event) {
   }
   pages(1);
   fetchAndRender();
+  
 }
 
 //! Записуємо шаблонний масив в localStorage при завантаженні сторінки,
@@ -118,7 +135,8 @@ const filterObj = load('filter');
 function onLoad() {
   const { keyword, category, page, limit, byABC, byPrice, byPopularity } =
     getCategoriesFromLS();
-
+  // limit = Number(homManyLimit())
+  // console.log(limit)
   const obj = {
     keyword: keyword || null,
     category: category || null,
@@ -130,6 +148,7 @@ function onLoad() {
   };
   const value = obj;
   const key = 'filter';
+  // console.log(value);
   if (localStorage.getItem('filter')) {
     if (filterObj.category !== null) {
       refs.currentfilter.innerText = filterObj.category
@@ -137,6 +156,7 @@ function onLoad() {
         .replace(/%26/g, '&');
     }
     if (filterObj.keyword !== null) {
+      // console.log(refs.form.elements.search);
       refs.form.elements.search.value = filterObj.keyword;
     }
     if (filterObj.byABC) {
@@ -163,11 +183,17 @@ function onLoad() {
         refs.currentSort.innerText = 'Not Popular';
       }
     }
-  }
+  } 
   save(key, value);
   pages();
+  
 }
 onLoad();
+
+
+
+// !^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// !------------------- Sort JS Markup-----------------!\\
 
 let sort = function () {
   let sortHeader = document.querySelectorAll('.sort-header');
@@ -194,7 +220,9 @@ let sort = function () {
   }
 };
 sort();
+// !^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+// ! -------------- SORT JS Work --------------------
 refs.sort.addEventListener('click', handleSort);
 
 function handleSort(event) {
@@ -211,6 +239,7 @@ function handleSort(event) {
       const updatedData = parsedData;
       save('filter', updatedData);
       fetchAndRender();
+    
     } else if (sortType === 'Z to A') {
       parsedData.byPrice = '';
       parsedData.byPopularity = '';
@@ -266,19 +295,21 @@ function handleSort(event) {
       } else {
         clean.disabled = true;
       }
-    }
+    } 
   } catch (error) {
     console.error('Error updating localStorage:', error);
   }
 }
+// !^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// ! Clean all filters
 
 const clean = document.querySelector('.clean-button');
 
-clean.addEventListener('click', cleanFilters);
+clean.addEventListener('click', cleanFilters)
 
 const storedData = localStorage.getItem('filter');
 const parsedData = JSON.parse(storedData);
-
+  
 function cleanFilters() {
   parsedData.page = 1;
   parsedData.keyword = null;
@@ -312,3 +343,4 @@ function cleanActivation() {
     clean.disabled = true;
   }
 }
+
