@@ -2,8 +2,6 @@ export { openModalProduct }
 import {
   KEY_CART,
   cartArr,
-  addToCart,
-  findProduct,
 } from '/js/cart-localestorage';
 import { updateCartNumber } from './header';
 import iconSvg from '/img/icons.svg';
@@ -140,9 +138,6 @@ function addCart(product) {
 }
 
 function removeCart(product) {
-  // console.log(cartArr);
-  // console.log(product)
-  // console.log('Removing')
   for (let i = 0; i < cartArr.length; i++) {
     if (cartArr[i]._id === product._id) {
       cartArr.splice(i, 1);

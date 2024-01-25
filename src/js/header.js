@@ -1,4 +1,3 @@
-// import axios from 'axios';
 import { cartArr } from './cart-localestorage';
 
 document.addEventListener('DOMContentLoaded', updateCartNumber);
